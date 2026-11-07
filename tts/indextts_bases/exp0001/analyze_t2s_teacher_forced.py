@@ -20,11 +20,10 @@ codec・S2M は --codec・--s2m で選ぶ(既定は runs/codec・runs/s2m)。既
 出力:
     runs/eval/t2s_compare/{名前}/{条件}/{発話ID}.wav   全テスト文の音声(git の対象外)
     results/t2s_compare.json                            名前ごと・条件ごとの CER とトークンの正解率
-    results/samples/test/t2s_compare/{名前}/            試聴用に、自由な生成のテスト文の先頭 3 文(index.json に追記)
+    results/samples/test/t2s_compare/{名前}/            試聴用に、自由な生成のテスト文の先頭 3 文(48kbps の MP3。index.json に追記)
 """
 import argparse
 import json
-import shutil
 
 import soundfile as sf
 import torch
@@ -33,7 +32,7 @@ import common  # noqa: F401  tts/lib_common を import できるようにする
 from common.pipeline import TTSPipeline, load_t2s
 from common.utils import EXP_DIR, RUNS_DIR, encode_all
 from lib_common.asr_eval import ASR, cer_scores
-from lib_common.audio import SR
+from lib_common.audio import SR, save_preview
 from lib_common.data import load_dataset, split
 from lib_common.utils import Logger, seed_everything
 
@@ -98,9 +97,9 @@ def main():
         sd.mkdir(parents=True, exist_ok=True)
         index = [r for r in index if r["condition"] != f"t2s_compare/{name}"]
         for u in test[:N_SAMPLES]:
-            shutil.copy(RUNS_DIR / "eval" / "t2s_compare" / name / "free" / f"{u.id}.wav", sd / f"{u.id}.wav")
+            save_preview(RUNS_DIR / "eval" / "t2s_compare" / name / "free" / f"{u.id}.wav", sd / f"{u.id}.mp3")
             index.append({"group": "test", "condition": f"t2s_compare/{name}", "id": u.id, "set": "jsut_test",
-                          "category": "jsut_test", "text": u.text, "file": f"test/t2s_compare/{name}/{u.id}.wav"})
+                          "category": "jsut_test", "text": u.text, "file": f"test/t2s_compare/{name}/{u.id}.mp3"})
         out_path.write_text(json.dumps(out, indent=2, ensure_ascii=False))
         index_path.write_text(json.dumps(index, indent=2, ensure_ascii=False))
     log(f"saved {out_path.name}")

@@ -24,14 +24,13 @@ TTS 全体の誤りが、どの部品で増えているかを切り分けるた�
     results/metrics.json                    条件ごとの CER と、T2S が作った音声の長さ
     results/per_utterance.csv               テスト文の発話ごとの書き起こしと CER
     results/per_utterance_eval_texts.csv    評価用文章ごとの書き起こしと CER
-    results/samples/test/{条件}/            試聴用: テスト文の先頭 N 文(GitHub に載せる分)
+    results/samples/test/{条件}/            試聴用: テスト文の先頭 N 文(GitHub に載せる分。48kbps の MP3)
     results/samples/eval_texts/{条件}/      試聴用: 実用文の各カテゴリの先頭 1 文(ITA を含めたら各セットの先頭 3 文も)
     results/samples/index.json              試聴用の音声の一覧(条件・文章・カテゴリ)。試聴ページはこれから作る
     results/fig_mels.jpg                    Mel の比較図
 """
 import argparse
 import json
-import shutil
 
 import matplotlib
 matplotlib.use("Agg")
@@ -45,7 +44,7 @@ import common  # noqa: F401  tts/lib_common を import できるようにする
 from common.pipeline import TTSPipeline, load_t2s
 from common.utils import EXP_DIR, RUNS_DIR, encode_all
 from lib_common.asr_eval import ASR, cer_scores, utterance_cer
-from lib_common.audio import SR, load_wave
+from lib_common.audio import SR, load_wave, save_preview
 from lib_common.data import load_dataset, split
 from lib_common.eval_sets import load_eval_texts
 from lib_common.utils import Logger, seed_everything
@@ -163,9 +162,9 @@ def main():
         d = RESULTS_DIR / "samples" / "test" / cond
         d.mkdir(parents=True, exist_ok=True)
         for u in test[: args.n_samples]:
-            shutil.copy(RUNS_DIR / "eval" / cond / f"{u.id}.wav", d / f"{u.id}.wav")
+            save_preview(RUNS_DIR / "eval" / cond / f"{u.id}.wav", d / f"{u.id}.mp3")
             index.append({"group": "test", "condition": cond, "id": u.id, "set": "jsut_test",
-                          "category": "jsut_test", "text": u.text, "file": f"test/{cond}/{u.id}.wav"})
+                          "category": "jsut_test", "text": u.text, "file": f"test/{cond}/{u.id}.mp3"})
     # 試聴用に選ぶ文: 実用文はカテゴリごとの先頭 1 文、ITA は各セットの先頭 N_ITA_PREVIEW 文
     # (ITA の category はセットの名前と同じなので、(set, category) ごとに数えればよい)
     preview, taken = [], {}
@@ -178,9 +177,9 @@ def main():
         d = RESULTS_DIR / "samples" / "eval_texts" / cond
         d.mkdir(parents=True, exist_ok=True)
         for t in preview:
-            shutil.copy(RUNS_DIR / "eval_texts" / cond / f"{t.id}.wav", d / f"{t.id}.wav")
+            save_preview(RUNS_DIR / "eval_texts" / cond / f"{t.id}.wav", d / f"{t.id}.mp3")
             index.append({"group": "eval_texts", "condition": cond, "id": t.id, "set": t.set, "category": t.category,
-                          "text": t.text, "file": f"eval_texts/{cond}/{t.id}.wav"})
+                          "text": t.text, "file": f"eval_texts/{cond}/{t.id}.mp3"})
     (RESULTS_DIR / "samples" / "index.json").write_text(json.dumps(index, indent=2, ensure_ascii=False))
 
     # Mel の比較図

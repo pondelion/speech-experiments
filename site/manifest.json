@@ -1,0 +1,56 @@
+{
+  "title": "speech-experiments",
+  "description": "日本語 TTS をスクラッチで実装していく実験の試聴ページ。ベースにしたモデルごとに exp を並べ、同じ文章の合成音声を条件どうしで聞き比べられる。",
+  "repo_url": "https://github.com/pondelion/speech-experiments",
+  "sample_groups": {
+    "test": {"title": "JSUT テスト文", "note": "学習に使っていない JSUT の voiceactress100(正解の録音あり)"},
+    "eval_texts": {"title": "実用文", "note": "datasets/eval_texts/practical.tsv。カテゴリごとの先頭 1 文(正解の録音なし)"}
+  },
+  "bases": [
+    {
+      "id": "indextts",
+      "title": "IndexTTS 系",
+      "dir": "tts/indextts_bases",
+      "summary": "IndexTTS2.5(T2S → S2M → ボコーダの 3 段構成)を手本に、簡略版から部品を 1 つずつ公式相当に近づけていく。",
+      "exps": [
+        {
+          "id": "exp0001",
+          "title": "exp0001: 簡略版で全体を動かす",
+          "dir": "tts/indextts_bases/exp0001",
+          "summary": "Mel を量子化した codec、GPT の T2S、DiT の S2M(Flow Matching)、Griffin-Lim の簡略版。JSUT・テキストのみ。誤りの大部分は T2S にあり、音素の補助の損失・codebook 256・S2M のテキスト条件を組み合わせて読み CER 74.6% → 21.9% に改善した。",
+          "samples": "tts/indextts_bases/exp0001/results/samples",
+          "condition_groups": [
+            {"title": "途中の段階からの合成(上限)", "conditions": [
+              {"id": "real", "label": "元の録音", "cer": {"test": 0.029}, "default": true},
+              {"id": "mel_gl", "label": "正解 Mel → Griffin-Lim", "cer": {"test": 0.031}},
+              {"id": "codec_rec", "label": "正解トークン → codec decoder", "cer": {"test": 0.060}},
+              {"id": "s2m_gt_tokens", "label": "正解トークン → S2M", "cer": {"test": 0.071}, "default": true}
+            ]},
+            {"title": "テキストからの合成(基準)", "conditions": [
+              {"id": "tts_phoneme", "label": "TTS 音素入力", "cer": {"test": 0.735, "eval_texts": 0.625}, "default": true},
+              {"id": "tts_char", "label": "TTS 文字入力", "cer": {"test": 0.867, "eval_texts": 0.893}}
+            ]},
+            {"title": "T2S の改善案(自由な生成)", "conditions": [
+              {"id": "t2s_compare/t2s_ph_drop03", "label": "基準(音素・dropout 0.3)", "cer": {"test": 0.746}},
+              {"id": "t2s_compare/t2s_char_drop03", "label": "基準(文字・dropout 0.3)", "cer": {"test": 0.881}},
+              {"id": "t2s_compare/t2s_ph_aux", "label": "B: 音素の補助の損失", "cer": {"test": 0.363}},
+              {"id": "t2s_compare/t2s_ph_soft", "label": "C: 近いトークンへの部分点", "cer": {"test": 0.758}},
+              {"id": "t2s_compare/t2s_ph_reg", "label": "E: 代表ベクトルの回帰", "cer": {"test": 0.770}},
+              {"id": "t2s_compare/t2s_ph_coarse256", "label": "A: 粗いトークン K=256", "cer": {"test": 0.674}},
+              {"id": "t2s_compare/t2s_ph_coarse128", "label": "A: 粗いトークン K=128", "cer": {"test": 0.735}},
+              {"id": "t2s_compare/t2s_ph_k256", "label": "A': codebook 256", "cer": {"test": 0.505}},
+              {"id": "t2s_compare/t2s_ph_k256_aux+s2m_k256", "label": "codebook 256 + B", "cer": {"test": 0.272}},
+              {"id": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3", "label": "一番良い構成(+ S2M F3)", "cer": {"test": 0.219}, "default": true}
+            ]},
+            {"title": "分析用: teacher forcing(正解のトークン列を入力にした予測。実際の合成では使えない)", "conditions": [
+              {"id": "tf_argmax_phoneme", "label": "TF 1 位・音素"},
+              {"id": "tf_sample_phoneme", "label": "TF サンプル・音素"},
+              {"id": "tf_argmax_char", "label": "TF 1 位・文字"},
+              {"id": "tf_sample_char", "label": "TF サンプル・文字"}
+            ]}
+          ]
+        }
+      ]
+    }
+  ]
+}

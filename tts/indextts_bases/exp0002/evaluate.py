@@ -14,13 +14,12 @@ codec・S2M は exp0001 のもの(codebook 256)で共通にし、T2S だけを�
 出力:
     runs/eval/{条件}/{発話ID}.wav、runs/eval_texts/{条件}/{文章ID}.wav   全ての音声(git の対象外)
     results/metrics.json                    条件ごとの CER と、T2S が決めた長さの比(結果は前の値に追記する)
-    results/samples/test/{条件}/             試聴用: テスト文の先頭 3 文
-    results/samples/eval_texts/{条件}/       試聴用: 実用文の各カテゴリの先頭 1 文
+    results/samples/test/{条件}/             試聴用: テスト文の先頭 3 文(48kbps の MP3)
+    results/samples/eval_texts/{条件}/       試聴用: 実用文の各カテゴリの先頭 1 文(48kbps の MP3)
     results/samples/index.json              試聴用の音声の一覧
 """
 import argparse
 import json
-import shutil
 
 import soundfile as sf
 import torch
@@ -31,7 +30,7 @@ from exp0001.common.pipeline import TTSPipeline
 from exp0001.common.pipeline import load_t2s as load_ar_t2s
 from exp0001.common.utils import encode_all
 from lib_common.asr_eval import ASR, cer_scores
-from lib_common.audio import SR
+from lib_common.audio import SR, save_preview
 from lib_common.data import load_dataset, split
 from lib_common.eval_sets import load_eval_texts
 from lib_common.utils import Logger, seed_everything
@@ -141,9 +140,9 @@ def main():
             d = RESULTS_DIR / "samples" / group / cond
             d.mkdir(parents=True, exist_ok=True)
             for x in items:
-                shutil.copy(src / cond / f"{x.id}.wav", d / f"{x.id}.wav")
+                save_preview(src / cond / f"{x.id}.wav", d / f"{x.id}.mp3")
                 index.append({"group": group, "condition": cond, "id": x.id, "text": x.text,
-                              "category": getattr(x, "category", "jsut_test"), "file": f"{group}/{cond}/{x.id}.wav"})
+                              "category": getattr(x, "category", "jsut_test"), "file": f"{group}/{cond}/{x.id}.mp3"})
     index_path.write_text(json.dumps(index, indent=2, ensure_ascii=False))
     log(f"saved {metrics_path.name}")
 

@@ -44,6 +44,21 @@ def load_wave(path: str) -> np.ndarray:
     return y
 
 
+# 試聴用の MP3 の圧縮の強さ。24kHz の波形でちょうど 48kbps の固定ビットレートになる値(実測)。
+# wav(384kbps)の約 1/7 の大きさで、GitHub に載せる試聴用の音声に使う
+PREVIEW_COMPRESSION = 0.75
+
+
+def save_preview(src: str, dst: str) -> None:
+    """wav を、試聴用の MP3(48kbps)にして保存する。
+
+    Args:
+        src: 元の wav のパス。
+        dst: 保存先の .mp3 のパス。
+    """
+    sf.write(dst, load_wave(src), SR, format="MP3", bitrate_mode="CONSTANT", compression_level=PREVIEW_COMPRESSION)
+
+
 def mel_basis() -> np.ndarray:
     """STFT の周波数(513 個)を Mel の 80 帯域にまとめる重み行列を返す。
 
