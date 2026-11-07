@@ -4,13 +4,13 @@ codec・S2M は exp0001 のもの(codebook 256)で共通にし、T2S だけを�
     s2m_gt_tokens        正解トークン → S2M(この codec・S2M での上限)
     ar/{名前}            exp0001 の自己回帰の T2S(--ar_runs で指定。比較の基準)
     {名前}               exp0002 の非自己回帰の T2S(--runs で指定)。長さは自分で決める(実際に使うときと同じ)
-    {名前}/gt_length     分析用: 長さだけ正解を使う(duration は正解の音素ごとの長さ、masked は正解の全体の長さ)。
+    {名前}/gt_length     分析用: 長さだけ正解を使う(duration・hybrid は正解の音素ごとの長さ、masked は正解の全体の長さ)。
                          長さの予測の誤りと、トークンの予測の誤りを切り分ける(テスト文のみ)
 実用文(datasets/eval_texts/practical.tsv)は、テキストからの合成の条件だけ測る。
 
 使い方:
     python evaluate.py --runs t2s_duration t2s_masked --ar_runs t2s_ph_k256 t2s_ph_k256_aux
-    python evaluate.py --runs smoke --limit 4      # 動作確認
+    python evaluate.py --runs smoke --limit 4      # 動作確認(results/ は書き換えない)
 出力:
     runs/eval/{条件}/{発話ID}.wav、runs/eval_texts/{条件}/{文章ID}.wav   全ての音声(git の対象外)
     results/metrics.json                    条件ごとの CER と、T2S が決めた長さの比(結果は前の値に追記する)
@@ -44,11 +44,11 @@ def nar_codes(model, vocab, method: str, texts: list[str], oracle: list | None =
     """非自己回帰の T2S で音声トークン列を作る。
 
     Args:
-        model: DurationT2S か MaskedT2S。
+        model: DurationT2S・MaskedT2S・HybridT2S のどれか。
         vocab: テキストの語彙。
-        method: "duration" か "masked"。
+        method: "duration"・"masked"・"hybrid" のどれか。
         texts: 読み上げる文章。
-        oracle: 分析用に正解の長さを使うとき。duration は音素ごとの長さ [L_i](None の文は予測する)、
+        oracle: 分析用に正解の長さを使うとき。duration・hybrid は音素ごとの長さ [L_i](None の文は予測する)、
                 masked は全体の長さ(整数)のリスト。
 
     Returns:
@@ -58,7 +58,7 @@ def nar_codes(model, vocab, method: str, texts: list[str], oracle: list | None =
     for s in range(0, len(texts), BATCH):
         chunk = texts[s: s + BATCH]
         ids = [torch.tensor(vocab.encode(t)) for t in chunk]
-        if method == "duration":
+        if method in ("duration", "hybrid"):  # 音素ごとの長さを予測してから合成する方式
             durs = model.predict_durations(ids)
             if oracle is not None:
                 durs = [d if o is None else torch.tensor(o) for d, o in zip(durs, oracle[s: s + BATCH])]
@@ -98,7 +98,7 @@ def main():
         model, vocab, method = load_t2s(RUNS_DIR / name / "t2s.pt", args.device)
         tokens[name] = nar_codes(model, vocab, method, [u.text for u in test])
         et_tokens[name] = nar_codes(model, vocab, method, [t.text for t in eval_texts])
-        if method == "duration":
+        if method in ("duration", "hybrid"):
             oracle = [phoneme_durations(u, vocab.tokenize(u.text), len(c)) for u, c in zip(test, gt)]
             log(f"{name}: 正解の音素ごとの長さを作れたテスト文 {sum(o is not None for o in oracle)}/{len(test)}")
         else:
@@ -122,6 +122,9 @@ def main():
             metrics.setdefault(group, {})[cond] = res
             log(f"{group:10s} {cond:28s} reading CER {res['reading']:.4f}"
                 + (f" length ratio {res['length_ratio']:.3f}" if "length_ratio" in res else ""))
+    if args.limit:  # 動作確認では results/(GitHub に載せる結果)を書き換えない
+        log("--limit のときは results/ に書かない")
+        return
     RESULTS_DIR.mkdir(exist_ok=True)
     metrics_path.write_text(json.dumps(metrics, indent=2, ensure_ascii=False))
 

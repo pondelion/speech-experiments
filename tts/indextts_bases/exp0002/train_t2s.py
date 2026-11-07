@@ -4,6 +4,8 @@
   duration: FastSpeech2 系。テキストの各トークンの長さを予測し、全ての音声トークンを一度に予測する
             (正解の長さは jsut-lab の音素の時刻から作る。pyopenjtalk と音素の並びが合わない約 5% の発話は使わない)
   masked:   MaskGCT 系。音声トークンの一部を隠して当てることを学び、生成では数回に分けて埋める
+  hybrid:   長さを予測し、その時間の対応を条件にして MaskGCT 系の方法で埋める
+            (--duration_model nar: 長さを一度に回帰 / ar: 長さを自己回帰で 1 個ずつ予測)
 テキストの入力は音素 + アクセント記号(exp0001 で文字入力より良かった)。
 
 途中経過として、検証データで次を測る(どちらも正解の長さ・正解のトークンを使った値で、実際に読めるかは evaluate.py の CER で見る)。
@@ -14,6 +16,8 @@
 使い方:
     python train_t2s.py --method duration --name t2s_duration
     python train_t2s.py --method masked --name t2s_masked
+    python train_t2s.py --method hybrid --duration_model nar --steps 8000 --name t2s_hybrid_nar
+    python train_t2s.py --method hybrid --duration_model ar --steps 8000 --name t2s_hybrid_ar
     python train_t2s.py --method masked --limit 50 --steps 20 --eval_every 10 --name smoke   # 動作確認
 出力: runs/{name}/ に t2s.pt(検証 loss が一番小さかった時点)と log.txt
 """
@@ -23,6 +27,7 @@ import torch
 
 import common  # noqa: F401  tts/lib_common と exp0001 を import できるようにする
 from common.t2s_duration import DurationT2S
+from common.t2s_hybrid import MAX_DUR, HybridT2S
 from common.t2s_masked import MaskedT2S
 from common.utils import BASE_CODEC, PROSODY_MARKS, RUNS_DIR, prepare
 from exp0001.common.utils import load_codec
@@ -58,7 +63,8 @@ def evaluate(model, d: dict, max_tokens: int) -> dict:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--method", choices=["duration", "masked"], required=True)
+    parser.add_argument("--method", choices=["duration", "masked", "hybrid"], required=True)
+    parser.add_argument("--duration_model", choices=["nar", "ar"], default="nar", help="hybrid: 長さの予測器の種類")
     parser.add_argument("--codec", default=str(BASE_CODEC))
     parser.add_argument("--steps", type=int, default=20000)
     parser.add_argument("--max_tokens", type=int, default=12000, help="1 バッチの (最長系列長 × 発話数) の上限")
@@ -87,7 +93,7 @@ def main():
     train, val = split(utts, "train"), split(utts, "val")
     vocab = TextVocab.build("phoneme", [u.text for u in train])
     n_codes = codec.codebook_size
-    data = {name: prepare(us, vocab, codec, norm, args.device, with_durations=args.method == "duration")
+    data = {name: prepare(us, vocab, codec, norm, args.device, with_durations=args.method in ("duration", "hybrid"))
             for name, us in [("train", train), ("val", val)]}
     tr = data["train"]
     log(f"text vocab {len(vocab)} | audio vocab {n_codes} | train {len(tr['texts'])} utts (dropped {tr['n_dropped']}) "
@@ -97,6 +103,13 @@ def main():
         config = {"dim": args.dim, "enc_layers": args.layers // 2, "dec_layers": args.layers - args.layers // 2,
                   "heads": args.heads, "dropout": args.dropout}
         model = DurationT2S(len(vocab), n_codes, **config)
+    elif args.method == "hybrid":
+        config = {"dim": args.dim, "layers": args.layers, "heads": args.heads, "dropout": args.dropout,
+                  "text_drop": args.text_drop, "duration_model": args.duration_model}
+        model = HybridT2S(len(vocab), n_codes, **config)
+        if args.duration_model == "ar":
+            n_long = sum(int((d > MAX_DUR).sum()) for d in tr["durations"])
+            log(f"長さが {MAX_DUR} を超えるトークン(自己回帰の長さの予測器では {MAX_DUR} にする): {n_long}")
     else:
         # 長さを決める「1 音素あたりの音声トークン数」は、学習データ全体の平均にする(公式は参照音声から求める)
         n_phones = sum(len([t for t in vocab.tokenize(u.text) if t not in PROSODY_MARKS]) for u in train)

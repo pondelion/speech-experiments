@@ -49,6 +49,36 @@
               {"id": "tf_sample_char", "label": "TF サンプル・文字"}
             ]}
           ]
+        },
+        {
+          "id": "exp0002",
+          "title": "exp0002: T2S を非自己回帰に",
+          "dir": "tts/indextts_bases/exp0002",
+          "summary": "T2S を FastSpeech2 系(音素ごとの長さを予測)と MaskGCT 系(マスクを数回に分けて埋める)に変えて比べる。codec・S2M は exp0001 の codebook 256。両方を合わせたハイブリッド型(長さの予測 + MaskGCT 系)がテスト文 11.9%・実用文 9.5% で一番良く(自己回帰は 26.3%・26.8%)、長い文でも崩れない。",
+          "samples": "tts/indextts_bases/exp0002/results/samples",
+          "condition_groups": [
+            {"title": "上限", "conditions": [
+              {"id": "s2m_gt_tokens", "label": "正解トークン → S2M", "cer": {"test": 0.102}, "default": true}
+            ]},
+            {"title": "自己回帰(exp0001 の T2S、比較の基準)", "conditions": [
+              {"id": "ar/t2s_ph_k256", "label": "自己回帰", "cer": {"test": 0.518, "eval_texts": 0.488}},
+              {"id": "ar/t2s_ph_k256_aux", "label": "自己回帰 + 補助の損失", "cer": {"test": 0.263, "eval_texts": 0.268}, "default": true}
+            ]},
+            {"title": "非自己回帰", "conditions": [
+              {"id": "t2s_duration", "label": "FastSpeech2 系", "cer": {"test": 0.347, "eval_texts": 0.233}, "default": true},
+              {"id": "t2s_masked", "label": "MaskGCT 系", "cer": {"test": 0.192, "eval_texts": 0.243}, "default": true}
+            ]},
+            {"title": "ハイブリッド型(長さの予測 + MaskGCT 系)", "conditions": [
+              {"id": "t2s_hybrid_nar", "label": "ハイブリッド(長さを一度に予測)", "cer": {"test": 0.119, "eval_texts": 0.095}, "default": true},
+              {"id": "t2s_hybrid_ar", "label": "ハイブリッド(長さを自己回帰で予測)", "cer": {"test": 0.185, "eval_texts": 0.109}}
+            ]},
+            {"title": "分析用: 長さだけ正解を与える", "conditions": [
+              {"id": "t2s_duration/gt_length", "label": "FastSpeech2 系 + 正解の長さ", "cer": {"test": 0.373}},
+              {"id": "t2s_masked/gt_length", "label": "MaskGCT 系 + 正解の長さ", "cer": {"test": 0.199}},
+              {"id": "t2s_hybrid_nar/gt_length", "label": "ハイブリッド(一度に)+ 正解の長さ", "cer": {"test": 0.103}},
+              {"id": "t2s_hybrid_ar/gt_length", "label": "ハイブリッド(自己回帰)+ 正解の長さ", "cer": {"test": 0.118}}
+            ]}
+          ]
         }
       ]
     }

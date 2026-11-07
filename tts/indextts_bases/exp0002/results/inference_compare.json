@@ -1,0 +1,20 @@
+{
+  "seeds": {
+    "s2m_gt_tokens": [
+      {
+        "test": 0.10527453523562473,
+        "length_ratio": 1.0
+      },
+      {
+        "test": 0.10073497622135755,
+        "length_ratio": 1.0
+      },
+      {
+        "test": 0.10030263726761782,
+        "length_ratio": 1.0
+      }
+    ]
+  },
+  "steps_cfg": {},
+  "ar_decode": {}
+}

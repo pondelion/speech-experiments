@@ -69,7 +69,7 @@ async function renderExp(base, exp) {
   const all = groups.flatMap((g) => g.conditions);
   const key = `selected:${base.id}/${exp.id}`;
   let selected = storeGet(key) || all.filter((c) => c.default).map((c) => c.id);
-  let showSpec = storeGet("showSpec") === true;
+  let showSpec = storeGet("showSpec") !== false;  // 既定は表示する(自分で OFF にしたときだけ消す)
 
   const picker = document.createElement("section");
   picker.className = "picker";
@@ -137,7 +137,9 @@ function renderTable(gid, g, rows, all, selected, samplesDir, showSpec) {
       const f = byKey[t.id][c.id];
       if (!f) return `<td class="none">-</td>`;
       const src = esc(`${samplesDir}/${f}`);
-      const spec = showSpec ? `<canvas class="spec" data-src="${src}" width="1" height="${N_MELS}"></canvas>` : "";
+      const caption = esc(`${c.label} | ${t.id}`);
+      const spec = showSpec
+        ? `<canvas class="spec" data-src="${src}" data-caption="${caption}" width="1" height="${N_MELS}" title="クリックで拡大"></canvas>` : "";
       return `<td class="audio"><audio controls preload="none" src="${src}"></audio>${spec}</td>`;
     }).join("") + "</tr>").join("");
   return head + `<div class="table-wrap"><table><thead><tr><th>文章</th>${th}</tr></thead><tbody>${body}</tbody></table></div>`;
@@ -256,6 +258,27 @@ function attachSpectrograms(root) {
   }, { rootMargin: "200px" });
   root.querySelectorAll("canvas.spec").forEach((c) => io.observe(c));
 }
+
+// スペクトログラムをクリックすると、大きく描き直した図と、その音声の再生ボタンを画面の中央に出す
+function openZoom(canvas) {
+  const src = canvas.dataset.src;
+  const overlay = document.createElement("div");
+  overlay.className = "zoom";
+  overlay.innerHTML = `<div class="zoom-box" role="dialog" aria-label="スペクトログラムの拡大">` +
+    `<div class="zoom-head"><span>${esc(canvas.dataset.caption)}</span><button aria-label="閉じる">×</button></div>` +
+    `<canvas class="zoom-spec"></canvas><audio controls src="${esc(src)}"></audio>` +
+    `<p class="muted">log-Mel(80 帯域、下が低い周波数 0Hz・上が 12kHz、横が時間)</p></div>`;
+  const close = () => { overlay.remove(); document.removeEventListener("keydown", onKey); };
+  const onKey = (ev) => { if (ev.key === "Escape") close(); };
+  overlay.addEventListener("click", (ev) => { if (ev.target === overlay || ev.target.closest(".zoom-head button")) close(); });
+  document.addEventListener("keydown", onKey);
+  document.body.appendChild(overlay);
+  getSpec(src).then((s) => drawSpec(overlay.querySelector("canvas"), s));
+}
+
+document.addEventListener("click", (ev) => {
+  if (ev.target.matches && ev.target.matches("canvas.spec")) openZoom(ev.target);
+});
 
 // 1 つ再生したら他は止める(聞き比べで音が重ならないように)
 document.addEventListener("play", (ev) => {

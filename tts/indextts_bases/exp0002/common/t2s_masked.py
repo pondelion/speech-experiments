@@ -71,7 +71,7 @@ class MaskedT2S(nn.Module):
         return self.head.weight.device
 
     def hidden(self, text_ids: list[torch.Tensor], xt: list[torch.Tensor], t: torch.Tensor,
-               drop_text: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+               drop_text: torch.Tensor, audio_cond: list[torch.Tensor] | None = None) -> tuple[torch.Tensor, torch.Tensor]:
         """[テキスト][音声トークン(一部 [MASK])] を Transformer に通し、音声部分の最後の隠れ状態を返す。
 
         Args:
@@ -79,13 +79,19 @@ class MaskedT2S(nn.Module):
             xt: 発話ごとの、一部を [MASK](番号 V)にした音声トークン列 [U_i] のリスト。
             t: 発話ごとの時刻 [B]。
             drop_text: テキストを除く発話が True [B](CFG のテキストなしの出力用)。
+            audio_cond: 音声トークンの各位置に足す条件 [U_i, D] のリスト(ハイブリッド型の「その時刻の音素」)。
+                テキストを除く発話には足さない。
 
         Returns:
             音声部分の隠れ状態 [B, U, D](U は一番長い発話に合わせる)と、有効な位置が True のマスク [B, U]。
         """
         # 発話ごとに [テキスト][音声] の埋め込みをつなぐ(テキストを除く発話は音声だけ): 各 [L_i + U_i, D]
-        texts = [tx.new_zeros(0) if d else tx for tx, d in zip(text_ids, drop_text.tolist())]
-        seqs = [torch.cat([self.text_emb(tx.to(self.device)), self.code_emb(x.to(self.device))]) for tx, x in zip(texts, xt)]
+        drops = drop_text.tolist()
+        texts = [tx.new_zeros(0) if d else tx for tx, d in zip(text_ids, drops)]
+        audios = [self.code_emb(x.to(self.device)) for x in xt]                                  # 各 [U_i, D]
+        if audio_cond is not None:
+            audios = [a if d else a + c for a, c, d in zip(audios, audio_cond, drops)]
+        seqs = [torch.cat([self.text_emb(tx.to(self.device)), a]) for tx, a in zip(texts, audios)]
         x = self.dropout(nn.utils.rnn.pad_sequence(seqs, batch_first=True))                    # [B, S, D]
         pad = nn.utils.rnn.pad_sequence([torch.zeros(len(s), dtype=torch.bool) for s in seqs], batch_first=True,
                                         padding_value=True).to(self.device)                    # 詰め物が True [B, S]
@@ -99,12 +105,14 @@ class MaskedT2S(nn.Module):
                                          batch_first=True).to(self.device)
         return nn.utils.rnn.pad_sequence(audio, batch_first=True), mask
 
-    def forward(self, text_ids: list[torch.Tensor], codes: list[torch.Tensor]) -> tuple[torch.Tensor, dict]:
+    def forward(self, text_ids: list[torch.Tensor], codes: list[torch.Tensor],
+                audio_cond: list[torch.Tensor] | None = None) -> tuple[torch.Tensor, dict]:
         """学習の損失: 隠した位置の音声トークンの分類の損失。
 
         Args:
             text_ids: 発話ごとのテキスト ID 列 [L_i] のリスト。
             codes: 発話ごとの正解の音声トークン列 [U_i] のリスト。
+            audio_cond: 音声トークンの各位置に足す条件 [U_i, D] のリスト(hidden() を参照)。
 
         Returns:
             損失と、記録用の値 {"acc": 隠した位置のトークンの正解率}。
@@ -120,7 +128,7 @@ class MaskedT2S(nn.Module):
             masks.append(m)
         xt = [torch.where(m, self.n_codes, c) for c, m in zip(codes, masks)]
         drop = torch.rand(B) < self.text_drop
-        h, _ = self.hidden(text_ids, xt, t, drop)                                              # [B, U, D]
+        h, _ = self.hidden(text_ids, xt, t, drop, audio_cond)                                  # [B, U, D]
         sel = nn.utils.rnn.pad_sequence(masks, batch_first=True).to(self.device)               # 隠した位置 [B, U]
         logits = self.head(h[sel]).float()                                                     # [隠した数, V]
         y = torch.cat([c[m] for c, m in zip(codes, masks)]).to(self.device)
@@ -133,12 +141,14 @@ class MaskedT2S(nn.Module):
 
     @torch.no_grad()
     def generate(self, text_ids: list[torch.Tensor], lengths: list[int], n_steps: int = 50, temperature: float = 0.9,
-                 filter_thres: float = 0.98, cfg: float = 2.5, rescale_cfg: float = 0.75) -> list[torch.Tensor]:
+                 filter_thres: float = 0.98, cfg: float = 2.5, rescale_cfg: float = 0.75,
+                 audio_cond: list[torch.Tensor] | None = None) -> list[torch.Tensor]:
         """テキストと長さから音声トークン列を作る(全部隠した状態から n_steps 回で埋める。既定値は公式と同じ)。
 
         Args:
             text_ids: 発話ごとのテキスト ID 列 [L_i] のリスト。
             lengths: 発話ごとの音声トークン数 U_i(rule_lengths() か、分析用に正解の長さ)。
+            audio_cond: 音声トークンの各位置に足す条件 [U_i, D] のリスト(hidden() を参照)。
             n_steps: 埋める回数。
             temperature: サンプルの温度(t に比例して下げる)。
             filter_thres: 確率の上位 (1 - filter_thres) の割合のトークンだけからサンプルする。
@@ -158,7 +168,7 @@ class MaskedT2S(nn.Module):
         for i in range(n_steps):
             t = torch.full((B,), t_list[i])
             xt = [torch.where(masked[b, :n], self.n_codes, seq[b, :n]) for b, n in enumerate(lengths)]
-            h, _ = self.hidden(text_ids, xt, t, torch.zeros(B, dtype=torch.bool))              # [B, U, D]
+            h, _ = self.hidden(text_ids, xt, t, torch.zeros(B, dtype=torch.bool), audio_cond)  # [B, U, D]
             if cfg > 0:  # テキストなしの出力との差を強め、大きさを元の標準偏差に近づける(公式と同じ式)
                 h_u, _ = self.hidden(text_ids, xt, t, torch.ones(B, dtype=torch.bool))
                 std = h[valid].std()
