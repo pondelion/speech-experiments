@@ -1,0 +1,6 @@
+*
+!.gitignore
+!README.md
+# 評価用の文章(自作の実用文とパブリックドメインの ITA コーパス)は小さいので git で管理する
+!eval_texts/
+!eval_texts/**

@@ -1,0 +1,156 @@
+{
+  "real": {
+    "raw": 0.11029967262654243,
+    "normalized": 0.055308504724847135,
+    "reading": 0.029399048854301772
+  },
+  "mel_gl": {
+    "raw": 0.11130697557290355,
+    "normalized": 0.05669816564758199,
+    "reading": 0.0311284046692607
+  },
+  "codec_rec": {
+    "raw": 0.15588013094938302,
+    "normalized": 0.10255697609783213,
+    "reading": 0.06031128404669261
+  },
+  "s2m_gt_tokens": {
+    "raw": 0.15789473684210525,
+    "normalized": 0.10867148415786548,
+    "reading": 0.0711197578901859
+  },
+  "tts_char": {
+    "raw": 0.9098463863006799,
+    "normalized": 0.9491384102279043,
+    "reading": 0.8670557717250325,
+    "length_ratio_mean": 0.955916841132746,
+    "n_hit_max_len": 0
+  },
+  "tts_phoneme": {
+    "raw": 0.850415512465374,
+    "normalized": 0.896609227348527,
+    "reading": 0.7354085603112841,
+    "length_ratio_mean": 1.0281403946840302,
+    "n_hit_max_len": 0
+  },
+  "eval_texts": {
+    "tts_char": {
+      "practical": {
+        "raw": 0.9696727853152434,
+        "normalized": 1.0163934426229508,
+        "reading": 0.8927381745502998
+      },
+      "practical/alphabet": {
+        "raw": 0.8865248226950354,
+        "normalized": 0.9166666666666666,
+        "reading": 0.8904109589041096
+      },
+      "practical/conversation": {
+        "raw": 0.9428571428571428,
+        "normalized": 1.010989010989011,
+        "reading": 0.9019607843137255
+      },
+      "practical/homograph": {
+        "raw": 1.0,
+        "normalized": 1.0618556701030928,
+        "reading": 0.8714285714285714
+      },
+      "practical/long": {
+        "raw": 0.9802631578947368,
+        "normalized": 1.0141342756183747,
+        "reading": 0.8753315649867374
+      },
+      "practical/news": {
+        "raw": 1.06,
+        "normalized": 1.0904255319148937,
+        "reading": 0.899641577060932
+      },
+      "practical/number": {
+        "raw": 0.9923076923076923,
+        "normalized": 1.0495867768595042,
+        "reading": 0.9797297297297297
+      },
+      "practical/onomatopoeia": {
+        "raw": 0.828125,
+        "normalized": 0.8983050847457628,
+        "reading": 0.8260869565217391
+      },
+      "practical/proper_noun": {
+        "raw": 0.9464285714285714,
+        "normalized": 1.0,
+        "reading": 0.8648648648648649
+      },
+      "practical/question_exclamation": {
+        "raw": 0.9027777777777778,
+        "normalized": 0.9230769230769231,
+        "reading": 0.8133333333333334
+      },
+      "practical/short": {
+        "raw": 1.1363636363636365,
+        "normalized": 1.411764705882353,
+        "reading": 1.411764705882353
+      }
+    },
+    "tts_phoneme": {
+      "practical": {
+        "raw": 0.7470071827613727,
+        "normalized": 0.7825711820534944,
+        "reading": 0.6249167221852099
+      },
+      "practical/alphabet": {
+        "raw": 0.6879432624113475,
+        "normalized": 0.7348484848484849,
+        "reading": 0.636986301369863
+      },
+      "practical/conversation": {
+        "raw": 0.7428571428571429,
+        "normalized": 0.7802197802197802,
+        "reading": 0.6078431372549019
+      },
+      "practical/homograph": {
+        "raw": 0.46601941747572817,
+        "normalized": 0.4948453608247423,
+        "reading": 0.34285714285714286
+      },
+      "practical/long": {
+        "raw": 0.9177631578947368,
+        "normalized": 0.9575971731448764,
+        "reading": 0.830238726790451
+      },
+      "practical/news": {
+        "raw": 0.88,
+        "normalized": 0.925531914893617,
+        "reading": 0.6415770609318996
+      },
+      "practical/number": {
+        "raw": 0.8307692307692308,
+        "normalized": 0.8677685950413223,
+        "reading": 0.75
+      },
+      "practical/onomatopoeia": {
+        "raw": 0.46875,
+        "normalized": 0.4745762711864407,
+        "reading": 0.391304347826087
+      },
+      "practical/proper_noun": {
+        "raw": 0.5982142857142857,
+        "normalized": 0.6320754716981132,
+        "reading": 0.4391891891891892
+      },
+      "practical/question_exclamation": {
+        "raw": 0.5972222222222222,
+        "normalized": 0.5692307692307692,
+        "reading": 0.41333333333333333
+      },
+      "practical/short": {
+        "raw": 0.45454545454545453,
+        "normalized": 0.5294117647058824,
+        "reading": 0.5294117647058824
+      }
+    }
+  },
+  "t2s_runs": {
+    "tts_char": "t2s_char_drop03",
+    "tts_phoneme": "t2s_ph_drop03"
+  }
+}

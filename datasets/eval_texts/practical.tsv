@@ -1,0 +1,56 @@
+id	category	text	expected_reading
+news_01	news	政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。
+news_02	news	気象庁によりますと、台風十五号は明日の朝にも関東地方に接近するおそれがあります。
+news_03	news	今日の東京株式市場は、半導体関連の銘柄を中心に買い注文が広がりました。
+news_04	news	警察は、現場の状況から事故と事件の両面で調べを進めています。
+news_05	news	新しい駅ビルは来月オープンし、およそ百二十の店舗が入る予定です。
+news_06	news	専門家は、今後も感染症の流行に注意が必要だと指摘しています。
+conv_01	conversation	ねえ、今日のお昼どうする?
+conv_02	conversation	ごめん、ちょっと遅れるから先に始めてて。
+conv_03	conversation	えー、それ本当?全然知らなかった。
+conv_04	conversation	じゃあ、また明日ね。気をつけて帰ってね。
+conv_05	conversation	このケーキ、めちゃくちゃおいしいんだけど!
+conv_06	conversation	うーん、どっちでもいいかな。
+num_01	number	2026年11月6日の午後3時15分に集合してください。	2026年=にせんにじゅうろくねん、6日=むいか、3時15分=さんじじゅうごふん
+num_02	number	お会計は1,280円です。	1,280円=せんにひゃくはちじゅうえん
+num_03	number	ゴールまで残り25.5kmです。	25.5km=にじゅうごてんごキロメートル
+num_04	number	電話番号は03-1234-5678です。	ぜろさん、いちにさんよん、ごろくななはち
+num_05	number	気温は-3℃まで下がりました。	-3℃=マイナスさんど(れいかさんど でも可)
+num_06	number	参加者は前年比で約1.5倍に増えました。	1.5倍=いってんごばい
+num_07	number	第3四半期の売上は120億円でした。	第3四半期=だいさんしはんき、120億円=ひゃくにじゅうおくえん
+alpha_01	alphabet	AIを使った新しいアプリを公開しました。	AI=エーアイ
+alpha_02	alphabet	NHKのニュースによると、明日は晴れるそうです。	NHK=エヌエイチケー
+alpha_03	alphabet	iPhoneとAndroidの両方に対応しています。	アイフォーン、アンドロイド
+alpha_04	alphabet	詳しくはwww.example.comをご覧ください。	ダブリューダブリューダブリュー ドット イグザンプル ドット コム
+alpha_05	alphabet	USBケーブルをPCにつないでください。	ユーエスビー、ピーシー
+alpha_06	alphabet	このプロジェクトはGitHubで管理しています。	ギットハブ
+place_01	proper_noun	御徒町から秋葉原までは歩いて行けます。	御徒町=おかちまち
+place_02	proper_noun	九十九里浜で初日の出を見ました。	九十九里浜=くじゅうくりはま
+place_03	proper_noun	週末は等々力渓谷を散歩しました。	等々力=とどろき
+place_04	proper_noun	京都の伏見稲荷大社には千本鳥居があります。	伏見稲荷大社=ふしみいなりたいしゃ
+place_05	proper_noun	北海道の弟子屈町は冬の寒さが厳しい町です。	弟子屈町=てしかがちょう
+place_06	proper_noun	長宗我部氏は土佐を治めた戦国大名です。	長宗我部=ちょうそかべ
+homo_01	homograph	今日は朝から雨が降っています。	今日=きょう
+homo_02	homograph	今日の日本経済を支えているのは中小企業です。	今日=こんにち
+homo_03	homograph	生物の授業で細胞の仕組みを学びました。	生物=せいぶつ
+homo_04	homograph	生物は早めに冷蔵庫に入れてください。	生物=なまもの
+homo_05	homograph	彼は将棋では私より一枚上手だ。	上手=うわて
+homo_06	homograph	彼女は料理がとても上手です。	上手=じょうず
+long_01	long	本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。
+long_02	long	駅の改札を出て右に曲がり、商店街をまっすぐ進むと、左手に大きな公園が見えてきますので、その公園の入り口にある案内板の前でお待ちください。
+long_03	long	研究チームは、三年間にわたって全国の小学校で調査を行い、朝食をとる習慣と学習時間、そして睡眠の長さとの関係について、詳しく分析した結果をまとめました。
+long_04	long	昔々、ある山奥の小さな村に、たいそう働き者のおじいさんと、心のやさしいおばあさんが、二人で仲良く暮らしていました。
+short_01	short	はい。
+short_02	short	いいえ。
+short_03	short	そうですね。
+short_04	short	ありがとう。
+short_05	short	えっ?
+q_01	question_exclamation	本当にそれでいいんですか?
+q_02	question_exclamation	明日の会議は何時からでしたっけ?
+q_03	question_exclamation	すごい、優勝したんだ!
+q_04	question_exclamation	どうして連絡をくれなかったの?
+q_05	question_exclamation	まさか、こんなところで会うなんて!
+ono_01	onomatopoeia	雨がしとしと降っている。
+ono_02	onomatopoeia	お腹がぺこぺこで、もう一歩も歩けない。
+ono_03	onomatopoeia	緊張して胸がドキドキしてきた。
+ono_04	onomatopoeia	犬がワンワンと吠えながら走ってきた。

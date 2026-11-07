@@ -1,0 +1,902 @@
+[
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/real/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/real/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/real/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "VOICEACTRESS100_004",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "サービスマネージャー導入駅のため、大井町駅から、遠隔管理している。",
+    "file": "test/real/VOICEACTRESS100_004.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "VOICEACTRESS100_005",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "シルバーサーファー襲撃事件までに、リチャーズは、チーム名と共に、国際的にスーパーヒーロー、および、有名人として、認知されている。",
+    "file": "test/real/VOICEACTRESS100_005.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "mel_gl",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/mel_gl/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "mel_gl",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/mel_gl/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "mel_gl",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/mel_gl/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "mel_gl",
+    "id": "VOICEACTRESS100_004",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "サービスマネージャー導入駅のため、大井町駅から、遠隔管理している。",
+    "file": "test/mel_gl/VOICEACTRESS100_004.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "mel_gl",
+    "id": "VOICEACTRESS100_005",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "シルバーサーファー襲撃事件までに、リチャーズは、チーム名と共に、国際的にスーパーヒーロー、および、有名人として、認知されている。",
+    "file": "test/mel_gl/VOICEACTRESS100_005.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "codec_rec",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/codec_rec/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "codec_rec",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/codec_rec/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "codec_rec",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/codec_rec/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "codec_rec",
+    "id": "VOICEACTRESS100_004",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "サービスマネージャー導入駅のため、大井町駅から、遠隔管理している。",
+    "file": "test/codec_rec/VOICEACTRESS100_004.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "codec_rec",
+    "id": "VOICEACTRESS100_005",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "シルバーサーファー襲撃事件までに、リチャーズは、チーム名と共に、国際的にスーパーヒーロー、および、有名人として、認知されている。",
+    "file": "test/codec_rec/VOICEACTRESS100_005.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "s2m_gt_tokens",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/s2m_gt_tokens/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "s2m_gt_tokens",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/s2m_gt_tokens/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "s2m_gt_tokens",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/s2m_gt_tokens/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "s2m_gt_tokens",
+    "id": "VOICEACTRESS100_004",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "サービスマネージャー導入駅のため、大井町駅から、遠隔管理している。",
+    "file": "test/s2m_gt_tokens/VOICEACTRESS100_004.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "s2m_gt_tokens",
+    "id": "VOICEACTRESS100_005",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "シルバーサーファー襲撃事件までに、リチャーズは、チーム名と共に、国際的にスーパーヒーロー、および、有名人として、認知されている。",
+    "file": "test/s2m_gt_tokens/VOICEACTRESS100_005.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts_char",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/tts_char/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts_char",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/tts_char/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts_char",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/tts_char/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts_char",
+    "id": "VOICEACTRESS100_004",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "サービスマネージャー導入駅のため、大井町駅から、遠隔管理している。",
+    "file": "test/tts_char/VOICEACTRESS100_004.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts_char",
+    "id": "VOICEACTRESS100_005",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "シルバーサーファー襲撃事件までに、リチャーズは、チーム名と共に、国際的にスーパーヒーロー、および、有名人として、認知されている。",
+    "file": "test/tts_char/VOICEACTRESS100_005.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts_phoneme",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/tts_phoneme/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts_phoneme",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/tts_phoneme/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts_phoneme",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/tts_phoneme/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts_phoneme",
+    "id": "VOICEACTRESS100_004",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "サービスマネージャー導入駅のため、大井町駅から、遠隔管理している。",
+    "file": "test/tts_phoneme/VOICEACTRESS100_004.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts_phoneme",
+    "id": "VOICEACTRESS100_005",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "シルバーサーファー襲撃事件までに、リチャーズは、チーム名と共に、国際的にスーパーヒーロー、および、有名人として、認知されている。",
+    "file": "test/tts_phoneme/VOICEACTRESS100_005.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_char",
+    "id": "news_01",
+    "set": "practical",
+    "category": "news",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/tts_char/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_char",
+    "id": "conv_01",
+    "set": "practical",
+    "category": "conversation",
+    "text": "ねえ、今日のお昼どうする?",
+    "file": "eval_texts/tts_char/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_char",
+    "id": "num_01",
+    "set": "practical",
+    "category": "number",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/tts_char/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_char",
+    "id": "alpha_01",
+    "set": "practical",
+    "category": "alphabet",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "file": "eval_texts/tts_char/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_char",
+    "id": "place_01",
+    "set": "practical",
+    "category": "proper_noun",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "file": "eval_texts/tts_char/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_char",
+    "id": "homo_01",
+    "set": "practical",
+    "category": "homograph",
+    "text": "今日は朝から雨が降っています。",
+    "file": "eval_texts/tts_char/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_char",
+    "id": "long_01",
+    "set": "practical",
+    "category": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "file": "eval_texts/tts_char/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_char",
+    "id": "short_01",
+    "set": "practical",
+    "category": "short",
+    "text": "はい。",
+    "file": "eval_texts/tts_char/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_char",
+    "id": "q_01",
+    "set": "practical",
+    "category": "question_exclamation",
+    "text": "本当にそれでいいんですか?",
+    "file": "eval_texts/tts_char/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_char",
+    "id": "ono_01",
+    "set": "practical",
+    "category": "onomatopoeia",
+    "text": "雨がしとしと降っている。",
+    "file": "eval_texts/tts_char/ono_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_phoneme",
+    "id": "news_01",
+    "set": "practical",
+    "category": "news",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/tts_phoneme/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_phoneme",
+    "id": "conv_01",
+    "set": "practical",
+    "category": "conversation",
+    "text": "ねえ、今日のお昼どうする?",
+    "file": "eval_texts/tts_phoneme/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_phoneme",
+    "id": "num_01",
+    "set": "practical",
+    "category": "number",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/tts_phoneme/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_phoneme",
+    "id": "alpha_01",
+    "set": "practical",
+    "category": "alphabet",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "file": "eval_texts/tts_phoneme/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_phoneme",
+    "id": "place_01",
+    "set": "practical",
+    "category": "proper_noun",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "file": "eval_texts/tts_phoneme/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_phoneme",
+    "id": "homo_01",
+    "set": "practical",
+    "category": "homograph",
+    "text": "今日は朝から雨が降っています。",
+    "file": "eval_texts/tts_phoneme/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_phoneme",
+    "id": "long_01",
+    "set": "practical",
+    "category": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "file": "eval_texts/tts_phoneme/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_phoneme",
+    "id": "short_01",
+    "set": "practical",
+    "category": "short",
+    "text": "はい。",
+    "file": "eval_texts/tts_phoneme/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_phoneme",
+    "id": "q_01",
+    "set": "practical",
+    "category": "question_exclamation",
+    "text": "本当にそれでいいんですか?",
+    "file": "eval_texts/tts_phoneme/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts_phoneme",
+    "id": "ono_01",
+    "set": "practical",
+    "category": "onomatopoeia",
+    "text": "雨がしとしと降っている。",
+    "file": "eval_texts/tts_phoneme/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_argmax_char",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/tf_argmax_char/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_argmax_char",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/tf_argmax_char/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_argmax_char",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/tf_argmax_char/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_argmax_char",
+    "id": "VOICEACTRESS100_004",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "サービスマネージャー導入駅のため、大井町駅から、遠隔管理している。",
+    "file": "test/tf_argmax_char/VOICEACTRESS100_004.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_argmax_char",
+    "id": "VOICEACTRESS100_005",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "シルバーサーファー襲撃事件までに、リチャーズは、チーム名と共に、国際的にスーパーヒーロー、および、有名人として、認知されている。",
+    "file": "test/tf_argmax_char/VOICEACTRESS100_005.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_sample_char",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/tf_sample_char/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_sample_char",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/tf_sample_char/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_sample_char",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/tf_sample_char/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_sample_char",
+    "id": "VOICEACTRESS100_004",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "サービスマネージャー導入駅のため、大井町駅から、遠隔管理している。",
+    "file": "test/tf_sample_char/VOICEACTRESS100_004.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_sample_char",
+    "id": "VOICEACTRESS100_005",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "シルバーサーファー襲撃事件までに、リチャーズは、チーム名と共に、国際的にスーパーヒーロー、および、有名人として、認知されている。",
+    "file": "test/tf_sample_char/VOICEACTRESS100_005.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_argmax_phoneme",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/tf_argmax_phoneme/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_argmax_phoneme",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/tf_argmax_phoneme/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_argmax_phoneme",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/tf_argmax_phoneme/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_argmax_phoneme",
+    "id": "VOICEACTRESS100_004",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "サービスマネージャー導入駅のため、大井町駅から、遠隔管理している。",
+    "file": "test/tf_argmax_phoneme/VOICEACTRESS100_004.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_argmax_phoneme",
+    "id": "VOICEACTRESS100_005",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "シルバーサーファー襲撃事件までに、リチャーズは、チーム名と共に、国際的にスーパーヒーロー、および、有名人として、認知されている。",
+    "file": "test/tf_argmax_phoneme/VOICEACTRESS100_005.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_sample_phoneme",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/tf_sample_phoneme/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_sample_phoneme",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/tf_sample_phoneme/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_sample_phoneme",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/tf_sample_phoneme/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_sample_phoneme",
+    "id": "VOICEACTRESS100_004",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "サービスマネージャー導入駅のため、大井町駅から、遠隔管理している。",
+    "file": "test/tf_sample_phoneme/VOICEACTRESS100_004.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tf_sample_phoneme",
+    "id": "VOICEACTRESS100_005",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "シルバーサーファー襲撃事件までに、リチャーズは、チーム名と共に、国際的にスーパーヒーロー、および、有名人として、認知されている。",
+    "file": "test/tf_sample_phoneme/VOICEACTRESS100_005.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_drop03",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_compare/t2s_ph_drop03/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_drop03",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/t2s_compare/t2s_ph_drop03/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_drop03",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_compare/t2s_ph_drop03/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_char_drop03",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_compare/t2s_char_drop03/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_char_drop03",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/t2s_compare/t2s_char_drop03/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_char_drop03",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_compare/t2s_char_drop03/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_aux",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_compare/t2s_ph_aux/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_aux",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/t2s_compare/t2s_ph_aux/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_aux",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_compare/t2s_ph_aux/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_soft",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_compare/t2s_ph_soft/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_soft",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/t2s_compare/t2s_ph_soft/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_soft",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_compare/t2s_ph_soft/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_reg",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_compare/t2s_ph_reg/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_reg",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/t2s_compare/t2s_ph_reg/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_reg",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_compare/t2s_ph_reg/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_coarse256",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_compare/t2s_ph_coarse256/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_coarse256",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/t2s_compare/t2s_ph_coarse256/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_coarse256",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_compare/t2s_ph_coarse256/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_coarse128",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_compare/t2s_ph_coarse128/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_coarse128",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/t2s_compare/t2s_ph_coarse128/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_coarse128",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_compare/t2s_ph_coarse128/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_k256",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_compare/t2s_ph_k256/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_k256",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/t2s_compare/t2s_ph_k256/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_k256",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_compare/t2s_ph_k256/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_compare/t2s_ph_k256_aux+s2m_k256/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/t2s_compare/t2s_ph_k256_aux+s2m_k256/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_compare/t2s_ph_k256_aux+s2m_k256/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3",
+    "id": "VOICEACTRESS100_001",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_compare/t2s_ph_k256_aux+s2m_k256_f3/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3",
+    "id": "VOICEACTRESS100_002",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "file": "test/t2s_compare/t2s_ph_k256_aux+s2m_k256_f3/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3",
+    "id": "VOICEACTRESS100_003",
+    "set": "jsut_test",
+    "category": "jsut_test",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_compare/t2s_ph_k256_aux+s2m_k256_f3/VOICEACTRESS100_003.mp3"
+  }
+]
