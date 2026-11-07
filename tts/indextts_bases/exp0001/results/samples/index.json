@@ -898,5 +898,95 @@
     "category": "jsut_test",
     "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
     "file": "test/t2s_compare/t2s_ph_k256_aux+s2m_k256_f3/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3",
+    "id": "news_01",
+    "set": "practical",
+    "category": "news",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/t2s_compare/t2s_ph_k256_aux+s2m_k256_f3/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3",
+    "id": "conv_01",
+    "set": "practical",
+    "category": "conversation",
+    "text": "ねえ、今日のお昼どうする?",
+    "file": "eval_texts/t2s_compare/t2s_ph_k256_aux+s2m_k256_f3/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3",
+    "id": "num_01",
+    "set": "practical",
+    "category": "number",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/t2s_compare/t2s_ph_k256_aux+s2m_k256_f3/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3",
+    "id": "alpha_01",
+    "set": "practical",
+    "category": "alphabet",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "file": "eval_texts/t2s_compare/t2s_ph_k256_aux+s2m_k256_f3/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3",
+    "id": "place_01",
+    "set": "practical",
+    "category": "proper_noun",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "file": "eval_texts/t2s_compare/t2s_ph_k256_aux+s2m_k256_f3/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3",
+    "id": "homo_01",
+    "set": "practical",
+    "category": "homograph",
+    "text": "今日は朝から雨が降っています。",
+    "file": "eval_texts/t2s_compare/t2s_ph_k256_aux+s2m_k256_f3/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3",
+    "id": "long_01",
+    "set": "practical",
+    "category": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "file": "eval_texts/t2s_compare/t2s_ph_k256_aux+s2m_k256_f3/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3",
+    "id": "short_01",
+    "set": "practical",
+    "category": "short",
+    "text": "はい。",
+    "file": "eval_texts/t2s_compare/t2s_ph_k256_aux+s2m_k256_f3/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3",
+    "id": "q_01",
+    "set": "practical",
+    "category": "question_exclamation",
+    "text": "本当にそれでいいんですか?",
+    "file": "eval_texts/t2s_compare/t2s_ph_k256_aux+s2m_k256_f3/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3",
+    "id": "ono_01",
+    "set": "practical",
+    "category": "onomatopoeia",
+    "text": "雨がしとしと降っている。",
+    "file": "eval_texts/t2s_compare/t2s_ph_k256_aux+s2m_k256_f3/ono_01.mp3"
   }
 ]

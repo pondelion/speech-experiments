@@ -40,7 +40,7 @@
               {"id": "t2s_compare/t2s_ph_coarse128", "label": "A: 粗いトークン K=128", "cer": {"test": 0.735}},
               {"id": "t2s_compare/t2s_ph_k256", "label": "A': codebook 256", "cer": {"test": 0.505}},
               {"id": "t2s_compare/t2s_ph_k256_aux+s2m_k256", "label": "codebook 256 + B", "cer": {"test": 0.272}},
-              {"id": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3", "label": "一番良い構成(+ S2M F3)", "cer": {"test": 0.219}, "default": true}
+              {"id": "t2s_compare/t2s_ph_k256_aux+s2m_k256_f3", "label": "一番良い構成(+ S2M F3)", "cer": {"test": 0.219, "eval_texts": 0.222}, "default": true}
             ]},
             {"title": "分析用: teacher forcing(正解のトークン列を入力にした予測。実際の合成では使えない)", "conditions": [
               {"id": "tf_argmax_phoneme", "label": "TF 1 位・音素"},

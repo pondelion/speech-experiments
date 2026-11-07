@@ -16,11 +16,14 @@ tf_sample と free の違いは「入力が正解か、自分の出力か」だ�
 使い方:
     python analyze_t2s_teacher_forced.py --runs t2s_ph_drop03 t2s_char_drop03 t2s_ph_aux
 codec・S2M は --codec・--s2m で選ぶ(既定は runs/codec・runs/s2m)。既定以外の S2M では、結果の名前を「T2S の名前+S2M の名前」にする。
---with_gt で正解トークン → S2M の CER(上限)も測る。
+--with_gt で正解トークン → S2M の CER(上限)も測る。--with_eval_texts で実用文 55 文も自由な生成で合成して CER を測る
+(テスト文の後に合成するので、テスト文の結果は付けないときと同じになる)。
 出力:
     runs/eval/t2s_compare/{名前}/{条件}/{発話ID}.wav   全テスト文の音声(git の対象外)
-    results/t2s_compare.json                            名前ごと・条件ごとの CER とトークンの正解率
+    runs/eval_texts/t2s_compare/{名前}/{文章ID}.wav     --with_eval_texts: 全実用文の音声(git の対象外)
+    results/t2s_compare.json                            名前ごと・条件ごとの CER とトークンの正解率(実用文は eval_texts_free)
     results/samples/test/t2s_compare/{名前}/            試聴用に、自由な生成のテスト文の先頭 3 文(48kbps の MP3。index.json に追記)
+    results/samples/eval_texts/t2s_compare/{名前}/      --with_eval_texts: 試聴用に、実用文の各カテゴリの先頭 1 文
 """
 import argparse
 import json
@@ -34,6 +37,7 @@ from common.utils import EXP_DIR, RUNS_DIR, encode_all
 from lib_common.asr_eval import ASR, cer_scores
 from lib_common.audio import SR, save_preview
 from lib_common.data import load_dataset, split
+from lib_common.eval_sets import load_eval_texts
 from lib_common.utils import Logger, seed_everything
 
 N_SAMPLES = 3  # 試聴用にコピーするテスト文の数
@@ -45,6 +49,7 @@ def main():
     parser.add_argument("--codec", default="codec", help="codec の runs/ の名前")
     parser.add_argument("--s2m", default="s2m", help="S2M の runs/ の名前")
     parser.add_argument("--with_gt", action="store_true", help="正解トークン → S2M の CER(上限)も測る")
+    parser.add_argument("--with_eval_texts", action="store_true", help="実用文 55 文も自由な生成で合成して CER を測る")
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--seed", type=int, default=0)
     args = parser.parse_args()
@@ -53,6 +58,7 @@ def main():
     torch.set_num_threads(4)
     log = Logger(RUNS_DIR / "eval" / "log_t2s_compare.txt")
     test = split(load_dataset(None, log), "test")
+    eval_texts = load_eval_texts(["practical"])
     pipe = TTSPipeline.from_checkpoints(RUNS_DIR / args.codec / "codec.pt", RUNS_DIR / args.s2m / "s2m.pt",
                                         device=args.device)
     gt_fine = encode_all(pipe.codec, [pipe.normalizer.normalize(u.mel) for u in test], args.device)  # codec のトークン、各 [U_i]
@@ -95,11 +101,31 @@ def main():
         # 試聴用のコピー(自由な生成のみ)
         sd = EXP_DIR / "results" / "samples" / "test" / "t2s_compare" / name
         sd.mkdir(parents=True, exist_ok=True)
-        index = [r for r in index if r["condition"] != f"t2s_compare/{name}"]
+        index = [r for r in index if not (r["group"] == "test" and r["condition"] == f"t2s_compare/{name}")]
         for u in test[:N_SAMPLES]:
             save_preview(RUNS_DIR / "eval" / "t2s_compare" / name / "free" / f"{u.id}.wav", sd / f"{u.id}.mp3")
             index.append({"group": "test", "condition": f"t2s_compare/{name}", "id": u.id, "set": "jsut_test",
                           "category": "jsut_test", "text": u.text, "file": f"test/t2s_compare/{name}/{u.id}.mp3"})
+        if args.with_eval_texts:  # 実用文: 自由な生成で合成して CER を測り、カテゴリごとの先頭 1 文を試聴用に保存する
+            d = RUNS_DIR / "eval_texts" / "t2s_compare" / name
+            d.mkdir(parents=True, exist_ok=True)
+            for t, m in zip(eval_texts, pipe.codes_to_mel(pipe.text_to_codes([t.text for t in eval_texts]),
+                                                          texts=[t.text for t in eval_texts])):
+                sf.write(d / f"{t.id}.wav", pipe.mel_to_wave(m).numpy(), SR)
+            hyps = asr.transcribe([str(d / f"{t.id}.wav") for t in eval_texts])
+            out[name]["eval_texts_free"] = cer_scores([t.text for t in eval_texts], hyps)
+            log(f"{name:24s} eval_texts reading CER {out[name]['eval_texts_free']['reading']:.4f}")
+            sd = EXP_DIR / "results" / "samples" / "eval_texts" / "t2s_compare" / name
+            sd.mkdir(parents=True, exist_ok=True)
+            index = [r for r in index if not (r["group"] == "eval_texts" and r["condition"] == f"t2s_compare/{name}")]
+            seen = set()
+            for t in eval_texts:
+                if t.category in seen:
+                    continue
+                seen.add(t.category)
+                save_preview(d / f"{t.id}.wav", sd / f"{t.id}.mp3")
+                index.append({"group": "eval_texts", "condition": f"t2s_compare/{name}", "id": t.id, "set": t.set,
+                              "category": t.category, "text": t.text, "file": f"eval_texts/t2s_compare/{name}/{t.id}.mp3"})
         out_path.write_text(json.dumps(out, indent=2, ensure_ascii=False))
         index_path.write_text(json.dumps(index, indent=2, ensure_ascii=False))
     log(f"saved {out_path.name}")
