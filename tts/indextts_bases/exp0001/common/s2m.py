@@ -38,7 +38,6 @@ from einops import rearrange
 
 from lib_common.audio import N_MELS
 
-from .codec import DOWNSAMPLE
 
 
 class LengthRegulator(nn.Module):
@@ -271,7 +270,7 @@ class SemanticToMel(nn.Module):
             正規化した Mel [B, T, F(Mel の帯域数 = 80)](詰め物の部分は 0)。
             (以下のコメントの記号: D Transformer の次元)
         """
-        T = hidden.shape[1] * DOWNSAMPLE
+        T = mask.shape[1]  # フレーム数(この exp の codec ではトークン数 × 4。exp0003 の外部のコーデックでは違う)
         cond = self.regulator(hidden, T)                                                 # [B, U, Dc] → [B, T, D]
         pad = ~mask
         x = torch.randn(hidden.shape[0], T, N_MELS, device=hidden.device) * temperature  # 初期ノイズ [B, T, F]

@@ -33,7 +33,7 @@ def _same(token: str, n: int, phoneme: str) -> bool:
     return token == ("_" if phoneme == "pau" else phoneme)
 
 
-def phoneme_durations(utt, tokens: list[str], n_codes: int) -> list[int] | None:
+def phoneme_durations(utt, tokens: list[str], n_codes: int, token_sec: float = TOKEN_SEC) -> list[int] | None:
     """テキストの各トークンが、音声トークン何個分の長さかを、jsut-lab の音素の時刻から作る(FastSpeech2 系の正解)。
 
     pyopenjtalk の音素(lib_common.text.phoneme_tokens)は、ラベル 1 個につき音素か無音の記号 1 個を出し、
@@ -56,14 +56,15 @@ def phoneme_durations(utt, tokens: list[str], n_codes: int) -> list[int] | None:
     # 各音素の終わりの時刻を音声トークンの境目に丸める(単調に増えるようにし、最後は U にそろえる)
     ends, prev = [], 0
     for _, e, _ in align:
-        prev = max(prev, min(round(e / TOKEN_SEC), n_codes))
+        prev = max(prev, min(round(e / token_sec), n_codes))
         ends.append(prev)
     ends[-1] = n_codes
     durs = iter([b - a for a, b in zip([0] + ends[:-1], ends)])
     return [0] + [0 if t in PROSODY_MARKS else next(durs) for t in tokens] + [0]
 
 
-def prepare(utts: list, vocab: TextVocab, codec, norm, device: str, with_durations: bool) -> dict:
+def prepare(utts: list, vocab: TextVocab, codec, norm, device: str, with_durations: bool,
+            codes: list[torch.Tensor] | None = None, token_sec: float = TOKEN_SEC) -> dict:
     """学習・検証用に、テキスト ID 列・音声トークン列(・音素ごとの長さ)を作る。
 
     Args:
@@ -73,15 +74,18 @@ def prepare(utts: list, vocab: TextVocab, codec, norm, device: str, with_duratio
         norm: Mel の正規化。
         device: codec を動かすデバイス。
         with_durations: 音素ごとの長さも作るか(作れない発話は除く)。
+        codes: 音声トークン列を外から与えるとき(exp0003 の SSL の codec のトークン)。None なら codec で Mel から作る。
+        token_sec: 音声トークン 1 個の長さ(秒)。exp0003 の外部のコーデックでは 1 / (1 秒あたりのトークン数)。
 
     Returns:
         {"texts": 各 [L_i], "codes": 各 [U_i], "durations": 各 [L_i] または None, "n_dropped": 除いた発話数}。
     """
     texts = [torch.tensor(vocab.encode(u.text)) for u in utts]
-    codes = encode_all(codec, [norm.normalize(u.mel) for u in utts], device)
+    if codes is None:
+        codes = encode_all(codec, [norm.normalize(u.mel) for u in utts], device)
     if not with_durations:
         return {"texts": texts, "codes": codes, "durations": None, "n_dropped": 0}
-    durs = [phoneme_durations(u, vocab.tokenize(u.text), len(c)) for u, c in zip(utts, codes)]
+    durs = [phoneme_durations(u, vocab.tokenize(u.text), len(c), token_sec) for u, c in zip(utts, codes)]
     keep = [i for i, d in enumerate(durs) if d is not None]
     return {"texts": [texts[i] for i in keep], "codes": [codes[i] for i in keep],
             "durations": [torch.tensor(durs[i]) for i in keep], "n_dropped": len(utts) - len(keep)}

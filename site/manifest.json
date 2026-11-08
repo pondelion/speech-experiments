@@ -79,6 +79,23 @@
               {"id": "t2s_hybrid_ar/gt_length", "label": "ハイブリッド(自己回帰)+ 正解の長さ", "cer": {"test": 0.118}}
             ]}
           ]
+        },
+        {
+          "id": "exp0003",
+          "title": "exp0003: 音声トークン(codec)の比較",
+          "dir": "tts/indextts_bases/exp0003",
+          "summary": "音声トークンを Mel の量子化から、SSL の特徴(w2v-BERT 2.0・日本語 HuBERT)の量子化や外部のコーデック(XCodec2・BiCodec・WavTokenizer)に変えて比べる。ハイブリッド型で XCodec2(固定の代表ベクトル)がテスト文 4.9%、上限 3.1%。",
+          "samples": "tts/indextts_bases/exp0003/results/samples",
+          "condition_groups": [
+            {"title": "テキストからの合成(ハイブリッド型 + S2M)", "conditions": [
+              {"id": "w2vbert2_k256/tts", "label": "w2v-BERT 2.0", "cer": {"test": 0.080, "eval_texts": 0.058}},
+              {"id": "hubert_ja_k256/tts", "label": "日本語 HuBERT", "cer": {"test": 0.069, "eval_texts": 0.059}, "default": true},
+              {"id": "bicodec/tts", "label": "BiCodec", "cer": {"test": 0.056, "eval_texts": 0.049}, "default": true},
+              {"id": "wavtokenizer/tts", "label": "WavTokenizer", "cer": {"test": 0.073, "eval_texts": 0.062}},
+              {"id": "xcodec2/tts", "label": "XCodec2", "cer": {"test": 0.105, "eval_texts": 0.083}},
+              {"id": "xcodec2_fixed/tts", "label": "XCodec2 + 固定の代表ベクトル", "cer": {"test": 0.049, "eval_texts": 0.051}, "default": true}
+            ]}
+          ]
         }
       ]
     }

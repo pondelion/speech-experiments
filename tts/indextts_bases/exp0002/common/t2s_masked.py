@@ -52,14 +52,23 @@ class MaskedT2S(nn.Module):
         dropout: 入力の埋め込みにかける dropout の確率。
         text_drop: 学習でテキストを除く確率(CFG 用)。
         tokens_per_phone: 1 音素あたりの音声トークン数(学習データ全体の平均。長さを決めるのに使う)。
+        fixed_code_dim: 0 より大きければ、音声トークンの入力の埋め込みを、codec の固定の代表ベクトル(この次元)+
+            学習する線形の射影にする(exp0003 の ablation)。0 なら、トークンごとに学習する埋め込み(既定)。
     """
 
     def __init__(self, n_text: int, n_codes: int, dim: int = 512, layers: int = 8, heads: int = 8,
-                 dropout: float = 0.1, text_drop: float = 0.1, tokens_per_phone: float = 1.0):
+                 dropout: float = 0.1, text_drop: float = 0.1, tokens_per_phone: float = 1.0, fixed_code_dim: int = 0):
         super().__init__()
         self.n_codes, self.text_drop, self.tokens_per_phone = n_codes, text_drop, tokens_per_phone
         self.text_emb = nn.Embedding(n_text, dim)
-        self.code_emb = nn.Embedding(n_codes + 1, dim)  # 最後の番号が [MASK]
+        if fixed_code_dim > 0:
+            # 音声トークンの入力に、codec の固定の代表ベクトル [V, C] を使い、線形の射影 C → D だけを学習する
+            # (exp0003 の ablation。代表ベクトルは load_code_vectors() で入れる。[MASK] のベクトルだけは学習する)
+            self.register_buffer("code_vecs", torch.zeros(n_codes, fixed_code_dim))
+            self.code_proj = nn.Linear(fixed_code_dim, dim)
+            self.mask_emb = nn.Parameter(torch.randn(dim) * 0.02)
+        else:
+            self.code_emb = nn.Embedding(n_codes + 1, dim)  # 最後の番号が [MASK]
         self.time_mlp = nn.Sequential(nn.Linear(dim, dim), nn.SiLU(), nn.Linear(dim, dim))
         self.dropout = nn.Dropout(dropout)
         self.blocks = nn.ModuleList([DiTBlock(dim, heads) for _ in range(layers)])
@@ -69,6 +78,18 @@ class MaskedT2S(nn.Module):
     @property
     def device(self) -> torch.device:
         return self.head.weight.device
+
+    def embed_codes(self, x: torch.Tensor) -> torch.Tensor:
+        """音声トークン(番号 V は [MASK])の埋め込み: [U] → [U, D]。"""
+        if not hasattr(self, "code_vecs"):
+            return self.code_emb(x)
+        is_mask = x == self.n_codes
+        e = self.code_proj(self.code_vecs[x.clamp(max=self.n_codes - 1)])                     # [U, C] → [U, D]
+        return torch.where(is_mask[:, None], self.mask_emb.to(e.dtype), e)
+
+    def load_code_vectors(self, vecs: torch.Tensor):
+        """固定の代表ベクトル [V, C] を入れる(fixed_code_dim > 0 のときだけ)。"""
+        self.code_vecs.copy_(vecs.to(self.code_vecs.device))
 
     def hidden(self, text_ids: list[torch.Tensor], xt: list[torch.Tensor], t: torch.Tensor,
                drop_text: torch.Tensor, audio_cond: list[torch.Tensor] | None = None) -> tuple[torch.Tensor, torch.Tensor]:
@@ -88,7 +109,7 @@ class MaskedT2S(nn.Module):
         # 発話ごとに [テキスト][音声] の埋め込みをつなぐ(テキストを除く発話は音声だけ): 各 [L_i + U_i, D]
         drops = drop_text.tolist()
         texts = [tx.new_zeros(0) if d else tx for tx, d in zip(text_ids, drops)]
-        audios = [self.code_emb(x.to(self.device)) for x in xt]                                  # 各 [U_i, D]
+        audios = [self.embed_codes(x.to(self.device)) for x in xt]                               # 各 [U_i, D]
         if audio_cond is not None:
             audios = [a if d else a + c for a, c, d in zip(audios, audio_cond, drops)]
         seqs = [torch.cat([self.text_emb(tx.to(self.device)), a]) for tx, a in zip(texts, audios)]

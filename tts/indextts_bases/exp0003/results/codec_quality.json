@@ -1,0 +1,149 @@
+{
+  "mel_gl": {
+    "prosody_s2m": {
+      "gpe": 0.049616928128420286,
+      "ffe": 0.12743956182321833,
+      "vuv_error": 0.09319126164694032,
+      "f0_corr": 0.99918329551408,
+      "f0_rmse_cent": 16.45808379104131
+    }
+  },
+  "mel_k256": {
+    "phonetic": {
+      "phone_purity": 0.4128884703349926,
+      "cluster_purity": 0.07345620879860083,
+      "pnmi": 0.4288616240469389,
+      "unseen_token_rate": 0.0
+    },
+    "stats": {
+      "tokens_per_sec": 23.4375,
+      "bitrate_bps": 187.5,
+      "codebook_size": 256,
+      "used": 254,
+      "perplexity_test": 215.1320346913776,
+      "changes_per_sec": 22.179385846898967
+    },
+    "prosody_s2m": {
+      "gpe": 0.05148418716478639,
+      "ffe": 0.14152268244575936,
+      "vuv_error": 0.10638264299802762,
+      "f0_corr": 0.9929046113621637,
+      "f0_rmse_cent": 47.956053635180446
+    }
+  },
+  "w2vbert2_k256": {
+    "phonetic": {
+      "phone_purity": 0.45277815148661377,
+      "cluster_purity": 0.09134938786492668,
+      "pnmi": 0.4609900396124629,
+      "unseen_token_rate": 0.0
+    },
+    "stats": {
+      "tokens_per_sec": 23.4375,
+      "bitrate_bps": 187.5,
+      "codebook_size": 256,
+      "used": 256,
+      "perplexity_test": 209.3316090095858,
+      "changes_per_sec": 22.508891934615903
+    },
+    "prosody_s2m": {
+      "gpe": 0.054387407494420295,
+      "ffe": 0.1589585798816568,
+      "vuv_error": 0.12242998027613412,
+      "f0_corr": 0.9736980474169186,
+      "f0_rmse_cent": 92.63182984601522
+    }
+  },
+  "hubert_ja_k256": {
+    "phonetic": {
+      "phone_purity": 0.4543253060675367,
+      "cluster_purity": 0.08374815014126194,
+      "pnmi": 0.4708916531701264,
+      "unseen_token_rate": 0.0
+    },
+    "stats": {
+      "tokens_per_sec": 23.4375,
+      "bitrate_bps": 187.5,
+      "codebook_size": 256,
+      "used": 256,
+      "perplexity_test": 217.21302481073278,
+      "changes_per_sec": 22.46001782591148
+    },
+    "prosody_s2m": {
+      "gpe": 0.06554055645864254,
+      "ffe": 0.17071400394477318,
+      "vuv_error": 0.1268165680473373,
+      "f0_corr": 0.9661745206911053,
+      "f0_rmse_cent": 107.02053391965842
+    }
+  },
+  "bicodec": {
+    "phonetic": {
+      "phone_purity": 0.28208606764260474,
+      "cluster_purity": 0.006436143361938415,
+      "pnmi": 0.6198299595575228,
+      "unseen_token_rate": 0.0
+    },
+    "stats": {
+      "tokens_per_sec": 50.0,
+      "bitrate_bps": 650.0,
+      "codebook_size": 8192,
+      "used": 8192,
+      "perplexity_test": 6181.3437588111365,
+      "changes_per_sec": 49.82016658253408
+    },
+    "prosody_decoder": {
+      "gpe": 0.008479951140447722,
+      "ffe": 0.09635859635859635,
+      "vuv_error": 0.09067284067284068,
+      "f0_corr": 0.9977769060301638,
+      "f0_rmse_cent": 27.78095693723909
+    }
+  },
+  "wavtokenizer": {
+    "phonetic": {
+      "phone_purity": 0.24784550544127823,
+      "cluster_purity": 0.006814702983791491,
+      "pnmi": 0.3762282900006602,
+      "unseen_token_rate": 0.0
+    },
+    "stats": {
+      "tokens_per_sec": 75.0,
+      "bitrate_bps": 899.9999999999999,
+      "codebook_size": 4096,
+      "used": 3952,
+      "perplexity_test": 2620.3766614873352,
+      "changes_per_sec": 74.78455054412782
+    },
+    "prosody_decoder": {
+      "gpe": 0.0013150002307017949,
+      "ffe": 0.08519700136730107,
+      "vuv_error": 0.08430118342265319,
+      "f0_corr": 0.9980072904830646,
+      "f0_rmse_cent": 28.94652109349429
+    }
+  },
+  "xcodec2": {
+    "phonetic": {
+      "phone_purity": 0.3762957843814789,
+      "cluster_purity": 0.006753785261041654,
+      "pnmi": 0.8483326399959429,
+      "unseen_token_rate": 0.0006282590940503863
+    },
+    "stats": {
+      "tokens_per_sec": 50.0,
+      "bitrate_bps": 800.0,
+      "codebook_size": 65536,
+      "used": 64267,
+      "perplexity_test": 15218.320413882688,
+      "changes_per_sec": 49.82408745366589
+    },
+    "prosody_decoder": {
+      "gpe": 0.0029036679133080906,
+      "ffe": 0.07993210642945826,
+      "vuv_error": 0.07796759339294976,
+      "f0_corr": 0.9980484715272722,
+      "f0_rmse_cent": 27.459146974841833
+    }
+  }
+}

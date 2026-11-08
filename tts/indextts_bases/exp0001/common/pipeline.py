@@ -95,6 +95,9 @@ class TTSPipeline(nn.Module):
         super().__init__()
         self.codec, self.normalizer, self.s2m, self.t2s, self.vocab = codec, normalizer, s2m, t2s, vocab
         self.device = device
+        # トークン 1 個あたりの Mel のフレーム数。この exp の codec は 4。exp0003 の外部のコーデックでは
+        # 93.75 / (1 秒あたりのトークン数) にする(整数でなくてよい)
+        self.frames_per_token = DOWNSAMPLE
         self.vocoder = GriffinLim(device, n_iter=gl_iters)
 
     @classmethod
@@ -170,8 +173,9 @@ class TTSPipeline(nn.Module):
         for s in range(0, len(codes), batch):
             cs = [c if len(c) else torch.zeros(1, dtype=torch.long) for c in codes[s:s + batch]]  # 空の列は 1 個で代用
             ids = nn.utils.rnn.pad_sequence(cs, batch_first=True).to(self.device)            # [B, U]
-            frames = rearrange(torch.arange(ids.shape[1] * DOWNSAMPLE, device=self.device), "t -> 1 t")  # [1, T]
-            n_valid = rearrange(torch.tensor([len(c) * DOWNSAMPLE for c in cs], device=self.device), "b -> b 1")  # [B, 1]
+            n_frames = [round(len(c) * self.frames_per_token) for c in cs]                    # 発話ごとのフレーム数
+            frames = rearrange(torch.arange(max(n_frames), device=self.device), "t -> 1 t")  # [1, T]
+            n_valid = rearrange(torch.tensor(n_frames, device=self.device), "b -> b 1")       # [B, 1]
             mask = frames < n_valid                                                           # 有効なフレームが True [B, T]
             text = text_pad = None
             if self.s2m.text_dim > 0:  # テキストの隠れ状態 [B, L, Dt] と詰め物のマスク [B, L]
@@ -179,7 +183,7 @@ class TTSPipeline(nn.Module):
                 text, text_pad = enc.text_hidden([torch.tensor(enc_vocab.encode(t)) for t in texts[s:s + batch]])
             mel = self.s2m.generate(self.codec.decode_hidden(ids), mask, n_steps=n_steps, cfg=cfg,
                                     text=text, text_pad=text_pad)  # [B, U, Dc] → [B, T, F]
-            out += [self.normalizer.denormalize(m[: len(c) * DOWNSAMPLE]).cpu() for m, c in zip(mel, cs)]  # 各 [T_i, F]
+            out += [self.normalizer.denormalize(m[:n]).cpu() for m, n in zip(mel, n_frames)]  # 各 [T_i, F]
         return out
 
     @torch.no_grad()

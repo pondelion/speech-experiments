@@ -1,0 +1,305 @@
+{
+  "test": {
+    "bicodec/codec_rec": {
+      "raw": 0.12289095945605641,
+      "normalized": 0.06642579210672596,
+      "reading": 0.041936878512753996,
+      "length_ratio": 1.0
+    },
+    "wavtokenizer/codec_rec": {
+      "raw": 0.13447494333920926,
+      "normalized": 0.08198999444135631,
+      "reading": 0.05058365758754864,
+      "length_ratio": 1.0
+    },
+    "w2vbert2_k256/s2m_gt_tokens": {
+      "raw": 0.13548224628557037,
+      "normalized": 0.08226792662590328,
+      "reading": 0.0527453523562473,
+      "length_ratio": 1.0
+    },
+    "w2vbert2_k256/tts": {
+      "raw": 0.18433643918408463,
+      "normalized": 0.1331295163979989,
+      "reading": 0.07955036748811067,
+      "length_ratio": 0.9126889830142663
+    },
+    "w2vbert2_k256/s2m_f3_gt_tokens": {
+      "raw": 0.14832535885167464,
+      "normalized": 0.09866592551417454,
+      "reading": 0.06722870730652832,
+      "length_ratio": 1.0
+    },
+    "w2vbert2_k256/tts_ar": {
+      "raw": 0.3258625031478217,
+      "normalized": 0.2962757087270706,
+      "reading": 0.22135754431474275,
+      "length_ratio": 0.8979616347689054
+    },
+    "hubert_ja_k256/s2m_gt_tokens": {
+      "raw": 0.1289347771342231,
+      "normalized": 0.07531962201222901,
+      "reading": 0.04561175961954172,
+      "length_ratio": 1.0
+    },
+    "hubert_ja_k256/tts": {
+      "raw": 0.1687232435154873,
+      "normalized": 0.11478599221789883,
+      "reading": 0.06874189364461739,
+      "length_ratio": 0.9031078332880127
+    },
+    "hubert_ja_k256/s2m_f3_gt_tokens": {
+      "raw": 0.12868295139763283,
+      "normalized": 0.07587548638132295,
+      "reading": 0.043233895373973194,
+      "length_ratio": 1.0
+    },
+    "hubert_ja_k256/tts_ar": {
+      "raw": 0.2938806346008562,
+      "normalized": 0.26375764313507505,
+      "reading": 0.20276696930393429,
+      "length_ratio": 0.9344498040963104
+    },
+    "bicodec/s2m_gt_tokens": {
+      "raw": 0.12112817929992445,
+      "normalized": 0.06864924958310173,
+      "reading": 0.041072200605274535,
+      "length_ratio": 1.0
+    },
+    "bicodec/tts": {
+      "raw": 0.14706623016872325,
+      "normalized": 0.09227348526959422,
+      "reading": 0.056204063986165155,
+      "length_ratio": 0.9456960031624889
+    },
+    "bicodec/tts_dec": {
+      "raw": 0.22009569377990432,
+      "normalized": 0.17231795441912173,
+      "reading": 0.12321660181582361,
+      "length_ratio": 0.9456960031624889
+    },
+    "bicodec/s2m_f3_gt_tokens": {
+      "raw": 0.1251573910853689,
+      "normalized": 0.07309616453585326,
+      "reading": 0.04215304798962387,
+      "length_ratio": 1.0
+    },
+    "bicodec/tts_ar": {
+      "raw": 0.8055905313523042,
+      "normalized": 0.8440800444691495,
+      "reading": 0.6900129701686122,
+      "length_ratio": 0.9873245306659649
+    },
+    "bicodec/tts_ar_dec": {
+      "raw": 0.8496600352556031,
+      "normalized": 0.8796553640911617,
+      "reading": 0.7715088629485517,
+      "length_ratio": 0.9873245306659649
+    },
+    "wavtokenizer/s2m_gt_tokens": {
+      "raw": 0.11886174767061193,
+      "normalized": 0.06503613118399111,
+      "reading": 0.04085603112840467,
+      "length_ratio": 1.0
+    },
+    "wavtokenizer/tts": {
+      "raw": 0.1712415008813901,
+      "normalized": 0.12062256809338522,
+      "reading": 0.0730652831820147,
+      "length_ratio": 0.9381671018215089
+    },
+    "wavtokenizer/tts_dec": {
+      "raw": 0.2644170234197935,
+      "normalized": 0.22317954419121735,
+      "reading": 0.16126242974492003,
+      "length_ratio": 0.9381671018215089
+    },
+    "wavtokenizer/s2m_f3_gt_tokens": {
+      "raw": 0.11735079325107026,
+      "normalized": 0.06392440244580322,
+      "reading": 0.03718115002161695,
+      "length_ratio": 1.0
+    },
+    "wavtokenizer/tts_ar": {
+      "raw": 0.7705867539662553,
+      "normalized": 0.7993329627570873,
+      "reading": 0.6543450064850843,
+      "length_ratio": 1.0567969710560885
+    },
+    "wavtokenizer/tts_ar_dec": {
+      "raw": 0.8579702845630823,
+      "normalized": 0.8929961089494164,
+      "reading": 0.7769130998702983,
+      "length_ratio": 1.0567969710560885
+    },
+    "hubert_ja_k256_fixed/s2m_gt_tokens": {
+      "raw": 0.13195668597330648,
+      "normalized": 0.07865480822679266,
+      "reading": 0.048205793341980115,
+      "length_ratio": 1.0
+    },
+    "hubert_ja_k256_fixed/tts": {
+      "raw": 0.17048602367161925,
+      "normalized": 0.11617565314063369,
+      "reading": 0.0648508430609598,
+      "length_ratio": 0.9262149751799016
+    },
+    "xcodec2/codec_rec": {
+      "raw": 0.11986905061697306,
+      "normalized": 0.06586992773763202,
+      "reading": 0.03912667531344574,
+      "length_ratio": 1.0
+    },
+    "xcodec2/s2m_gt_tokens": {
+      "raw": 0.15462100226643163,
+      "normalized": 0.1047804335742079,
+      "reading": 0.06960657155209685,
+      "length_ratio": 1.0
+    },
+    "xcodec2/tts": {
+      "raw": 0.21052631578947367,
+      "normalized": 0.16259032795997777,
+      "reading": 0.10527453523562473,
+      "length_ratio": 0.9247892357613802
+    },
+    "xcodec2/tts_dec": {
+      "raw": 0.18232183329136237,
+      "normalized": 0.13007226236798222,
+      "reading": 0.07976653696498054,
+      "length_ratio": 0.9247892357613802
+    },
+    "xcodec2/s2m_f3_gt_tokens": {
+      "raw": 0.1415260639637371,
+      "normalized": 0.09088382434685936,
+      "reading": 0.055771725032425425,
+      "length_ratio": 1.0
+    },
+    "xcodec2/tts_ar": {
+      "raw": 0.8191891211281793,
+      "normalized": 0.8565869927737632,
+      "reading": 0.7053610030263727,
+      "length_ratio": 0.9060896215480015
+    },
+    "xcodec2/tts_ar_dec": {
+      "raw": 0.8393351800554016,
+      "normalized": 0.8696498054474708,
+      "reading": 0.7578901859057501,
+      "length_ratio": 0.9060896215480015
+    },
+    "xcodec2_fixed/s2m_gt_tokens": {
+      "raw": 0.1118106270460841,
+      "normalized": 0.0575319622012229,
+      "reading": 0.030912235192390836,
+      "length_ratio": 1.0
+    },
+    "xcodec2_fixed/tts": {
+      "raw": 0.13825232938806345,
+      "normalized": 0.0811561978877154,
+      "reading": 0.049070471249459575,
+      "length_ratio": 0.9266445181043533
+    },
+    "xcodec2_fixed/tts_dec": {
+      "raw": 0.15285822211029967,
+      "normalized": 0.09699833240689272,
+      "reading": 0.056636402939904885,
+      "length_ratio": 0.9266445181043533
+    }
+  },
+  "eval_texts": {
+    "w2vbert2_k256/tts": {
+      "raw": 0.11731843575418995,
+      "normalized": 0.10181190681622088,
+      "reading": 0.057961359093937376
+    },
+    "w2vbert2_k256/tts_ar": {
+      "raw": 0.2561851556264964,
+      "normalized": 0.25107851596203623,
+      "reading": 0.19253830779480346
+    },
+    "hubert_ja_k256/tts": {
+      "raw": 0.12290502793296089,
+      "normalized": 0.10526315789473684,
+      "reading": 0.05862758161225849
+    },
+    "hubert_ja_k256/tts_ar": {
+      "raw": 0.2561851556264964,
+      "normalized": 0.24935289042277825,
+      "reading": 0.18187874750166555
+    },
+    "bicodec/tts": {
+      "raw": 0.1077414205905826,
+      "normalized": 0.08541846419327007,
+      "reading": 0.04863424383744171
+    },
+    "bicodec/tts_dec": {
+      "raw": 0.1484437350359138,
+      "normalized": 0.12683347713546161,
+      "reading": 0.08194536975349767
+    },
+    "bicodec/tts_ar": {
+      "raw": 0.6775738228252195,
+      "normalized": 0.7031924072476272,
+      "reading": 0.5556295802798135
+    },
+    "bicodec/tts_ar_dec": {
+      "raw": 0.7837190742218675,
+      "normalized": 0.817946505608283,
+      "reading": 0.6975349766822119
+    },
+    "wavtokenizer/tts": {
+      "raw": 0.12849162011173185,
+      "normalized": 0.11130284728213978,
+      "reading": 0.061958694203864094
+    },
+    "wavtokenizer/tts_dec": {
+      "raw": 0.13248204309656825,
+      "normalized": 0.11647972389991372,
+      "reading": 0.06995336442371752
+    },
+    "wavtokenizer/tts_ar": {
+      "raw": 0.656025538707103,
+      "normalized": 0.6807592752372735,
+      "reading": 0.5542971352431713
+    },
+    "wavtokenizer/tts_ar_dec": {
+      "raw": 0.7956903431763767,
+      "normalized": 0.8334771354616048,
+      "reading": 0.7028647568287808
+    },
+    "hubert_ja_k256_fixed/tts": {
+      "raw": 0.11412609736632083,
+      "normalized": 0.10094909404659189,
+      "reading": 0.0552964690206529
+    },
+    "xcodec2/tts": {
+      "raw": 0.15323224261771748,
+      "normalized": 0.13546160483175151,
+      "reading": 0.0832778147901399
+    },
+    "xcodec2/tts_dec": {
+      "raw": 0.10694333599361533,
+      "normalized": 0.08455565142364108,
+      "reading": 0.06662225183211193
+    },
+    "xcodec2/tts_ar": {
+      "raw": 0.767757382282522,
+      "normalized": 0.8032786885245902,
+      "reading": 0.6435709526982012
+    },
+    "xcodec2/tts_ar_dec": {
+      "raw": 0.767757382282522,
+      "normalized": 0.7963761863675582,
+      "reading": 0.6635576282478348
+    },
+    "xcodec2_fixed/tts": {
+      "raw": 0.11013567438148444,
+      "normalized": 0.09232096635030199,
+      "reading": 0.05063291139240506
+    },
+    "xcodec2_fixed/tts_dec": {
+      "raw": 0.12290502793296089,
+      "normalized": 0.10353753235547886,
+      "reading": 0.0626249167221852
+    }
+  }
+}

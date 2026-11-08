@@ -87,15 +87,16 @@ class MelCodec(nn.Module):
         codebook_size: トークンの種類数 K(IndexTTS2.5 は 8192。ここはデータが少ないので小さくする)。
         code_dim: トークン 1 個を表すベクトルの次元 C(IndexTTS2.5 と同じ 8)。
         commit_weight: commit 損失の重み(IndexTTS2.5 と同じ 0.15)。
+        in_dim: 入力(= 復元する)特徴の次元。既定は Mel の 80。exp0003 では SSL の特徴の次元にする。
     """
 
     def __init__(self, dim: int = 384, n_blocks: int = 4, codebook_size: int = 1024, code_dim: int = 8,
-                 commit_weight: float = 0.15):
+                 commit_weight: float = 0.15, in_dim: int = N_MELS):
         super().__init__()
         self.codebook_size, self.commit_weight = codebook_size, commit_weight
         self.hidden_dim = dim
-        # encoder: Mel → 時間 1/4 → 8 次元
-        self.enc_in = nn.Conv1d(N_MELS, dim, 7, padding=3)
+        # encoder: Mel → 時間 1/4 → 8 次元(in_dim を変えると、Mel 以外の特徴(exp0003 の SSL の特徴)も同じ形で量子化できる)
+        self.enc_in = nn.Conv1d(in_dim, dim, 7, padding=3)
         self.enc_blocks1 = nn.Sequential(*[ConvNeXtBlock(dim) for _ in range(n_blocks)])
         self.down = nn.Sequential(nn.Conv1d(dim, dim, 4, stride=2, padding=1), nn.GELU(),  # 時間 1/2
                                   nn.Conv1d(dim, dim, 4, stride=2, padding=1))             # さらに 1/2
@@ -109,7 +110,7 @@ class MelCodec(nn.Module):
         self.up = nn.Sequential(nn.Upsample(scale_factor=DOWNSAMPLE, mode="nearest"),  # 各時刻を 4 回繰り返す
                                 nn.Conv1d(dim, dim, 3, padding=1))
         self.dec_blocks2 = nn.Sequential(*[ConvNeXtBlock(dim) for _ in range(n_blocks)])
-        self.dec_out = nn.Conv1d(dim, N_MELS, 7, padding=3)
+        self.dec_out = nn.Conv1d(dim, in_dim, 7, padding=3)
 
     def encode_vectors(self, mel: torch.Tensor) -> torch.Tensor:
         """Mel を、量子化する前のベクトル列にする。

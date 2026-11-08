@@ -1,0 +1,2338 @@
+[
+  {
+    "group": "test",
+    "condition": "w2vbert2_k256/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/w2vbert2_k256/s2m_gt_tokens/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "w2vbert2_k256/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/w2vbert2_k256/s2m_gt_tokens/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "w2vbert2_k256/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/w2vbert2_k256/s2m_gt_tokens/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "w2vbert2_k256/tts",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/w2vbert2_k256/tts/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "w2vbert2_k256/tts",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/w2vbert2_k256/tts/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "w2vbert2_k256/tts",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/w2vbert2_k256/tts/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/w2vbert2_k256/tts/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/w2vbert2_k256/tts/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/w2vbert2_k256/tts/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/w2vbert2_k256/tts/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/w2vbert2_k256/tts/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/w2vbert2_k256/tts/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/w2vbert2_k256/tts/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/w2vbert2_k256/tts/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/w2vbert2_k256/tts/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/w2vbert2_k256/tts/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "w2vbert2_k256/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/w2vbert2_k256/s2m_f3_gt_tokens/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "w2vbert2_k256/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/w2vbert2_k256/s2m_f3_gt_tokens/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "w2vbert2_k256/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/w2vbert2_k256/s2m_f3_gt_tokens/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "w2vbert2_k256/tts_ar",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/w2vbert2_k256/tts_ar/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "w2vbert2_k256/tts_ar",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/w2vbert2_k256/tts_ar/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "w2vbert2_k256/tts_ar",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/w2vbert2_k256/tts_ar/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts_ar",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/w2vbert2_k256/tts_ar/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts_ar",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/w2vbert2_k256/tts_ar/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts_ar",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/w2vbert2_k256/tts_ar/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts_ar",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/w2vbert2_k256/tts_ar/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts_ar",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/w2vbert2_k256/tts_ar/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts_ar",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/w2vbert2_k256/tts_ar/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts_ar",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/w2vbert2_k256/tts_ar/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts_ar",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/w2vbert2_k256/tts_ar/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts_ar",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/w2vbert2_k256/tts_ar/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "w2vbert2_k256/tts_ar",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/w2vbert2_k256/tts_ar/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256/s2m_gt_tokens/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256/s2m_gt_tokens/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256/s2m_gt_tokens/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256/tts",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256/tts/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256/tts",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256/tts/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256/tts",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256/tts/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/hubert_ja_k256/tts/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/hubert_ja_k256/tts/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/hubert_ja_k256/tts/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/hubert_ja_k256/tts/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/hubert_ja_k256/tts/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/hubert_ja_k256/tts/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/hubert_ja_k256/tts/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/hubert_ja_k256/tts/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/hubert_ja_k256/tts/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/hubert_ja_k256/tts/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256/s2m_f3_gt_tokens/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256/s2m_f3_gt_tokens/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256/s2m_f3_gt_tokens/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256/tts_ar",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256/tts_ar/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256/tts_ar",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256/tts_ar/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256/tts_ar",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256/tts_ar/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts_ar",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/hubert_ja_k256/tts_ar/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts_ar",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/hubert_ja_k256/tts_ar/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts_ar",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/hubert_ja_k256/tts_ar/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts_ar",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/hubert_ja_k256/tts_ar/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts_ar",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/hubert_ja_k256/tts_ar/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts_ar",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/hubert_ja_k256/tts_ar/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts_ar",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/hubert_ja_k256/tts_ar/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts_ar",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/hubert_ja_k256/tts_ar/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts_ar",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/hubert_ja_k256/tts_ar/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256/tts_ar",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/hubert_ja_k256/tts_ar/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/codec_rec",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/bicodec/codec_rec/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/codec_rec",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/bicodec/codec_rec/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/codec_rec",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/bicodec/codec_rec/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/bicodec/s2m_gt_tokens/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/bicodec/s2m_gt_tokens/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/bicodec/s2m_gt_tokens/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/tts",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/bicodec/tts/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/tts",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/bicodec/tts/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/tts",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/bicodec/tts/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/bicodec/tts/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/bicodec/tts/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/bicodec/tts/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/bicodec/tts/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/bicodec/tts/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/bicodec/tts/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/bicodec/tts/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/bicodec/tts/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/bicodec/tts/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/bicodec/tts/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/tts_dec",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/bicodec/tts_dec/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/tts_dec",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/bicodec/tts_dec/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/tts_dec",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/bicodec/tts_dec/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_dec",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/bicodec/tts_dec/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_dec",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/bicodec/tts_dec/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_dec",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/bicodec/tts_dec/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_dec",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/bicodec/tts_dec/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_dec",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/bicodec/tts_dec/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_dec",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/bicodec/tts_dec/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_dec",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/bicodec/tts_dec/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_dec",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/bicodec/tts_dec/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_dec",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/bicodec/tts_dec/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_dec",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/bicodec/tts_dec/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/bicodec/s2m_f3_gt_tokens/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/bicodec/s2m_f3_gt_tokens/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/bicodec/s2m_f3_gt_tokens/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/tts_ar",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/bicodec/tts_ar/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/tts_ar",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/bicodec/tts_ar/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/tts_ar",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/bicodec/tts_ar/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/bicodec/tts_ar/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/bicodec/tts_ar/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/bicodec/tts_ar/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/bicodec/tts_ar/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/bicodec/tts_ar/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/bicodec/tts_ar/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/bicodec/tts_ar/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/bicodec/tts_ar/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/bicodec/tts_ar/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/bicodec/tts_ar/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/tts_ar_dec",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/bicodec/tts_ar_dec/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/tts_ar_dec",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/bicodec/tts_ar_dec/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "bicodec/tts_ar_dec",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/bicodec/tts_ar_dec/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar_dec",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/bicodec/tts_ar_dec/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar_dec",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/bicodec/tts_ar_dec/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar_dec",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/bicodec/tts_ar_dec/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar_dec",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/bicodec/tts_ar_dec/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar_dec",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/bicodec/tts_ar_dec/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar_dec",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/bicodec/tts_ar_dec/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar_dec",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/bicodec/tts_ar_dec/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar_dec",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/bicodec/tts_ar_dec/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar_dec",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/bicodec/tts_ar_dec/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "bicodec/tts_ar_dec",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/bicodec/tts_ar_dec/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/codec_rec",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/codec_rec/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/codec_rec",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/codec_rec/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/codec_rec",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/codec_rec/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/s2m_gt_tokens/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/s2m_gt_tokens/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/s2m_gt_tokens/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/tts",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/tts/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/tts",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/tts/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/tts",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/tts/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/wavtokenizer/tts/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/wavtokenizer/tts/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/wavtokenizer/tts/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/wavtokenizer/tts/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/wavtokenizer/tts/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/wavtokenizer/tts/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/wavtokenizer/tts/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/wavtokenizer/tts/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/wavtokenizer/tts/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/wavtokenizer/tts/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/tts_dec",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/tts_dec/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/tts_dec",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/tts_dec/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/tts_dec",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/tts_dec/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_dec",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/wavtokenizer/tts_dec/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_dec",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/wavtokenizer/tts_dec/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_dec",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/wavtokenizer/tts_dec/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_dec",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/wavtokenizer/tts_dec/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_dec",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/wavtokenizer/tts_dec/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_dec",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/wavtokenizer/tts_dec/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_dec",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/wavtokenizer/tts_dec/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_dec",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/wavtokenizer/tts_dec/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_dec",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/wavtokenizer/tts_dec/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_dec",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/wavtokenizer/tts_dec/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/s2m_f3_gt_tokens/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/s2m_f3_gt_tokens/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/s2m_f3_gt_tokens/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/tts_ar",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/tts_ar/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/tts_ar",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/tts_ar/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/tts_ar",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/tts_ar/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/wavtokenizer/tts_ar/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/wavtokenizer/tts_ar/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/wavtokenizer/tts_ar/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/wavtokenizer/tts_ar/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/wavtokenizer/tts_ar/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/wavtokenizer/tts_ar/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/wavtokenizer/tts_ar/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/wavtokenizer/tts_ar/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/wavtokenizer/tts_ar/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/wavtokenizer/tts_ar/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/tts_ar_dec",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/tts_ar_dec/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/tts_ar_dec",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/tts_ar_dec/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "wavtokenizer/tts_ar_dec",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/wavtokenizer/tts_ar_dec/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar_dec",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/wavtokenizer/tts_ar_dec/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar_dec",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/wavtokenizer/tts_ar_dec/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar_dec",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/wavtokenizer/tts_ar_dec/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar_dec",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/wavtokenizer/tts_ar_dec/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar_dec",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/wavtokenizer/tts_ar_dec/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar_dec",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/wavtokenizer/tts_ar_dec/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar_dec",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/wavtokenizer/tts_ar_dec/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar_dec",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/wavtokenizer/tts_ar_dec/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar_dec",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/wavtokenizer/tts_ar_dec/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "wavtokenizer/tts_ar_dec",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/wavtokenizer/tts_ar_dec/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256_fixed/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256_fixed/s2m_gt_tokens/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256_fixed/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256_fixed/s2m_gt_tokens/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256_fixed/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256_fixed/s2m_gt_tokens/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256_fixed/tts",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256_fixed/tts/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256_fixed/tts",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256_fixed/tts/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "hubert_ja_k256_fixed/tts",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/hubert_ja_k256_fixed/tts/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256_fixed/tts",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/hubert_ja_k256_fixed/tts/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256_fixed/tts",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/hubert_ja_k256_fixed/tts/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256_fixed/tts",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/hubert_ja_k256_fixed/tts/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256_fixed/tts",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/hubert_ja_k256_fixed/tts/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256_fixed/tts",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/hubert_ja_k256_fixed/tts/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256_fixed/tts",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/hubert_ja_k256_fixed/tts/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256_fixed/tts",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/hubert_ja_k256_fixed/tts/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256_fixed/tts",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/hubert_ja_k256_fixed/tts/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256_fixed/tts",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/hubert_ja_k256_fixed/tts/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "hubert_ja_k256_fixed/tts",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/hubert_ja_k256_fixed/tts/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/s2m_gt_tokens/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/s2m_gt_tokens/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/s2m_gt_tokens/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/tts",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/tts/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/tts",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/tts/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/tts",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/tts/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/xcodec2/tts/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/xcodec2/tts/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/xcodec2/tts/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/xcodec2/tts/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/xcodec2/tts/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/xcodec2/tts/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/xcodec2/tts/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/xcodec2/tts/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/xcodec2/tts/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/xcodec2/tts/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/tts_dec",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/tts_dec/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/tts_dec",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/tts_dec/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/tts_dec",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/tts_dec/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_dec",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/xcodec2/tts_dec/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_dec",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/xcodec2/tts_dec/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_dec",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/xcodec2/tts_dec/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_dec",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/xcodec2/tts_dec/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_dec",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/xcodec2/tts_dec/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_dec",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/xcodec2/tts_dec/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_dec",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/xcodec2/tts_dec/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_dec",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/xcodec2/tts_dec/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_dec",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/xcodec2/tts_dec/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_dec",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/xcodec2/tts_dec/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/s2m_f3_gt_tokens/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/s2m_f3_gt_tokens/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/s2m_f3_gt_tokens",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/s2m_f3_gt_tokens/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/tts_ar",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/tts_ar/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/tts_ar",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/tts_ar/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/tts_ar",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/tts_ar/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/xcodec2/tts_ar/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/xcodec2/tts_ar/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/xcodec2/tts_ar/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/xcodec2/tts_ar/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/xcodec2/tts_ar/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/xcodec2/tts_ar/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/xcodec2/tts_ar/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/xcodec2/tts_ar/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/xcodec2/tts_ar/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/xcodec2/tts_ar/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/tts_ar_dec",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/tts_ar_dec/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/tts_ar_dec",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/tts_ar_dec/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/tts_ar_dec",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/tts_ar_dec/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar_dec",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/xcodec2/tts_ar_dec/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar_dec",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/xcodec2/tts_ar_dec/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar_dec",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/xcodec2/tts_ar_dec/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar_dec",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/xcodec2/tts_ar_dec/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar_dec",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/xcodec2/tts_ar_dec/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar_dec",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/xcodec2/tts_ar_dec/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar_dec",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/xcodec2/tts_ar_dec/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar_dec",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/xcodec2/tts_ar_dec/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar_dec",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/xcodec2/tts_ar_dec/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2/tts_ar_dec",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/xcodec2/tts_ar_dec/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/codec_rec",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/codec_rec/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/codec_rec",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/codec_rec/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2/codec_rec",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/xcodec2/codec_rec/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2_fixed/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/xcodec2_fixed/s2m_gt_tokens/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2_fixed/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/xcodec2_fixed/s2m_gt_tokens/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2_fixed/s2m_gt_tokens",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/xcodec2_fixed/s2m_gt_tokens/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2_fixed/tts",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/xcodec2_fixed/tts/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2_fixed/tts",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/xcodec2_fixed/tts/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2_fixed/tts",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/xcodec2_fixed/tts/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/xcodec2_fixed/tts/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/xcodec2_fixed/tts/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/xcodec2_fixed/tts/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/xcodec2_fixed/tts/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/xcodec2_fixed/tts/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/xcodec2_fixed/tts/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/xcodec2_fixed/tts/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/xcodec2_fixed/tts/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/xcodec2_fixed/tts/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/xcodec2_fixed/tts/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2_fixed/tts_dec",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/xcodec2_fixed/tts_dec/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2_fixed/tts_dec",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/xcodec2_fixed/tts_dec/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "xcodec2_fixed/tts_dec",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/xcodec2_fixed/tts_dec/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts_dec",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/xcodec2_fixed/tts_dec/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts_dec",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/xcodec2_fixed/tts_dec/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts_dec",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/xcodec2_fixed/tts_dec/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts_dec",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/xcodec2_fixed/tts_dec/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts_dec",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/xcodec2_fixed/tts_dec/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts_dec",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/xcodec2_fixed/tts_dec/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts_dec",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/xcodec2_fixed/tts_dec/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts_dec",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/xcodec2_fixed/tts_dec/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts_dec",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/xcodec2_fixed/tts_dec/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "xcodec2_fixed/tts_dec",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/xcodec2_fixed/tts_dec/ono_01.mp3"
+  }
+]
