@@ -1,0 +1,42 @@
+{
+  "device": "cpu",
+  "torch": "2.14.0+cu130",
+  "seed": 0,
+  "shape": [
+    2,
+    508,
+    80
+  ],
+  "atol": 0.0001,
+  "rtol": 0.0001,
+  "single_step": {
+    "0.0": {
+      "max_abs": 1.9073486328125e-06,
+      "rmse": 2.3207356036891724e-07,
+      "relative_l2": 2.1113885395607213e-07,
+      "allclose": true,
+      "finite": true
+    },
+    "0.5": {
+      "max_abs": 2.384185791015625e-06,
+      "rmse": 3.618813764205697e-07,
+      "relative_l2": 2.5540020942571573e-07,
+      "allclose": true,
+      "finite": true
+    },
+    "0.96": {
+      "max_abs": 6.318092346191406e-06,
+      "rmse": 6.411241315618099e-07,
+      "relative_l2": 3.7569952837657183e-07,
+      "allclose": true,
+      "finite": true
+    }
+  },
+  "synthetic_25_step_rollout": {
+    "max_abs": 1.5556812286376953e-05,
+    "rmse": 2.5601366360206157e-07,
+    "relative_l2": 3.3725910952853155e-07,
+    "allclose": true,
+    "finite": true
+  }
+}

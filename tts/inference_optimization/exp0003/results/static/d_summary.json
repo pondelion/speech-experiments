@@ -1,0 +1,99 @@
+[
+  {
+    "condition": "cuda_d_fp32_clinear",
+    "device": "cuda",
+    "method": "FP32",
+    "complete": true,
+    "state_mib": 361.9825687408447,
+    "short_s": 2.218045534013072,
+    "medium_s": 2.4246196759922896,
+    "long_s": 2.309051482967334,
+    "first_warmup_s": 4.656268455000827,
+    "test_cer_pct": 6.463467358408994,
+    "eval_texts_cer_pct": 6.7288474350433045,
+    "rss_mib": 2665.6640625,
+    "vram_mib": 565.3330078125
+  },
+  {
+    "condition": "cuda_static_int8_clinear",
+    "device": "cuda",
+    "method": "静的INT8",
+    "complete": true,
+    "state_mib": 105.51601600646973,
+    "short_s": 2.293660287046805,
+    "medium_s": 2.3330368539318442,
+    "long_s": 2.2217480449471623,
+    "first_warmup_s": 8.715056042012293,
+    "test_cer_pct": 6.658019887591872,
+    "eval_texts_cer_pct": 5.7295136575616255,
+    "rss_mib": 2665.58984375,
+    "vram_mib": 311.21630859375
+  },
+  {
+    "condition": "cuda_smoothquant_0p5_clinear",
+    "device": "cuda",
+    "method": "SmoothQuant α=0.5",
+    "complete": true,
+    "state_mib": 105.8813419342041,
+    "short_s": 2.463576883019414,
+    "medium_s": 2.5201917389931623,
+    "long_s": 2.2979682489822153,
+    "first_warmup_s": 8.818322568986332,
+    "test_cer_pct": 6.441850410722005,
+    "eval_texts_cer_pct": 6.395736175882745,
+    "rss_mib": 2676.58984375,
+    "vram_mib": 311.55224609375
+  },
+  {
+    "condition": "cuda_smoothquant_0p75_clinear",
+    "device": "cuda",
+    "method": "SmoothQuant α=0.75",
+    "complete": true,
+    "state_mib": 105.8813419342041,
+    "short_s": 2.40273319001426,
+    "medium_s": 2.2605188869929407,
+    "long_s": 2.268380226014415,
+    "first_warmup_s": 6.656796580005903,
+    "test_cer_pct": 6.9174232598357115,
+    "eval_texts_cer_pct": 5.596269153897402,
+    "rss_mib": 2671.48828125,
+    "vram_mib": 311.55224609375
+  },
+  {
+    "condition": "cpu_d_fp32_clinear",
+    "device": "cpu",
+    "method": "FP32",
+    "complete": true,
+    "state_mib": 361.978967666626,
+    "short_s": 1.2754261949739885,
+    "medium_s": 4.504954050993547,
+    "long_s": 11.78130747799878,
+    "first_warmup_s": 5.34012960398104,
+    "test_cer_pct": 6.895806312148725,
+    "eval_texts_cer_pct": 6.395736175882745,
+    "rss_mib": 1778.06640625
+  },
+  {
+    "condition": "cpu_static_int8_clinear",
+    "device": "cpu",
+    "method": "静的INT8",
+    "status": "速度で除外・CER未評価",
+    "short_s": 5.328,
+    "medium_s": 38.554,
+    "complete": false
+  },
+  {
+    "condition": "cpu_smoothquant_0p5_clinear",
+    "device": "cpu",
+    "method": "SmoothQuant α=0.5",
+    "status": "同CPU演算経路のため未実施",
+    "complete": false
+  },
+  {
+    "condition": "cpu_smoothquant_0p75_clinear",
+    "device": "cpu",
+    "method": "SmoothQuant α=0.75",
+    "status": "同CPU演算経路のため未実施",
+    "complete": false
+  }
+]

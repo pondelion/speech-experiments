@@ -1,0 +1,42 @@
+{
+  "device": "cuda",
+  "torch": "2.14.0+cu130",
+  "seed": 0,
+  "shape": [
+    2,
+    508,
+    80
+  ],
+  "atol": 0.0001,
+  "rtol": 0.0001,
+  "single_step": {
+    "0.0": {
+      "max_abs": 3.4570693969726562e-06,
+      "rmse": 2.881470209104009e-07,
+      "relative_l2": 2.6279471398993337e-07,
+      "allclose": true,
+      "finite": true
+    },
+    "0.5": {
+      "max_abs": 2.332031726837158e-06,
+      "rmse": 4.1535383843438467e-07,
+      "relative_l2": 2.9234021781121555e-07,
+      "allclose": true,
+      "finite": true
+    },
+    "0.96": {
+      "max_abs": 4.291534423828125e-06,
+      "rmse": 6.901740334797068e-07,
+      "relative_l2": 4.030287925615994e-07,
+      "allclose": true,
+      "finite": true
+    }
+  },
+  "synthetic_25_step_rollout": {
+    "max_abs": 0.00023317337036132812,
+    "rmse": 3.7713596157118445e-06,
+    "relative_l2": 5.3736575864604674e-06,
+    "allclose": false,
+    "finite": true
+  }
+}

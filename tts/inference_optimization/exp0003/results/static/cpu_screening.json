@@ -1,0 +1,11 @@
+{
+  "condition": "cpu_static_int8_clinear",
+  "short_s": 5.328,
+  "medium_s": 38.554,
+  "baseline_short_s": 1.275,
+  "baseline_medium_s": 4.505,
+  "decision": "rejected_for_latency",
+  "quality": "not_evaluated",
+  "long": "stopped",
+  "smoothquant_cpu": "not_run_same_integer_kernel"
+}

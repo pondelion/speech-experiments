@@ -8,6 +8,203 @@
   },
   "bases": [
     {
+      "id": "inference_optimization",
+      "title": "TTS 推論最適化",
+      "exps": [
+        {
+          "id": "exp0003",
+          "title": "exp0003: 量子化(初期PTQ)",
+          "dir": "tts/inference_optimization/exp0003",
+          "summary": "CPU動的INT8によるS2MのLinear量子化。100テスト文の読みCERはFP32 6.90%、INT8 6.77%(seed 0)。実用文55文は両方6.40%。複数seed・聴感は未確認。Griffin-Limは暫定処理。",
+          "samples": "tts/inference_optimization/exp0003/results/samples",
+          "condition_groups": [
+            {
+              "title": "C2/C3: group size・AWQ・GPTQ",
+              "conditions": [
+                {
+                  "id": "cuda_both_wo4_bfloat16_g32",
+                  "label": "GPU INT4 g32",
+                  "cer": {
+                    "test": 0.07717250324254216,
+                    "eval_texts": 0.06395736175882745
+                  }
+                },
+                {
+                  "id": "cuda_both_wo4_bfloat16_g64",
+                  "label": "GPU INT4 g64",
+                  "cer": {
+                    "test": 0.07003891050583658,
+                    "eval_texts": 0.06395736175882745
+                  }
+                },
+                {
+                  "id": "cuda_both_wo4_bfloat16_awq",
+                  "label": "GPU AWQ INT4 g128",
+                  "cer": {
+                    "test": 0.07328145265888457,
+                    "eval_texts": 0.07195203197868089
+                  }
+                },
+                {
+                  "id": "cuda_both_wo8_float32_gptq",
+                  "label": "GPU GPTQ INT8",
+                  "cer": {
+                    "test": 0.06701253782965845,
+                    "eval_texts": 0.06462358427714857
+                  }
+                },
+                {
+                  "id": "cuda_both_wo4_bfloat16_gptq",
+                  "label": "GPU GPTQ INT4 g128 (tile)",
+                  "cer": {
+                    "test": 0.06917423259835712,
+                    "eval_texts": 0.059293804130579615
+                  }
+                },
+                {
+                  "id": "cuda_both_wo4_bfloat16_plain",
+                  "label": "GPU MSLK RTN INT4 g128 (tile)",
+                  "cer": {
+                    "test": 0.07155209684392563,
+                    "eval_texts": 0.056628914057295136
+                  }
+                }
+              ]
+            },
+            {
+              "title": "FP32 / CPU INT8",
+              "conditions": [
+                {
+                  "id": "cpu_fp32",
+                  "label": "CPU FP32",
+                  "cer": {
+                    "test": 0.06895806312148725,
+                    "eval_texts": 0.06395736175882745
+                  },
+                  "default": true
+                },
+                {
+                  "id": "cpu_s2m_int8",
+                  "label": "CPU S2M動的INT8",
+                  "cer": {
+                    "test": 0.06766104626026805,
+                    "eval_texts": 0.06395736175882745
+                  },
+                  "default": true
+                },
+                {
+                  "id": "cpu_t2s_int8",
+                  "label": "CPU T2S動的INT8",
+                  "cer": {
+                    "test": 0.06787721573713791,
+                    "eval_texts": 0.061958694203864094
+                  }
+                },
+                {
+                  "id": "cpu_both_int8",
+                  "label": "CPU T2S+S2M動的INT8",
+                  "cer": {
+                    "test": 0.06506701253782966,
+                    "eval_texts": 0.06462358427714857
+                  }
+                },
+                {
+                  "id": "cuda_fp32",
+                  "label": "GPU FP32 (C1基準)",
+                  "cer": {
+                    "test": 0.06463467358408993,
+                    "eval_texts": 0.06728847435043304
+                  }
+                }
+              ]
+            },
+            {
+              "title": "C1: 重みのみ量子化(単純PTQ)",
+              "conditions": [
+                {
+                  "id": "cpu_both_wo8_float32",
+                  "label": "CPU 重みINT8 / activation FP32",
+                  "cer": {
+                    "test": 0.06809338521400778,
+                    "eval_texts": 0.0626249167221852
+                  }
+                },
+                {
+                  "id": "cuda_both_wo8_float32",
+                  "label": "GPU 重みINT8 / activation FP32",
+                  "cer": {
+                    "test": 0.06939040207522698,
+                    "eval_texts": 0.061958694203864094
+                  }
+                },
+                {
+                  "id": "cuda_bf16",
+                  "label": "GPU BF16 (INT4比較基準)",
+                  "cer": {
+                    "test": 0.06506701253782966,
+                    "eval_texts": 0.0626249167221852
+                  }
+                },
+                {
+                  "id": "cuda_both_wo4_bfloat16",
+                  "label": "GPU 重みINT4 g128 / activation BF16",
+                  "cer": {
+                    "test": 0.07047124945957631,
+                    "eval_texts": 0.061958694203864094
+                  }
+                }
+              ]
+            },
+            {
+              "title": "D: 静的INT8・SmoothQuant (Linear compile)",
+              "conditions": [
+                {
+                  "id": "cuda_d_fp32_clinear",
+                  "label": "CUDA FP32",
+                  "cer": {
+                    "test": 0.06463467358408993,
+                    "eval_texts": 0.06728847435043304
+                  }
+                },
+                {
+                  "id": "cuda_static_int8_clinear",
+                  "label": "CUDA 静的INT8",
+                  "cer": {
+                    "test": 0.06658019887591872,
+                    "eval_texts": 0.05729513657561625
+                  }
+                },
+                {
+                  "id": "cuda_smoothquant_0p5_clinear",
+                  "label": "CUDA SmoothQuant α=0.5",
+                  "cer": {
+                    "test": 0.06441850410722005,
+                    "eval_texts": 0.06395736175882745
+                  }
+                },
+                {
+                  "id": "cuda_smoothquant_0p75_clinear",
+                  "label": "CUDA SmoothQuant α=0.75",
+                  "cer": {
+                    "test": 0.06917423259835712,
+                    "eval_texts": 0.05596269153897402
+                  }
+                },
+                {
+                  "id": "cpu_d_fp32_clinear",
+                  "label": "CPU FP32",
+                  "cer": {
+                    "test": 0.06895806312148725,
+                    "eval_texts": 0.06395736175882745
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "indextts",
       "title": "IndexTTS 系",
       "dir": "tts/indextts_bases",
@@ -87,13 +284,69 @@
           "summary": "音声トークンを Mel の量子化から、SSL の特徴(w2v-BERT 2.0・日本語 HuBERT)の量子化や外部のコーデック(XCodec2・BiCodec・WavTokenizer)に変えて比べる。ハイブリッド型で XCodec2(固定の代表ベクトル)がテスト文 4.9%、上限 3.1%。",
           "samples": "tts/indextts_bases/exp0003/results/samples",
           "condition_groups": [
+            {"title": "上限: 正解トークン → S2M / コーデックの decoder", "conditions": [
+              {"id": "w2vbert2_k256/s2m_gt_tokens", "label": "w2v-BERT 2.0 → S2M", "cer": {"test": 0.053}},
+              {"id": "hubert_ja_k256/s2m_gt_tokens", "label": "日本語 HuBERT → S2M", "cer": {"test": 0.046}},
+              {"id": "hubert_ja_k256_fixed/s2m_gt_tokens", "label": "日本語 HuBERT(固定)→ S2M", "cer": {"test": 0.048}},
+              {"id": "bicodec/s2m_gt_tokens", "label": "BiCodec → S2M", "cer": {"test": 0.041}},
+              {"id": "wavtokenizer/s2m_gt_tokens", "label": "WavTokenizer → S2M", "cer": {"test": 0.041}},
+              {"id": "xcodec2/s2m_gt_tokens", "label": "XCodec2 → S2M", "cer": {"test": 0.070}},
+              {"id": "xcodec2_fixed/s2m_gt_tokens", "label": "XCodec2(固定)→ S2M", "cer": {"test": 0.031}},
+              {"id": "bicodec/codec_rec", "label": "BiCodec → decoder", "cer": {"test": 0.042}},
+              {"id": "wavtokenizer/codec_rec", "label": "WavTokenizer → decoder", "cer": {"test": 0.051}},
+              {"id": "xcodec2/codec_rec", "label": "XCodec2 → decoder", "cer": {"test": 0.039}}
+            ]},
             {"title": "テキストからの合成(ハイブリッド型 + S2M)", "conditions": [
               {"id": "w2vbert2_k256/tts", "label": "w2v-BERT 2.0", "cer": {"test": 0.080, "eval_texts": 0.058}},
               {"id": "hubert_ja_k256/tts", "label": "日本語 HuBERT", "cer": {"test": 0.069, "eval_texts": 0.059}, "default": true},
+              {"id": "hubert_ja_k256_fixed/tts", "label": "日本語 HuBERT(固定)", "cer": {"test": 0.065, "eval_texts": 0.055}},
               {"id": "bicodec/tts", "label": "BiCodec", "cer": {"test": 0.056, "eval_texts": 0.049}, "default": true},
               {"id": "wavtokenizer/tts", "label": "WavTokenizer", "cer": {"test": 0.073, "eval_texts": 0.062}},
               {"id": "xcodec2/tts", "label": "XCodec2", "cer": {"test": 0.105, "eval_texts": 0.083}},
-              {"id": "xcodec2_fixed/tts", "label": "XCodec2 + 固定の代表ベクトル", "cer": {"test": 0.049, "eval_texts": 0.051}, "default": true}
+              {"id": "xcodec2_fixed/tts", "label": "XCodec2(固定)", "cer": {"test": 0.049, "eval_texts": 0.051}, "default": true}
+            ]},
+            {"title": "テキストからの合成(ハイブリッド型 + コーデックの decoder)", "conditions": [
+              {"id": "bicodec/tts_dec", "label": "BiCodec", "cer": {"test": 0.123, "eval_texts": 0.082}},
+              {"id": "wavtokenizer/tts_dec", "label": "WavTokenizer", "cer": {"test": 0.161, "eval_texts": 0.070}},
+              {"id": "xcodec2/tts_dec", "label": "XCodec2", "cer": {"test": 0.080, "eval_texts": 0.067}},
+              {"id": "xcodec2_fixed/tts_dec", "label": "XCodec2(固定)", "cer": {"test": 0.057, "eval_texts": 0.063}}
+            ]},
+            {"title": "exp0001 の構成(自己回帰の T2S + F3 の S2M)", "conditions": [
+              {"id": "w2vbert2_k256/s2m_f3_gt_tokens", "label": "w2v-BERT 2.0 上限", "cer": {"test": 0.067}},
+              {"id": "hubert_ja_k256/s2m_f3_gt_tokens", "label": "日本語 HuBERT 上限", "cer": {"test": 0.043}},
+              {"id": "bicodec/s2m_f3_gt_tokens", "label": "BiCodec 上限", "cer": {"test": 0.042}},
+              {"id": "wavtokenizer/s2m_f3_gt_tokens", "label": "WavTokenizer 上限", "cer": {"test": 0.037}},
+              {"id": "xcodec2/s2m_f3_gt_tokens", "label": "XCodec2 上限", "cer": {"test": 0.056}},
+              {"id": "w2vbert2_k256/tts_ar", "label": "w2v-BERT 2.0", "cer": {"test": 0.221, "eval_texts": 0.193}},
+              {"id": "hubert_ja_k256/tts_ar", "label": "日本語 HuBERT", "cer": {"test": 0.203, "eval_texts": 0.182}},
+              {"id": "bicodec/tts_ar", "label": "BiCodec", "cer": {"test": 0.690, "eval_texts": 0.556}},
+              {"id": "wavtokenizer/tts_ar", "label": "WavTokenizer", "cer": {"test": 0.654, "eval_texts": 0.554}},
+              {"id": "xcodec2/tts_ar", "label": "XCodec2", "cer": {"test": 0.705, "eval_texts": 0.644}}
+            ]},
+            {"title": "exp0001 の構成(自己回帰の T2S + コーデックの decoder)", "conditions": [
+              {"id": "bicodec/tts_ar_dec", "label": "BiCodec", "cer": {"test": 0.772, "eval_texts": 0.698}},
+              {"id": "wavtokenizer/tts_ar_dec", "label": "WavTokenizer", "cer": {"test": 0.777, "eval_texts": 0.703}},
+              {"id": "xcodec2/tts_ar_dec", "label": "XCodec2", "cer": {"test": 0.758, "eval_texts": 0.664}}
+            ]}
+          ]
+        },
+        {
+          "id": "exp0004",
+          "title": "exp0004: NN ボコーダ",
+          "dir": "tts/indextts_bases/exp0004",
+          "summary": "ボコーダを Griffin-Lim から、JSUT でゼロから学習した NN ボコーダ(HiFi-GAN V2・Vocos)に替える。UTMOS が 1.4 → 3.5 に上がり(元の録音 3.95)、ロボット的な響き・震えがなくなった。Vocos は一番軽く速い。",
+          "samples": "tts/indextts_bases/exp0004/results/samples",
+          "condition_groups": [
+            {"title": "正解の Mel → ボコーダ", "conditions": [
+              {"id": "real", "label": "元の録音", "cer": {"test": 0.029}, "default": true},
+              {"id": "copy/griffinlim", "label": "Griffin-Lim", "cer": {"test": 0.030}},
+              {"id": "copy/hifigan_v2", "label": "HiFi-GAN V2", "cer": {"test": 0.034}},
+              {"id": "copy/vocos", "label": "Vocos", "cer": {"test": 0.032}}
+            ]},
+            {"title": "TTS(日本語 HuBERT の構成)の Mel → ボコーダ", "conditions": [
+              {"id": "tts/griffinlim", "label": "Griffin-Lim", "cer": {"test": 0.064, "eval_texts": 0.062}, "default": true},
+              {"id": "tts/hifigan_v2", "label": "HiFi-GAN V2", "cer": {"test": 0.064, "eval_texts": 0.073}, "default": true},
+              {"id": "tts/vocos", "label": "Vocos", "cer": {"test": 0.063, "eval_texts": 0.077}, "default": true}
             ]}
           ]
         }

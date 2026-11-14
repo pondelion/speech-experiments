@@ -1,0 +1,17 @@
+{
+  "None": {
+    "ok": true,
+    "finite": true,
+    "relative_l2": 0.010427664034068584
+  },
+  "0.5": {
+    "ok": true,
+    "finite": true,
+    "relative_l2": 0.008871335536241531
+  },
+  "0.75": {
+    "ok": true,
+    "finite": true,
+    "relative_l2": 0.00835992582142353
+  }
+}

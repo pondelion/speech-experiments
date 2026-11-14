@@ -1,0 +1,396 @@
+{
+  "condition": "cuda_both_wo4_bfloat16_g32",
+  "threads": 8,
+  "warmup": 1,
+  "repeats": 3,
+  "dtype": "bfloat16",
+  "weight_only": {
+    "s2m": {
+      "quantized_layers": [
+        "regulator.proj",
+        "t_mlp.0",
+        "t_mlp.2",
+        "blocks.0.qkv",
+        "blocks.0.out",
+        "blocks.0.mlp.0",
+        "blocks.0.mlp.2",
+        "blocks.0.ada",
+        "blocks.1.qkv",
+        "blocks.1.out",
+        "blocks.1.mlp.0",
+        "blocks.1.mlp.2",
+        "blocks.1.ada",
+        "blocks.2.qkv",
+        "blocks.2.out",
+        "blocks.2.mlp.0",
+        "blocks.2.mlp.2",
+        "blocks.2.ada",
+        "blocks.3.qkv",
+        "blocks.3.out",
+        "blocks.3.mlp.0",
+        "blocks.3.mlp.2",
+        "blocks.3.ada",
+        "blocks.4.qkv",
+        "blocks.4.out",
+        "blocks.4.mlp.0",
+        "blocks.4.mlp.2",
+        "blocks.4.ada",
+        "blocks.5.qkv",
+        "blocks.5.out",
+        "blocks.5.mlp.0",
+        "blocks.5.mlp.2",
+        "blocks.5.ada",
+        "blocks.6.qkv",
+        "blocks.6.out",
+        "blocks.6.mlp.0",
+        "blocks.6.mlp.2",
+        "blocks.6.ada",
+        "blocks.7.qkv",
+        "blocks.7.out",
+        "blocks.7.mlp.0",
+        "blocks.7.mlp.2",
+        "blocks.7.ada",
+        "out"
+      ],
+      "excluded_layers": [
+        "in_proj"
+      ],
+      "bits": 4,
+      "group_size": 32,
+      "requested_packing": "tile_packed_to_4d",
+      "packing": "tile_packed_to_4d",
+      "repack_checks": {}
+    },
+    "t2s": {
+      "quantized_layers": [
+        "time_mlp.0",
+        "time_mlp.2",
+        "blocks.0.qkv",
+        "blocks.0.out",
+        "blocks.0.mlp.0",
+        "blocks.0.mlp.2",
+        "blocks.0.ada",
+        "blocks.1.qkv",
+        "blocks.1.out",
+        "blocks.1.mlp.0",
+        "blocks.1.mlp.2",
+        "blocks.1.ada",
+        "blocks.2.qkv",
+        "blocks.2.out",
+        "blocks.2.mlp.0",
+        "blocks.2.mlp.2",
+        "blocks.2.ada",
+        "blocks.3.qkv",
+        "blocks.3.out",
+        "blocks.3.mlp.0",
+        "blocks.3.mlp.2",
+        "blocks.3.ada",
+        "blocks.4.qkv",
+        "blocks.4.out",
+        "blocks.4.mlp.0",
+        "blocks.4.mlp.2",
+        "blocks.4.ada",
+        "blocks.5.qkv",
+        "blocks.5.out",
+        "blocks.5.mlp.0",
+        "blocks.5.mlp.2",
+        "blocks.5.ada",
+        "blocks.6.qkv",
+        "blocks.6.out",
+        "blocks.6.mlp.0",
+        "blocks.6.mlp.2",
+        "blocks.6.ada",
+        "blocks.7.qkv",
+        "blocks.7.out",
+        "blocks.7.mlp.0",
+        "blocks.7.mlp.2",
+        "blocks.7.ada",
+        "encoder.encoder.layer.0.attention.self.query",
+        "encoder.encoder.layer.0.attention.self.key",
+        "encoder.encoder.layer.0.attention.self.value",
+        "encoder.encoder.layer.0.attention.output.dense",
+        "encoder.encoder.layer.0.intermediate.dense",
+        "encoder.encoder.layer.0.output.dense",
+        "encoder.encoder.layer.1.attention.self.query",
+        "encoder.encoder.layer.1.attention.self.key",
+        "encoder.encoder.layer.1.attention.self.value",
+        "encoder.encoder.layer.1.attention.output.dense",
+        "encoder.encoder.layer.1.intermediate.dense",
+        "encoder.encoder.layer.1.output.dense",
+        "encoder.encoder.layer.2.attention.self.query",
+        "encoder.encoder.layer.2.attention.self.key",
+        "encoder.encoder.layer.2.attention.self.value",
+        "encoder.encoder.layer.2.attention.output.dense",
+        "encoder.encoder.layer.2.intermediate.dense",
+        "encoder.encoder.layer.2.output.dense",
+        "encoder.encoder.layer.3.attention.self.query",
+        "encoder.encoder.layer.3.attention.self.key",
+        "encoder.encoder.layer.3.attention.self.value",
+        "encoder.encoder.layer.3.attention.output.dense",
+        "encoder.encoder.layer.3.intermediate.dense",
+        "encoder.encoder.layer.3.output.dense",
+        "align_proj"
+      ],
+      "excluded_layers": [
+        "head",
+        "duration.out"
+      ],
+      "bits": 4,
+      "group_size": 32,
+      "requested_packing": "tile_packed_to_4d",
+      "packing": "tile_packed_to_4d",
+      "repack_checks": {}
+    }
+  },
+  "quantized_linear_names": [],
+  "t2s_quantized_linear_names": [],
+  "excluded_t2s_layers": [
+    "head"
+  ],
+  "t2s_state_bytes_fp32": 216663527,
+  "t2s_state_bytes": 62188897,
+  "s2m_state_bytes_fp32": 162902707,
+  "s2m_state_bytes": 47443547,
+  "conversion_s": 0.15648440600489266,
+  "cases": {
+    "short": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.00012982999032828957,
+          "p90_s": 0.00015919159923214463,
+          "min_s": 0.00012805400183424354,
+          "max_s": 0.00016653200145810843,
+          "runs_s": [
+            0.00012982999032828957,
+            0.00016653200145810843,
+            0.00012805400183424354
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.0063630579970777035,
+          "p90_s": 0.009015287598595023,
+          "min_s": 0.004862576010054909,
+          "max_s": 0.009678344998974353,
+          "runs_s": [
+            0.0063630579970777035,
+            0.004862576010054909,
+            0.009678344998974353
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.4662589890067466,
+          "p90_s": 1.5112029401934706,
+          "min_s": 1.378164341993397,
+          "max_s": 1.5224389279901516,
+          "runs_s": [
+            1.378164341993397,
+            1.4662589890067466,
+            1.5224389279901516
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.3496529029944213,
+          "p90_s": 0.3675735446071485,
+          "min_s": 0.34362798200163525,
+          "max_s": 0.3720537050103303,
+          "runs_s": [
+            0.34362798200163525,
+            0.3496529029944213,
+            0.3720537050103303
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.04578721099824179,
+          "p90_s": 0.04844009341031778,
+          "min_s": 0.033767675995477475,
+          "max_s": 0.049103314013336785,
+          "runs_s": [
+            0.033767675995477475,
+            0.04578721099824179,
+            0.049103314013336785
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 1.8667282110109227,
+          "p90_s": 1.9360675190138865,
+          "min_s": 1.7620528879779158,
+          "max_s": 1.9534023460146273,
+          "runs_s": [
+            1.7620528879779158,
+            1.8667282110109227,
+            1.9534023460146273
+          ]
+        }
+      },
+      "rtf_median": 2.9661994878351527,
+      "finite": true,
+      "sample_seed": 3
+    },
+    "medium": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.0004932880110573024,
+          "p90_s": 0.0005073280015494674,
+          "min_s": 0.00048346800031140447,
+          "max_s": 0.0005108379991725087,
+          "runs_s": [
+            0.00048346800031140447,
+            0.0004932880110573024,
+            0.0005108379991725087
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.0064498449937673286,
+          "p90_s": 0.007887522599776276,
+          "min_s": 0.005290978995617479,
+          "max_s": 0.008246942001278512,
+          "runs_s": [
+            0.005290978995617479,
+            0.0064498449937673286,
+            0.008246942001278512
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.6170759279921185,
+          "p90_s": 1.6172429111960809,
+          "min_s": 1.5445263989968225,
+          "max_s": 1.6172846569970716,
+          "runs_s": [
+            1.6172846569970716,
+            1.6170759279921185,
+            1.5445263989968225
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.35960751699167304,
+          "p90_s": 0.3801924513943959,
+          "min_s": 0.32731509300356265,
+          "max_s": 0.3853386849950766,
+          "runs_s": [
+            0.35960751699167304,
+            0.32731509300356265,
+            0.3853386849950766
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.03320267199887894,
+          "p90_s": 0.04191223279922269,
+          "min_s": 0.03311723200022243,
+          "max_s": 0.04408962299930863,
+          "runs_s": [
+            0.04408962299930863,
+            0.03320267199887894,
+            0.03311723200022243
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 1.9845368259993847,
+          "p90_s": 2.0183123603870627,
+          "min_s": 1.9717400959925726,
+          "max_s": 2.026756243983982,
+          "runs_s": [
+            2.026756243983982,
+            1.9845368259993847,
+            1.9717400959925726
+          ]
+        }
+      },
+      "rtf_median": 0.3669631704880519,
+      "finite": true,
+      "sample_seed": 3
+    },
+    "long": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.001213352006743662,
+          "p90_s": 0.001963415203499608,
+          "min_s": 0.001184585998998955,
+          "max_s": 0.002150931002688594,
+          "runs_s": [
+            0.001184585998998955,
+            0.002150931002688594,
+            0.001213352006743662
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.004924861001200043,
+          "p90_s": 0.005206208195886575,
+          "min_s": 0.004359033991931938,
+          "max_s": 0.005276544994558208,
+          "runs_s": [
+            0.005276544994558208,
+            0.004359033991931938,
+            0.004924861001200043
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.582761918005417,
+          "p90_s": 1.679019939605496,
+          "min_s": 1.483503681010916,
+          "max_s": 1.7030844450055156,
+          "runs_s": [
+            1.7030844450055156,
+            1.582761918005417,
+            1.483503681010916
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.3482691699900897,
+          "p90_s": 0.3557418227923336,
+          "min_s": 0.34747899101057556,
+          "max_s": 0.3576099859928945,
+          "runs_s": [
+            0.3576099859928945,
+            0.34747899101057556,
+            0.3482691699900897
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.033220768003957346,
+          "p90_s": 0.035775115195428954,
+          "min_s": 0.03132241299317684,
+          "max_s": 0.036413701993296854,
+          "runs_s": [
+            0.033220768003957346,
+            0.03132241299317684,
+            0.036413701993296854
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 1.96807328700379,
+          "p90_s": 2.0739157213974977,
+          "min_s": 1.8743247660022462,
+          "max_s": 2.1003763299959246,
+          "runs_s": [
+            2.1003763299959246,
+            1.96807328700379,
+            1.8743247660022462
+          ]
+        }
+      },
+      "rtf_median": 0.13418681502298568,
+      "finite": true,
+      "sample_seed": 3
+    }
+  },
+  "environment": {
+    "measured_at": "2026-11-12T06:32:22.695835+00:00",
+    "git_commit": "b560b08f0430b7d124902a7562d3b988ff33c3e9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 35679,
+    "torch_num_threads": 8,
+    "torch_num_interop_threads": 20
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "device": "cuda",
+  "torch": "2.14.0+cu130",
+  "torchao": "0.18.0",
+  "cases": {
+    "int8_float32": {
+      "ok": true,
+      "weight_type": "Int8Tensor",
+      "finite": true,
+      "relative_l2": 0.003910659812390804
+    },
+    "int8_bfloat16": {
+      "ok": true,
+      "weight_type": "Int8Tensor",
+      "finite": true,
+      "relative_l2": 0.005176168400794268
+    },
+    "int4_float32": {
+      "ok": false,
+      "error_type": "ImportError",
+      "message": "Requires mslk >= 1.0.0"
+    },
+    "int4_bfloat16": {
+      "ok": false,
+      "error_type": "ImportError",
+      "message": "Requires mslk >= 1.0.0"
+    }
+  }
+}

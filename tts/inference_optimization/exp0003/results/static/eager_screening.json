@@ -1,0 +1,8 @@
+{
+  "condition": "cuda_static_int8",
+  "status": "bench_completed_followup_matrix_stopped",
+  "phase": "bench",
+  "elapsed_at_stop_approximately_s": 600,
+  "reason": "The static INT8 benchmark completed at the time the follow-up runner was stopped. Latencies are in bench_cuda_static_int8.json; no eager CER was measured. Eager tensor-subclass execution was too slow for the full matrix.",
+  "replacement_protocol": "Compile Linear operations for both FP32 controls and quantized variants; report compilation cost separately."
+}

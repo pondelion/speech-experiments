@@ -1,0 +1,7 @@
+{
+  "condition": "cpu_fp32",
+  "threads": 8,
+  "rss_after_load_convert_bytes": 1617154048,
+  "rss_after_long_inference_bytes": 1657597952,
+  "process_peak_rss_bytes": 1657597952
+}

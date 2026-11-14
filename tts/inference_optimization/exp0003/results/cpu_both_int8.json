@@ -1,0 +1,365 @@
+{
+  "condition": "cpu_both_int8",
+  "threads": 8,
+  "warmup": 1,
+  "repeats": 3,
+  "quantized_linear_names": [
+    "regulator.proj",
+    "in_proj",
+    "t_mlp.0",
+    "t_mlp.2",
+    "blocks.0.qkv",
+    "blocks.0.out",
+    "blocks.0.mlp.0",
+    "blocks.0.mlp.2",
+    "blocks.0.ada",
+    "blocks.1.qkv",
+    "blocks.1.out",
+    "blocks.1.mlp.0",
+    "blocks.1.mlp.2",
+    "blocks.1.ada",
+    "blocks.2.qkv",
+    "blocks.2.out",
+    "blocks.2.mlp.0",
+    "blocks.2.mlp.2",
+    "blocks.2.ada",
+    "blocks.3.qkv",
+    "blocks.3.out",
+    "blocks.3.mlp.0",
+    "blocks.3.mlp.2",
+    "blocks.3.ada",
+    "blocks.4.qkv",
+    "blocks.4.out",
+    "blocks.4.mlp.0",
+    "blocks.4.mlp.2",
+    "blocks.4.ada",
+    "blocks.5.qkv",
+    "blocks.5.out",
+    "blocks.5.mlp.0",
+    "blocks.5.mlp.2",
+    "blocks.5.ada",
+    "blocks.6.qkv",
+    "blocks.6.out",
+    "blocks.6.mlp.0",
+    "blocks.6.mlp.2",
+    "blocks.6.ada",
+    "blocks.7.qkv",
+    "blocks.7.out",
+    "blocks.7.mlp.0",
+    "blocks.7.mlp.2",
+    "blocks.7.ada",
+    "out"
+  ],
+  "t2s_quantized_linear_names": [
+    "time_mlp.0",
+    "time_mlp.2",
+    "blocks.0.qkv",
+    "blocks.0.out",
+    "blocks.0.mlp.0",
+    "blocks.0.mlp.2",
+    "blocks.0.ada",
+    "blocks.1.qkv",
+    "blocks.1.out",
+    "blocks.1.mlp.0",
+    "blocks.1.mlp.2",
+    "blocks.1.ada",
+    "blocks.2.qkv",
+    "blocks.2.out",
+    "blocks.2.mlp.0",
+    "blocks.2.mlp.2",
+    "blocks.2.ada",
+    "blocks.3.qkv",
+    "blocks.3.out",
+    "blocks.3.mlp.0",
+    "blocks.3.mlp.2",
+    "blocks.3.ada",
+    "blocks.4.qkv",
+    "blocks.4.out",
+    "blocks.4.mlp.0",
+    "blocks.4.mlp.2",
+    "blocks.4.ada",
+    "blocks.5.qkv",
+    "blocks.5.out",
+    "blocks.5.mlp.0",
+    "blocks.5.mlp.2",
+    "blocks.5.ada",
+    "blocks.6.qkv",
+    "blocks.6.out",
+    "blocks.6.mlp.0",
+    "blocks.6.mlp.2",
+    "blocks.6.ada",
+    "blocks.7.qkv",
+    "blocks.7.out",
+    "blocks.7.mlp.0",
+    "blocks.7.mlp.2",
+    "blocks.7.ada",
+    "encoder.encoder.layer.0.attention.self.query",
+    "encoder.encoder.layer.0.attention.self.key",
+    "encoder.encoder.layer.0.attention.self.value",
+    "encoder.encoder.layer.0.attention.output.dense",
+    "encoder.encoder.layer.0.intermediate.dense",
+    "encoder.encoder.layer.0.output.dense",
+    "encoder.encoder.layer.1.attention.self.query",
+    "encoder.encoder.layer.1.attention.self.key",
+    "encoder.encoder.layer.1.attention.self.value",
+    "encoder.encoder.layer.1.attention.output.dense",
+    "encoder.encoder.layer.1.intermediate.dense",
+    "encoder.encoder.layer.1.output.dense",
+    "encoder.encoder.layer.2.attention.self.query",
+    "encoder.encoder.layer.2.attention.self.key",
+    "encoder.encoder.layer.2.attention.self.value",
+    "encoder.encoder.layer.2.attention.output.dense",
+    "encoder.encoder.layer.2.intermediate.dense",
+    "encoder.encoder.layer.2.output.dense",
+    "encoder.encoder.layer.3.attention.self.query",
+    "encoder.encoder.layer.3.attention.self.key",
+    "encoder.encoder.layer.3.attention.self.value",
+    "encoder.encoder.layer.3.attention.output.dense",
+    "encoder.encoder.layer.3.intermediate.dense",
+    "encoder.encoder.layer.3.output.dense",
+    "duration.out",
+    "align_proj"
+  ],
+  "excluded_t2s_layers": [
+    "head"
+  ],
+  "t2s_state_bytes_fp32": 216661159,
+  "t2s_state_bytes": 63355479,
+  "s2m_state_bytes_fp32": 162901299,
+  "s2m_state_bytes": 46491967,
+  "conversion_s": 0.6138622329999635,
+  "cases": {
+    "short": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.0001470360002713278,
+          "p90_s": 0.00016497120013809764,
+          "min_s": 0.00013905200012231944,
+          "max_s": 0.0001694550001047901,
+          "runs_s": [
+            0.0001470360002713278,
+            0.0001694550001047901,
+            0.00013905200012231944
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.002303144000507018,
+          "p90_s": 0.0029416544000923747,
+          "min_s": 0.0022255049998420873,
+          "max_s": 0.0031012819999887142,
+          "runs_s": [
+            0.002303144000507018,
+            0.0031012819999887142,
+            0.0022255049998420873
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 0.5372193180000977,
+          "p90_s": 0.5486922123998739,
+          "min_s": 0.5364916999997149,
+          "max_s": 0.5515604359998179,
+          "runs_s": [
+            0.5364916999997149,
+            0.5515604359998179,
+            0.5372193180000977
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.3701558259999729,
+          "p90_s": 0.37312041959958153,
+          "min_s": 0.35403115099961724,
+          "max_s": 0.37386156799948367,
+          "runs_s": [
+            0.3701558259999729,
+            0.35403115099961724,
+            0.37386156799948367
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.030252749999817752,
+          "p90_s": 0.03096965319946321,
+          "min_s": 0.028430381000362104,
+          "max_s": 0.031148878999374574,
+          "runs_s": [
+            0.031148878999374574,
+            0.028430381000362104,
+            0.030252749999817752
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 0.9402465849998407,
+          "p90_s": 0.943007871399459,
+          "min_s": 0.9372927049998907,
+          "max_s": 0.9436981929993635,
+          "runs_s": [
+            0.9402465849998407,
+            0.9372927049998907,
+            0.9436981929993635
+          ]
+        }
+      },
+      "rtf_median": 1.4940358871819504,
+      "finite": true,
+      "sample_seed": 3
+    },
+    "medium": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.0006498669999928097,
+          "p90_s": 0.0006853278004200548,
+          "min_s": 0.0006348070000967709,
+          "max_s": 0.0006941930005268659,
+          "runs_s": [
+            0.0006498669999928097,
+            0.0006348070000967709,
+            0.0006941930005268659
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.0067565499994088896,
+          "p90_s": 0.00773278120032046,
+          "min_s": 0.0054690679999112035,
+          "max_s": 0.007976839000548352,
+          "runs_s": [
+            0.0067565499994088896,
+            0.007976839000548352,
+            0.0054690679999112035
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.8766897759996937,
+          "p90_s": 1.9617736047999643,
+          "min_s": 1.7883917609997297,
+          "max_s": 1.9830445620000319,
+          "runs_s": [
+            1.9830445620000319,
+            1.8766897759996937,
+            1.7883917609997297
+          ]
+        },
+        "s2m_s": {
+          "median_s": 1.875763791999816,
+          "p90_s": 1.8923990823999701,
+          "min_s": 1.800779333999344,
+          "max_s": 1.8965579050000088,
+          "runs_s": [
+            1.875763791999816,
+            1.800779333999344,
+            1.8965579050000088
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.058602109999810637,
+          "p90_s": 0.0591844716002015,
+          "min_s": 0.055560111000886536,
+          "max_s": 0.05933006200029922,
+          "runs_s": [
+            0.058602109999810637,
+            0.05933006200029922,
+            0.055560111000886536
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 3.746673038001063,
+          "p90_s": 3.8891881123994607,
+          "min_s": 3.745410817999982,
+          "max_s": 3.9248168809990602,
+          "runs_s": [
+            3.9248168809990602,
+            3.745410817999982,
+            3.746673038001063
+          ]
+        }
+      },
+      "rtf_median": 0.6820399947817469,
+      "finite": true,
+      "sample_seed": 3
+    },
+    "long": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.0014598939997085836,
+          "p90_s": 0.0015026059998490382,
+          "min_s": 0.001453491999200196,
+          "max_s": 0.0015132839998841519,
+          "runs_s": [
+            0.0014598939997085836,
+            0.0015132839998841519,
+            0.001453491999200196
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.012095682000108354,
+          "p90_s": 0.013789870800428617,
+          "min_s": 0.010938956999780203,
+          "max_s": 0.014213418000508682,
+          "runs_s": [
+            0.014213418000508682,
+            0.012095682000108354,
+            0.010938956999780203
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 4.085219659000359,
+          "p90_s": 4.135417862199756,
+          "min_s": 4.017674577999969,
+          "max_s": 4.147967412999606,
+          "runs_s": [
+            4.017674577999969,
+            4.147967412999606,
+            4.085219659000359
+          ]
+        },
+        "s2m_s": {
+          "median_s": 6.356389881999348,
+          "p90_s": 6.427519520399802,
+          "min_s": 6.247145311999702,
+          "max_s": 6.445301929999914,
+          "runs_s": [
+            6.356389881999348,
+            6.445301929999914,
+            6.247145311999702
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.1566085849999581,
+          "p90_s": 0.15783763780000298,
+          "min_s": 0.14853312300056132,
+          "max_s": 0.15814490100001422,
+          "runs_s": [
+            0.15814490100001422,
+            0.1566085849999581,
+            0.14853312300056132
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 10.547882672999549,
+          "p90_s": 10.720366049799486,
+          "min_s": 10.493290542999603,
+          "max_s": 10.76348689399947,
+          "runs_s": [
+            10.547882672999549,
+            10.76348689399947,
+            10.493290542999603
+          ]
+        }
+      },
+      "rtf_median": 0.6929670641862002,
+      "finite": true,
+      "sample_seed": 3
+    }
+  },
+  "environment": {
+    "measured_at": "2026-11-11T11:10:32.798922+00:00",
+    "git_commit": "b560b08f0430b7d124902a7562d3b988ff33c3e9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cpu",
+    "cuda_device": null,
+    "pid": 2,
+    "torch_num_threads": 8,
+    "torch_num_interop_threads": 20
+  }
+}

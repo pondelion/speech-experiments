@@ -1,0 +1,28 @@
+{
+  "condition": "cuda_bf16",
+  "seed": 0,
+  "dtype": "bfloat16",
+  "t2s_batch": 16,
+  "s2m_batch": 4,
+  "weight_only": {},
+  "groups": {
+    "test": {
+      "utterances": 100,
+      "finite": true,
+      "cer": {
+        "raw": 0.16645681188617475,
+        "normalized": 0.11395219566425792,
+        "reading": 0.06506701253782966
+      }
+    },
+    "eval_texts": {
+      "utterances": 55,
+      "finite": true,
+      "cer": {
+        "raw": 0.12609736632083002,
+        "normalized": 0.10698878343399482,
+        "reading": 0.0626249167221852
+      }
+    }
+  }
+}

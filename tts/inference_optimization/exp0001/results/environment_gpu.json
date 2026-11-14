@@ -1,0 +1,17 @@
+{
+  "measured_at": "2026-11-11T08:19:48.165674+00:00",
+  "git_commit": "b560b08f0430b7d124902a7562d3b988ff33c3e9",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "torch": "2.14.0+cu130",
+  "cuda_runtime": "13.0",
+  "device": "cuda",
+  "cuda_device": {
+    "name": "NVIDIA GeForce RTX 5090",
+    "capability": [
+      12,
+      0
+    ],
+    "total_memory_bytes": 34190458880
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "condition": "cpu_both_int8",
+  "threads": 8,
+  "rss_after_load_convert_bytes": 1704374272,
+  "rss_after_long_inference_bytes": 1741074432,
+  "process_peak_rss_bytes": 1741074432
+}

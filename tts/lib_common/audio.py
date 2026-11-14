@@ -86,10 +86,24 @@ def wave_to_logmel(y: np.ndarray) -> torch.Tensor:
         log-Mel [T(フレーム数), F(Mel の帯域数 = 80)]。
         (以下のコメントの記号: Fq STFT の周波数の数 = 513)
     """
-    spec = torch.stft(torch.from_numpy(y), N_FFT, HOP, window=_WINDOW, center=True,
-                      pad_mode="constant", return_complex=True).abs()        # 波形 [N] → 振幅 [Fq, T]
-    mel = _MEL_BASIS @ spec                                                  # [F, Fq] @ [Fq, T] → [F, T]
-    return rearrange(torch.log(torch.clamp(mel, min=LOG_FLOOR)), "f t -> t f").contiguous()  # log をとって [T, F] に
+    return logmel_torch(torch.from_numpy(y))
+
+
+def logmel_torch(wave: torch.Tensor) -> torch.Tensor:
+    """wave_to_logmel と同じ計算を、Tensor のまま(GPU 上でも、まとめて、勾配を流して)行う。ボコーダの学習の Mel の損失に使う。
+
+    Args:
+        wave: 24kHz の波形 [..., N]。
+
+    Returns:
+        log-Mel [..., T, F]。
+    """
+    shape = wave.shape
+    spec = torch.stft(wave.reshape(-1, shape[-1]), N_FFT, HOP, window=_WINDOW.to(wave.device), center=True,
+                      pad_mode="constant", return_complex=True).abs()        # 波形 [B, N] → 振幅 [B, Fq, T]
+    mel = _MEL_BASIS.to(wave.device) @ spec                                  # [F, Fq] @ [B, Fq, T] → [B, F, T]
+    out = rearrange(torch.log(torch.clamp(mel, min=LOG_FLOOR)), "b f t -> b t f")  # log をとって [B, T, F] に
+    return out.reshape(*shape[:-1], *out.shape[-2:]).contiguous()
 
 
 class MelNormalizer:

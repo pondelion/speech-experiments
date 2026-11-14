@@ -1,0 +1,833 @@
+{
+  "condition": "cuda_both_wo4_bfloat16_plain",
+  "seed": 0,
+  "dtype": "bfloat16",
+  "t2s_batch": 16,
+  "s2m_batch": 4,
+  "weight_only": {
+    "t2s": {
+      "quantized_layers": [
+        "time_mlp.0",
+        "time_mlp.2",
+        "blocks.0.qkv",
+        "blocks.0.out",
+        "blocks.0.mlp.0",
+        "blocks.0.mlp.2",
+        "blocks.0.ada",
+        "blocks.1.qkv",
+        "blocks.1.out",
+        "blocks.1.mlp.0",
+        "blocks.1.mlp.2",
+        "blocks.1.ada",
+        "blocks.2.qkv",
+        "blocks.2.out",
+        "blocks.2.mlp.0",
+        "blocks.2.mlp.2",
+        "blocks.2.ada",
+        "blocks.3.qkv",
+        "blocks.3.out",
+        "blocks.3.mlp.0",
+        "blocks.3.mlp.2",
+        "blocks.3.ada",
+        "blocks.4.qkv",
+        "blocks.4.out",
+        "blocks.4.mlp.0",
+        "blocks.4.mlp.2",
+        "blocks.4.ada",
+        "blocks.5.qkv",
+        "blocks.5.out",
+        "blocks.5.mlp.0",
+        "blocks.5.mlp.2",
+        "blocks.5.ada",
+        "blocks.6.qkv",
+        "blocks.6.out",
+        "blocks.6.mlp.0",
+        "blocks.6.mlp.2",
+        "blocks.6.ada",
+        "blocks.7.qkv",
+        "blocks.7.out",
+        "blocks.7.mlp.0",
+        "blocks.7.mlp.2",
+        "blocks.7.ada",
+        "encoder.encoder.layer.0.attention.self.query",
+        "encoder.encoder.layer.0.attention.self.key",
+        "encoder.encoder.layer.0.attention.self.value",
+        "encoder.encoder.layer.0.attention.output.dense",
+        "encoder.encoder.layer.0.intermediate.dense",
+        "encoder.encoder.layer.0.output.dense",
+        "encoder.encoder.layer.1.attention.self.query",
+        "encoder.encoder.layer.1.attention.self.key",
+        "encoder.encoder.layer.1.attention.self.value",
+        "encoder.encoder.layer.1.attention.output.dense",
+        "encoder.encoder.layer.1.intermediate.dense",
+        "encoder.encoder.layer.1.output.dense",
+        "encoder.encoder.layer.2.attention.self.query",
+        "encoder.encoder.layer.2.attention.self.key",
+        "encoder.encoder.layer.2.attention.self.value",
+        "encoder.encoder.layer.2.attention.output.dense",
+        "encoder.encoder.layer.2.intermediate.dense",
+        "encoder.encoder.layer.2.output.dense",
+        "encoder.encoder.layer.3.attention.self.query",
+        "encoder.encoder.layer.3.attention.self.key",
+        "encoder.encoder.layer.3.attention.self.value",
+        "encoder.encoder.layer.3.attention.output.dense",
+        "encoder.encoder.layer.3.intermediate.dense",
+        "encoder.encoder.layer.3.output.dense",
+        "align_proj"
+      ],
+      "excluded_layers": [
+        "head",
+        "duration.out"
+      ],
+      "bits": 4,
+      "group_size": 128,
+      "requested_packing": "plain",
+      "packing": "tile_packed_to_4d",
+      "repack_checks": {
+        "time_mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016493165167048573,
+          "dense_weight_max_abs": 0.00018310546875
+        },
+        "time_mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016656311927363276,
+          "dense_weight_max_abs": 0.0001220703125
+        },
+        "blocks.0.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001662493566982448,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.0.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001658645342104137,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.0.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001703976420685649,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.0.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017038012156262994,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.0.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016465871594846249,
+          "dense_weight_max_abs": 0.000152587890625
+        },
+        "blocks.1.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016774398973211646,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.1.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001686726463958621,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.1.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001688069081865251,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.1.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017051172908395529,
+          "dense_weight_max_abs": 0.0001983642578125
+        },
+        "blocks.1.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016541341319680214,
+          "dense_weight_max_abs": 0.00011444091796875
+        },
+        "blocks.2.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016851172549650073,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.2.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016773357056081295,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.2.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016777169657871127,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.2.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017013640608638525,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.2.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016490075504407287,
+          "dense_weight_max_abs": 0.0001220703125
+        },
+        "blocks.3.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016916561871767044,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.3.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016952662263065577,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.3.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016866725636646152,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.3.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017070675967261195,
+          "dense_weight_max_abs": 0.0002269744873046875
+        },
+        "blocks.3.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001649078680202365,
+          "dense_weight_max_abs": 0.00011444091796875
+        },
+        "blocks.4.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016894679283723235,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.4.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001699729124084115,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.4.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016766405897215009,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.4.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017072678310796618,
+          "dense_weight_max_abs": 0.0001220703125
+        },
+        "blocks.4.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016275150701403618,
+          "dense_weight_max_abs": 0.0001220703125
+        },
+        "blocks.5.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001682807574979961,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.5.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016861340263858438,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.5.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016829937230795622,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.5.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017146153841167688,
+          "dense_weight_max_abs": 0.00018310546875
+        },
+        "blocks.5.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016356648411601782,
+          "dense_weight_max_abs": 0.0001220703125
+        },
+        "blocks.6.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016938153421506286,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.6.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016928981058299541,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.6.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016696125967428088,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.6.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001705721952021122,
+          "dense_weight_max_abs": 0.00018310546875
+        },
+        "blocks.6.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001640836475417018,
+          "dense_weight_max_abs": 0.0001220703125
+        },
+        "blocks.7.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017018343787640333,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.7.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016938915941864252,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.7.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016639052191749215,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.7.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017104459693655372,
+          "dense_weight_max_abs": 0.0001220703125
+        },
+        "blocks.7.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016618006629869342,
+          "dense_weight_max_abs": 0.0001220703125
+        },
+        "encoder.encoder.layer.0.attention.self.query": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016739445272833109,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.0.attention.self.key": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016633098712190986,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.0.attention.self.value": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016777438577264547,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.0.attention.output.dense": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016665504081174731,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.0.intermediate.dense": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001671064761467278,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.0.output.dense": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016806230414658785,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.1.attention.self.query": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016725501045584679,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.1.attention.self.key": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016792743699625134,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.1.attention.self.value": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016857703449204564,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.1.attention.output.dense": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001673083403147757,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.1.intermediate.dense": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016744605964049697,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.1.output.dense": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001677231746725738,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.2.attention.self.query": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016803183825686574,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.2.attention.self.key": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016840981552377343,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.2.attention.self.value": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016608325531706214,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.2.attention.output.dense": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016610200982540846,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.2.intermediate.dense": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016704332083463669,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.2.output.dense": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001671917038038373,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.3.attention.self.query": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.00168235891032964,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.3.attention.self.key": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016745665343478322,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.3.attention.self.value": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016741979634389281,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.3.attention.output.dense": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001673659309744835,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.3.intermediate.dense": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016727261245250702,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "encoder.encoder.layer.3.output.dense": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016754529206082225,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "align_proj": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016581558156758547,
+          "dense_weight_max_abs": 0.000213623046875
+        }
+      }
+    },
+    "s2m": {
+      "quantized_layers": [
+        "regulator.proj",
+        "t_mlp.0",
+        "t_mlp.2",
+        "blocks.0.qkv",
+        "blocks.0.out",
+        "blocks.0.mlp.0",
+        "blocks.0.mlp.2",
+        "blocks.0.ada",
+        "blocks.1.qkv",
+        "blocks.1.out",
+        "blocks.1.mlp.0",
+        "blocks.1.mlp.2",
+        "blocks.1.ada",
+        "blocks.2.qkv",
+        "blocks.2.out",
+        "blocks.2.mlp.0",
+        "blocks.2.mlp.2",
+        "blocks.2.ada",
+        "blocks.3.qkv",
+        "blocks.3.out",
+        "blocks.3.mlp.0",
+        "blocks.3.mlp.2",
+        "blocks.3.ada",
+        "blocks.4.qkv",
+        "blocks.4.out",
+        "blocks.4.mlp.0",
+        "blocks.4.mlp.2",
+        "blocks.4.ada",
+        "blocks.5.qkv",
+        "blocks.5.out",
+        "blocks.5.mlp.0",
+        "blocks.5.mlp.2",
+        "blocks.5.ada",
+        "blocks.6.qkv",
+        "blocks.6.out",
+        "blocks.6.mlp.0",
+        "blocks.6.mlp.2",
+        "blocks.6.ada",
+        "blocks.7.qkv",
+        "blocks.7.out",
+        "blocks.7.mlp.0",
+        "blocks.7.mlp.2",
+        "blocks.7.ada",
+        "out"
+      ],
+      "excluded_layers": [
+        "in_proj"
+      ],
+      "bits": 4,
+      "group_size": 128,
+      "requested_packing": "plain",
+      "packing": "tile_packed_to_4d",
+      "repack_checks": {
+        "regulator.proj": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001699204440228641,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "t_mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.00165346369612962,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "t_mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016881460323929787,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.0.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017099302494898438,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.0.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017064654966816306,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.0.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001703348709270358,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.0.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.00168005155865103,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.0.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001686341711319983,
+          "dense_weight_max_abs": 0.000457763671875
+        },
+        "blocks.1.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001710561802610755,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.1.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001707725808955729,
+          "dense_weight_max_abs": 0.0002593994140625
+        },
+        "blocks.1.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017003094544634223,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.1.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016792333917692304,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.1.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016820481978356838,
+          "dense_weight_max_abs": 0.000274658203125
+        },
+        "blocks.2.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017137411050498486,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.2.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017116038361564279,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.2.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016986035043373704,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.2.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016806813655421138,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.2.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016847135266289115,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.3.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016989604337140918,
+          "dense_weight_max_abs": 0.000457763671875
+        },
+        "blocks.3.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017144599696621299,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.3.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016989604337140918,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.3.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016856079455465078,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.3.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016798349097371101,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.4.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001704524620436132,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.4.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.001713182427920401,
+          "dense_weight_max_abs": 0.000396728515625
+        },
+        "blocks.4.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017103884601965547,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.4.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016795482952147722,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.4.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016867939848452806,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.5.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017020379891619086,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.5.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017070559551939368,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.5.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017089529428631067,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.5.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016815895214676857,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.5.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016923145158216357,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.6.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017142852302640676,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.6.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016906879609450698,
+          "dense_weight_max_abs": 0.00042724609375
+        },
+        "blocks.6.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017026244895532727,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.6.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016840125899761915,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.6.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016860869945958257,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.7.qkv": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016970147844403982,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.7.out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017006468260660768,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.7.mlp.0": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0017097005620598793,
+          "dense_weight_max_abs": 0.00048828125
+        },
+        "blocks.7.mlp.2": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016925729578360915,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "blocks.7.ada": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016943860100582242,
+          "dense_weight_max_abs": 0.000244140625
+        },
+        "out": {
+          "qparams_preserved": true,
+          "no_requantization": true,
+          "dense_weight_relative_l2": 0.0016641822876408696,
+          "dense_weight_max_abs": 0.000457763671875
+        }
+      }
+    }
+  },
+  "groups": {
+    "test": {
+      "utterances": 100,
+      "finite": true,
+      "cer": {
+        "raw": 0.17174515235457063,
+        "normalized": 0.12062256809338522,
+        "reading": 0.07155209684392563
+      }
+    },
+    "eval_texts": {
+      "utterances": 55,
+      "finite": true,
+      "cer": {
+        "raw": 0.11252992817238627,
+        "normalized": 0.09318377911993098,
+        "reading": 0.056628914057295136
+      }
+    }
+  }
+}

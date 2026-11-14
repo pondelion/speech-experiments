@@ -1,0 +1,25 @@
+{
+  "awq4": {
+    "ok": true,
+    "relative_l2": 0.06587737798690796,
+    "weight_type": "Int4TilePackedTo4dTensor",
+    "repack_check": null
+  },
+  "gptq8": {
+    "ok": true,
+    "relative_l2": 0.0010166059946641326,
+    "weight_type": "Int8Tensor",
+    "repack_check": null
+  },
+  "gptq4": {
+    "ok": true,
+    "relative_l2": 0.023604443296790123,
+    "weight_type": "Int4TilePackedTo4dTensor",
+    "repack_check": {
+      "qparams_preserved": true,
+      "no_requantization": true,
+      "dense_weight_relative_l2": 0.0016287205507978797,
+      "dense_weight_max_abs": 0.0001220703125
+    }
+  }
+}

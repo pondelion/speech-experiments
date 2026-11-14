@@ -1,0 +1,48 @@
+{
+  "seed": 1,
+  "threads": 8,
+  "t2s_batch": 16,
+  "s2m_batch": 4,
+  "conditions": {
+    "cpu_fp32": {
+      "test": {
+        "utterances": 100,
+        "finite": true,
+        "cer": {
+          "raw": 0.17652984134978594,
+          "normalized": 0.1236798221234019,
+          "reading": 0.07976653696498054
+        }
+      },
+      "eval_texts": {
+        "utterances": 55,
+        "finite": true,
+        "cer": {
+          "raw": 0.11572226656025539,
+          "normalized": 0.10267471958584987,
+          "reading": 0.059293804130579615
+        }
+      }
+    },
+    "cpu_both_int8": {
+      "test": {
+        "utterances": 100,
+        "finite": true,
+        "cer": {
+          "raw": 0.16544950893981364,
+          "normalized": 0.1122846025569761,
+          "reading": 0.06809338521400778
+        }
+      },
+      "eval_texts": {
+        "utterances": 55,
+        "finite": true,
+        "cer": {
+          "raw": 0.10694333599361533,
+          "normalized": 0.090595340811044,
+          "reading": 0.05329780146568954
+        }
+      }
+    }
+  }
+}

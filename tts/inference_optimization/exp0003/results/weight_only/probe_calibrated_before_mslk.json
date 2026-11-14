@@ -1,0 +1,17 @@
+{
+  "awq4": {
+    "ok": true,
+    "relative_l2": 0.06587737798690796,
+    "weight_type": "Int4TilePackedTo4dTensor"
+  },
+  "gptq8": {
+    "ok": true,
+    "relative_l2": 0.0010166059946641326,
+    "weight_type": "Int8Tensor"
+  },
+  "gptq4": {
+    "ok": false,
+    "error_type": "ValueError",
+    "message": "mslk is not installed. Please install mslk to use int4 quantization."
+  }
+}

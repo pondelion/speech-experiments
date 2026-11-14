@@ -1,0 +1,410 @@
+[
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/real/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/real/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/real/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "copy/griffinlim",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/copy/griffinlim/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "copy/griffinlim",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/copy/griffinlim/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "copy/griffinlim",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/copy/griffinlim/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts/griffinlim",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/tts/griffinlim/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts/griffinlim",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/tts/griffinlim/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts/griffinlim",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/tts/griffinlim/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/griffinlim",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/tts/griffinlim/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/griffinlim",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/tts/griffinlim/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/griffinlim",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/tts/griffinlim/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/griffinlim",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/tts/griffinlim/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/griffinlim",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/tts/griffinlim/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/griffinlim",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/tts/griffinlim/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/griffinlim",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/tts/griffinlim/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/griffinlim",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/tts/griffinlim/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/griffinlim",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/tts/griffinlim/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/griffinlim",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/tts/griffinlim/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "copy/vocos",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/copy/vocos/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "copy/vocos",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/copy/vocos/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "copy/vocos",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/copy/vocos/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts/vocos",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/tts/vocos/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts/vocos",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/tts/vocos/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts/vocos",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/tts/vocos/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/vocos",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/tts/vocos/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/vocos",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/tts/vocos/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/vocos",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/tts/vocos/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/vocos",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/tts/vocos/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/vocos",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/tts/vocos/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/vocos",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/tts/vocos/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/vocos",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/tts/vocos/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/vocos",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/tts/vocos/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/vocos",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/tts/vocos/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/vocos",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/tts/vocos/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "copy/hifigan_v2",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/copy/hifigan_v2/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "copy/hifigan_v2",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/copy/hifigan_v2/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "copy/hifigan_v2",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/copy/hifigan_v2/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts/hifigan_v2",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/tts/hifigan_v2/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts/hifigan_v2",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/tts/hifigan_v2/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "tts/hifigan_v2",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/tts/hifigan_v2/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/hifigan_v2",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/tts/hifigan_v2/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/hifigan_v2",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/tts/hifigan_v2/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/hifigan_v2",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/tts/hifigan_v2/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/hifigan_v2",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/tts/hifigan_v2/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/hifigan_v2",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/tts/hifigan_v2/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/hifigan_v2",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/tts/hifigan_v2/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/hifigan_v2",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/tts/hifigan_v2/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/hifigan_v2",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/tts/hifigan_v2/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/hifigan_v2",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/tts/hifigan_v2/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "tts/hifigan_v2",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/tts/hifigan_v2/ono_01.mp3"
+  }
+]

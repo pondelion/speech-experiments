@@ -1,0 +1,431 @@
+{
+  "condition": "cuda_both_wo8_float32_gptq",
+  "threads": 8,
+  "warmup": 1,
+  "repeats": 3,
+  "dtype": "float32",
+  "weight_only": {
+    "calibration": {
+      "signature": {
+        "schema": 1,
+        "method": "gptq",
+        "bits": 8,
+        "group_size": 128,
+        "dtype": "torch.float32",
+        "torch": "2.14.0+cu130",
+        "torchao": "0.18.0",
+        "checkpoint_sha256": {
+          "codec": "9bfb092687f7771b97f1c3a2f39faa6fd013eba46a19b99931d6796fcb62a4a3",
+          "s2m": "afe449a01b27525c92e344c972326ced171c5ce6104e96f0499b6aa6e04ee64a",
+          "t2s": "a8999322009beeca7eabc2281921466f6683ff92bc6be49e82472bec68706adb"
+        },
+        "calibration_ids": [
+          "BASIC5000_0615",
+          "BASIC5000_0225",
+          "BASIC5000_1635",
+          "BASIC5000_2023",
+          "TRAVEL1000_0747",
+          "BASIC5000_3333",
+          "BASIC5000_3019",
+          "ONOMATOPEE300_054"
+        ]
+      },
+      "calibration_split": "train",
+      "texts": 8,
+      "reference_generation_s": 13.735471995998523,
+      "states_t2s": [
+        1.0,
+        0.5,
+        0.04
+      ],
+      "states_s2m": [
+        0.0,
+        0.5,
+        0.96
+      ],
+      "activation_rows_per_layer_cap": null,
+      "observation": "all layers observe unquantized upstream outputs; not sequential GPTQ",
+      "scale_search_space_size": null,
+      "percdamp": 0.01,
+      "layers": {
+        "t2s": {
+          "quantized_layers": [
+            "time_mlp.0",
+            "time_mlp.2",
+            "blocks.0.qkv",
+            "blocks.0.out",
+            "blocks.0.mlp.0",
+            "blocks.0.mlp.2",
+            "blocks.0.ada",
+            "blocks.1.qkv",
+            "blocks.1.out",
+            "blocks.1.mlp.0",
+            "blocks.1.mlp.2",
+            "blocks.1.ada",
+            "blocks.2.qkv",
+            "blocks.2.out",
+            "blocks.2.mlp.0",
+            "blocks.2.mlp.2",
+            "blocks.2.ada",
+            "blocks.3.qkv",
+            "blocks.3.out",
+            "blocks.3.mlp.0",
+            "blocks.3.mlp.2",
+            "blocks.3.ada",
+            "blocks.4.qkv",
+            "blocks.4.out",
+            "blocks.4.mlp.0",
+            "blocks.4.mlp.2",
+            "blocks.4.ada",
+            "blocks.5.qkv",
+            "blocks.5.out",
+            "blocks.5.mlp.0",
+            "blocks.5.mlp.2",
+            "blocks.5.ada",
+            "blocks.6.qkv",
+            "blocks.6.out",
+            "blocks.6.mlp.0",
+            "blocks.6.mlp.2",
+            "blocks.6.ada",
+            "blocks.7.qkv",
+            "blocks.7.out",
+            "blocks.7.mlp.0",
+            "blocks.7.mlp.2",
+            "blocks.7.ada",
+            "encoder.encoder.layer.0.attention.self.query",
+            "encoder.encoder.layer.0.attention.self.key",
+            "encoder.encoder.layer.0.attention.self.value",
+            "encoder.encoder.layer.0.attention.output.dense",
+            "encoder.encoder.layer.0.intermediate.dense",
+            "encoder.encoder.layer.0.output.dense",
+            "encoder.encoder.layer.1.attention.self.query",
+            "encoder.encoder.layer.1.attention.self.key",
+            "encoder.encoder.layer.1.attention.self.value",
+            "encoder.encoder.layer.1.attention.output.dense",
+            "encoder.encoder.layer.1.intermediate.dense",
+            "encoder.encoder.layer.1.output.dense",
+            "encoder.encoder.layer.2.attention.self.query",
+            "encoder.encoder.layer.2.attention.self.key",
+            "encoder.encoder.layer.2.attention.self.value",
+            "encoder.encoder.layer.2.attention.output.dense",
+            "encoder.encoder.layer.2.intermediate.dense",
+            "encoder.encoder.layer.2.output.dense",
+            "encoder.encoder.layer.3.attention.self.query",
+            "encoder.encoder.layer.3.attention.self.key",
+            "encoder.encoder.layer.3.attention.self.value",
+            "encoder.encoder.layer.3.attention.output.dense",
+            "encoder.encoder.layer.3.intermediate.dense",
+            "encoder.encoder.layer.3.output.dense",
+            "duration.out",
+            "align_proj"
+          ],
+          "excluded_layers": [
+            "head"
+          ]
+        },
+        "s2m": {
+          "quantized_layers": [
+            "regulator.proj",
+            "in_proj",
+            "t_mlp.0",
+            "t_mlp.2",
+            "blocks.0.qkv",
+            "blocks.0.out",
+            "blocks.0.mlp.0",
+            "blocks.0.mlp.2",
+            "blocks.0.ada",
+            "blocks.1.qkv",
+            "blocks.1.out",
+            "blocks.1.mlp.0",
+            "blocks.1.mlp.2",
+            "blocks.1.ada",
+            "blocks.2.qkv",
+            "blocks.2.out",
+            "blocks.2.mlp.0",
+            "blocks.2.mlp.2",
+            "blocks.2.ada",
+            "blocks.3.qkv",
+            "blocks.3.out",
+            "blocks.3.mlp.0",
+            "blocks.3.mlp.2",
+            "blocks.3.ada",
+            "blocks.4.qkv",
+            "blocks.4.out",
+            "blocks.4.mlp.0",
+            "blocks.4.mlp.2",
+            "blocks.4.ada",
+            "blocks.5.qkv",
+            "blocks.5.out",
+            "blocks.5.mlp.0",
+            "blocks.5.mlp.2",
+            "blocks.5.ada",
+            "blocks.6.qkv",
+            "blocks.6.out",
+            "blocks.6.mlp.0",
+            "blocks.6.mlp.2",
+            "blocks.6.ada",
+            "blocks.7.qkv",
+            "blocks.7.out",
+            "blocks.7.mlp.0",
+            "blocks.7.mlp.2",
+            "blocks.7.ada",
+            "out"
+          ],
+          "excluded_layers": []
+        }
+      },
+      "total_calibration_s": 55.11334157300007
+    }
+  },
+  "quantized_linear_names": [],
+  "t2s_quantized_linear_names": [],
+  "excluded_t2s_layers": [
+    "head"
+  ],
+  "t2s_state_bytes_fp32": 216663527,
+  "t2s_state_bytes": 63762391,
+  "s2m_state_bytes_fp32": 162902707,
+  "s2m_state_bytes": 46811135,
+  "conversion_s": 56.06045418600843,
+  "cases": {
+    "short": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.0001438610051991418,
+          "p90_s": 0.00015331700269598513,
+          "min_s": 0.00014017699868418276,
+          "max_s": 0.00015568100207019597,
+          "runs_s": [
+            0.0001438610051991418,
+            0.00014017699868418276,
+            0.00015568100207019597
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.008521715993992984,
+          "p90_s": 0.00895055920118466,
+          "min_s": 0.004674515992519446,
+          "max_s": 0.00905777000298258,
+          "runs_s": [
+            0.004674515992519446,
+            0.00905777000298258,
+            0.008521715993992984
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.5939880889927736,
+          "p90_s": 1.7020587498060196,
+          "min_s": 1.5635966730042128,
+          "max_s": 1.729076415009331,
+          "runs_s": [
+            1.5635966730042128,
+            1.5939880889927736,
+            1.729076415009331
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.38278751701000147,
+          "p90_s": 0.4078207969956566,
+          "min_s": 0.3787613830063492,
+          "max_s": 0.41407911699207034,
+          "runs_s": [
+            0.38278751701000147,
+            0.3787613830063492,
+            0.41407911699207034
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.03269604899105616,
+          "p90_s": 0.03353592580533586,
+          "min_s": 0.030329141998663545,
+          "max_s": 0.03374589500890579,
+          "runs_s": [
+            0.03269604899105616,
+            0.030329141998663545,
+            0.03374589500890579
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 2.012276560999453,
+          "p90_s": 2.1509183714049867,
+          "min_s": 1.983898616002989,
+          "max_s": 2.1855788240063703,
+          "runs_s": [
+            1.983898616002989,
+            2.012276560999453,
+            2.1855788240063703
+          ]
+        }
+      },
+      "rtf_median": 3.197473349045741,
+      "finite": true,
+      "sample_seed": 3
+    },
+    "medium": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.0008625460031908005,
+          "p90_s": 0.0012389131996314972,
+          "min_s": 0.0005354599998099729,
+          "max_s": 0.0013330049987416714,
+          "runs_s": [
+            0.0013330049987416714,
+            0.0008625460031908005,
+            0.0005354599998099729
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.005886974991881289,
+          "p90_s": 0.010216574199148454,
+          "min_s": 0.005814884993014857,
+          "max_s": 0.011298974000965245,
+          "runs_s": [
+            0.005814884993014857,
+            0.005886974991881289,
+            0.011298974000965245
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.4337614050018601,
+          "p90_s": 1.443323290592525,
+          "min_s": 1.4094310810032766,
+          "max_s": 1.4457137619901914,
+          "runs_s": [
+            1.4457137619901914,
+            1.4094310810032766,
+            1.4337614050018601
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.34809173199755605,
+          "p90_s": 0.3550642679998418,
+          "min_s": 0.3390103720012121,
+          "max_s": 0.3568074020004133,
+          "runs_s": [
+            0.3568074020004133,
+            0.34809173199755605,
+            0.3390103720012121
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.03844042400305625,
+          "p90_s": 0.04239315360027831,
+          "min_s": 0.02989226600038819,
+          "max_s": 0.043381335999583825,
+          "runs_s": [
+            0.03844042400305625,
+            0.02989226600038819,
+            0.043381335999583825
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 1.8279875470034312,
+          "p90_s": 1.8440850917890204,
+          "min_s": 1.794164599996293,
+          "max_s": 1.8481094779854175,
+          "runs_s": [
+            1.8481094779854175,
+            1.794164599996293,
+            1.8279875470034312
+          ]
+        }
+      },
+      "rtf_median": 0.3380154487802203,
+      "finite": true,
+      "sample_seed": 3
+    },
+    "long": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.0012523879995569587,
+          "p90_s": 0.001285319193266332,
+          "min_s": 0.0012315509957261384,
+          "max_s": 0.0012935519916936755,
+          "runs_s": [
+            0.0012935519916936755,
+            0.0012315509957261384,
+            0.0012523879995569587
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.005430953009636141,
+          "p90_s": 0.008888661794480867,
+          "min_s": 0.005150675991899334,
+          "max_s": 0.00975308899069205,
+          "runs_s": [
+            0.005150675991899334,
+            0.005430953009636141,
+            0.00975308899069205
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.5565745950007113,
+          "p90_s": 1.6607697197963716,
+          "min_s": 1.5452633380045881,
+          "max_s": 1.6868185009952867,
+          "runs_s": [
+            1.6868185009952867,
+            1.5452633380045881,
+            1.5565745950007113
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.3611977530090371,
+          "p90_s": 0.3804360921989428,
+          "min_s": 0.35193285599234514,
+          "max_s": 0.3852456769964192,
+          "runs_s": [
+            0.35193285599234514,
+            0.3852456769964192,
+            0.3611977530090371
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.03381324499787297,
+          "p90_s": 0.03798450260364916,
+          "min_s": 0.0291958369925851,
+          "max_s": 0.03902731700509321,
+          "runs_s": [
+            0.03902731700509321,
+            0.03381324499787297,
+            0.0291958369925851
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 1.9709847640042426,
+          "p90_s": 2.061575274381903,
+          "min_s": 1.9579736619925825,
+          "max_s": 2.084222901976318,
+          "runs_s": [
+            2.084222901976318,
+            1.9709847640042426,
+            1.9579736619925825
+          ]
+        }
+      },
+      "rtf_median": 0.1343853248184711,
+      "finite": true,
+      "sample_seed": 3
+    }
+  },
+  "environment": {
+    "measured_at": "2026-11-12T06:28:44.485338+00:00",
+    "git_commit": "b560b08f0430b7d124902a7562d3b988ff33c3e9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 35179,
+    "torch_num_threads": 8,
+    "torch_num_interop_threads": 20
+  }
+}
