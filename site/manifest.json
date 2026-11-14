@@ -4,7 +4,8 @@
   "repo_url": "https://github.com/pondelion/speech-experiments",
   "sample_groups": {
     "test": {"title": "JSUT テスト文", "note": "学習に使っていない JSUT の voiceactress100(正解の録音あり)"},
-    "eval_texts": {"title": "実用文", "note": "datasets/eval_texts/practical.tsv。カテゴリごとの先頭 1 文(正解の録音なし)"}
+    "eval_texts": {"title": "実用文", "note": "datasets/eval_texts/practical.tsv。カテゴリごとの先頭 1 文(正解の録音なし)"},
+    "worst": {"title": "悪い例", "note": "JSUT テスト文のうち、TTS の F0 のずれが大きかった文(元の録音と比べる)"}
   },
   "bases": [
     {

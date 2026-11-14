@@ -1,6 +1,6 @@
 [
   {
-    "group": "test",
+    "group": "worst",
     "condition": "worst/real",
     "id": "VOICEACTRESS100_042",
     "text": "祭神は、ヴィシュヌ派の聖人、スワーミーナーラーヤン。",
@@ -8,7 +8,7 @@
     "file": "test/worst/real/VOICEACTRESS100_042.mp3"
   },
   {
-    "group": "test",
+    "group": "worst",
     "condition": "worst/tts_vocos",
     "id": "VOICEACTRESS100_042",
     "text": "祭神は、ヴィシュヌ派の聖人、スワーミーナーラーヤン。",
@@ -16,7 +16,7 @@
     "file": "test/worst/tts_vocos/VOICEACTRESS100_042.mp3"
   },
   {
-    "group": "test",
+    "group": "worst",
     "condition": "worst/real",
     "id": "VOICEACTRESS100_055",
     "text": "ウォリアーズミックスマーシャルアーツアカデミー所属。",
@@ -24,7 +24,7 @@
     "file": "test/worst/real/VOICEACTRESS100_055.mp3"
   },
   {
-    "group": "test",
+    "group": "worst",
     "condition": "worst/tts_vocos",
     "id": "VOICEACTRESS100_055",
     "text": "ウォリアーズミックスマーシャルアーツアカデミー所属。",
@@ -32,7 +32,7 @@
     "file": "test/worst/tts_vocos/VOICEACTRESS100_055.mp3"
   },
   {
-    "group": "test",
+    "group": "worst",
     "condition": "worst/real",
     "id": "VOICEACTRESS100_085",
     "text": "遺灰のほとんどは、スウェーデン西海岸の、ブーヒュースレーン地方の小島にある漁村、フヤルバッカ周辺の海に、散骨された。",
@@ -40,7 +40,7 @@
     "file": "test/worst/real/VOICEACTRESS100_085.mp3"
   },
   {
-    "group": "test",
+    "group": "worst",
     "condition": "worst/tts_vocos",
     "id": "VOICEACTRESS100_085",
     "text": "遺灰のほとんどは、スウェーデン西海岸の、ブーヒュースレーン地方の小島にある漁村、フヤルバッカ周辺の海に、散骨された。",
@@ -48,7 +48,7 @@
     "file": "test/worst/tts_vocos/VOICEACTRESS100_085.mp3"
   },
   {
-    "group": "test",
+    "group": "worst",
     "condition": "worst/real",
     "id": "VOICEACTRESS100_037",
     "text": "コミューンは、セーヌ川と、エソンヌ川の、合流地点となっている。",
@@ -56,7 +56,7 @@
     "file": "test/worst/real/VOICEACTRESS100_037.mp3"
   },
   {
-    "group": "test",
+    "group": "worst",
     "condition": "worst/tts_vocos",
     "id": "VOICEACTRESS100_037",
     "text": "コミューンは、セーヌ川と、エソンヌ川の、合流地点となっている。",
@@ -64,7 +64,7 @@
     "file": "test/worst/tts_vocos/VOICEACTRESS100_037.mp3"
   },
   {
-    "group": "test",
+    "group": "worst",
     "condition": "worst/real",
     "id": "VOICEACTRESS100_018",
     "text": "他のメジャーなディストリビューションに比べ、セキュリティー上の問題の修正が、遅い場合もある。",
@@ -72,7 +72,7 @@
     "file": "test/worst/real/VOICEACTRESS100_018.mp3"
   },
   {
-    "group": "test",
+    "group": "worst",
     "condition": "worst/tts_vocos",
     "id": "VOICEACTRESS100_018",
     "text": "他のメジャーなディストリビューションに比べ、セキュリティー上の問題の修正が、遅い場合もある。",

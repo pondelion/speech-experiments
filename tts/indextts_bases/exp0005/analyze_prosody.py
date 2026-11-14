@@ -122,7 +122,7 @@ def main():
             sd = results / "samples" / "test" / cond
             sd.mkdir(parents=True, exist_ok=True)
             save_preview(d / f"{u.id}.wav", sd / f"{u.id}.mp3")
-            index.append({"group": "test", "condition": cond, "id": u.id, "text": u.text, "category": "jsut_test",
+            index.append({"group": "worst", "condition": cond, "id": u.id, "text": u.text, "category": "jsut_test",
                           "file": f"test/{cond}/{u.id}.mp3"})
     (results / "samples" / "index.json").write_text(json.dumps(index, indent=2, ensure_ascii=False))
     (results / "prosody_analysis.json").write_text(json.dumps(out, indent=2, ensure_ascii=False))
