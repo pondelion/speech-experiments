@@ -125,7 +125,7 @@ class HybridT2S(MaskedT2S):
         return [a[b, : len(d)].repeat_interleave(d.to(self.device), dim=0) for b, d in enumerate(durations)]
 
     def forward(self, text_ids: list[torch.Tensor], codes: list[torch.Tensor],
-                durations: list[torch.Tensor]) -> tuple[torch.Tensor, dict]:
+                durations: list[torch.Tensor], f0_targets: list[torch.Tensor] | None = None) -> tuple[torch.Tensor, dict]:
         """学習の損失: 隠した位置のトークンの分類の損失 + dur_weight × 長さの損失(正解の長さで並べる)。"""
         h, mask = self.encode(text_ids)
         dur = nn.utils.rnn.pad_sequence(durations, batch_first=True).to(self.device)           # [B, L]
@@ -133,8 +133,26 @@ class HybridT2S(MaskedT2S):
             dur_loss = F.mse_loss(self.duration(h)[mask].float(), torch.log1p(dur[mask].float()))
         else:
             dur_loss = self.duration.loss(h, mask, dur)
-        loss, parts = super().forward(text_ids, codes, self.align(h, durations))
+        loss, parts = super().forward(text_ids, codes, self.align(h, durations), f0_targets)
         return loss + self.dur_weight * dur_loss, {**parts, "dur_loss": dur_loss.item()}
+
+    @torch.no_grad()
+    def predict_f0(self, text_ids: list[torch.Tensor], codes: list[torch.Tensor],
+                   durations: list[torch.Tensor]) -> list[torch.Tensor]:
+        """生成したトークン列から、各トークンの区間の (有声か 0/1, 正規化した log F0) を予測する(F0 の補助の損失で学習したとき)。
+
+        全てのトークンを埋めた状態(時刻 t ≒ 0)で T2S に通し、F0 の補助の出力を読む。exp0005 で S2M の F0 の条件に使う。
+
+        Returns:
+            発話ごとの [U_i, 2](無声のトークンの log F0 は 0)。
+        """
+        h, _ = self.encode(text_ids)
+        t = torch.full((len(codes),), 1e-5)
+        hid, valid = self.hidden(text_ids, codes, t, torch.zeros(len(codes), dtype=torch.bool), self.align(h, durations))
+        p = self.f0_head(hid).float()                                                           # [B, U, 2]
+        voiced = (p[..., 0] > 0).float()                                                        # sigmoid > 0.5
+        out = torch.stack([voiced, p[..., 1] * voiced], -1)
+        return [out[b, : len(c)].cpu() for b, c in enumerate(codes)]
 
     @torch.no_grad()
     def predict_durations(self, text_ids: list[torch.Tensor], ar_decode: str = "argmax") -> list[torch.Tensor]:

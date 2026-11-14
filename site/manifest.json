@@ -416,6 +416,31 @@
               {"id": "tts/griffinlim", "label": "Griffin-Lim", "cer": {"test": 0.064, "eval_texts": 0.062}, "default": true},
               {"id": "tts/hifigan_v2", "label": "HiFi-GAN V2", "cer": {"test": 0.064, "eval_texts": 0.073}, "default": true},
               {"id": "tts/vocos", "label": "Vocos", "cer": {"test": 0.063, "eval_texts": 0.077}, "default": true}
+            ]},
+            {"title": "exp0003 の外部のコーデックの構成の Mel → ボコーダ", "conditions": [
+              {"id": "exp0003_xcodec2_fixed/griffinlim", "label": "XCodec2(固定)Griffin-Lim", "cer": {"test": 0.050, "eval_texts": 0.060}},
+              {"id": "exp0003_xcodec2_fixed/vocos", "label": "XCodec2(固定)Vocos", "cer": {"test": 0.051, "eval_texts": 0.061}},
+              {"id": "exp0003_bicodec/griffinlim", "label": "BiCodec Griffin-Lim", "cer": {"test": 0.057, "eval_texts": 0.050}},
+              {"id": "exp0003_bicodec/vocos", "label": "BiCodec Vocos", "cer": {"test": 0.056, "eval_texts": 0.071}}
+            ]}
+          ]
+        },
+        {
+          "id": "exp0005",
+          "title": "exp0005: 抑揚(イントネーション)の改善",
+          "dir": "tts/indextts_bases/exp0005",
+          "summary": "抑揚の崩れの大部分は T2S が選ぶトークンから来ていた。T2S に F0 を当てる補助の損失を足し、生成の CFG を 0 にすると、モーラの F0 の動きの元の録音との相関が 0.69 → 0.81 に改善した。さらに S2M に T2S が予測した F0 を与え、補助の損失の重みを 2.0 にすると、相関 0.84・GPE 23% → 11%・CER 7.1% → 5.6%・UTMOS 3.52 → 3.67 になった。",
+          "samples": "tts/indextts_bases/exp0005/results/samples",
+          "condition_groups": [
+            {"title": "T2S の改善(日本語 HuBERT + Vocos)", "conditions": [
+              {"id": "baseline", "label": "基準(exp0004)", "cer": {"test": 0.071, "eval_texts": 0.077}, "default": true},
+              {"id": "f0aux_cfg0", "label": "F0 の補助の損失 + CFG 0", "cer": {"test": 0.061}, "default": true},
+              {"id": "f0aux_cfg0_s2mf0", "label": "+ S2M に予測した F0 を与える", "cer": {"test": 0.059, "eval_texts": 0.063}, "default": true},
+              {"id": "f0aux_w2_cfg0_s2mf0", "label": "同上、F0 の補助の損失の重み 2.0(一番良い構成)", "cer": {"test": 0.056, "eval_texts": 0.063}, "default": true}
+            ]},
+            {"title": "悪い例: T2S から作った音声で F0 のずれが大きい 5 文", "conditions": [
+              {"id": "worst/real", "label": "元の録音", "default": true},
+              {"id": "worst/tts_vocos", "label": "TTS(日本語 HuBERT + Vocos)", "default": true}
             ]}
           ]
         }

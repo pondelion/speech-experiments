@@ -1,0 +1,156 @@
+{
+  "worst5": {
+    "hl_agreement": 0.7727272727272727,
+    "n_pairs": 22,
+    "n_utts": 4
+  },
+  "others": {
+    "hl_agreement": 0.7672672672672672,
+    "n_pairs": 666,
+    "n_utts": 76
+  },
+  "detail": [
+    {
+      "id": "VOICEACTRESS100_018",
+      "text": "他のメジャーなディストリビューションに比べ、セキュリティー上の問題の修正が、遅い場合もある。",
+      "hl_agreement": 0.625,
+      "n_pairs": 8,
+      "phrases": [
+        {
+          "moras": "ta no",
+          "dict": "HL",
+          "real": "-↑"
+        },
+        {
+          "moras": "me ja a na",
+          "dict": "HLLL",
+          "real": "-↑↑↓"
+        },
+        {
+          "moras": "di sU to ri byu u sho N ni",
+          "dict": "LHHHHLLLL",
+          "real": "-??↑↑↑↓↓↓"
+        },
+        {
+          "moras": "ku ra be",
+          "dict": "LHH",
+          "real": "-↑↓"
+        },
+        {
+          "moras": "se kyu ri ti i jo o no",
+          "dict": "LHHHHHHH",
+          "real": "-↑↑↓↑↓↓↑"
+        },
+        {
+          "moras": "mo N da i no",
+          "dict": "LHHHH",
+          "real": "-↑↑↓↓"
+        },
+        {
+          "moras": "shu u se e ga",
+          "dict": "LHHHH",
+          "real": "-↑↓??"
+        },
+        {
+          "moras": "o so i",
+          "dict": "LHH",
+          "real": "-↑↑"
+        },
+        {
+          "moras": "ba a i mo",
+          "dict": "LHHH",
+          "real": "-↓??"
+        },
+        {
+          "moras": "a ru",
+          "dict": "HL",
+          "real": "-↓"
+        }
+      ]
+    },
+    {
+      "id": "VOICEACTRESS100_037",
+      "text": "コミューンは、セーヌ川と、エソンヌ川の、合流地点となっている。",
+      "hl_agreement": 1.0,
+      "n_pairs": 7,
+      "phrases": [
+        {
+          "moras": "ko myu u N wa",
+          "dict": "LHLLL",
+          "real": "-↑↓↓↓"
+        },
+        {
+          "moras": "se e nu ga wa to",
+          "dict": "LHHLLL",
+          "real": "-↑↑↓↓↓"
+        },
+        {
+          "moras": "e so N nu ka wa no",
+          "dict": "LHHHLLL",
+          "real": "-↑↑↑↓↓↓"
+        },
+        {
+          "moras": "go o ryu u chi te N to",
+          "dict": "LHHHHLLL",
+          "real": "-↑↑↑??↓↓"
+        },
+        {
+          "moras": "na cl te",
+          "dict": "HLL",
+          "real": "-??"
+        },
+        {
+          "moras": "i ru",
+          "dict": "LH",
+          "real": "-↓"
+        }
+      ]
+    },
+    {
+      "id": "VOICEACTRESS100_042",
+      "text": "祭神は、ヴィシュヌ派の聖人、スワーミーナーラーヤン。",
+      "hl_agreement": 0.6,
+      "n_pairs": 5,
+      "phrases": [
+        {
+          "moras": "sa i ji N wa",
+          "dict": "LHHHH",
+          "real": "-↑↓↓↓"
+        },
+        {
+          "moras": "bi shu nu ha no",
+          "dict": "LHHHH",
+          "real": "-↑↑↓↓"
+        },
+        {
+          "moras": "se e ji N",
+          "dict": "HLLL",
+          "real": "-↓↓?"
+        },
+        {
+          "moras": "su wa a",
+          "dict": "HLL",
+          "real": "-↑↑"
+        },
+        {
+          "moras": "mi i na a ra a ya N",
+          "dict": "LHHHHHHH",
+          "real": "-↓↓↓↓↓↓↑"
+        }
+      ]
+    },
+    {
+      "id": "VOICEACTRESS100_055",
+      "text": "ウォリアーズミックスマーシャルアーツアカデミー所属。",
+      "hl_agreement": 1.0,
+      "n_pairs": 2,
+      "phrases": [
+        {
+          "moras": "wo ri a a zu mi cl ku su ma a sha ru a a tsu a ka de mi i sho zo ku",
+          "dict": "LHHHHHHHHHHHHHHHHHHHHHLL",
+          "real": "-↑↑↑↓↓??↓↓↑↑↓↓↑↑↓↑↓↓↓↑↓↓"
+        }
+      ]
+    }
+  ]
+}

@@ -78,7 +78,8 @@ def prepare(utts: list, vocab: TextVocab, codec, norm, device: str, with_duratio
         token_sec: 音声トークン 1 個の長さ(秒)。exp0003 の外部のコーデックでは 1 / (1 秒あたりのトークン数)。
 
     Returns:
-        {"texts": 各 [L_i], "codes": 各 [U_i], "durations": 各 [L_i] または None, "n_dropped": 除いた発話数}。
+        {"texts": 各 [L_i], "codes": 各 [U_i], "durations": 各 [L_i] または None, "n_dropped": 除いた発話数,
+         "keep": 残した発話の utts の中での番号(with_durations のときだけ)}。
     """
     texts = [torch.tensor(vocab.encode(u.text)) for u in utts]
     if codes is None:
@@ -88,7 +89,7 @@ def prepare(utts: list, vocab: TextVocab, codec, norm, device: str, with_duratio
     durs = [phoneme_durations(u, vocab.tokenize(u.text), len(c), token_sec) for u, c in zip(utts, codes)]
     keep = [i for i, d in enumerate(durs) if d is not None]
     return {"texts": [texts[i] for i in keep], "codes": [codes[i] for i in keep],
-            "durations": [torch.tensor(durs[i]) for i in keep], "n_dropped": len(utts) - len(keep)}
+            "durations": [torch.tensor(durs[i]) for i in keep], "n_dropped": len(utts) - len(keep), "keep": keep}
 
 
 def load_t2s(path: Path, device: str):

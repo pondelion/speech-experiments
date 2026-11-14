@@ -110,5 +110,43 @@
       "rtf_gpu": 0.001487145127553315,
       "rtf_cpu": 0.0249914880460423
     }
+  },
+  "exp0003_vocoder": {
+    "test": {
+      "exp0003_xcodec2_fixed/griffinlim": {
+        "cer": 0.04971897968006917,
+        "utmos": 1.3661417734622956
+      },
+      "exp0003_xcodec2_fixed/vocos": {
+        "cer": 0.050799827064418504,
+        "utmos": 2.669003920555115
+      },
+      "exp0003_bicodec/griffinlim": {
+        "cer": 0.05685257241677475,
+        "utmos": 1.3979840564727783
+      },
+      "exp0003_bicodec/vocos": {
+        "cer": 0.055771725032425425,
+        "utmos": 3.0482829213142395
+      }
+    },
+    "eval_texts": {
+      "exp0003_xcodec2_fixed/griffinlim": {
+        "cer": 0.05996002664890073,
+        "utmos": 1.4450449640100653
+      },
+      "exp0003_xcodec2_fixed/vocos": {
+        "cer": 0.060626249167221855,
+        "utmos": 2.7998014385049994
+      },
+      "exp0003_bicodec/griffinlim": {
+        "cer": 0.049966688874083946,
+        "utmos": 1.5069177389144897
+      },
+      "exp0003_bicodec/vocos": {
+        "cer": 0.07128580946035976,
+        "utmos": 3.06545897397128
+      }
+    }
   }
 }

@@ -5,6 +5,8 @@ F0(声の高さ)は librosa の pyin で、Mel と同じフレーム(24kHz、HOP
     compare_f0_dtw: 長さの違う音声(TTS)を、Mel の近さで DTW により時間を合わせてから比べる
     指標: GPE(両方が有声のフレームのうち F0 が 20% 以上ずれた割合)、FFE(有声・無声の判定の不一致か GPE にあたる
           フレームの割合)、それ以外のフレームでの log F0 の相関と誤差(セント。100 セント = 半音)
+mora_phrases・mora_accent_scores: アクセント句ごとにモーラの区間を作り、モーラ単位の F0 で、辞書のアクセントの高・低との一致率と、
+    元の録音との F0 の動きの相関を測る(exp0005 で作った、accent_accuracy より細かい指標)
 accent_accuracy: pyopenjtalk のアクセント記号の前後で、F0 が正しい向きに動いているかの割合。
     「[」(声が上がる): 記号の後の母音の F0 > 前の母音の F0、「]」(アクセント核の後で下がる): 後 < 前 なら正解。
     各母音の F0 は、その母音の区間の有声のフレームの中央値。音素の区間は、正解の録音では jsut-lab の時刻、
@@ -94,6 +96,87 @@ def accent_accuracy(f0s: list, tokens: list[list[str]], durations: list, frames_
     n = hits["["][1] + hits["]"][1]
     return {"accent_acc": (hits["["][0] + hits["]"][0]) / max(n, 1), "rise_acc": hits["["][0] / max(hits["["][1], 1),
             "fall_acc": hits["]"][0] / max(hits["]"][1], 1), "n": n}
+
+
+MORA_END = set("aiueoAIUEO") | {"N", "cl"}  # モーラの終わりになる音素(母音・撥音「ん」・促音「っ」)。子音は次の母音と 1 モーラになる
+PHRASE_BREAK = {"#", "_", "^", "$", "?"}     # アクセント句の区切り(句の区切り・ポーズ・文頭・文末)
+
+
+def mora_phrases(tokens: list[str], durations, frames_per_unit: float) -> list[list[tuple[int, int, bool]]]:
+    """アクセント句ごとの、モーラの (開始フレーム, 終了フレーム, 辞書のアクセントで高いか) のリスト。
+
+    高・低は pyopenjtalk のアクセント記号から決める: 句の始めは低、「[」の後は高、「]」(アクセント核)の後は低。
+    1 モーラ目にアクセント核がある句(頭高型。「]」が 1 モーラ目の直後にあり、その前に「[」が無い)は、1 モーラ目を高にする。
+
+    Args:
+        tokens: テキストのトークン(<bos>・<eos> は含まない)。
+        durations: 各トークンの長さ [<bos> + トークン + <eos>](長さの単位は 1 つの音声トークン)。
+        frames_per_unit: 長さの単位 1 つあたりの Mel のフレーム数。
+    """
+    dur = np.asarray(durations)[1:-1] * frames_per_unit
+    ends = np.cumsum(dur)
+    phrases, cur, start, high, saw_rise = [], [], None, False, False
+    for t, e, d in zip(tokens, ends, dur):
+        if t in PHRASE_BREAK:
+            if cur:
+                phrases.append(cur)
+            cur, start, high, saw_rise = [], None, False, False
+        elif t == "[":
+            high, saw_rise = True, True
+        elif t == "]":
+            if len(cur) == 1 and not saw_rise:  # 頭高型
+                cur[0] = (cur[0][0], cur[0][1], True)
+            high = False
+        else:
+            start = e - d if start is None else start
+            if t in MORA_END:
+                cur.append((int(start), int(np.ceil(e)), high))
+                start = None
+    if cur:
+        phrases.append(cur)
+    return phrases
+
+
+def _mora_f0(f: np.ndarray, v: np.ndarray, phrase, part: str = "second_half") -> np.ndarray:
+    """句の各モーラの log F0(有声のフレームの中央値。無ければ nan)。
+
+    part: "whole" はモーラ全体、"second_half" はモーラの後半(高さの変化はモーラの途中で起きるので、後半の方がそのモーラの高さを表す)。
+    """
+    out = []
+    for a, b, _ in phrase:
+        a = (a + b) // 2 if part == "second_half" and b - a >= 2 else a
+        out.append(np.log2(np.median(f[a:b][v[a:b]])) if v[a:b].any() else np.nan)
+    return np.array(out)
+
+
+def mora_accent_scores(f0s_hyp: list, phrases_hyp: list, f0s_ref: list | None = None, phrases_ref: list | None = None) -> dict:
+    """モーラ単位の抑揚の指標(3 モーラ以上で、有声のモーラが 3 つ以上ある句だけを数える)。
+
+    hl_agreement: 隣り合うモーラの組のうち、辞書のアクセントで高さが変わる組(低 → 高・高 → 低)で、F0 が同じ向きに動いている割合
+                  (高さが変わらない組は数えない。文の中で F0 が少しずつ下がる傾向に左右されにくいように、隣どうしだけで比べる)
+    contour_corr: 句ごとのモーラの log F0 の動きと、元の録音(f0s_ref・phrases_ref)の動きの相関の平均(ref を与えたときだけ)
+    """
+    agree, n_mora, corrs = 0, 0, []
+    for i, (f, v) in enumerate(f0s_hyp):
+        for k, ph in enumerate(phrases_hyp[i]):
+            x = _mora_f0(f, v, ph)
+            ok = ~np.isnan(x)
+            if len(ph) < 3 or ok.sum() < 3:
+                continue
+            expect = np.array([h for _, _, h in ph])
+            for j in range(len(ph) - 1):
+                if expect[j] != expect[j + 1] and ok[j] and ok[j + 1]:
+                    agree += int((x[j + 1] > x[j]) == expect[j + 1])
+                    n_mora += 1
+            if f0s_ref is not None and k < len(phrases_ref[i]) and len(phrases_ref[i][k]) == len(ph):
+                y = _mora_f0(*f0s_ref[i], phrases_ref[i][k])
+                both = ok & ~np.isnan(y)
+                if both.sum() >= 3 and np.std(x[both]) > 0 and np.std(y[both]) > 0:
+                    corrs.append(float(np.corrcoef(x[both], y[both])[0, 1]))
+    out = {"hl_agreement": agree / max(n_mora, 1), "n_pairs": n_mora}
+    if f0s_ref is not None:
+        out["contour_corr"] = float(np.mean(corrs)) if corrs else float("nan")
+    return out
 
 
 def duration_error(pred: list, gt: list, tokens: list[list[str]], sec_per_unit: float, marks: set) -> float:
