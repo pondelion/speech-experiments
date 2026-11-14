@@ -1,0 +1,35 @@
+{
+  "condition": "cuda_f_baseline",
+  "phase": "memory",
+  "environment": {
+    "measured_at": "2026-11-14T08:00:54.012206+00:00",
+    "git_commit": "8de5bd18bc6ad9b1f67755476ff4366bc27ac1d8",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 237908,
+    "torch_num_threads": 8,
+    "torch_num_interop_threads": 20
+  },
+  "quantization": {
+    "mode": "baseline",
+    "group_size": 128,
+    "trainable_model": "t2s",
+    "inference": "actual converted INT4, not fake quant"
+  },
+  "dtype": "bfloat16",
+  "linear_backend": "eager",
+  "load_convert_warmup_peak_vram_bytes": 494945280,
+  "process_peak_rss_bytes": 2908848128,
+  "inference_peak_vram_bytes": 364146176
+}

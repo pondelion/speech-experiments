@@ -269,6 +269,112 @@
                   }
                 }
               ]
+            },
+            {
+              "title": "F: QATと追加学習の比較",
+              "conditions": [
+                {
+                  "id": "cuda_f_baseline",
+                  "label": "CUDA BF16基準",
+                  "cer": {
+                    "test": 0.06506701253782966,
+                    "eval_texts": 0.0626249167221852
+                  }
+                },
+                {
+                  "id": "cuda_f_ptq",
+                  "label": "CUDA T2S PTQ INT4",
+                  "cer": {
+                    "test": 0.07198443579766536,
+                    "eval_texts": 0.06129247168554297
+                  }
+                },
+                {
+                  "id": "cuda_f_ft",
+                  "label": "CUDA 追加学習 BF16",
+                  "cer": {
+                    "test": 0.07479463899697363,
+                    "eval_texts": 0.05862758161225849
+                  }
+                },
+                {
+                  "id": "cuda_f_ft_ptq",
+                  "label": "CUDA 追加学習後PTQ INT4",
+                  "cer": {
+                    "test": 0.0730652831820147,
+                    "eval_texts": 0.0552964690206529
+                  }
+                },
+                {
+                  "id": "cuda_f_qat",
+                  "label": "CUDA QAT後INT4",
+                  "cer": {
+                    "test": 0.07284911370514484,
+                    "eval_texts": 0.05862758161225849
+                  }
+                }
+              ]
+            },
+            {
+              "title": "G: ONNX Runtimeと量子化",
+              "conditions": [
+                {
+                  "id": "cuda_g_torch",
+                  "label": "CUDA PyTorch FP32",
+                  "cer": {
+                    "test": 0.06463467358408993,
+                    "eval_texts": 0.06728847435043304
+                  }
+                },
+                {
+                  "id": "cuda_g_fp32",
+                  "label": "CUDA ORT FP32",
+                  "cer": {
+                    "test": 0.0648508430609598,
+                    "eval_texts": 0.06728847435043304
+                  }
+                },
+                {
+                  "id": "cuda_g_int4",
+                  "label": "CUDA ORT INT4",
+                  "cer": {
+                    "test": 0.06744487678339818,
+                    "eval_texts": 0.05463024650233178
+                  }
+                },
+                {
+                  "id": "cpu_g_torch",
+                  "label": "CPU PyTorch FP32",
+                  "cer": {
+                    "test": 0.06895806312148725,
+                    "eval_texts": 0.06395736175882745
+                  }
+                },
+                {
+                  "id": "cpu_g_fp32",
+                  "label": "CPU ORT FP32",
+                  "cer": {
+                    "test": 0.06895806312148725,
+                    "eval_texts": 0.06395736175882745
+                  }
+                },
+                {
+                  "id": "cpu_g_int8",
+                  "label": "CPU ORT動的INT8",
+                  "cer": {
+                    "test": 0.07133592736705577,
+                    "eval_texts": 0.06129247168554297
+                  }
+                },
+                {
+                  "id": "cpu_g_int4",
+                  "label": "CPU ORT INT4",
+                  "cer": {
+                    "test": 0.07695633376567229,
+                    "eval_texts": 0.06129247168554297
+                  }
+                }
+              ]
             }
           ]
         }

@@ -18,7 +18,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from einops import rearrange
 
-from ..audio import HOP, N_MELS, SR
+from ..audio import HOP, N_MELS, SR, n_samples
 from .bigvgan import CONFIGS as BIGVGAN_CONFIGS
 from .bigvgan import BigVGANGenerator, MultiScaleSubbandCQTDiscriminator
 from .hifigan import CONFIGS, HiFiGANGenerator, MultiPeriodDiscriminator, MultiScaleDiscriminator
@@ -100,7 +100,7 @@ def feature_matching(feats_real: list[list[torch.Tensor]], feats_fake: list[list
 
 
 class NeuralVocoder(nn.Module):
-    """推論用: log-Mel [B, T, F] → 波形 [B, N](N = HOP × (T - 1)。元の録音の長さにそろえる)。"""
+    """推論用: log-Mel [B, T, F] → 波形 [B, N](N = lib_common.audio.n_samples(T)。元の録音の長さにそろえる)。"""
 
     def __init__(self, name: str):
         super().__init__()
@@ -109,7 +109,7 @@ class NeuralVocoder(nn.Module):
 
     @torch.no_grad()
     def generate(self, mel: torch.Tensor) -> torch.Tensor:
-        n = HOP * (mel.shape[1] - 1)
+        n = n_samples(mel.shape[1])
         wave = self.generator(rearrange(mel, "b t f -> b f t"))                     # [B, 1, N']
         wave = F.pad(wave, (0, max(0, n - wave.shape[-1])))
         return rearrange(wave[..., :n], "b 1 n -> b n")

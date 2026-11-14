@@ -18,13 +18,14 @@ import argparse
 import math
 import random
 import time
+from pathlib import Path
 
 import soundfile as sf
 import torch
 import torch.nn.functional as F
 
 import common
-from lib_common.audio import HOP, SR, load_wave, logmel_torch
+from lib_common.audio import SR, load_wave, logmel_torch, n_samples
 from lib_common.data import load_dataset, split
 from lib_common.neural_vocoder import (MEL_WEIGHT, RECIPES, MultiScaleMelLoss, adversarial_d, adversarial_g,
                                        build_discriminators, build_generator, feature_matching)
@@ -48,7 +49,7 @@ def validate(gen, val, device: str) -> float:
     total = 0.0
     for u in val:
         mel = u.mel.to(device)[None]                                                # [1, T, F]
-        wave = gen(mel.transpose(1, 2))[:, 0, : HOP * (mel.shape[1] - 1)]           # [1, N](元の録音の長さ)
+        wave = gen(mel.transpose(1, 2))[:, 0, : n_samples(mel.shape[1])]           # [1, N](元の録音の長さ)
         total += F.l1_loss(logmel_torch(wave), mel).item()
     gen.train()
     torch.cuda.empty_cache()
@@ -63,7 +64,7 @@ def save_sample(gen, utt, path, device: str):
         sf.write(path.parent / "original.wav", load_wave(utt.path), SR)
     gen.eval()
     mel = utt.mel.to(device)[None]
-    sf.write(path, gen(mel.transpose(1, 2))[0, 0, : HOP * (mel.shape[1] - 1)].cpu().numpy(), SR)
+    sf.write(path, gen(mel.transpose(1, 2))[0, 0, : n_samples(mel.shape[1])].cpu().numpy(), SR)
     gen.train()
 
 
@@ -75,6 +76,7 @@ def main():
     parser.add_argument("--log_every", type=int, default=500)
     parser.add_argument("--sample_every", type=int, default=10000, help="検証データの 1 文を音声にして残す間隔")
     parser.add_argument("--name", required=True)
+    parser.add_argument("--runs_dir", default=None, help="保存先の runs/ (既定は exp0004/runs。exp0006 の 22.05kHz のボコーダは exp0006/runs)")
     parser.add_argument("--resume", action="store_true", help="runs/{name}/last.pt から続ける")
     parser.add_argument("--limit", type=int, default=None, help="動作確認用に発話数を絞る")
     parser.add_argument("--device", default="cuda")
@@ -84,7 +86,7 @@ def main():
     seed_everything(args.seed)
     random.seed(args.seed)
     torch.set_num_threads(4)
-    out = common.RUNS_DIR / args.name
+    out = (Path(args.runs_dir) if args.runs_dir else common.RUNS_DIR) / args.name
     log = Logger(out / "log.txt")
     log(f"args: {vars(args)}")
     r = RECIPES[args.model]
@@ -92,7 +94,7 @@ def main():
     utts = load_dataset(args.limit, log)
     train, val = split(utts, "train"), split(utts, "val")
     waves = [torch.from_numpy(load_wave(u.path)).half() for u in train]             # 学習データの波形(float16 で RAM に置く)
-    log(f"loaded {len(waves)} train waves ({sum(map(len, waves)) / 24000 / 3600:.1f} h) in {time.time() - t0:.0f}s")
+    log(f"loaded {len(waves)} train waves ({sum(map(len, waves)) / SR / 3600:.1f} h) in {time.time() - t0:.0f}s")
 
     gen, discs = build_generator(args.model).to(args.device), build_discriminators(args.model).to(args.device)
     log(f"generator {sum(p.numel() for p in gen.parameters()) / 1e6:.2f}M, discriminators "

@@ -1,0 +1,46 @@
+{
+  "condition": "cpu_g_fp32",
+  "phase": "memory",
+  "environment": {
+    "measured_at": "2026-11-14T09:45:55.293604+00:00",
+    "git_commit": "8de5bd18bc6ad9b1f67755476ff4366bc27ac1d8",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cpu",
+    "cuda_device": null,
+    "pid": 250386,
+    "torch_num_threads": 8,
+    "torch_num_interop_threads": 20
+  },
+  "quantization": {
+    "backend": "onnxruntime",
+    "version": "1.32.0",
+    "precision": "fp32",
+    "graphs": {
+      "encoder": {
+        "bytes": 54754594,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "blocks": {
+        "bytes": 151577560,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "velocity": {
+        "bytes": 155065594,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      }
+    }
+  },
+  "dtype": "float32",
+  "linear_backend": "onnxruntime_io_binding",
+  "load_prepare_s": 5.0133020319917705,
+  "process_peak_rss_bytes": 3079991296
+}

@@ -1,0 +1,78 @@
+{
+  "condition": "cuda_g_fp32",
+  "phase": "quality",
+  "environment": {
+    "measured_at": "2026-11-14T08:35:29.599134+00:00",
+    "git_commit": "8de5bd18bc6ad9b1f67755476ff4366bc27ac1d8",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 245367,
+    "torch_num_threads": 8,
+    "torch_num_interop_threads": 20
+  },
+  "quantization": {
+    "backend": "onnxruntime",
+    "version": "1.32.0",
+    "precision": "fp32",
+    "graphs": {
+      "encoder": {
+        "bytes": 54754594,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "blocks": {
+        "bytes": 151577560,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "velocity": {
+        "bytes": 155065594,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      }
+    }
+  },
+  "dtype": "float32",
+  "linear_backend": "onnxruntime_io_binding",
+  "load_prepare_s": 5.62346825998975,
+  "seed": 0,
+  "t2s_batch": 16,
+  "s2m_batch": 4,
+  "groups": {
+    "test": {
+      "utterances": 100,
+      "finite": true,
+      "cer": {
+        "raw": 0.16142029715436917,
+        "normalized": 0.10700389105058365,
+        "reading": 0.0648508430609598
+      }
+    },
+    "eval_texts": {
+      "utterances": 55,
+      "finite": true,
+      "cer": {
+        "raw": 0.12370311252992817,
+        "normalized": 0.10612597066436583,
+        "reading": 0.06728847435043304
+      }
+    }
+  }
+}

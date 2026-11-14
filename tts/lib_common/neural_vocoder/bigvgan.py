@@ -19,6 +19,7 @@ import torch.nn.functional as F
 from einops import rearrange
 from torch.nn.utils.parametrizations import weight_norm
 
+from ..audio import SR
 from .hifigan import LRELU, _pad
 
 CONFIGS = {
@@ -224,7 +225,7 @@ class CQTDiscriminator(nn.Module):
 class MultiScaleSubbandCQTDiscriminator(nn.Module):
     """CQT の判別器 3 つ(hop 512・256・256、1 オクターブあたりのビン 24・36・48、9 オクターブ。公式の v2 の設定)。"""
 
-    def __init__(self, sr: int = 24000, hops=(512, 256, 256), n_octaves=(9, 9, 9), bins=(24, 36, 48)):
+    def __init__(self, sr: int = SR, hops=(512, 256, 256), n_octaves=(9, 9, 9), bins=(24, 36, 48)):
         super().__init__()
         self.discs = nn.ModuleList([CQTDiscriminator(sr, h, o, b) for h, o, b in zip(hops, n_octaves, bins)])
 

@@ -670,5 +670,293 @@
     "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
     "category": "long",
     "file": "eval_texts/cpu_e_boundary/long.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_baseline",
+    "id": "short",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/cuda_f_baseline/short.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_baseline",
+    "id": "medium",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "medium",
+    "file": "eval_texts/cuda_f_baseline/medium.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_baseline",
+    "id": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/cuda_f_baseline/long.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_ptq",
+    "id": "short",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/cuda_f_ptq/short.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_ptq",
+    "id": "medium",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "medium",
+    "file": "eval_texts/cuda_f_ptq/medium.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_ptq",
+    "id": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/cuda_f_ptq/long.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_ft",
+    "id": "short",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/cuda_f_ft/short.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_ft",
+    "id": "medium",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "medium",
+    "file": "eval_texts/cuda_f_ft/medium.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_ft",
+    "id": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/cuda_f_ft/long.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_ft_ptq",
+    "id": "short",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/cuda_f_ft_ptq/short.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_ft_ptq",
+    "id": "medium",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "medium",
+    "file": "eval_texts/cuda_f_ft_ptq/medium.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_ft_ptq",
+    "id": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/cuda_f_ft_ptq/long.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_qat",
+    "id": "short",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/cuda_f_qat/short.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_qat",
+    "id": "medium",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "medium",
+    "file": "eval_texts/cuda_f_qat/medium.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_f_qat",
+    "id": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/cuda_f_qat/long.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_g_fp32",
+    "id": "short",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/cuda_g_fp32/short.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_g_fp32",
+    "id": "medium",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "medium",
+    "file": "eval_texts/cuda_g_fp32/medium.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_g_fp32",
+    "id": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/cuda_g_fp32/long.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_g_torch",
+    "id": "short",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/cuda_g_torch/short.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_g_torch",
+    "id": "medium",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "medium",
+    "file": "eval_texts/cuda_g_torch/medium.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_g_torch",
+    "id": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/cuda_g_torch/long.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_g_int4",
+    "id": "short",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/cuda_g_int4/short.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_g_int4",
+    "id": "medium",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "medium",
+    "file": "eval_texts/cuda_g_int4/medium.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cuda_g_int4",
+    "id": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/cuda_g_int4/long.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cpu_g_torch",
+    "id": "short",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/cpu_g_torch/short.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cpu_g_torch",
+    "id": "medium",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "medium",
+    "file": "eval_texts/cpu_g_torch/medium.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cpu_g_torch",
+    "id": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/cpu_g_torch/long.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cpu_g_fp32",
+    "id": "short",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/cpu_g_fp32/short.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cpu_g_fp32",
+    "id": "medium",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "medium",
+    "file": "eval_texts/cpu_g_fp32/medium.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cpu_g_fp32",
+    "id": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/cpu_g_fp32/long.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cpu_g_int8",
+    "id": "short",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/cpu_g_int8/short.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cpu_g_int8",
+    "id": "medium",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "medium",
+    "file": "eval_texts/cpu_g_int8/medium.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cpu_g_int8",
+    "id": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/cpu_g_int8/long.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cpu_g_int4",
+    "id": "short",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/cpu_g_int4/short.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cpu_g_int4",
+    "id": "medium",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "medium",
+    "file": "eval_texts/cpu_g_int4/medium.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "cpu_g_int4",
+    "id": "long",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/cpu_g_int4/long.mp3"
   }
 ]

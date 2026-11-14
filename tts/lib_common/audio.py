@@ -14,18 +14,32 @@ shape の軸の記号:
     Fq: STFT の周波数の数(N_FFT/2 + 1 = 513)
     F: Mel の帯域数(80)
 """
+import os
+
 import librosa
 import numpy as np
 import soundfile as sf
 import torch
 from einops import rearrange
 
-SR = 24000          # サンプリング周波数(1 秒あたりの波形の点数)
-N_FFT = 1024        # 1 フレームの窓の長さ(42.7ms)
-HOP = 256           # フレームをずらす幅(10.7ms)。1 秒 = 93.75 フレーム
+# 音声の設定は 2 通り。環境変数 TTS_AUDIO_PROFILE で選ぶ(lib_common を import する前に設定する。exp ごとの common/__init__.py で行う)
+#   jsut24k(既定): exp0001〜0005 の設定。24kHz、端は 0 で埋めて窓の中心をフレームの位置に合わせる(T = N / HOP + 1)
+#   indextts22k:   IndexTTS-2.5 の S2M・BigVGAN と同じ設定(exp0006)。22.05kHz、Mel の上限は 11.025kHz、
+#                  端を (N_FFT - HOP) / 2 点だけ折り返して埋め、窓は中心に合わせない(T = N / HOP)
+AUDIO_PROFILE = os.environ.get("TTS_AUDIO_PROFILE", "jsut24k")
+assert AUDIO_PROFILE in ("jsut24k", "indextts22k"), AUDIO_PROFILE
+INDEXTTS = AUDIO_PROFILE == "indextts22k"
+SR = 22050 if INDEXTTS else 24000  # サンプリング周波数(1 秒あたりの波形の点数)
+N_FFT = 1024        # 1 フレームの窓の長さ(24kHz で 42.7ms)
+HOP = 256           # フレームをずらす幅(24kHz で 10.7ms。1 秒 = 93.75 フレーム、22.05kHz では 86.13 フレーム)
 N_MELS = 80         # Mel の帯域の数
-FMIN, FMAX = 0, 12000  # Mel で扱う周波数の範囲(12kHz = 24kHz サンプリングで表せる上限)
+FMIN, FMAX = 0, SR // 2 if INDEXTTS else 12000  # Mel で扱う周波数の範囲(サンプリング周波数の半分が表せる上限)
 LOG_FLOOR = 1e-5    # log を取るときの下限(無音で log(0) にならないように)
+
+
+def n_samples(n_frames: int) -> int:
+    """Mel のフレーム数に対応する波形のサンプル数(ボコーダの出力の長さ)。"""
+    return HOP * n_frames if INDEXTTS else HOP * (n_frames - 1)
 
 
 def load_wave(path: str) -> np.ndarray:
@@ -95,15 +109,25 @@ def wave_to_logmel(y: np.ndarray) -> torch.Tensor:
 def logmel_torch(wave: torch.Tensor) -> torch.Tensor:
     """wave_to_logmel と同じ計算を、Tensor のまま(GPU 上でも、まとめて、勾配を流して)行う。ボコーダの学習の Mel の損失に使う。
 
+    indextts22k の設定では IndexTTS-2.5 の mel_spectrogram と同じ計算(端の折り返し、振幅に 1e-9 を足して平方根)。
+
     Args:
-        wave: 24kHz の波形 [..., N]。
+        wave: SR の波形 [..., N]。
 
     Returns:
         log-Mel [..., T, F]。
     """
     shape = wave.shape
-    spec = torch.stft(wave.reshape(-1, shape[-1]), N_FFT, HOP, window=_WINDOW.to(wave.device), center=True,
-                      pad_mode="constant", return_complex=True).abs()        # 波形 [B, N] → 振幅 [B, Fq, T]
+    w = wave.reshape(-1, shape[-1])                                          # [B, N]
+    if INDEXTTS:
+        pad = (N_FFT - HOP) // 2
+        w = torch.nn.functional.pad(w[:, None], (pad, pad), mode="reflect")[:, 0]  # [B, N] → [B, N + 768]
+        spec = torch.view_as_real(torch.stft(w, N_FFT, HOP, window=_WINDOW.to(wave.device), center=False,
+                                             return_complex=True))
+        spec = torch.sqrt(spec.pow(2).sum(-1) + 1e-9)                        # 振幅 [B, Fq, T]
+    else:
+        spec = torch.stft(w, N_FFT, HOP, window=_WINDOW.to(wave.device), center=True,
+                          pad_mode="constant", return_complex=True).abs()    # 波形 [B, N] → 振幅 [B, Fq, T]
     mel = _MEL_BASIS.to(wave.device) @ spec                                  # [F, Fq] @ [B, Fq, T] → [B, F, T]
     out = rearrange(torch.log(torch.clamp(mel, min=LOG_FLOOR)), "b f t -> b t f")  # log をとって [B, T, F] に
     return out.reshape(*shape[:-1], *out.shape[-2:]).contiguous()

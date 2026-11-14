@@ -1,0 +1,336 @@
+{
+  "condition": "cuda_f_ptq",
+  "phase": "bench",
+  "environment": {
+    "measured_at": "2026-11-14T07:54:02.660702+00:00",
+    "git_commit": "8de5bd18bc6ad9b1f67755476ff4366bc27ac1d8",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 236806,
+    "torch_num_threads": 8,
+    "torch_num_interop_threads": 20
+  },
+  "quantization": {
+    "mode": "ptq",
+    "group_size": 128,
+    "trainable_model": "t2s",
+    "inference": "actual converted INT4, not fake quant",
+    "quantized_layers": [
+      "time_mlp.0",
+      "time_mlp.2",
+      "blocks.0.qkv",
+      "blocks.0.out",
+      "blocks.0.mlp.0",
+      "blocks.0.mlp.2",
+      "blocks.0.ada",
+      "blocks.1.qkv",
+      "blocks.1.out",
+      "blocks.1.mlp.0",
+      "blocks.1.mlp.2",
+      "blocks.1.ada",
+      "blocks.2.qkv",
+      "blocks.2.out",
+      "blocks.2.mlp.0",
+      "blocks.2.mlp.2",
+      "blocks.2.ada",
+      "blocks.3.qkv",
+      "blocks.3.out",
+      "blocks.3.mlp.0",
+      "blocks.3.mlp.2",
+      "blocks.3.ada",
+      "blocks.4.qkv",
+      "blocks.4.out",
+      "blocks.4.mlp.0",
+      "blocks.4.mlp.2",
+      "blocks.4.ada",
+      "blocks.5.qkv",
+      "blocks.5.out",
+      "blocks.5.mlp.0",
+      "blocks.5.mlp.2",
+      "blocks.5.ada",
+      "blocks.6.qkv",
+      "blocks.6.out",
+      "blocks.6.mlp.0",
+      "blocks.6.mlp.2",
+      "blocks.6.ada",
+      "blocks.7.qkv",
+      "blocks.7.out",
+      "blocks.7.mlp.0",
+      "blocks.7.mlp.2",
+      "blocks.7.ada",
+      "encoder.encoder.layer.0.attention.self.query",
+      "encoder.encoder.layer.0.attention.self.key",
+      "encoder.encoder.layer.0.attention.self.value",
+      "encoder.encoder.layer.0.attention.output.dense",
+      "encoder.encoder.layer.0.intermediate.dense",
+      "encoder.encoder.layer.0.output.dense",
+      "encoder.encoder.layer.1.attention.self.query",
+      "encoder.encoder.layer.1.attention.self.key",
+      "encoder.encoder.layer.1.attention.self.value",
+      "encoder.encoder.layer.1.attention.output.dense",
+      "encoder.encoder.layer.1.intermediate.dense",
+      "encoder.encoder.layer.1.output.dense",
+      "encoder.encoder.layer.2.attention.self.query",
+      "encoder.encoder.layer.2.attention.self.key",
+      "encoder.encoder.layer.2.attention.self.value",
+      "encoder.encoder.layer.2.attention.output.dense",
+      "encoder.encoder.layer.2.intermediate.dense",
+      "encoder.encoder.layer.2.output.dense",
+      "encoder.encoder.layer.3.attention.self.query",
+      "encoder.encoder.layer.3.attention.self.key",
+      "encoder.encoder.layer.3.attention.self.value",
+      "encoder.encoder.layer.3.attention.output.dense",
+      "encoder.encoder.layer.3.intermediate.dense",
+      "encoder.encoder.layer.3.output.dense",
+      "align_proj"
+    ],
+    "excluded_layers": [
+      "head",
+      "duration.out"
+    ],
+    "bits": 4,
+    "requested_packing": "tile_packed_to_4d",
+    "packing": "tile_packed_to_4d",
+    "repack_checks": {}
+  },
+  "dtype": "bfloat16",
+  "linear_backend": "eager",
+  "state_bytes": {
+    "t2s": 53783841,
+    "s2m": 81468915
+  },
+  "warmup": 1,
+  "repeats": 3,
+  "cases": {
+    "short": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.00013176101492717862,
+          "p90_s": 0.00013920980272814633,
+          "min_s": 0.00012140200124122202,
+          "max_s": 0.00014107199967838824,
+          "runs_s": [
+            0.00013176101492717862,
+            0.00012140200124122202,
+            0.00014107199967838824
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.0074611150193959475,
+          "p90_s": 0.0087090406101197,
+          "min_s": 0.005827659013448283,
+          "max_s": 0.009021022007800639,
+          "runs_s": [
+            0.005827659013448283,
+            0.009021022007800639,
+            0.0074611150193959475
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.3700245329819154,
+          "p90_s": 1.3702331753855106,
+          "min_s": 1.3657533609948587,
+          "max_s": 1.3702853359864093,
+          "runs_s": [
+            1.3700245329819154,
+            1.3702853359864093,
+            1.3657533609948587
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.2638594930176623,
+          "p90_s": 0.2654533794033341,
+          "min_s": 0.23761218501022086,
+          "max_s": 0.26585185099975206,
+          "runs_s": [
+            0.26585185099975206,
+            0.2638594930176623,
+            0.23761218501022086
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.031499404984060675,
+          "p90_s": 0.03649154499871656,
+          "min_s": 0.03126377399894409,
+          "max_s": 0.037739580002380535,
+          "runs_s": [
+            0.03126377399894409,
+            0.031499404984060675,
+            0.037739580002380535
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 1.673099578008987,
+          "p90_s": 1.6744492419995367,
+          "min_s": 1.6487073130265344,
+          "max_s": 1.6747866579971742,
+          "runs_s": [
+            1.673099578008987,
+            1.6747866579971742,
+            1.6487073130265344
+          ]
+        }
+      },
+      "warmup_s": 2.3753546430089045,
+      "rtf": 2.6585268718363144,
+      "finite": true
+    },
+    "medium": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.0004820380127057433,
+          "p90_s": 0.0005090628052130342,
+          "min_s": 0.000480741000501439,
+          "max_s": 0.0005158190033398569,
+          "runs_s": [
+            0.000480741000501439,
+            0.0005158190033398569,
+            0.0004820380127057433
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.004499750008108094,
+          "p90_s": 0.00615326760453172,
+          "min_s": 0.004224611999234185,
+          "max_s": 0.006566647003637627,
+          "runs_s": [
+            0.004499750008108094,
+            0.006566647003637627,
+            0.004224611999234185
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.4300711930263788,
+          "p90_s": 1.4404507818166168,
+          "min_s": 1.4081931760010775,
+          "max_s": 1.4430456790141761,
+          "runs_s": [
+            1.4430456790141761,
+            1.4081931760010775,
+            1.4300711930263788
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.25986380700487643,
+          "p90_s": 0.2661582078086212,
+          "min_s": 0.2281431960000191,
+          "max_s": 0.2677318080095574,
+          "runs_s": [
+            0.25986380700487643,
+            0.2677318080095574,
+            0.2281431960000191
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.034744595002848655,
+          "p90_s": 0.034767870220821354,
+          "min_s": 0.02932605700334534,
+          "max_s": 0.034773689025314525,
+          "runs_s": [
+            0.034773689025314525,
+            0.02932605700334534,
+            0.034744595002848655
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 1.7123335070209578,
+          "p90_s": 1.736597634246573,
+          "min_s": 1.6976656340411864,
+          "max_s": 1.7426636660529766,
+          "runs_s": [
+            1.7426636660529766,
+            1.7123335070209578,
+            1.6976656340411864
+          ]
+        }
+      },
+      "warmup_s": 1.8153393100074027,
+      "rtf": 0.3166297165349404,
+      "finite": true
+    },
+    "long": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.0018824450089596212,
+          "p90_s": 0.002283674606587738,
+          "min_s": 0.0011294629948679358,
+          "max_s": 0.002383982005994767,
+          "runs_s": [
+            0.0011294629948679358,
+            0.0018824450089596212,
+            0.002383982005994767
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.005978448025416583,
+          "p90_s": 0.008963878394570201,
+          "min_s": 0.0033896699897013605,
+          "max_s": 0.009710235986858606,
+          "runs_s": [
+            0.005978448025416583,
+            0.009710235986858606,
+            0.0033896699897013605
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.4092909329920076,
+          "p90_s": 1.434340751392301,
+          "min_s": 1.3544563250034116,
+          "max_s": 1.4406032059923746,
+          "runs_s": [
+            1.3544563250034116,
+            1.4092909329920076,
+            1.4406032059923746
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.2516687090101186,
+          "p90_s": 0.2554100921901409,
+          "min_s": 0.23565050098113716,
+          "max_s": 0.2563454379851464,
+          "runs_s": [
+            0.23565050098113716,
+            0.2563454379851464,
+            0.2516687090101186
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.03306265699211508,
+          "p90_s": 0.03323752179276198,
+          "min_s": 0.028419531998224556,
+          "max_s": 0.03328123799292371,
+          "runs_s": [
+            0.03328123799292371,
+            0.03306265699211508,
+            0.028419531998224556
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 1.7102917089650873,
+          "p90_s": 1.7232304209901486,
+          "min_s": 1.630495974997757,
+          "max_s": 1.7264650989964139,
+          "runs_s": [
+            1.630495974997757,
+            1.7102917089650873,
+            1.7264650989964139
+          ]
+        }
+      },
+      "warmup_s": 1.6993814460001886,
+      "rtf": 0.11661079833852868,
+      "finite": true
+    }
+  }
+}
