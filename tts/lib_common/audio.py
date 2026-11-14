@@ -56,7 +56,10 @@ def save_preview(src: str, dst: str) -> None:
         src: 元の wav のパス。
         dst: 保存先の .mp3 のパス。
     """
-    sf.write(dst, load_wave(src), SR, format="MP3", bitrate_mode="CONSTANT", compression_level=PREVIEW_COMPRESSION)
+    y = load_wave(src)
+    # 試聴ページで聞き比べやすいように、音量をピーク 0.9 にそろえる(Griffin-Lim の出力と同じ。元の録音・NN ボコーダは 0.3〜0.4)
+    sf.write(dst, y / max(np.abs(y).max(), 1e-8) * 0.9, SR, format="MP3", bitrate_mode="CONSTANT",
+             compression_level=PREVIEW_COMPRESSION)
 
 
 def mel_basis() -> np.ndarray:

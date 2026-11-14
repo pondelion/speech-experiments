@@ -1,0 +1,393 @@
+{
+  "condition": "cuda_e_baseline",
+  "phase": "bench",
+  "environment": {
+    "measured_at": "2026-11-14T03:31:22.805111+00:00",
+    "git_commit": "c24d07e86c5fcc0f82d3b26252d7543ba7cab4fd",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 218056,
+    "torch_num_threads": 8,
+    "torch_num_interop_threads": 20
+  },
+  "quantization": {
+    "mode": "baseline",
+    "bits": 4,
+    "high_precision": "bfloat16",
+    "selection": "predefined structural ablation; no evaluation-set selection",
+    "t2s": {
+      "quantized_layers": [],
+      "excluded_layers": [
+        "time_mlp.0",
+        "time_mlp.2",
+        "blocks.0.qkv",
+        "blocks.0.out",
+        "blocks.0.mlp.0",
+        "blocks.0.mlp.2",
+        "blocks.0.ada",
+        "blocks.1.qkv",
+        "blocks.1.out",
+        "blocks.1.mlp.0",
+        "blocks.1.mlp.2",
+        "blocks.1.ada",
+        "blocks.2.qkv",
+        "blocks.2.out",
+        "blocks.2.mlp.0",
+        "blocks.2.mlp.2",
+        "blocks.2.ada",
+        "blocks.3.qkv",
+        "blocks.3.out",
+        "blocks.3.mlp.0",
+        "blocks.3.mlp.2",
+        "blocks.3.ada",
+        "blocks.4.qkv",
+        "blocks.4.out",
+        "blocks.4.mlp.0",
+        "blocks.4.mlp.2",
+        "blocks.4.ada",
+        "blocks.5.qkv",
+        "blocks.5.out",
+        "blocks.5.mlp.0",
+        "blocks.5.mlp.2",
+        "blocks.5.ada",
+        "blocks.6.qkv",
+        "blocks.6.out",
+        "blocks.6.mlp.0",
+        "blocks.6.mlp.2",
+        "blocks.6.ada",
+        "blocks.7.qkv",
+        "blocks.7.out",
+        "blocks.7.mlp.0",
+        "blocks.7.mlp.2",
+        "blocks.7.ada",
+        "head",
+        "encoder.encoder.layer.0.attention.self.query",
+        "encoder.encoder.layer.0.attention.self.key",
+        "encoder.encoder.layer.0.attention.self.value",
+        "encoder.encoder.layer.0.attention.output.dense",
+        "encoder.encoder.layer.0.intermediate.dense",
+        "encoder.encoder.layer.0.output.dense",
+        "encoder.encoder.layer.1.attention.self.query",
+        "encoder.encoder.layer.1.attention.self.key",
+        "encoder.encoder.layer.1.attention.self.value",
+        "encoder.encoder.layer.1.attention.output.dense",
+        "encoder.encoder.layer.1.intermediate.dense",
+        "encoder.encoder.layer.1.output.dense",
+        "encoder.encoder.layer.2.attention.self.query",
+        "encoder.encoder.layer.2.attention.self.key",
+        "encoder.encoder.layer.2.attention.self.value",
+        "encoder.encoder.layer.2.attention.output.dense",
+        "encoder.encoder.layer.2.intermediate.dense",
+        "encoder.encoder.layer.2.output.dense",
+        "encoder.encoder.layer.3.attention.self.query",
+        "encoder.encoder.layer.3.attention.self.key",
+        "encoder.encoder.layer.3.attention.self.value",
+        "encoder.encoder.layer.3.attention.output.dense",
+        "encoder.encoder.layer.3.intermediate.dense",
+        "encoder.encoder.layer.3.output.dense",
+        "duration.out",
+        "align_proj"
+      ],
+      "bits": 4,
+      "group_size": 128,
+      "requested_packing": "tile_packed_to_4d",
+      "packing": "tile_packed_to_4d",
+      "repack_checks": {}
+    },
+    "s2m": {
+      "quantized_layers": [],
+      "excluded_layers": [
+        "regulator.proj",
+        "in_proj",
+        "t_mlp.0",
+        "t_mlp.2",
+        "blocks.0.qkv",
+        "blocks.0.out",
+        "blocks.0.mlp.0",
+        "blocks.0.mlp.2",
+        "blocks.0.ada",
+        "blocks.1.qkv",
+        "blocks.1.out",
+        "blocks.1.mlp.0",
+        "blocks.1.mlp.2",
+        "blocks.1.ada",
+        "blocks.2.qkv",
+        "blocks.2.out",
+        "blocks.2.mlp.0",
+        "blocks.2.mlp.2",
+        "blocks.2.ada",
+        "blocks.3.qkv",
+        "blocks.3.out",
+        "blocks.3.mlp.0",
+        "blocks.3.mlp.2",
+        "blocks.3.ada",
+        "blocks.4.qkv",
+        "blocks.4.out",
+        "blocks.4.mlp.0",
+        "blocks.4.mlp.2",
+        "blocks.4.ada",
+        "blocks.5.qkv",
+        "blocks.5.out",
+        "blocks.5.mlp.0",
+        "blocks.5.mlp.2",
+        "blocks.5.ada",
+        "blocks.6.qkv",
+        "blocks.6.out",
+        "blocks.6.mlp.0",
+        "blocks.6.mlp.2",
+        "blocks.6.ada",
+        "blocks.7.qkv",
+        "blocks.7.out",
+        "blocks.7.mlp.0",
+        "blocks.7.mlp.2",
+        "blocks.7.ada",
+        "out"
+      ],
+      "bits": 4,
+      "group_size": 128,
+      "requested_packing": "tile_packed_to_4d",
+      "packing": "tile_packed_to_4d",
+      "repack_checks": {}
+    }
+  },
+  "dtype": "bfloat16",
+  "linear_backend": "eager",
+  "state_bytes": {
+    "t2s": 108363751,
+    "s2m": 81468915
+  },
+  "warmup": 1,
+  "repeats": 3,
+  "cases": {
+    "short": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.00013015398872084916,
+          "p90_s": 0.00013032758724875748,
+          "min_s": 0.00012296601198613644,
+          "max_s": 0.00013037098688073456,
+          "runs_s": [
+            0.00013037098688073456,
+            0.00012296601198613644,
+            0.00013015398872084916
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.006173919013235718,
+          "p90_s": 0.007165309402626007,
+          "min_s": 0.003335088025778532,
+          "max_s": 0.00741315699997358,
+          "runs_s": [
+            0.003335088025778532,
+            0.006173919013235718,
+            0.00741315699997358
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 0.9873944190039765,
+          "p90_s": 1.058284894184908,
+          "min_s": 0.9722732360241935,
+          "max_s": 1.0760075129801407,
+          "runs_s": [
+            0.9722732360241935,
+            1.0760075129801407,
+            0.9873944190039765
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.2579892950016074,
+          "p90_s": 0.26129339578328653,
+          "min_s": 0.21903114599990658,
+          "max_s": 0.26211942097870633,
+          "runs_s": [
+            0.26211942097870633,
+            0.21903114599990658,
+            0.2579892950016074
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.03322925098473206,
+          "p90_s": 0.03564087740378454,
+          "min_s": 0.0320629799971357,
+          "max_s": 0.036243784008547664,
+          "runs_s": [
+            0.03322925098473206,
+            0.036243784008547664,
+            0.0320629799971357
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 1.284990004991414,
+          "p90_s": 1.3270614634093363,
+          "min_s": 1.2710873670002911,
+          "max_s": 1.3375793280138168,
+          "runs_s": [
+            1.2710873670002911,
+            1.3375793280138168,
+            1.284990004991414
+          ]
+        }
+      },
+      "rtf": 2.041827338439747,
+      "finite": true,
+      "warmup_s": 2.1244180430076085
+    },
+    "medium": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.0004757120041176677,
+          "p90_s": 0.0005444591864943504,
+          "min_s": 0.0004643680003937334,
+          "max_s": 0.0005616459820885211,
+          "runs_s": [
+            0.0005616459820885211,
+            0.0004757120041176677,
+            0.0004643680003937334
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.005133569007739425,
+          "p90_s": 0.0062807722017169,
+          "min_s": 0.0038916050107218325,
+          "max_s": 0.006567573000211269,
+          "runs_s": [
+            0.005133569007739425,
+            0.006567573000211269,
+            0.0038916050107218325
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.0814917539828457,
+          "p90_s": 1.1018462915788405,
+          "min_s": 1.0570640770019963,
+          "max_s": 1.1069349259778392,
+          "runs_s": [
+            1.0814917539828457,
+            1.0570640770019963,
+            1.1069349259778392
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.24243277197820134,
+          "p90_s": 0.2589175624132622,
+          "min_s": 0.22883744299178943,
+          "max_s": 0.2630387600220274,
+          "runs_s": [
+            0.24243277197820134,
+            0.22883744299178943,
+            0.2630387600220274
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.028895299008581787,
+          "p90_s": 0.03703566620824859,
+          "min_s": 0.02763462401344441,
+          "max_s": 0.039070758008165285,
+          "runs_s": [
+            0.028895299008581787,
+            0.02763462401344441,
+            0.039070758008165285
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 1.3585150399594568,
+          "p90_s": 1.4024233416072094,
+          "min_s": 1.3205794290115591,
+          "max_s": 1.4134004170191474,
+          "runs_s": [
+            1.3585150399594568,
+            1.3205794290115591,
+            1.4134004170191474
+          ]
+        }
+      },
+      "rtf": 0.2512047041345149,
+      "finite": true,
+      "warmup_s": 1.3968243389972486
+    },
+    "long": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.0011377240007277578,
+          "p90_s": 0.0011590648151468485,
+          "min_s": 0.0011357749754097313,
+          "max_s": 0.0011644000187516212,
+          "runs_s": [
+            0.0011644000187516212,
+            0.0011377240007277578,
+            0.0011357749754097313
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.004556706000585109,
+          "p90_s": 0.0063194468035362664,
+          "min_s": 0.003971302998252213,
+          "max_s": 0.006760132004274055,
+          "runs_s": [
+            0.003971302998252213,
+            0.006760132004274055,
+            0.004556706000585109
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.1127052410156466,
+          "p90_s": 1.1311348482151515,
+          "min_s": 1.1095511599851307,
+          "max_s": 1.1357422500150278,
+          "runs_s": [
+            1.1357422500150278,
+            1.1127052410156466,
+            1.1095511599851307
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.23016852600267157,
+          "p90_s": 0.24952895002206787,
+          "min_s": 0.22072196897352114,
+          "max_s": 0.25436905602691695,
+          "runs_s": [
+            0.22072196897352114,
+            0.23016852600267157,
+            0.25436905602691695
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.03040412301197648,
+          "p90_s": 0.03633003579452634,
+          "min_s": 0.027993950992822647,
+          "max_s": 0.0378115139901638,
+          "runs_s": [
+            0.0378115139901638,
+            0.027993950992822647,
+            0.03040412301197648
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 1.3994114359957166,
+          "p90_s": 1.3998957431991585,
+          "min_s": 1.3787655740161426,
+          "max_s": 1.400016820000019,
+          "runs_s": [
+            1.3994114359957166,
+            1.3787655740161426,
+            1.400016820000019
+          ]
+        }
+      },
+      "rtf": 0.09541441609061704,
+      "finite": true,
+      "warmup_s": 1.5280533370096236
+    }
+  }
+}

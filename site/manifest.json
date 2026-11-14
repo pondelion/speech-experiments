@@ -199,6 +199,75 @@
                   }
                 }
               ]
+            },
+            {
+              "title": "E: 部品・層の混合精度",
+              "conditions": [
+                {
+                  "id": "cuda_e_baseline",
+                  "label": "CUDA BF16基準",
+                  "cer": {
+                    "test": 0.06506701253782966,
+                    "eval_texts": 0.0626249167221852
+                  }
+                },
+                {
+                  "id": "cuda_e_all",
+                  "label": "CUDA 両部品INT4",
+                  "cer": {
+                    "test": 0.07047124945957631,
+                    "eval_texts": 0.061958694203864094
+                  }
+                },
+                {
+                  "id": "cuda_e_t2s",
+                  "label": "CUDA T2SのみINT4",
+                  "cer": {
+                    "test": 0.07198443579766536,
+                    "eval_texts": 0.06129247168554297
+                  }
+                },
+                {
+                  "id": "cuda_e_s2m",
+                  "label": "CUDA S2MのみINT4",
+                  "cer": {
+                    "test": 0.062905317769131,
+                    "eval_texts": 0.06329113924050633
+                  }
+                },
+                {
+                  "id": "cuda_e_boundary",
+                  "label": "CUDA 入出力側BF16・他INT4",
+                  "cer": {
+                    "test": 0.06874189364461739,
+                    "eval_texts": 0.05862758161225849
+                  }
+                },
+                {
+                  "id": "cpu_e_baseline",
+                  "label": "CPU FP32基準",
+                  "cer": {
+                    "test": 0.06895806312148725,
+                    "eval_texts": 0.06395736175882745
+                  }
+                },
+                {
+                  "id": "cpu_e_all",
+                  "label": "CPU 両部品動的INT8",
+                  "cer": {
+                    "test": 0.06506701253782966,
+                    "eval_texts": 0.06462358427714857
+                  }
+                },
+                {
+                  "id": "cpu_e_boundary",
+                  "label": "CPU 入出力側FP32・他動的INT8",
+                  "cer": {
+                    "test": 0.07479463899697363,
+                    "eval_texts": 0.06995336442371752
+                  }
+                }
+              ]
             }
           ]
         }
