@@ -1,0 +1,94 @@
+{
+  "condition": "cuda_opt_nospin_8_front1_cg128",
+  "phase": "quality",
+  "environment": {
+    "measured_at": "2026-11-15T10:08:06.382160+00:00",
+    "git_commit": "c09f108fed454665a0ff1038c54d1df0d3194bc9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 345320,
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 20
+  },
+  "quantization": {
+    "backend": "onnxruntime",
+    "version": "1.32.0",
+    "precision": "fp32",
+    "graphs": {
+      "encoder": {
+        "bytes": 54761504,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "blocks": {
+        "bytes": 159792503,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "velocity": {
+        "bytes": 163282100,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      }
+    },
+    "capture": {
+      "bucket": 128,
+      "sessions_created": 40,
+      "cache_hits": 2057,
+      "runs": 2097,
+      "max_profiles_per_graph": 2
+    },
+    "cuda_graph": true,
+    "config": "opt_nospin_8_front1_cg128",
+    "threads_per_pool": 8,
+    "shared_thread_pool": false,
+    "session_spinning_request": false,
+    "global_pool_spinning": null,
+    "frontend_threads": 1,
+    "fused_attention": true,
+    "async_execution": false
+  },
+  "dtype": "float32",
+  "linear_backend": "onnxruntime_io_binding",
+  "load_prepare_s": 4.695593001961242,
+  "seed": 0,
+  "t2s_batch": 16,
+  "s2m_batch": 4,
+  "groups": {
+    "test": {
+      "utterances": 100,
+      "finite": true,
+      "cer": {
+        "raw": 0.16091664568118863,
+        "normalized": 0.10644802668148971,
+        "reading": 0.06333765672287073
+      }
+    },
+    "eval_texts": {
+      "utterances": 55,
+      "finite": true,
+      "cer": {
+        "raw": 0.12609736632083002,
+        "normalized": 0.10871440897325281,
+        "reading": 0.06928714190539641
+      }
+    }
+  }
+}

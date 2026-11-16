@@ -1,4 +1,5 @@
 """serialize用bufferを作らず、独立processでCPU RAMを測る。"""
+
 import argparse
 import gc
 import json
@@ -28,14 +29,24 @@ def main():
         t2s = dynamic_int8(torch, t2s, exclude={"head"})
         pipe.s2m = dynamic_int8(torch, pipe.s2m)
     gc.collect()
-    result = {"condition": "cpu_both_int8" if args.quantize else "cpu_fp32", "threads": 8,
-              "rss_after_load_convert_bytes": rss()}
+    result = {
+        "condition": "cpu_both_int8" if args.quantize else "cpu_fp32",
+        "threads": 8,
+        "rss_after_load_convert_bytes": rss(),
+    }
     item = load_inputs("long")[0]
     one_run(torch, pipe, t2s, vocab, seed, item["text"], "cpu", 0, "float32")
     gc.collect()
-    result.update(rss_after_long_inference_bytes=rss(),
-                  process_peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024)
-    path = ROOT / "results" / "validation" / f"memory_{result['condition']}.json"
+    result.update(
+        rss_after_long_inference_bytes=rss(),
+        process_peak_rss_bytes=resource.getrusage(
+            resource.RUSAGE_SELF
+        ).ru_maxrss
+        * 1024,
+    )
+    path = (
+        ROOT / "results" / "validation" / f"memory_{result['condition']}.json"
+    )
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result), flush=True)

@@ -1,0 +1,483 @@
+{
+  "mode": "weight_only",
+  "training": {},
+  "activation_int8": false,
+  "quantized_layers": [
+    "time_mlp.0",
+    "time_mlp.2",
+    "blocks.0.qkv",
+    "blocks.0.out",
+    "blocks.0.mlp.0",
+    "blocks.0.mlp.2",
+    "blocks.0.ada",
+    "blocks.1.qkv",
+    "blocks.1.out",
+    "blocks.1.mlp.0",
+    "blocks.1.mlp.2",
+    "blocks.1.ada",
+    "blocks.2.qkv",
+    "blocks.2.out",
+    "blocks.2.mlp.0",
+    "blocks.2.mlp.2",
+    "blocks.2.ada",
+    "blocks.3.qkv",
+    "blocks.3.out",
+    "blocks.3.mlp.0",
+    "blocks.3.mlp.2",
+    "blocks.3.ada",
+    "blocks.4.qkv",
+    "blocks.4.out",
+    "blocks.4.mlp.0",
+    "blocks.4.mlp.2",
+    "blocks.4.ada",
+    "blocks.5.qkv",
+    "blocks.5.out",
+    "blocks.5.mlp.0",
+    "blocks.5.mlp.2",
+    "blocks.5.ada",
+    "blocks.6.qkv",
+    "blocks.6.out",
+    "blocks.6.mlp.0",
+    "blocks.6.mlp.2",
+    "blocks.6.ada",
+    "blocks.7.qkv",
+    "blocks.7.out",
+    "blocks.7.mlp.0",
+    "blocks.7.mlp.2",
+    "blocks.7.ada",
+    "encoder.encoder.layer.0.attention.self.query",
+    "encoder.encoder.layer.0.attention.self.key",
+    "encoder.encoder.layer.0.attention.self.value",
+    "encoder.encoder.layer.0.attention.output.dense",
+    "encoder.encoder.layer.0.intermediate.dense",
+    "encoder.encoder.layer.0.output.dense",
+    "encoder.encoder.layer.1.attention.self.query",
+    "encoder.encoder.layer.1.attention.self.key",
+    "encoder.encoder.layer.1.attention.self.value",
+    "encoder.encoder.layer.1.attention.output.dense",
+    "encoder.encoder.layer.1.intermediate.dense",
+    "encoder.encoder.layer.1.output.dense",
+    "encoder.encoder.layer.2.attention.self.query",
+    "encoder.encoder.layer.2.attention.self.key",
+    "encoder.encoder.layer.2.attention.self.value",
+    "encoder.encoder.layer.2.attention.output.dense",
+    "encoder.encoder.layer.2.intermediate.dense",
+    "encoder.encoder.layer.2.output.dense",
+    "encoder.encoder.layer.3.attention.self.query",
+    "encoder.encoder.layer.3.attention.self.key",
+    "encoder.encoder.layer.3.attention.self.value",
+    "encoder.encoder.layer.3.attention.output.dense",
+    "encoder.encoder.layer.3.intermediate.dense",
+    "encoder.encoder.layer.3.output.dense",
+    "align_proj"
+  ],
+  "packing": "four 2-bit codes per uint8; 0=-1,1=0,2=+1",
+  "weight_scale": "per-tensor absmean float32",
+  "saved_high_precision": "bfloat16",
+  "kernel": "expanded floating-point F.linear",
+  "file_bytes": 100400638,
+  "packing_checks": {
+    "time_mlp.0": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.2554206848144531,
+      "roundtrip_exact": true
+    },
+    "time_mlp.2": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.2519340515136719,
+      "roundtrip_exact": true
+    },
+    "blocks.0.qkv": {
+      "weights": 786432,
+      "packed_bytes": 196608,
+      "zero_fraction": 0.2613512873649597,
+      "roundtrip_exact": true
+    },
+    "blocks.0.out": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.2622413635253906,
+      "roundtrip_exact": true
+    },
+    "blocks.0.mlp.0": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.27295970916748047,
+      "roundtrip_exact": true
+    },
+    "blocks.0.mlp.2": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.28444576263427734,
+      "roundtrip_exact": true
+    },
+    "blocks.0.ada": {
+      "weights": 1572864,
+      "packed_bytes": 393216,
+      "zero_fraction": 0.3632628321647644,
+      "roundtrip_exact": true
+    },
+    "blocks.1.qkv": {
+      "weights": 786432,
+      "packed_bytes": 196608,
+      "zero_fraction": 0.2673594355583191,
+      "roundtrip_exact": true
+    },
+    "blocks.1.out": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.270111083984375,
+      "roundtrip_exact": true
+    },
+    "blocks.1.mlp.0": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.26763057708740234,
+      "roundtrip_exact": true
+    },
+    "blocks.1.mlp.2": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.2812814712524414,
+      "roundtrip_exact": true
+    },
+    "blocks.1.ada": {
+      "weights": 1572864,
+      "packed_bytes": 393216,
+      "zero_fraction": 0.3568369746208191,
+      "roundtrip_exact": true
+    },
+    "blocks.2.qkv": {
+      "weights": 786432,
+      "packed_bytes": 196608,
+      "zero_fraction": 0.26543301343917847,
+      "roundtrip_exact": true
+    },
+    "blocks.2.out": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.2749977111816406,
+      "roundtrip_exact": true
+    },
+    "blocks.2.mlp.0": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.2665138244628906,
+      "roundtrip_exact": true
+    },
+    "blocks.2.mlp.2": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.2845792770385742,
+      "roundtrip_exact": true
+    },
+    "blocks.2.ada": {
+      "weights": 1572864,
+      "packed_bytes": 393216,
+      "zero_fraction": 0.3442026972770691,
+      "roundtrip_exact": true
+    },
+    "blocks.3.qkv": {
+      "weights": 786432,
+      "packed_bytes": 196608,
+      "zero_fraction": 0.26735562086105347,
+      "roundtrip_exact": true
+    },
+    "blocks.3.out": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.27130126953125,
+      "roundtrip_exact": true
+    },
+    "blocks.3.mlp.0": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.2663230895996094,
+      "roundtrip_exact": true
+    },
+    "blocks.3.mlp.2": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.2848482131958008,
+      "roundtrip_exact": true
+    },
+    "blocks.3.ada": {
+      "weights": 1572864,
+      "packed_bytes": 393216,
+      "zero_fraction": 0.3601875305175781,
+      "roundtrip_exact": true
+    },
+    "blocks.4.qkv": {
+      "weights": 786432,
+      "packed_bytes": 196608,
+      "zero_fraction": 0.26793035864830017,
+      "roundtrip_exact": true
+    },
+    "blocks.4.out": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.2713279724121094,
+      "roundtrip_exact": true
+    },
+    "blocks.4.mlp.0": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.26664066314697266,
+      "roundtrip_exact": true
+    },
+    "blocks.4.mlp.2": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.2839851379394531,
+      "roundtrip_exact": true
+    },
+    "blocks.4.ada": {
+      "weights": 1572864,
+      "packed_bytes": 393216,
+      "zero_fraction": 0.35766029357910156,
+      "roundtrip_exact": true
+    },
+    "blocks.5.qkv": {
+      "weights": 786432,
+      "packed_bytes": 196608,
+      "zero_fraction": 0.2693227231502533,
+      "roundtrip_exact": true
+    },
+    "blocks.5.out": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.27408599853515625,
+      "roundtrip_exact": true
+    },
+    "blocks.5.mlp.0": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.2655305862426758,
+      "roundtrip_exact": true
+    },
+    "blocks.5.mlp.2": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.28279685974121094,
+      "roundtrip_exact": true
+    },
+    "blocks.5.ada": {
+      "weights": 1572864,
+      "packed_bytes": 393216,
+      "zero_fraction": 0.35005316138267517,
+      "roundtrip_exact": true
+    },
+    "blocks.6.qkv": {
+      "weights": 786432,
+      "packed_bytes": 196608,
+      "zero_fraction": 0.2724761962890625,
+      "roundtrip_exact": true
+    },
+    "blocks.6.out": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.2745513916015625,
+      "roundtrip_exact": true
+    },
+    "blocks.6.mlp.0": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.26493167877197266,
+      "roundtrip_exact": true
+    },
+    "blocks.6.mlp.2": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.2827901840209961,
+      "roundtrip_exact": true
+    },
+    "blocks.6.ada": {
+      "weights": 1572864,
+      "packed_bytes": 393216,
+      "zero_fraction": 0.34472402930259705,
+      "roundtrip_exact": true
+    },
+    "blocks.7.qkv": {
+      "weights": 786432,
+      "packed_bytes": 196608,
+      "zero_fraction": 0.27355194091796875,
+      "roundtrip_exact": true
+    },
+    "blocks.7.out": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.2749481201171875,
+      "roundtrip_exact": true
+    },
+    "blocks.7.mlp.0": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.2620258331298828,
+      "roundtrip_exact": true
+    },
+    "blocks.7.mlp.2": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.27895450592041016,
+      "roundtrip_exact": true
+    },
+    "blocks.7.ada": {
+      "weights": 1572864,
+      "packed_bytes": 393216,
+      "zero_fraction": 0.3297831416130066,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.0.attention.self.query": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.3095130920410156,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.0.attention.self.key": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.3111991882324219,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.0.attention.self.value": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.3103599548339844,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.0.attention.output.dense": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.31078338623046875,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.0.intermediate.dense": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.3101081848144531,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.0.output.dense": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.31094932556152344,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.1.attention.self.query": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.3095207214355469,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.1.attention.self.key": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.31076812744140625,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.1.attention.self.value": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.3091888427734375,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.1.attention.output.dense": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.3108711242675781,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.1.intermediate.dense": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.30959320068359375,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.1.output.dense": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.3108091354370117,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.2.attention.self.query": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.31139373779296875,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.2.attention.self.key": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.3100013732910156,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.2.attention.self.value": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.31134033203125,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.2.attention.output.dense": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.31116485595703125,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.2.intermediate.dense": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.31047821044921875,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.2.output.dense": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.31025123596191406,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.3.attention.self.query": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.3096733093261719,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.3.attention.self.key": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.3100776672363281,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.3.attention.self.value": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.3099784851074219,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.3.attention.output.dense": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.3104209899902344,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.3.intermediate.dense": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.3105201721191406,
+      "roundtrip_exact": true
+    },
+    "encoder.encoder.layer.3.output.dense": {
+      "weights": 1048576,
+      "packed_bytes": 262144,
+      "zero_fraction": 0.3111896514892578,
+      "roundtrip_exact": true
+    },
+    "align_proj": {
+      "weights": 262144,
+      "packed_bytes": 65536,
+      "zero_fraction": 0.2563514709472656,
+      "roundtrip_exact": true
+    }
+  }
+}

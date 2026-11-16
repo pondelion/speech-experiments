@@ -1,0 +1,415 @@
+{
+  "condition": "cuda_ternary_int4",
+  "phase": "bench",
+  "environment": {
+    "measured_at": "2026-11-14T21:37:30.266249+00:00",
+    "git_commit": "c09f108fed454665a0ff1038c54d1df0d3194bc9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 290992,
+    "torch_num_threads": 8,
+    "torch_num_interop_threads": 20
+  },
+  "quantization": {
+    "mode": "int4",
+    "training": {},
+    "activation_int8": false,
+    "quantized_layers": [
+      "time_mlp.0",
+      "time_mlp.2",
+      "blocks.0.qkv",
+      "blocks.0.out",
+      "blocks.0.mlp.0",
+      "blocks.0.mlp.2",
+      "blocks.0.ada",
+      "blocks.1.qkv",
+      "blocks.1.out",
+      "blocks.1.mlp.0",
+      "blocks.1.mlp.2",
+      "blocks.1.ada",
+      "blocks.2.qkv",
+      "blocks.2.out",
+      "blocks.2.mlp.0",
+      "blocks.2.mlp.2",
+      "blocks.2.ada",
+      "blocks.3.qkv",
+      "blocks.3.out",
+      "blocks.3.mlp.0",
+      "blocks.3.mlp.2",
+      "blocks.3.ada",
+      "blocks.4.qkv",
+      "blocks.4.out",
+      "blocks.4.mlp.0",
+      "blocks.4.mlp.2",
+      "blocks.4.ada",
+      "blocks.5.qkv",
+      "blocks.5.out",
+      "blocks.5.mlp.0",
+      "blocks.5.mlp.2",
+      "blocks.5.ada",
+      "blocks.6.qkv",
+      "blocks.6.out",
+      "blocks.6.mlp.0",
+      "blocks.6.mlp.2",
+      "blocks.6.ada",
+      "blocks.7.qkv",
+      "blocks.7.out",
+      "blocks.7.mlp.0",
+      "blocks.7.mlp.2",
+      "blocks.7.ada",
+      "encoder.encoder.layer.0.attention.self.query",
+      "encoder.encoder.layer.0.attention.self.key",
+      "encoder.encoder.layer.0.attention.self.value",
+      "encoder.encoder.layer.0.attention.output.dense",
+      "encoder.encoder.layer.0.intermediate.dense",
+      "encoder.encoder.layer.0.output.dense",
+      "encoder.encoder.layer.1.attention.self.query",
+      "encoder.encoder.layer.1.attention.self.key",
+      "encoder.encoder.layer.1.attention.self.value",
+      "encoder.encoder.layer.1.attention.output.dense",
+      "encoder.encoder.layer.1.intermediate.dense",
+      "encoder.encoder.layer.1.output.dense",
+      "encoder.encoder.layer.2.attention.self.query",
+      "encoder.encoder.layer.2.attention.self.key",
+      "encoder.encoder.layer.2.attention.self.value",
+      "encoder.encoder.layer.2.attention.output.dense",
+      "encoder.encoder.layer.2.intermediate.dense",
+      "encoder.encoder.layer.2.output.dense",
+      "encoder.encoder.layer.3.attention.self.query",
+      "encoder.encoder.layer.3.attention.self.key",
+      "encoder.encoder.layer.3.attention.self.value",
+      "encoder.encoder.layer.3.attention.output.dense",
+      "encoder.encoder.layer.3.intermediate.dense",
+      "encoder.encoder.layer.3.output.dense",
+      "align_proj"
+    ],
+    "packing": "four 2-bit codes per uint8; 0=-1,1=0,2=+1",
+    "weight_scale": "per-tensor absmean float32",
+    "saved_high_precision": "bfloat16",
+    "kernel": "expanded floating-point F.linear",
+    "int4": {
+      "quantized_layers": [
+        "time_mlp.0",
+        "time_mlp.2",
+        "blocks.0.qkv",
+        "blocks.0.out",
+        "blocks.0.mlp.0",
+        "blocks.0.mlp.2",
+        "blocks.0.ada",
+        "blocks.1.qkv",
+        "blocks.1.out",
+        "blocks.1.mlp.0",
+        "blocks.1.mlp.2",
+        "blocks.1.ada",
+        "blocks.2.qkv",
+        "blocks.2.out",
+        "blocks.2.mlp.0",
+        "blocks.2.mlp.2",
+        "blocks.2.ada",
+        "blocks.3.qkv",
+        "blocks.3.out",
+        "blocks.3.mlp.0",
+        "blocks.3.mlp.2",
+        "blocks.3.ada",
+        "blocks.4.qkv",
+        "blocks.4.out",
+        "blocks.4.mlp.0",
+        "blocks.4.mlp.2",
+        "blocks.4.ada",
+        "blocks.5.qkv",
+        "blocks.5.out",
+        "blocks.5.mlp.0",
+        "blocks.5.mlp.2",
+        "blocks.5.ada",
+        "blocks.6.qkv",
+        "blocks.6.out",
+        "blocks.6.mlp.0",
+        "blocks.6.mlp.2",
+        "blocks.6.ada",
+        "blocks.7.qkv",
+        "blocks.7.out",
+        "blocks.7.mlp.0",
+        "blocks.7.mlp.2",
+        "blocks.7.ada",
+        "encoder.encoder.layer.0.attention.self.query",
+        "encoder.encoder.layer.0.attention.self.key",
+        "encoder.encoder.layer.0.attention.self.value",
+        "encoder.encoder.layer.0.attention.output.dense",
+        "encoder.encoder.layer.0.intermediate.dense",
+        "encoder.encoder.layer.0.output.dense",
+        "encoder.encoder.layer.1.attention.self.query",
+        "encoder.encoder.layer.1.attention.self.key",
+        "encoder.encoder.layer.1.attention.self.value",
+        "encoder.encoder.layer.1.attention.output.dense",
+        "encoder.encoder.layer.1.intermediate.dense",
+        "encoder.encoder.layer.1.output.dense",
+        "encoder.encoder.layer.2.attention.self.query",
+        "encoder.encoder.layer.2.attention.self.key",
+        "encoder.encoder.layer.2.attention.self.value",
+        "encoder.encoder.layer.2.attention.output.dense",
+        "encoder.encoder.layer.2.intermediate.dense",
+        "encoder.encoder.layer.2.output.dense",
+        "encoder.encoder.layer.3.attention.self.query",
+        "encoder.encoder.layer.3.attention.self.key",
+        "encoder.encoder.layer.3.attention.self.value",
+        "encoder.encoder.layer.3.attention.output.dense",
+        "encoder.encoder.layer.3.intermediate.dense",
+        "encoder.encoder.layer.3.output.dense",
+        "align_proj"
+      ],
+      "excluded_layers": [
+        "head",
+        "duration.out"
+      ],
+      "bits": 4,
+      "group_size": 128,
+      "requested_packing": "tile_packed_to_4d",
+      "packing": "tile_packed_to_4d",
+      "repack_checks": {}
+    },
+    "artifact_bytes": 135261057,
+    "runtime_dtype": "torch.bfloat16",
+    "runtime_representation": "2-bit file expanded once to floating-point weights; activation quantization uses floating-point ops"
+  },
+  "dtype": "bfloat16",
+  "linear_backend": "eager",
+  "state_bytes": {
+    "t2s": 53783713,
+    "s2m": 81468915
+  },
+  "artifact_bytes": 135261057,
+  "warmup": 1,
+  "repeats": 3,
+  "cases": {
+    "short": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.00014709599781781435,
+          "p90_s": 0.00014925601426512002,
+          "min_s": 0.00013355095870792866,
+          "max_s": 0.00014979601837694645,
+          "runs_s": [
+            0.00014979601837694645,
+            0.00013355095870792866,
+            0.00014709599781781435
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.00645956804510206,
+          "p90_s": 0.006702096783556044,
+          "min_s": 0.00606864201836288,
+          "max_s": 0.00676272896816954,
+          "runs_s": [
+            0.00676272896816954,
+            0.00606864201836288,
+            0.00645956804510206
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.4754268589895219,
+          "p90_s": 1.49344052542001,
+          "min_s": 1.4382243200088851,
+          "max_s": 1.4979439420276321,
+          "runs_s": [
+            1.4979439420276321,
+            1.4382243200088851,
+            1.4754268589895219
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.20234376203734428,
+          "p90_s": 0.30361766999121753,
+          "min_s": 0.17068474600091577,
+          "max_s": 0.3289361469796859,
+          "runs_s": [
+            0.20234376203734428,
+            0.17068474600091577,
+            0.3289361469796859
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.0322629309957847,
+          "p90_s": 0.034864596626721325,
+          "min_s": 0.02583385503385216,
+          "max_s": 0.03551501303445548,
+          "runs_s": [
+            0.03551501303445548,
+            0.02583385503385216,
+            0.0322629309957847
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 1.7427152420859784,
+          "p90_s": 1.8231291292235257,
+          "min_s": 1.6409451140207238,
+          "max_s": 1.8432326010079123,
+          "runs_s": [
+            1.7427152420859784,
+            1.6409451140207238,
+            1.8432326010079123
+          ]
+        }
+      },
+      "warmup_s": 2.1297037610202096,
+      "rtf": 2.769144982128144,
+      "finite": true
+    },
+    "medium": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.0011096289963461459,
+          "p90_s": 0.0011989018064923584,
+          "min_s": 0.0004999250522814691,
+          "max_s": 0.0012212200090289116,
+          "runs_s": [
+            0.0004999250522814691,
+            0.0011096289963461459,
+            0.0012212200090289116
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.0070397809613496065,
+          "p90_s": 0.010896719386801123,
+          "min_s": 0.00602768495446071,
+          "max_s": 0.011860953993164003,
+          "runs_s": [
+            0.00602768495446071,
+            0.0070397809613496065,
+            0.011860953993164003
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.6898334019933827,
+          "p90_s": 1.7125713635818103,
+          "min_s": 1.6453748799976893,
+          "max_s": 1.718255853978917,
+          "runs_s": [
+            1.718255853978917,
+            1.6453748799976893,
+            1.6898334019933827
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.2594455449725501,
+          "p90_s": 0.2648465394391678,
+          "min_s": 0.2477832779986784,
+          "max_s": 0.26619678805582225,
+          "runs_s": [
+            0.2594455449725501,
+            0.2477832779986784,
+            0.26619678805582225
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.03323853301117197,
+          "p90_s": 0.0531351178069599,
+          "min_s": 0.028668843035120517,
+          "max_s": 0.05810926400590688,
+          "runs_s": [
+            0.03323853301117197,
+            0.05810926400590688,
+            0.028668843035120517
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 1.9977812070865184,
+          "p90_s": 2.013530274992809,
+          "min_s": 1.9594168319599703,
+          "max_s": 2.0174675419693813,
+          "runs_s": [
+            2.0174675419693813,
+            1.9594168319599703,
+            1.9977812070865184
+          ]
+        }
+      },
+      "warmup_s": 1.8618498270516284,
+      "rtf": 0.36941220545238873,
+      "finite": true
+    },
+    "long": {
+      "stages": {
+        "text_preprocess_s": {
+          "median_s": 0.0013523619854822755,
+          "p90_s": 0.002491150819696486,
+          "min_s": 0.0012220949865877628,
+          "max_s": 0.0027758480282500386,
+          "runs_s": [
+            0.0012220949865877628,
+            0.0027758480282500386,
+            0.0013523619854822755
+          ]
+        },
+        "duration_s": {
+          "median_s": 0.005749548028688878,
+          "p90_s": 0.005926948820706457,
+          "min_s": 0.004746204998809844,
+          "max_s": 0.005971299018710852,
+          "runs_s": [
+            0.005749548028688878,
+            0.005971299018710852,
+            0.004746204998809844
+          ]
+        },
+        "t2s_tokens_s": {
+          "median_s": 1.5851113230455667,
+          "p90_s": 1.6012032262049616,
+          "min_s": 1.5756700250203721,
+          "max_s": 1.6052262019948103,
+          "runs_s": [
+            1.5756700250203721,
+            1.5851113230455667,
+            1.6052262019948103
+          ]
+        },
+        "s2m_s": {
+          "median_s": 0.2415708529879339,
+          "p90_s": 0.2631805361830629,
+          "min_s": 0.23226636101026088,
+          "max_s": 0.2685829569818452,
+          "runs_s": [
+            0.23226636101026088,
+            0.2685829569818452,
+            0.2415708529879339
+          ]
+        },
+        "vocoder_s": {
+          "median_s": 0.034428517043124884,
+          "p90_s": 0.04262445702916011,
+          "min_s": 0.03170981095172465,
+          "max_s": 0.04467344202566892,
+          "runs_s": [
+            0.034428517043124884,
+            0.04467344202566892,
+            0.03170981095172465
+          ]
+        },
+        "end_to_end_s": {
+          "median_s": 1.884605432918761,
+          "p90_s": 1.9026129818637854,
+          "min_s": 1.8493365460890345,
+          "max_s": 1.9071148691000417,
+          "runs_s": [
+            1.8493365460890345,
+            1.9071148691000417,
+            1.884605432918761
+          ]
+        }
+      },
+      "warmup_s": 1.9055513220373541,
+      "rtf": 0.1284958249717337,
+      "finite": true
+    }
+  }
+}

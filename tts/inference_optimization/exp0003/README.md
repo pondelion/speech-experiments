@@ -1,11 +1,12 @@
 # exp0003: 量子化
 
-このREADMEにはA〜Gの計画と各段階の概要を記載する。
+A〜Gの選定した比較条件の検証を完了した。速度・CER・サイズ・メモリ・MP3を各段階にまとめ、最後に40条件の比較表と散布図を掲載する。
+CPU静的INT8の速度除外、CPU SmoothQuantの未実施、FのCPU INT4非対応は各節に明記し、実測済み条件と区別する。
 Cの12条件を横断する結果表と、calibration・実装・評価上の制約の詳細は、[Cの詳細レポート](C_REPORT.md)を参照。
 
-本文は、結論、計画と進捗、実行方法、A〜Fの段階別結果、今後の検証の順にまとめる。
+本文は、結論、計画と進捗、実行方法、A〜Gの段階別結果、今後の検証の順にまとめる。
 
-## 結論: 結局どの条件を選ぶか(A〜F)
+## 結論: 結局どの条件を選ぶか(A〜G)
 
 **QATは現時点の採用候補には必須ではない。** Fは、T2SまでINT4へ圧縮する場合の品質回復・劣化・追加学習コストを調べる検証として実施した。今回の200 stepではQAT固有の優位を確認できず、採用しない。[必要性の見解と比較条件](#f-qatの必要性と固定予算での検証)を参照。
 
@@ -14,7 +15,7 @@ Cの12条件を横断する結果表と、calibration・実装・評価上の制
 
 | 優先するもの | 推奨条件 | 判断理由・引き換えになるもの |
 |---|---|---|
-| GPUでの定常速度（ORT部分移植を許容） | ONNX Runtime FP32(G) | Gの中文でPyTorch FP32 1.308→1.122秒、テスト/実用文CERは両方6.46%/6.73%。export・runtime統合は必要 |
+| GPUでの定常速度（ORT部分移植を許容） | ONNX Runtime FP32(G) | Gの中文でPyTorch FP32 1.308→1.122秒、テストCERは6.46→6.49%、実用文は両方6.73%。export・runtime統合は必要 |
 | PyTorch内での速度・読みCER・VRAMのバランス | GPU BF16 | FP32比でpeak VRAMが565→347 MiB。中文は1.411→1.492秒で、テストCERは6.46→6.51% |
 | CPUでの速度 | T2S＋S2Mの動的INT8(B) | 10回計測の中文medianが4.474→3.200秒。2 seed平均の読みCERにも悪化は見られなかった。RAM削減は得られない |
 | PyTorch内で読みを維持しつつ、重みを少し圧縮 | GPU S2MのみINT4・T2SはBF16(E) | BF16基準から181.0→142.4 MiB。中文1.36→1.48秒、テストCER 6.51→6.29%、実用文6.26→6.33%。VRAM削減はほぼない。単一seedでの候補 |
@@ -71,7 +72,7 @@ GPUで非対応の条件はCPUの数値で代用しない。ボコーダは学�
 | D: 静的PTQ・SmoothQuant | GPU4条件・CPU基準の速度・サイズ・メモリ測定済み | 同5条件の100＋55文・seed 0評価済み | 比較完了。CPU静的INT8は速度で除外・CER未評価、CPU SmoothQuantは未実施 |
 | E: 部品・層の混合精度 | GPU5・CPU3条件で速度・サイズ・メモリ測定済み | 全8条件で100＋55文・seed 0評価済み | 比較完了。GPUはS2MのみINT4が圧縮候補、CPUは全体動的INT8を維持 |
 | F: QAT・同予算の追加学習 | 200 stepの2学習条件、GPU5推論条件で速度・サイズ・メモリ測定済み | 全5条件で100＋55文・seed 0評価済み | 比較完了。今回QAT固有の優位なし・不採用 |
-| G: ONNX Runtimeと量子化 | CPU4・GPU3条件を計測中 | 評価予定 | export・可変長・provider検査完了 |
+| G: ONNX Runtimeと量子化 | CPU4・GPU3条件の速度・サイズ・メモリ測定済み | 全7条件で100＋55文・seed 0評価済み | 比較完了。GPUは速度/圧縮候補、CPUの速度優位なし |
 
 ### 比較条件の固定
 
@@ -116,6 +117,15 @@ fake quantでの検証に加え、実際の量子化kernelへ変換した後の�
 
 ## 実行方法と出力
 
+以下のコマンドはこのexpのディレクトリで実行する。各表で「内部モジュール」としたファイルは、runnerから読み込まれる処理であり、単独実行は不要。
+
+### 使用スクリプト
+
+| ファイル | 役割 | 使い方・主な出力 |
+|---|---|---|
+| [../exp0001/benchmark.py](../exp0001/benchmark.py) | 全段階で共用するモデル読込、代表入力、区間別時間計測、MP3生成。 | 本expのrunnerから関数を呼び出す。入力文は同ディレクトリの`inputs.json`を使用。 |
+
+
 ```bash
 python run.py --device cpu
 python run.py --device cpu --quantize
@@ -131,6 +141,15 @@ MP3は生成波形から直接エンコードする。
 3文の有限値検査・試聴サンプルだけでは品質維持を結論づけない。100文CER等の評価は別途実施する。
 
 ## A: CPU S2Mの動的INT8
+
+### 使用スクリプト
+
+| ファイル | 役割 | 使い方・主な出力 |
+|---|---|---|
+| [run.py](run.py) | 基準と量子化条件の速度・重みサイズを測り、代表3文のMP3を生成。 | `python run.py --device cpu --quantize`。結果は`results/`、MP3は`results/samples/`。 |
+| [quantize.py](quantize.py) | 動的INT8・重みのみINT8/INT4の共通変換処理。本節はS2Mの動的INT8に使用。 | 内部モジュール。対象層・除外層を指定する。B/C/E/Fでも共用。 |
+| [evaluate.py](evaluate.py) | 同じT2S出力・S2Mノイズで、FP32とS2M動的INT8のCER・Mel誤差を対比較。 | `python evaluate.py` → `results/quality.json`。評価WAVは`runs/quality/`。 |
+
 
 ### 速度とサイズ
 
@@ -182,6 +201,15 @@ python evaluate.py
 
 ## B: 量子化対象部品の比較
 
+### 使用スクリプト
+
+| ファイル | 役割 | 使い方・主な出力 |
+|---|---|---|
+| [run.py](run.py) | T2Sのみ・S2Mのみ・両部品の動的INT8で速度・サイズ・MP3を比較。 | `--device cpu --target t2s`または`--target both`。本節の再現コマンド参照。 |
+| [quantize.py](quantize.py) | 指定した部品のLinearを動的INT8へ変換し、T2Sのhead等を除外。 | 内部モジュール。`run.py`・品質評価から使用。 |
+| [evaluate.py](evaluate.py) | 量子化したT2Sの出力を使い、T2Sのみ/両部品INT8のCERを評価。 | `python evaluate.py --t2s-int8` → `results/quality_b.json`。 |
+
+
 同じCPU動的INT8で、T2Sのみ・S2Mのみ・両方を比較する。
 T2Sではdevice取得用に`head.weight`を参照するため出力`head`をFP32に残す。Embedding、Conv、LayerNormも対象外。
 T2Sの68個のLinear、S2Mの45個のLinearを変換する。除外層と変換名は各結果JSONへ保存する。
@@ -217,6 +245,15 @@ python evaluate.py --t2s-int8
 ```
 
 ### 採用候補の追加検証: FP32と両方INT8
+
+#### 使用スクリプト
+
+| ファイル | 役割 | 使い方・主な出力 |
+|---|---|---|
+| [run.py](run.py) | FP32と両部品INT8を10回計測し、初期3回の結果と分けて保存。 | `--repeats 10 --no-samples --output-dir results/validation`。 |
+| [check_memory.py](check_memory.py) | サイズ計測用bufferを作らず、別プロセスでCPUのload後/長文推論後/peak RSSを測定。 | `python check_memory.py`と`python check_memory.py --quantize`。 |
+| [evaluate_candidate.py](evaluate_candidate.py) | FP32と両部品INT8のCERを追加seedで対比較。MP3は追加しない。 | `python evaluate_candidate.py --seed 1` → `results/validation/quality_seed1.json`。 |
+
 
 速度を各入力10回へ増やし、warm-up 1回、8 threads、同じseed列で独立プロセス測定した。
 元の3回計測を上書きせず、結果は`results/validation/`へ保存する。
@@ -269,6 +306,17 @@ python evaluate_candidate.py --seed 1
 ```
 
 ## C: 重みのみINT8/INT4と、calibrationを使う方式
+
+### 使用スクリプト
+
+| ファイル | 役割 | 使い方・主な出力 |
+|---|---|---|
+| [run.py](run.py) | 重みのみINT8/INT4、group size、AWQ/GPTQ条件の速度・サイズ・MP3を測定。 | `--wo-bits`・`--group-size`・`--calibration`を指定。結果は`results/weight_only/`。 |
+| [quantize.py](quantize.py) | 単純な重み量子化と形状非対応層の除外。plain INT4ではpacking変換も呼び出す。 | 内部モジュール。`weight_only()`を使用。 |
+| [probe_weight_only.py](probe_weight_only.py) | 小さなLinearでCPU/GPUのdtype・packing別の動作を確認する事前診断。 | `python probe_weight_only.py --device cuda --tiled`。`results/weight_only/probe_*.json`。 |
+| [evaluate_weight_only.py](evaluate_weight_only.py) | 基準と各重み量子化条件の100＋55文CER・有限値を評価。 | 例: `--device cuda --bits 4 --dtype bfloat16` → `quality_*.json`。 |
+| [measure_weight_memory.py](measure_weight_memory.py) | サイズ計測用bufferを作らず、別プロセスでRSS・GPU VRAMを測定。 | 品質評価と同じdevice・bits・dtype・calibrationを指定 → `memory_*.json`。 |
+
 
 最初にtorchaoの単純な重みのみINT8/INT4を測り、次にAWQ系・GPTQ系を比較する。
 今回追加したbackendはtorchao 0.18.0。PyTorch 2.14.0+cu130等の既存パッケージは変更していない。
@@ -349,6 +397,17 @@ python evaluate_weight_only.py --device cuda --bits 4 --dtype bfloat16
 
 ### C2/C3: group size・AWQ・GPTQの比較(完了)
 
+### 使用スクリプト
+
+| ファイル | 役割 | 使い方・主な出力 |
+|---|---|---|
+| [calibrate.py](calibrate.py) | 学習splitからcalibration入力を作り、AWQ/GPTQの観測・変換・キャッシュを行う。 | 内部モジュール。runnerの`--calibration awq`または`gptq`から呼び出す。 |
+| [repack.py](repack.py) | MSLKのsigned INT4をTinygemmのpackingへ変換。再量子化せず整数値・scale等の整合を検査。 | 内部モジュール。`calibrate.py`と`quantize.py`から使用。 |
+| [probe_calibrated.py](probe_calibrated.py) | AWQ/GPTQ prototype APIの初期単体診断。成功/失敗と誤差を記録する。 | `python probe_calibrated.py` → `results/weight_only/probe_calibrated.json`。最終のモデル変換は`calibrate.py`を使用。 |
+| [finish_c.py](finish_c.py) | 選定条件の未実施CER・独立プロセスメモリ測定をまとめて実行。速度は別途`run.py`で測定。 | `python finish_c.py`。既存の結果JSONは再実行しない。 |
+| [summarize_c.py](summarize_c.py) | 選定12条件の速度・CER・サイズ・メモリを検査して集計。 | `python summarize_c.py` → `results/weight_only/c_summary.csv`・`c_summary.json`。 |
+
+
 group size 32/64/128、AWQ INT4、GPTQ INT8/INT4と対応する基準を追加した。
 選定した12条件で速度・100＋55文CER・重みサイズ・独立プロセスのメモリ計測を完了した。
 結果表、calibrationの条件、backendの制約は[C完了レポート](C_REPORT.md)にまとめた。
@@ -356,6 +415,17 @@ group size 32/64/128、AWQ INT4、GPTQ INT8/INT4と対応する基準を追加�
 group sizeは量子化対象層をそろえて比較し、層ごとの混合精度はEで扱う。
 
 ## D: 静的PTQ・SmoothQuant
+
+### 使用スクリプト
+
+| ファイル | 役割 | 使い方・主な出力 |
+|---|---|---|
+| [static_models.py](static_models.py) | 2 pass calibration、静的INT8/SmoothQuant変換、対象層・scaleの記録とキャッシュ。 | 内部モジュール。`run_d.py`から使用。 |
+| [probe_static.py](probe_static.py) | 小さなLinearで静的INT8/SmoothQuantとコンパイルの動作・誤差を確認。 | 例: `python probe_static.py --device cuda --compile` → `results/static/probe_*.json`。 |
+| [run_d.py](run_d.py) | 1条件の速度・CER・メモリを指定phaseで測定し、速度phaseでMP3も生成。 | 例: `--device cuda --mode sq05 --phase bench`。結果は`results/static/`。 |
+| [finish_d.py](finish_d.py) | Dの条件を速度→CER→メモリの順に実行。CPU INT8系の除外も明示。 | `python finish_d.py` → 完了後に`python summarize_d.py`。 |
+| [summarize_d.py](summarize_d.py) | Dを集計し、このREADMEのD結果表と試聴ページの条件を更新。 | `python summarize_d.py` → `results/static/d_summary.csv`・`d_summary.json`。 |
+
 
 DではLinearの重みと活性値をINT8にする静的PTQを対象とする。
 平滑化なし、SmoothQuant α=0.5、α=0.75を、CPU/GPUそれぞれのFP32基準と比較する。
@@ -394,6 +464,16 @@ GPU/CPUの両方で速度・100＋55文CER・独立プロセスのメモリを�
 <!-- D_RESULTS_END -->
 
 ## E: 高精度に残す部品・層の比較
+
+### 使用スクリプト
+
+| ファイル | 役割 | 使い方・主な出力 |
+|---|---|---|
+| [mixed_models.py](mixed_models.py) | 部品単位/最初・最後のblock等を高精度に残す、事前定義の量子化範囲を設定。 | 内部モジュール。`quantize.py`を共用し、対象・除外層を記録。 |
+| [run_e.py](run_e.py) | Eの1条件について速度・CER・メモリを測定し、代表MP3を生成。 | 例: `--device cuda --mode boundary --phase quality`。結果は`results/mixed/`。 |
+| [finish_e.py](finish_e.py) | GPU5・CPU3条件の速度・CER・メモリを実行し、最後に集計。 | `python finish_e.py`。既存結果を利用して再開できる。 |
+| [summarize_e.py](summarize_e.py) | Eの8条件を集計し、このREADMEのE結果表と試聴条件を更新。 | `python summarize_e.py` → `results/mixed/e_summary.csv`・`e_summary.json`。 |
+
 
 GPUはBF16基準、両部品INT4、T2SのみINT4、S2MのみINT4、入出力側をBF16に残す混合精度の5条件。
 INT4はCと同じ単純な重み量子化・group size 128・Tinygemmで、活性値はBF16とする。
@@ -479,6 +559,17 @@ QATでは、量子化で生じる丸め誤差を学習中から再現する「�
 
 ### 比較条件と学習予算
 
+### 使用スクリプト
+
+| ファイル | 役割 | 使い方・主な出力 |
+|---|---|---|
+| [train_f.py](train_f.py) | 既存トークン・テキスト・音素ラベルで、通常追加学習/QATを同予算で実行。 | `python train_f.py --mode ft`と`--mode qat`。重みは`runs/qat/`、学習記録は`results/qat/train_*.json`。 |
+| [qat_models.py](qat_models.py) | T2SのINT4模擬量子化の設定、学習済み重みの読込、実INT4への変換。 | 内部モジュール。学習時は`train_f.py`、推論時は`run_f.py`から使用。 |
+| [run_f.py](run_f.py) | 元モデル・PTQ・追加学習・追加学習後PTQ・QATの1条件を評価。 | 例: `--device cuda --mode qat --phase quality`。`results/qat/`へ保存。 |
+| [finish_f.py](finish_f.py) | 学習済みcheckpointを使ってFの5条件の速度・CER・メモリを測定し、集計。 | 2条件の学習完了後に`python finish_f.py`。このファイル自体は学習しない。 |
+| [summarize_f.py](summarize_f.py) | Fの5条件を集計し、このREADMEのF結果表と試聴条件を更新。 | `python summarize_f.py` → `results/qat/f_summary.csv`・`f_summary.json`。 |
+
+
 | 条件 | 追加学習 | 推論するT2S | 比較する目的 |
 |---|---|---|---|
 | BF16基準 | なし | 元の重み・BF16 | 元モデルの精度・速度 |
@@ -546,6 +637,18 @@ READMEの表と試聴条件の登録は[summarize_f.py](summarize_f.py)で再生
 
 ## G: ONNX Runtimeでの量子化・実行互換性
 
+### 使用スクリプト
+
+| ファイル | 役割 | 使い方・主な出力 |
+|---|---|---|
+| [onnx_models.py](onnx_models.py) | 可変長graphの定義、Gemmの正規化、ONNX側量子化、I/O BindingによるPyTorchとの接続。 | 内部モジュール。export・事前診断・各条件runnerから使用。 |
+| [export_g.py](export_g.py) | FP32の3 graphをexportし、ORT用の動的INT8/INT4へ変換。 | `python export_g.py`。重みは`runs/onnx/`、概要は`results/runtime/export.json`。 |
+| [probe_g.py](probe_g.py) | 3種のbatch/長さ・padding付き入力で数値誤差を検査し、GPU主要演算のCPU fallbackも確認。 | export後に`python probe_g.py` → `results/runtime/probe.json`。実行profileは`runs/onnx/`。 |
+| [run_g.py](run_g.py) | PyTorch/ORTの1条件で速度・CER・サイズ・メモリとMP3を測定。GPUメモリはdevice使用量増分も測る。 | 例: `--device cpu --mode int4 --phase bench`。結果は`results/runtime/`。 |
+| [finish_g.py](finish_g.py) | CPU4・GPU3条件の速度・CER・メモリを実行し、最後に集計。 | `export_g.py` → `probe_g.py` → `python finish_g.py`の順。 |
+| [summarize_g.py](summarize_g.py) | Gの7条件を集計し、このREADMEのG結果表と試聴条件を更新。 | `python summarize_g.py` → `results/runtime/g_summary.csv`・`g_summary.json`。 |
+
+
 Gはexp3の最後の段階として、量子化形式を別runtimeへ持ち込めるかを検証する。
 T2Sのテキストエンコーダ・Transformer block群、S2Mのvelocity計算を可変長ONNX(opset 18)へ移し、生成ループ・codec・長さ調整・暫定ボコーダは共通のPyTorch実装に保つ。
 全体をONNXだけで動かす移植はexp0004以降で扱う。今回のPython/CUDA結果だけでブラウザ対応済みとは判定しない。
@@ -581,6 +684,24 @@ INT4のMatMulNBitsはONNX Runtimeの拡張演算であり、標準ONNXだけの�
 実行は`export_g.py`→`probe_g.py`→`finish_g.py`。ONNXの重みはGit管理外の`runs/onnx/`、評価WAVは`runs/runtime_audio/`に保存する。
 各条件3文を48 kbps MP3へ出力し、公開する集計は`results/runtime/`に保存する。
 
+### 結果と採用判断
+
+GPUの定常速度重視ではORT FP32を候補にする。G内で中文はPyTorch 1.308→1.122秒、テストCERは6.46→6.49%、実用文は両方6.73%だった。
+小さな数値差により生成結果は厳密には一致しない。長文は1.304→1.352秒で、全入力での高速化ではない。
+
+重みファイルの最小化ではORT INT4を候補にする。約68.8 MiBで、GPU中文1.199秒、CER 6.74%・5.46%。
+GのPyTorch FP32に対しテストは約+0.28ポイント、実用文は約-1.27ポイントで、評価集合によって優劣が変わる。
+一方、同じdevice使用量増分の定義でGPUメモリはPyTorch約806 MiB、ORT FP32約1766 MiB、ORT INT4約1604 MiBとなった。
+**小さい重みファイルと低い実行時メモリは別であり、ORT INT4を低VRAM目的では推奨しない。**
+
+CPUの速度重視では既存のPyTorch動的INT8を維持する。Gの中文はPyTorch FP32 4.10秒、ORT FP32 6.26秒、ORT INT8 4.71秒、ORT INT4 5.49秒で、runtime移植による優位はなかった。
+CPU ORT FP32のCERは基準と同じ6.90%・6.40%。INT8は7.13%・6.13%、INT4は7.70%・6.13%で、テストの読みは悪化した。
+CPU INT4も約68.8 MiBへ圧縮できるが、速度・読み・RAMとのトレードオフがある。RSSは基準約1637 MiBに対しORT INT4約2506 MiBで、RAM削減は得られなかった。
+
+この結果はCore Ultra 7 265K/RTX 5090、今回の部分移植・量子化範囲・ORT設定での観測であり、ONNX Runtime一般の性能を示すものではない。
+量子化形式の移行は実行可能だったが、PyTorchのpacked重みをそのまま流用したのではなく、ONNX側で再量子化した結果である。
+集計元は[`g_summary.csv`](results/runtime/g_summary.csv)・[`g_summary.json`](results/runtime/g_summary.json)。
+
 <!-- G_RESULTS_START -->
 | Device | 条件 | 中文 秒 | テストCER % | 実用文CER % | 重み MiB | peak RSS MiB | device VRAM増分 MiB |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -599,6 +720,21 @@ exp3の後は、[exp0002の量子化実験後の計画](../exp0002/README.md)に
 その後、exp0004以降でONNXへの全体移植とブラウザ/WASM/WebGPU・エッジの実機検証を進める。採用候補では複数seedと聴感も確認する。
 
 ## 最終総括
+
+### 使用スクリプト
+
+| ファイル | 役割 | 使い方・主な出力 |
+|---|---|---|
+| [summarize_all.py](summarize_all.py) | A/B〜Gの完了済み条件を集約し、全条件表とCPU/GPU・評価集合別の散布図を生成。 | 各段階の集計後に`python summarize_all.py` → `results/summary/all_conditions.csv`・`all_conditions.json`・`speed_cer.svg`。このREADMEの最終表も更新。 |
+
+
+### 他のTTSにも持ち出せる知見
+
+- 重みのbit数削減は、速度・RAM・VRAMの削減を保証しない。ファイル、実行時メモリ、速度を別々に測る。
+- 同じモデルでもCPU/GPU・kernel・runtimeで結果が変わる。対象機器での基準比較が必要になる。
+- 高精度に残す層を増やしたり、追加学習したりしてもCERが必ず改善するわけではない。QATには同予算の量子化なし追加学習を対照に含める。
+- calibrationや学習データ、推論時のdtype・batch・seedを固定し、評価集合による順位の違いを確認する。
+- packed重みとruntimeの演算対応を区別する。ONNXへのexport成功だけではWASM/WebGPUでの動作や高速化を保証しない。
 
 ### 速度と読みの精度の散布図
 
@@ -620,39 +756,177 @@ CERは読みの誤りの指標であり、聴感品質の同等性を保証し�
 集約と散布図の再生成は[summarize_all.py](summarize_all.py)で行う。
 
 <!-- ALL_RESULTS_START -->
-| ID | 段階 | 環境 | 条件ID | 中文 秒 | テストCER % | 実用文CER % | 重み MiB |
+| ID | 段階 | 環境 | 条件 | 中文 秒 | テストCER % | 実用文CER % | 重み MiB |
 |---|---|---|---|---:|---:|---:|---:|
-| B01 | B | cpu | `cpu_s2m_int8` | 4.129 | 6.77 | 6.40 | 251.0 |
-| B02 | B | cpu | `cpu_t2s_int8` | 4.277 | 6.79 | 6.20 | 215.8 |
-| B03 | B | cpu | `cpu_both_int8` | 3.747 | 6.51 | 6.46 | 104.8 |
-| C01 | C | cpu | `cpu_fp32` | 4.855 | 6.90 | 6.40 | 362.0 |
-| C02 | C | cpu | `cpu_both_wo8_float32` | 4.445 | 6.81 | 6.26 | 105.4 |
-| C03 | C | cuda | `cuda_fp32` | 1.411 | 6.46 | 6.73 | 362.0 |
-| C04 | C | cuda | `cuda_bf16` | 1.492 | 6.51 | 6.26 | 181.0 |
-| C05 | C | cuda | `cuda_both_wo8_float32` | 1.793 | 6.94 | 6.20 | 105.5 |
-| C06 | C | cuda | `cuda_both_wo8_float32_gptq` | 1.828 | 6.70 | 6.46 | 105.5 |
-| C07 | C | cuda | `cuda_both_wo4_bfloat16` | 1.856 | 7.05 | 6.20 | 90.4 |
-| C08 | C | cuda | `cuda_both_wo4_bfloat16_g64` | 2.018 | 7.00 | 6.40 | 95.1 |
-| C09 | C | cuda | `cuda_both_wo4_bfloat16_g32` | 1.985 | 7.72 | 6.40 | 104.6 |
-| C10 | C | cuda | `cuda_both_wo4_bfloat16_awq` | 2.141 | 7.33 | 7.20 | 90.6 |
-| C11 | C | cuda | `cuda_both_wo4_bfloat16_plain` | 1.881 | 7.16 | 5.66 | 90.4 |
-| C12 | C | cuda | `cuda_both_wo4_bfloat16_gptq` | 2.107 | 6.92 | 5.93 | 90.4 |
-| D01 | D | cuda | `cuda_d_fp32_clinear` | 2.425 | 6.46 | 6.73 | 362.0 |
-| D02 | D | cuda | `cuda_static_int8_clinear` | 2.333 | 6.66 | 5.73 | 105.5 |
-| D03 | D | cuda | `cuda_smoothquant_0p5_clinear` | 2.520 | 6.44 | 6.40 | 105.9 |
-| D04 | D | cuda | `cuda_smoothquant_0p75_clinear` | 2.261 | 6.92 | 5.60 | 105.9 |
-| D05 | D | cpu | `cpu_d_fp32_clinear` | 4.505 | 6.90 | 6.40 | 362.0 |
-| E01 | E | cuda | `cuda_e_baseline` | 1.359 | 6.51 | 6.26 | 181.0 |
-| E02 | E | cuda | `cuda_e_all` | 1.658 | 7.05 | 6.20 | 90.4 |
-| E03 | E | cuda | `cuda_e_t2s` | 1.761 | 7.20 | 6.13 | 129.0 |
-| E04 | E | cuda | `cuda_e_s2m` | 1.481 | 6.29 | 6.33 | 142.4 |
-| E05 | E | cuda | `cuda_e_boundary` | 1.724 | 6.87 | 5.86 | 124.1 |
-| E06 | E | cpu | `cpu_e_baseline` | 4.113 | 6.90 | 6.40 | 362.0 |
-| E07 | E | cpu | `cpu_e_all` | 3.216 | 6.51 | 6.46 | 104.8 |
-| E08 | E | cpu | `cpu_e_boundary` | 3.410 | 7.48 | 7.00 | 200.0 |
-| F01 | F | cuda | `cuda_f_baseline` | 1.544 | 6.51 | 6.26 | 181.0 |
-| F02 | F | cuda | `cuda_f_ptq` | 1.712 | 7.20 | 6.13 | 129.0 |
-| F03 | F | cuda | `cuda_f_ft` | 1.564 | 7.48 | 5.86 | 181.0 |
-| F04 | F | cuda | `cuda_f_ft_ptq` | 1.926 | 7.31 | 5.53 | 129.0 |
-| F05 | F | cuda | `cuda_f_qat` | 1.710 | 7.28 | 5.86 | 129.0 |
+| B01 | B | cpu | S2Mのみ動的INT8 | 4.129 | 6.77 | 6.40 | 251.0 |
+| B02 | B | cpu | T2Sのみ動的INT8 | 4.277 | 6.79 | 6.20 | 215.8 |
+| B03 | B | cpu | 両部品動的INT8 | 3.747 | 6.51 | 6.46 | 104.8 |
+| C01 | C | cpu | FP32 | 4.855 | 6.90 | 6.40 | 362.0 |
+| C02 | C | cpu | 重みのみINT8 | 4.445 | 6.81 | 6.26 | 105.4 |
+| C03 | C | cuda | FP32 | 1.411 | 6.46 | 6.73 | 362.0 |
+| C04 | C | cuda | BF16 | 1.492 | 6.51 | 6.26 | 181.0 |
+| C05 | C | cuda | 重みのみINT8 | 1.793 | 6.94 | 6.20 | 105.5 |
+| C06 | C | cuda | GPTQ INT8 | 1.828 | 6.70 | 6.46 | 105.5 |
+| C07 | C | cuda | 単純INT4 g128 | 1.856 | 7.05 | 6.20 | 90.4 |
+| C08 | C | cuda | 単純INT4 g64 | 2.018 | 7.00 | 6.40 | 95.1 |
+| C09 | C | cuda | 単純INT4 g32 | 1.985 | 7.72 | 6.40 | 104.6 |
+| C10 | C | cuda | AWQ INT4 | 2.141 | 7.33 | 7.20 | 90.6 |
+| C11 | C | cuda | RTN INT4→Tinygemm | 1.881 | 7.16 | 5.66 | 90.4 |
+| C12 | C | cuda | GPTQ INT4→Tinygemm | 2.107 | 6.92 | 5.93 | 90.4 |
+| D01 | D | cuda | FP32 / Linear compile | 2.425 | 6.46 | 6.73 | 362.0 |
+| D02 | D | cuda | 静的INT8 / Linear compile | 2.333 | 6.66 | 5.73 | 105.5 |
+| D03 | D | cuda | SmoothQuant α=0.5 / Linear compile | 2.520 | 6.44 | 6.40 | 105.9 |
+| D04 | D | cuda | SmoothQuant α=0.75 / Linear compile | 2.261 | 6.92 | 5.60 | 105.9 |
+| D05 | D | cpu | FP32 / Linear compile | 4.505 | 6.90 | 6.40 | 362.0 |
+| E01 | E | cuda | BF16基準 | 1.359 | 6.51 | 6.26 | 181.0 |
+| E02 | E | cuda | 両部品INT4 | 1.658 | 7.05 | 6.20 | 90.4 |
+| E03 | E | cuda | T2SのみINT4 | 1.761 | 7.20 | 6.13 | 129.0 |
+| E04 | E | cuda | S2MのみINT4 | 1.481 | 6.29 | 6.33 | 142.4 |
+| E05 | E | cuda | 入出力側BF16・他INT4 | 1.724 | 6.87 | 5.86 | 124.1 |
+| E06 | E | cpu | FP32基準 | 4.113 | 6.90 | 6.40 | 362.0 |
+| E07 | E | cpu | 両部品動的INT8 | 3.216 | 6.51 | 6.46 | 104.8 |
+| E08 | E | cpu | 入出力側FP32・他動的INT8 | 3.410 | 7.48 | 7.00 | 200.0 |
+| F01 | F | cuda | BF16基準 | 1.544 | 6.51 | 6.26 | 181.0 |
+| F02 | F | cuda | T2S PTQ INT4 | 1.712 | 7.20 | 6.13 | 129.0 |
+| F03 | F | cuda | 追加学習 BF16 | 1.564 | 7.48 | 5.86 | 181.0 |
+| F04 | F | cuda | 追加学習後PTQ INT4 | 1.926 | 7.31 | 5.53 | 129.0 |
+| F05 | F | cuda | QAT後INT4 | 1.710 | 7.28 | 5.86 | 129.0 |
+| G01 | G | cuda | PyTorch FP32 | 1.308 | 6.46 | 6.73 | 362.0 |
+| G02 | G | cuda | ORT FP32 | 1.122 | 6.49 | 6.73 | 362.7 |
+| G03 | G | cuda | ORT INT4 | 1.199 | 6.74 | 5.46 | 68.8 |
+| G04 | G | cpu | PyTorch FP32 | 4.097 | 6.90 | 6.40 | 362.0 |
+| G05 | G | cpu | ORT FP32 | 6.260 | 6.90 | 6.40 | 362.7 |
+| G06 | G | cpu | ORT動的INT8 | 4.714 | 7.13 | 6.13 | 109.2 |
+| G07 | G | cpu | ORT INT4 | 5.487 | 7.70 | 6.13 | 68.8 |
 <!-- ALL_RESULTS_END -->
+
+## 付録: BitNet風の三値量子化
+
+### 目的と適用範囲
+
+4bitより小さな重み表現にしても、読みCERと速度を維持できるかを検証する。
+本文A〜Gとは学習予算・CPUの保存/計算dtypeが異なる追加検証のため、既存40条件の散布図とは分けて掲載する。
+T2Sの対象LinearはFと同じ67層とし、S2M・Embedding・head等は高精度で残す。
+三値重みは層ごとの平均絶対値Δを使って`round(W/Δ)`を{-1,0,+1}へ切り詰める。実際に計算する重みは{-Δ,0,+Δ}となる。
+1.58bitはlog₂(3)の理論値であり、保存時は4重みを1byteに詰める2bit形式を使用する。scale・bias・高精度で残す重みもファイル容量に含める。
+
+これは三値QATと音声トークンlogits蒸留の小規模検証で、BitDistill全体の再現ではない。
+SubLNの追加、継続事前学習、attention蒸留は行わない。
+参照: [BitNet Distillation](https://arxiv.org/abs/2510.13998)、[公式推論kernel](https://github.com/microsoft/BitNet)。
+
+### 使用スクリプト
+
+| ファイル | 役割 | 実行・出力 |
+|---|---|---|
+| [appendix_ternary/models.py](appendix_ternary/models.py) | 重み三値化、STE、活性値INT8化、2bit packing/unpacking、配布ファイルの生成・読込 | 内部モジュール。重みは`runs/ternary/`、packing検査は`results/ternary/packing_*.json` |
+| [appendix_ternary/check.py](appendix_ternary/check.py) | 2bit往復一致・重み/入力勾配・biasの整合を確認 | `python appendix_ternary/check.py` → `results/ternary/checks.json` |
+| [appendix_ternary/train.py](appendix_ternary/train.py) | 通常追加学習、三値QAT、三値QAT＋logits蒸留を同予算で学習 | `--mode ft`・`qat`・`kd`。学習記録は`results/ternary/train_*.json` |
+| [appendix_ternary/run.py](appendix_ternary/run.py) | 配布ファイルを読み込み、1条件の速度・CER・メモリ・MP3を計測 | `--device cuda --mode kd --phase quality`等。結果は`results/ternary/` |
+| [appendix_ternary/finish.py](appendix_ternary/finish.py) | 学習→GPU7条件/CPU2条件の計測→集計をまとめて実行 | `python appendix_ternary/finish.py`。既存結果から再開 |
+| [appendix_ternary/summarize.py](appendix_ternary/summarize.py) | 付録の結果表と試聴条件を更新 | `python appendix_ternary/summarize.py` |
+
+### 比較条件
+
+| 条件 | T2S重み | 対象Linearの入力 | 追加学習 |
+|---|---|---|---|
+| BF16保存基準 | BF16 | 高精度 | なし |
+| INT4基準 | Fと同じINT4・group size 128 | 高精度 | なし |
+| 重みのみ三値化 | 三値 | 高精度 | なし |
+| 直接三値化＋入力INT8 | 三値 | tokenごとにabsmaxでINT8化 | なし |
+| 通常追加学習後の三値化＋入力INT8 | 三値 | 同上 | 1000 step、量子化なしで学習して最後に三値化 |
+| 三値QAT＋入力INT8 | 三値 | 同上 | 1000 step、重み/入力にSTEを使用 |
+| 三値QAT＋logits蒸留＋入力INT8 | 三値 | 同上 | 同じ1000 step、凍結した元T2Sから蒸留 |
+
+GPUは全7条件、CPUはBF16保存基準と、事前に固定した蒸留付き三値QATの2条件で比較する。
+共通の配布ファイルで高精度の重みはBF16保存とし、GPUはBF16、CPUはそのBF16値をFP32へ展開して計算する。
+したがってCPU基準も「元のFP32重みそのまま」ではなく、BF16保存値をFP32計算する対照である。
+
+学習はFと同じ既存音声トークン・テキスト・音素ラベルからtrain 478文/val 61文、seed 0、max tokens 4096、AdamW、weight decay 0.01、勾配clip 1.0を使う。
+3学習条件とも1000 step、最大学習率3e-5、warmup 50 step、最終step固定とする。
+蒸留は同じマスク・時刻・テキスト・正解長さをteacher/studentへ与え、隠した音声トークン位置のKL損失を温度2・係数1で元の学習損失に加える。
+検証時のlossは蒸留損失を加えない共通のtask lossで比較する。評価用100＋55文は学習とcheckpoint選択に使わない。
+
+### packingと速度計測の意味
+
+2bitファイルは三値コード、FP32 scale、高精度で残す重み、モデル設定・語彙を保存し、対象層の元の浮動小数点重みは保存しない。
+全対象層でpacking→unpacking後の一致を検査する。
+**今回の推論は、2bitから浮動小数点へ一度展開して通常のF.linearで計算する。専用の三値CPU/CUDA kernelを使った速度ではない。**
+活性値INT8化も浮動小数点の丸め処理であり、整数積和kernelによる高速化を意味しない。
+従ってファイル容量が減っても、この実装での実行時RAM/VRAM削減や高速化を期待してはならない。
+
+速度は短・中・長文、8 threads、batch 1、warmup 1回・3回計測。ファイル読込・2bit展開は定常速度の計測外で、cold start短縮は未検証。
+CERは100テスト文＋55実用文、seed 0、T2S batch 16・S2M batch 4。メモリは独立プロセスで測る。
+各条件3文を48 kbps MP3で保存し、重み・評価WAVはGit管理外とする。
+
+### 学習結果
+
+| 条件 | 学習ループ＋途中検証 秒 | peak VRAM GiB | 初期task val loss | 最終task val loss |
+|---|---:|---:|---:|---:|
+| 通常追加学習 | 73.2 | 1.84 | 3.2009 | 3.4545 |
+| 三値QAT | 98.8 | 1.95 | 4.9415 | 3.2683 |
+| 三値QAT＋蒸留 | 131.2 | 2.15 | 4.9415 | 3.2155 |
+
+時間にはデータ準備・初期検証・teacher構築を含めない。3条件のデータIDと元checkpointのSHA256が一致することを確認した。
+蒸留条件のtrain lossにはKLが含まれるため他条件と直接比較せず、上表では共通のtask val lossを示す。
+
+### GPUでの精度回復と容量の判断
+
+BF16基準のCERはテスト6.51%・実用文6.26%。重みのみの直接三値化は17.83%・9.46%、入力INT8も含めた直接適用は17.53%・9.33%で、大きく劣化した。
+三値QATでは7.41%・6.26%まで回復したが、元モデルのテストCERには戻らなかった。
+蒸留付きは7.91%・5.60%で実用文は改善したものの、テストでは蒸留なしQATより悪化し、蒸留が必ず良いとは確認できなかった。
+通常追加学習後に三値化するだけでは19.87%・9.19%となり、学習中から量子化を模擬するQATの効果を分離できた。
+
+実ファイルはBF16約181.0 MiB、同じT2S対象のINT4約129.0 MiB、三値約95.8 MiBで、INT4比約25.8%、BF16比約47.1%減った。
+S2M等を高精度で残しているためモデル全体がINT4の半分になるわけではない。
+本文Gの約68.8 MiBはT2SとS2Mの計算部分を量子化した別範囲であり、今回の三値化が全体最小のファイルという意味ではない。
+
+GPU中文は基準1.55秒、重みのみ三値化1.55秒、三値QAT2.05秒、蒸留付き2.06秒だった。
+**今回の実装では「元モデルの精度・速度を落とさず三値化」は達成していない。**
+ただしINT4基準(2.00秒、CER 7.20%・6.13%)に対し、三値QATは容量を約26%削減し、CER差は約+0.22/+0.13ポイントだった。
+単一seed・3回の速度計測なので小差の有意性は未判定だが、追加圧縮を優先する場合の検討候補にはなる。
+専用kernelでの高速化可能性は今回の計測から結論づけない。
+
+### 検証結果
+
+<!-- TERNARY_RESULTS_START -->
+| 環境 | 条件 | 中文 秒 | テストCER % | 実用文CER % | 保存 MiB | peak RSS MiB | peak VRAM MiB | 状態 |
+|---|---|---:|---:|---:|---:|---:|---:|---|
+| cuda | BF16保存基準 | 1.55 | 6.51 | 6.26 | 181.04 | 2767.48 | 345.19 | 完了 |
+| cuda | T2S INT4基準 | 2.00 | 7.20 | 6.13 | 128.99 | 2766.73 | 292.98 | 完了 |
+| cuda | 重みのみ三値化 | 1.55 | 17.83 | 9.46 | 95.75 | 2790.85 | 348.42 | 完了 |
+| cuda | 直接三値化＋入力INT8 | 2.09 | 17.53 | 9.33 | 95.75 | 2796.01 | 348.42 | 完了 |
+| cuda | 追加学習後三値化＋入力INT8 | 1.85 | 19.87 | 9.19 | 95.76 | 2792.89 | 348.30 | 完了 |
+| cuda | 三値QAT＋入力INT8 | 2.05 | 7.41 | 6.26 | 95.76 | 2789.13 | 347.82 | 完了 |
+| cuda | 三値QAT＋蒸留＋入力INT8 | 2.06 | 7.91 | 5.60 | 95.76 | 2795.64 | 347.70 | 完了 |
+| cpu | BF16保存基準 | 5.19 | 6.77 | 5.86 | 181.04 | 1638.33 | — | 完了 |
+| cpu | 三値QAT＋蒸留＋入力INT8 | 5.49 | 7.05 | 5.80 | 95.76 | 1659.20 | — | 完了 |
+<!-- TERNARY_RESULTS_END -->
+
+### 結論と今後の判断
+
+**三値QATは、精度差を用途上許容でき、専用kernelでこれまでの最良候補と同等以上の速度・使用メモリを実現できれば、モデルファイルの小ささに採用価値がある。次に検証するのはpacked重みを直接扱うkernelである。**
+採用判断の比較対象はINT4に限定せず、冒頭の用途別の最良候補を使う。GPUの定常速度はORT FP32、PyTorch内ではBF16、CPUの速度は両部品の動的INT8などと比較する。
+RAM/VRAMは同じ環境・測定定義で比較し、ファイル容量も対象部品・保存範囲をそろえて判断する。
+
+同じ対象範囲では、重みファイルはBF16の181.0 MiB、INT4の129.0 MiBから三値の95.8 MiBへ削減できた。
+三値QATのテストCERは7.41%で、BF16の6.51%から約+0.91ポイント、INT4の7.20%から約+0.22ポイント。実用文CERはBF16と同じ6.26%、INT4比で約+0.13ポイントだった。
+INT4との差は追加圧縮のトレードオフを示す参考値であり、採用基準をINT4へ限定する根拠にはしない。また、これらの差を無条件に許容できるとは断定しない。
+GPUのテストCERを優先する三値候補は蒸留なしQAT、実用文では蒸留付きが良かったが、単一seedで順位は確定しない。
+
+現在の浮動小数点展開版の速度・メモリから、三値専用kernelの採用価値を否定しない。
+専用kernelで同じ量子化値と計算精度を再現できるかを確認し、変換後のCER・速度・メモリ・ファイル容量を既存の最良候補と総合比較して採用を確定する。
+
+CPUで計測した蒸留付き条件は、基準に対してテストCER 6.77→7.05%、実用文5.86→5.80%、中文5.19→5.49秒であった。
+保存ファイルは約47%小さくなったが、peak RSSは約1638→1659 MiBで、RAM削減は得られなかった。
+GPUでも三値QATのpeak VRAMは約348 MiBとBF16基準約345 MiBに近く、INT4約293 MiBより大きかった。
+これは圧縮ファイルを浮動小数点へ展開する実装の結果であり、packed重みを直接使う専用kernelの性能ではない。
+CPUの蒸留なしQATは未計測で、GPUでの優劣をCPUへ流用しない。
+
+今回の結果はtrain 478文・1000 step・seed 0に限られる。大規模な継続事前学習やSubLN・attention蒸留を含むBitDistill全体の有効性を否定しない。
+次は今回の三値QAT重みを使うCPU/CUDA kernelの適合性・性能を優先して検証する。複数seedや学習データ量の追加検証は、今回の小差の再現性を確かめる補強として行う。
+ブラウザ利用にも配布形式のexportとWASM/WebGPUの演算対応確認が必要であり、この`.pt`をそのままブラウザで使えるわけではない。
+聴感評価は未実施。各条件のMP3は既存試聴ページの「付録: 三値量子化・QAT・蒸留」で比較できる。
+
+集計元: [`summary.csv`](results/ternary/summary.csv)・[`summary.json`](results/ternary/summary.json)。
+学習記録: [`train_ft.json`](results/ternary/train_ft.json)・[`train_qat.json`](results/ternary/train_qat.json)・[`train_kd.json`](results/ternary/train_kd.json)。
+packingの往復一致・重み/入力の勾配・biasの検査は[`checks.json`](results/ternary/checks.json)、各実ファイルの容量と層ごとのpacking検査は`results/ternary/packing_*.json`に記録した。

@@ -1,0 +1,120 @@
+{
+  "device": "cuda",
+  "config": "legacy",
+  "runtime": {
+    "backend": "onnxruntime",
+    "version": "1.32.0",
+    "precision": "fp32",
+    "graphs": {
+      "encoder": {
+        "bytes": 54754594,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "blocks": {
+        "bytes": 151577560,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "velocity": {
+        "bytes": 155065594,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      }
+    },
+    "config": "legacy",
+    "threads_per_pool": 8,
+    "shared_thread_pool": false,
+    "session_spinning_request": true,
+    "global_pool_spinning": null,
+    "frontend_threads": 8,
+    "fused_attention": false,
+    "async_execution": false
+  },
+  "repeats": 1,
+  "environment": {
+    "measured_at": "2026-11-15T10:01:26.623985+00:00",
+    "git_commit": "c09f108fed454665a0ff1038c54d1df0d3194bc9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 342745,
+    "torch_num_threads": 8,
+    "torch_num_interop_threads": 20
+  },
+  "process_cpu_s": 2.3948430000000016,
+  "mean_active_cpu_cores": 1.6726121613821783,
+  "stages_median_s": {
+    "text_preprocess_s": 0.004853674967307597,
+    "duration_s": 0.013441856019198895,
+    "t2s_tokens_s": 1.1242457590415142,
+    "s2m_s": 0.2472349790041335,
+    "vocoder_s": 0.04202188196359202,
+    "end_to_end_s": 1.4317981509957463
+  },
+  "runs": [
+    {
+      "text_preprocess_s": 0.004853674967307597,
+      "duration_s": 0.013441856019198895,
+      "t2s_tokens_s": 1.1242457590415142,
+      "s2m_s": 0.2472349790041335,
+      "vocoder_s": 0.04202188196359202,
+      "end_to_end_s": 1.4317981509957463
+    }
+  ],
+  "kernel_profile": {
+    "cuda_event_ms": 218.79543799997958,
+    "cuda_launch_api_ms": 632.9654579999852,
+    "event_count": 100249,
+    "top_events_ms": {
+      "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x64_8x5_nn_align1>(cutlass_80_simt_sgemm_128x64_8x5_nn_align1::Params)": 34.70619399999765,
+      "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x32_8x5_nn_align1>(cutlass_80_simt_sgemm_128x32_8x5_nn_align1::Params)": 29.87812199999954,
+      "void magma_sgemmEx_kernel<float, float, float, false, false, 6, 3, 5, 3, 3>(int, int, int, BatchedTensor, int, BatchedTensor, int, BatchedTensor, int, BatchedTensor, int, int, int, float const*, float const*, float, float, int, cublasLtEpilogue_t, int, void const*, long)": 13.355398999997881,
+      "void onnxruntime::cuda::_BinaryElementWise<float, float, float, onnxruntime::cuda::OP_Mul<float, float, float>, false, true, 256, 4, int>(int, onnxruntime::cuda::TArray<long, 8>, float const*, onnxruntime::cuda::TArray<long, 8>, float const*, onnxruntime::cuda::TArray<onnxruntime::cuda::DivMod<int>, 8>, float*, onnxruntime::cuda::OP_Mul<float, float, float> const&, int)": 10.953061000008326,
+      "void cutlass::Kernel2<cutlass_80_simt_sgemm_256x128_8x4_nn_align1>(cutlass_80_simt_sgemm_256x128_8x4_nn_align1::Params)": 9.414027999999002,
+      "Memcpy DtoD (Device -> Device)": 7.977898999998941,
+      "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x256_8x4_nn_align1>(cutlass_80_simt_sgemm_128x256_8x4_nn_align1::Params)": 7.9405980000002305,
+      "void cutlass::Kernel2<cutlass_80_simt_sgemm_64x64_8x5_nn_align1>(cutlass_80_simt_sgemm_64x64_8x5_nn_align1::Params)": 7.426292000000878,
+      "void onnxruntime::cuda::cuApplyLayerNorm<float, float, float, false, false>(float*, float*, float*, float const*, int, int, float, float const*, float const*, int, float const*, float const*, float*)": 6.368914000001338,
+      "void onnxruntime::cuda::_BinaryElementWise<float, float, float, onnxruntime::cuda::OP_Add<float, float, float>, true, false, 256, 4, int>(int, onnxruntime::cuda::TArray<long, 8>, float const*, onnxruntime::cuda::TArray<long, 8>, float const*, onnxruntime::cuda::TArray<onnxruntime::cuda::DivMod<int>, 8>, float*, onnxruntime::cuda::OP_Add<float, float, float> const&, int)": 5.511590999999835,
+      "void onnxruntime::cuda::_SliceKernel<false, 4, int>(onnxruntime::cuda::TArray<long, 8>, onnxruntime::cuda::TArray<long, 8>, onnxruntime::cuda::TArray<long, 8>, onnxruntime::cuda::TArray<onnxruntime::cuda::DivMod<int>, 8>, int const*, int*, int)": 4.23731299998896,
+      "void onnxruntime::cuda::_BinaryElementWiseSimple<true, true, float, float, float, onnxruntime::cuda::OP_Add<float, float, float>, 256, 4, int>(float const*, float const*, float*, onnxruntime::cuda::OP_Add<float, float, float>, int)": 4.080673999994938,
+      "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, float, float, float, float, false, true, false, false, 9, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float>, float>)": 4.048297999998998,
+      "void onnxruntime::cuda::Transpose4DKernelParallelizeMultipleElementsPerThreadInInnermostDim<4>(onnxruntime::cuda::TArray<long, 8>, void const*, onnxruntime::cuda::TArray<long, 8>, void*, long, int)": 3.977525000002668,
+      "void onnxruntime::cuda::_UnaryElementWise<long, float, onnxruntime::cuda::OP_Cast<long, float>, 256, 4>(long const*, float*, onnxruntime::cuda::OP_Cast<long, float>, long)": 3.400030999996863
+    },
+    "top_event_counts": {
+      "Memcpy DtoD (Device -> Device)": 10267,
+      "void onnxruntime::cuda::_BinaryElementWise<float, float, float, onnxruntime::cuda::OP_Mul<float, float, float>, false, true, 256, 4, int>(int, onnxruntime::cuda::TArray<long, 8>, float const*, onnxruntime::cuda::TArray<long, 8>, float const*, onnxruntime::cuda::TArray<onnxruntime::cuda::DivMod<int>, 8>, float*, onnxruntime::cuda::OP_Mul<float, float, float> const&, int)": 8400,
+      "void onnxruntime::cuda::Transpose4DKernelParallelizeMultipleElementsPerThreadInInnermostDim<4>(onnxruntime::cuda::TArray<long, 8>, void const*, onnxruntime::cuda::TArray<long, 8>, void*, long, int)": 4024,
+      "void onnxruntime::cuda::_BinaryElementWiseSimple<true, true, float, float, float, onnxruntime::cuda::OP_Add<float, float, float>, 256, 4, int>(float const*, float const*, float*, onnxruntime::cuda::OP_Add<float, float, float>, int)": 4020,
+      "void onnxruntime::cuda::RangeKernel<long>(long, long, long, long*)": 4006,
+      "void onnxruntime::cuda::_SliceKernel<false, 4, int>(onnxruntime::cuda::TArray<long, 8>, onnxruntime::cuda::TArray<long, 8>, onnxruntime::cuda::TArray<long, 8>, onnxruntime::cuda::TArray<onnxruntime::cuda::DivMod<int>, 8>, int const*, int*, int)": 4000,
+      "void onnxruntime::cuda::_UnaryElementWise<long, float, onnxruntime::cuda::OP_Cast<long, float>, 256, 4>(long const*, float*, onnxruntime::cuda::OP_Cast<long, float>, long)": 4000,
+      "Memcpy HtoD (Pageable -> Device)": 3362,
+      "void onnxruntime::cuda::_BinaryElementWise<float, float, float, onnxruntime::cuda::OP_Add<float, float, float>, true, false, 256, 4, int>(int, onnxruntime::cuda::TArray<long, 8>, float const*, onnxruntime::cuda::TArray<long, 8>, float const*, onnxruntime::cuda::TArray<onnxruntime::cuda::DivMod<int>, 8>, float*, onnxruntime::cuda::OP_Add<float, float, float> const&, int)": 3090,
+      "Memset (Device)": 2846,
+      "void onnxruntime::cuda::_BinaryElementWiseRhsPerChannelBatchN<float, float, float, onnxruntime::cuda::OP_Add<float, float, float>, 256, 4, int>(float const*, float const*, onnxruntime::cuda::DivMod<int>, onnxruntime::cuda::DivMod<int>, float*, onnxruntime::cuda::OP_Add<float, float, float>, int)": 2400,
+      "void onnxruntime::cuda::cuApplyLayerNorm<float, float, float, false, false>(float*, float*, float*, float const*, int, int, float, float const*, float const*, int, float const*, float const*, float*)": 2043,
+      "void gemmk1_kernel<int, float, 256, 5, false, false, false, false, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float>, float, 0>(cublasGemmk1Params<float, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float>, float, biasType<cublasGemvTensorStridedBatched<float>::value_type, float>::type>)": 2025,
+      "void onnxruntime::cuda::_UnaryElementWise<float, float, onnxruntime::cuda::OP_Cos<float>, 256, 4>(float const*, float*, onnxruntime::cuda::OP_Cos<float>, long)": 2025,
+      "void onnxruntime::cuda::_UnaryElementWise<float, float, onnxruntime::cuda::OP_Sin<float>, 256, 4>(float const*, float*, onnxruntime::cuda::OP_Sin<float>, long)": 2025
+    }
+  }
+}

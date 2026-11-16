@@ -1,0 +1,98 @@
+{
+  "device": "cuda",
+  "config": "opt_nospin_8_front1_cg",
+  "runtime": {
+    "backend": "onnxruntime",
+    "version": "1.32.0",
+    "precision": "fp32",
+    "graphs": {
+      "encoder": {
+        "bytes": 54761504,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "blocks": {
+        "bytes": 159792503,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "velocity": {
+        "bytes": 163282100,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      }
+    },
+    "cuda_graph": true,
+    "config": "opt_nospin_8_front1_cg",
+    "threads_per_pool": 8,
+    "shared_thread_pool": false,
+    "session_spinning_request": false,
+    "global_pool_spinning": null,
+    "frontend_threads": 1,
+    "fused_attention": true,
+    "async_execution": false
+  },
+  "repeats": 3,
+  "environment": {
+    "measured_at": "2026-11-15T09:57:05.544712+00:00",
+    "git_commit": "c09f108fed454665a0ff1038c54d1df0d3194bc9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 341252,
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 20
+  },
+  "process_cpu_s": 1.3003989999999988,
+  "mean_active_cpu_cores": 1.1121199590826467,
+  "stages_median_s": {
+    "text_preprocess_s": 0.000542321999091655,
+    "duration_s": 0.0016858960152603686,
+    "t2s_tokens_s": 0.2691752420505509,
+    "s2m_s": 0.07597090600756928,
+    "vocoder_s": 0.03605024196440354,
+    "end_to_end_s": 0.39526836801087484
+  },
+  "runs": [
+    {
+      "text_preprocess_s": 0.000542321999091655,
+      "duration_s": 0.0016858960152603686,
+      "t2s_tokens_s": 0.2691752420505509,
+      "s2m_s": 0.07597090600756928,
+      "vocoder_s": 0.03081149497302249,
+      "end_to_end_s": 0.3781858610454947
+    },
+    {
+      "text_preprocess_s": 0.0004989269655197859,
+      "duration_s": 0.0016214159550145268,
+      "t2s_tokens_s": 0.26887075701961294,
+      "s2m_s": 0.07570301700616255,
+      "vocoder_s": 0.04914907499914989,
+      "end_to_end_s": 0.3958431919454597
+    },
+    {
+      "text_preprocess_s": 0.0011821400257758796,
+      "duration_s": 0.0022353290114551783,
+      "t2s_tokens_s": 0.2766027210163884,
+      "s2m_s": 0.07919793599285185,
+      "vocoder_s": 0.03605024196440354,
+      "end_to_end_s": 0.39526836801087484
+    }
+  ]
+}

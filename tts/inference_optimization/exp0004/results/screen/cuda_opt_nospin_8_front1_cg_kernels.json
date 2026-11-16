@@ -1,0 +1,121 @@
+{
+  "device": "cuda",
+  "config": "opt_nospin_8_front1_cg",
+  "runtime": {
+    "backend": "onnxruntime",
+    "version": "1.32.0",
+    "precision": "fp32",
+    "graphs": {
+      "encoder": {
+        "bytes": 54761504,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "blocks": {
+        "bytes": 159792503,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "velocity": {
+        "bytes": 163282100,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      }
+    },
+    "cuda_graph": true,
+    "config": "opt_nospin_8_front1_cg",
+    "threads_per_pool": 8,
+    "shared_thread_pool": false,
+    "session_spinning_request": false,
+    "global_pool_spinning": null,
+    "frontend_threads": 1,
+    "fused_attention": true,
+    "async_execution": false
+  },
+  "repeats": 1,
+  "environment": {
+    "measured_at": "2026-11-15T10:01:40.044601+00:00",
+    "git_commit": "c09f108fed454665a0ff1038c54d1df0d3194bc9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 342902,
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 20
+  },
+  "process_cpu_s": 0.773066,
+  "mean_active_cpu_cores": 1.6453482326877436,
+  "stages_median_s": {
+    "text_preprocess_s": 0.0005571429501287639,
+    "duration_s": 0.002157448965590447,
+    "t2s_tokens_s": 0.33424786501564085,
+    "s2m_s": 0.08342445100424811,
+    "vocoder_s": 0.04946256504626945,
+    "end_to_end_s": 0.4698494729818776
+  },
+  "runs": [
+    {
+      "text_preprocess_s": 0.0005571429501287639,
+      "duration_s": 0.002157448965590447,
+      "t2s_tokens_s": 0.33424786501564085,
+      "s2m_s": 0.08342445100424811,
+      "vocoder_s": 0.04946256504626945,
+      "end_to_end_s": 0.4698494729818776
+    }
+  ],
+  "kernel_profile": {
+    "cuda_event_ms": 173.2974150000054,
+    "cuda_launch_api_ms": 77.1405560000021,
+    "event_count": 49799,
+    "top_events_ms": {
+      "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x64_8x5_nn_align1>(cutlass_80_simt_sgemm_128x64_8x5_nn_align1::Params)": 34.48617100000047,
+      "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x32_8x5_nn_align1>(cutlass_80_simt_sgemm_128x32_8x5_nn_align1::Params)": 29.643179999998996,
+      "void attention_kernel_batched_impl<AttentionKernel<float, cutlass::arch::Sm80, true, 64, 64, 64, false, true, DefaultToBatchHook> >(AttentionKernel<float, cutlass::arch::Sm80, true, 64, 64, 64, false, true, DefaultToBatchHook>::Params)": 12.321264999999315,
+      "void cutlass::Kernel2<cutlass_80_simt_sgemm_256x128_8x4_nn_align1>(cutlass_80_simt_sgemm_256x128_8x4_nn_align1::Params)": 9.73214000000013,
+      "void onnxruntime::cuda::BroadcastBiasKernel<float, int, false>(float const*, float*, long, onnxruntime::cuda::DivMod<int>, int, int, float)": 8.075203000000272,
+      "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x256_8x4_nn_align1>(cutlass_80_simt_sgemm_128x256_8x4_nn_align1::Params)": 7.975472999999591,
+      "void onnxruntime::cuda::cuApplyLayerNorm<float, float, float, false, false>(float*, float*, float*, float const*, int, int, float, float const*, float const*, int, float const*, float const*, float*)": 5.825959000000866,
+      "void onnxruntime::cuda::Transpose4DKernelParallelizeMultipleElementsPerThreadInInnermostDim<4>(onnxruntime::cuda::TArray<long, 8>, void const*, onnxruntime::cuda::TArray<long, 8>, void*, long, int)": 4.074084000002016,
+      "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, float, float, float, float, false, true, false, false, 9, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float const>, cublasGemvTensorStridedBatched<float>, float>)": 3.9728249999994443,
+      "void magma_sgemmEx_kernel<float, float, float, true, false, 6, 4, 6, 3, 4>(int, int, int, BatchedTensor, int, BatchedTensor, int, BatchedTensor, int, BatchedTensor, int, int, int, float const*, float const*, float, float, int, cublasLtEpilogue_t, int, void const*, long)": 3.8927349999999725,
+      "void onnxruntime::contrib::cuda::RotaryEmbeddingBSNH<float, false>(float*, float const*, float const*, float const*, long const*, int const*, int, int, int, int, int, int, bool, int4, int4)": 3.869183000000099,
+      "void cutlass::Kernel2<cutlass_80_simt_sgemm_64x64_8x5_nn_align1>(cutlass_80_simt_sgemm_64x64_8x5_nn_align1::Params)": 3.8606870000001927,
+      "void magma_sgemmEx_kernel<float, float, float, false, false, 6, 3, 5, 3, 3>(int, int, int, BatchedTensor, int, BatchedTensor, int, BatchedTensor, int, BatchedTensor, int, int, int, float const*, float const*, float, float, int, cublasLtEpilogue_t, int, void const*, long)": 3.560777999999985,
+      "void onnxruntime::cuda::_BinaryElementWise<float, float, float, onnxruntime::cuda::OP_Mul<float, float, float>, true, false, 256, 4, int>(int, onnxruntime::cuda::TArray<long, 8>, float const*, onnxruntime::cuda::TArray<long, 8>, float const*, onnxruntime::cuda::TArray<onnxruntime::cuda::DivMod<int>, 8>, float*, onnxruntime::cuda::OP_Mul<float, float, float> const&, int)": 2.824467000001062,
+      "void onnxruntime::contrib::cuda::(anonymous namespace)::UnfusedSoftmaxKernel<float, 256>(int, int, int, float const*, float const*, bool, bool, bool, int const*, int const*, int const*, bool, int, int, float, float, float, float*)": 2.611858999999934
+    },
+    "top_event_counts": {
+      "void onnxruntime::cuda::BroadcastBiasKernel<float, int, false>(float const*, float*, long, onnxruntime::cuda::DivMod<int>, int, int, float)": 4348,
+      "void onnxruntime::cuda::Transpose4DKernelParallelizeMultipleElementsPerThreadInInnermostDim<4>(onnxruntime::cuda::TArray<long, 8>, void const*, onnxruntime::cuda::TArray<long, 8>, void*, long, int)": 4032,
+      "Memset (Device)": 2830,
+      "void onnxruntime::cuda::_SplitKernelSameSplitDim<int, onnxruntime::cuda::TArray<void*, 32> >(onnxruntime::cuda::DivMod<int>, onnxruntime::cuda::DivMod<int>, onnxruntime::cuda::DivMod<int>, int, int const*, onnxruntime::cuda::TArray<void*, 32>, int)": 2000,
+      "void onnxruntime::cuda::_BinaryElementWiseSimple<true, false, float, float, float, onnxruntime::cuda::OP_Add<float, float, float>, 256, 4, int>(float const*, float const*, float*, onnxruntime::cuda::OP_Add<float, float, float>, int)": 2000,
+      "void onnxruntime::cuda::cuApplyLayerNorm<float, float, float, false, false>(float*, float*, float*, float const*, int, int, float, float const*, float const*, int, float const*, float const*, float*)": 2000,
+      "void onnxruntime::contrib::cuda::RotaryEmbeddingBSNH<float, false>(float*, float const*, float const*, float const*, long const*, int const*, int, int, int, int, int, int, bool, int4, int4)": 2000,
+      "void onnxruntime::cuda::_BinaryElementWise<float, float, float, onnxruntime::cuda::OP_Mul<float, float, float>, true, false, 256, 4, int>(int, onnxruntime::cuda::TArray<long, 8>, float const*, onnxruntime::cuda::TArray<long, 8>, float const*, onnxruntime::cuda::TArray<onnxruntime::cuda::DivMod<int>, 8>, float*, onnxruntime::cuda::OP_Mul<float, float, float> const&, int)": 2000,
+      "void onnxruntime::cuda::_BinaryElementWiseSimple<true, true, float, float, float, onnxruntime::cuda::OP_Add<float, float, float>, 256, 4, int>(float const*, float const*, float*, onnxruntime::cuda::OP_Add<float, float, float>, int)": 1977,
+      "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x64_8x5_nn_align1>(cutlass_80_simt_sgemm_128x64_8x5_nn_align1::Params)": 1833,
+      "void cutlass::Kernel2<cutlass_80_simt_sgemm_128x32_8x5_nn_align1>(cutlass_80_simt_sgemm_128x32_8x5_nn_align1::Params)": 1833,
+      "void onnxruntime::cuda::_BinaryElementWiseRhsPerChannelBatchN<float, float, float, onnxruntime::cuda::OP_Mul<float, float, float>, 256, 4, int>(float const*, float const*, onnxruntime::cuda::DivMod<int>, onnxruntime::cuda::DivMod<int>, float*, onnxruntime::cuda::OP_Mul<float, float, float>, int)": 1600,
+      "void onnxruntime::cuda::_BinaryElementWiseRhsPerChannelBatchN<float, float, float, onnxruntime::cuda::OP_Add<float, float, float>, 256, 4, int>(float const*, float const*, onnxruntime::cuda::DivMod<int>, onnxruntime::cuda::DivMod<int>, float*, onnxruntime::cuda::OP_Add<float, float, float>, int)": 1600,
+      "void cublasLt::splitKreduce_kernel<32, 16, int, float, float, float, float, false, float, float, float, true, false, false, false>(cublasLt::cublasSplitKParams<float>, float const*, float const*, float*, float*, float const*, float const*, float const*, float const*, float*, void*, long, float*, int*, float*, float*, float const*, float const*, float const*, float const*, float const*)": 1258,
+      "Memcpy DtoD (Device -> Device)": 1140
+    }
+  }
+}

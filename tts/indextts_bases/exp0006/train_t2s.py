@@ -37,8 +37,12 @@ def load_t2s(path, device: str) -> tuple[UnifiedVoice, CharVocab]:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--codec", required=True, help="runs/{codec}/tokens.pt")
+    parser.add_argument("--dim", type=int, default=CONFIG["dim"])
+    parser.add_argument("--layers", type=int, default=CONFIG["layers"])
+    parser.add_argument("--heads", type=int, default=CONFIG["heads"])
     parser.add_argument("--steps", type=int, default=8000)
-    parser.add_argument("--max_tokens", type=int, default=12000)
+    parser.add_argument("--max_tokens", type=int, default=12000, help="1 回の更新に使う「最長 × 発話数」の上限")
+    parser.add_argument("--grad_accum", type=int, default=1, help="1 回の更新を何個の小さいバッチに分けるか(VRAM を減らす)")
     parser.add_argument("--lr", type=float, default=3e-4)
     parser.add_argument("--eval_every", type=int, default=500)
     parser.add_argument("--name", required=True)
@@ -62,7 +66,9 @@ def main():
     codes = {u.id: tokens[u.id].long() for u in train + val}
     val_text = [torch.tensor(vocab.encode(frontend(u.text))) for u in val]
     lengths = [len(vocab.encode(frontend(u.text))) + len(codes[u.id]) for u in train]
-    model = UnifiedVoice(len(vocab), **CONFIG).to(args.device)
+    n_codes = torch.load(common.RUNS_DIR / args.codec / "codec.pt", map_location="cpu")["config"]["codebook_size"]
+    config = {"dim": args.dim, "layers": args.layers, "heads": args.heads, "n_codes": n_codes}  # 音声トークンの種類数は codec に合わせる(公式の number_mel_codes = 種類数 + 2)
+    model = UnifiedVoice(len(vocab), **config).to(args.device)
     log(f"t2s params: {sum(p.numel() for p in model.parameters()) / 1e6:.2f}M")
     opt = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=0.01)
     sched = warmup_cosine(opt, args.steps)
@@ -81,18 +87,28 @@ def main():
 
     best, step, epoch, running = float("inf"), 0, 0, {}
     while step < args.steps:
-        for b in length_batches(lengths, args.max_tokens, shuffle=True, seed=epoch):
+        micro, pending = 0, {}
+        opt.zero_grad()  # 前の周回の最後に余った小さいバッチ(grad_accum 個に足りない分)の勾配は捨てる
+        for b in length_batches(lengths, args.max_tokens // args.grad_accum, shuffle=True, seed=epoch):
             text = [torch.tensor(vocab.encode(frontend(train[i].text, G2P_RATIO, rng))) for i in b]
             with torch.autocast("cuda", dtype=torch.bfloat16, enabled=args.device == "cuda"):
                 loss, parts = model(text, [codes[train[i].id] for i in b])
-            opt.zero_grad()
-            loss.backward()
+            (loss / args.grad_accum).backward()                    # grad_accum 個の小さいバッチの勾配をためてから 1 回更新する
+            for k, v in {"loss": loss.item(), **parts}.items():
+                pending[k] = pending.get(k, 0) + v / args.grad_accum
+            micro += 1
+            if micro % args.grad_accum:
+                continue
+            for k, v in pending.items():                           # 更新に使った分だけをログの値に数える
+                running[k] = running.get(k, 0) + v
+            pending = {}
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             opt.step()
+            opt.zero_grad()
             sched.step()
             step += 1
-            for k, v in {"loss": loss.item(), **parts}.items():
-                running[k] = running.get(k, 0) + v
+            if step == 20 and args.device == "cuda":
+                log(f"peak VRAM {torch.cuda.max_memory_allocated() / 2 ** 30:.1f} GiB(最初の 20 step)")
             if step % args.eval_every == 0 or step == args.steps:
                 n = args.eval_every if step % args.eval_every == 0 else step % args.eval_every
                 torch.cuda.empty_cache()
@@ -101,9 +117,10 @@ def main():
                 mark = ""
                 if ev["mel_ce"] < best:
                     best, mark = ev["mel_ce"], " *saved"
-                    torch.save({"model": model.state_dict(), "config": CONFIG, "vocab": vocab.itos, "step": step}, out / "t2s.pt")
+                    torch.save({"model": model.state_dict(), "config": config, "vocab": vocab.itos, "step": step}, out / "t2s.pt")
                 log(f"step {step:6d} | train " + " ".join(f"{k} {v / n:.4f}" for k, v in running.items())
-                    + " | val " + " ".join(f"{k} {v:.4f}" for k, v in ev.items()) + mark)
+                    + " | val " + " ".join(f"{k} {v:.4f}" for k, v in ev.items())
+                    + (f" | reserved {torch.cuda.max_memory_reserved() / 2 ** 30:.1f}GiB" if args.device == "cuda" else "") + mark)
                 running = {}
             if step >= args.steps:
                 break

@@ -1,0 +1,92 @@
+{
+  "device": "cpu",
+  "config": "torch_int8",
+  "runtime": {
+    "backend": "pytorch_dynamic_int8",
+    "threads": 8
+  },
+  "errors": [
+    {
+      "graph": "encoder",
+      "shape": [
+        1,
+        8,
+        512
+      ],
+      "relative_l2": 0.01353878527879715
+    },
+    {
+      "graph": "blocks",
+      "shape": [
+        1,
+        8,
+        512
+      ],
+      "relative_l2": 0.004571677651256323
+    },
+    {
+      "graph": "velocity",
+      "shape": [
+        1,
+        8,
+        80
+      ],
+      "relative_l2": 0.037288643419742584
+    },
+    {
+      "graph": "encoder",
+      "shape": [
+        2,
+        32,
+        512
+      ],
+      "relative_l2": 0.012661922723054886
+    },
+    {
+      "graph": "blocks",
+      "shape": [
+        2,
+        32,
+        512
+      ],
+      "relative_l2": 0.013614668510854244
+    },
+    {
+      "graph": "velocity",
+      "shape": [
+        2,
+        32,
+        80
+      ],
+      "relative_l2": 0.04297715425491333
+    },
+    {
+      "graph": "encoder",
+      "shape": [
+        4,
+        65,
+        512
+      ],
+      "relative_l2": 0.013357405550777912
+    },
+    {
+      "graph": "blocks",
+      "shape": [
+        4,
+        65,
+        512
+      ],
+      "relative_l2": 0.00826937984675169
+    },
+    {
+      "graph": "velocity",
+      "shape": [
+        4,
+        65,
+        80
+      ],
+      "relative_l2": 0.04490357264876366
+    }
+  ],
+  "provider_nodes": {}
+}

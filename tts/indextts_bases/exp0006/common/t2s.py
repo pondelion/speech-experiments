@@ -2,7 +2,7 @@
 
 公式の構成(この exp では層の数・次元だけ小さくする。話者・感情の条件はフェーズ A では使わないので入れない):
     入力 = [テキストの埋め込み + テキストの位置の埋め込み][音声トークンの埋め込み + 音声トークンの位置の埋め込み]
-           テキスト = 始まり(0)・テキスト・終わり(1)、音声 = 始まり(8192)・トークン・終わり(8193)
+           テキスト = 始まり(0)・テキスト・終わり(1)、音声 = 始まり(K)・トークン・終わり(K+1)(K はトークンの種類数。公式は 8,192)
     GPT-2(transformers の GPT2Model。GPT-2 自身の位置の埋め込みは使わず、テキストと音声で別々に学習する位置の埋め込みを足す)
     → LayerNorm → テキストの出力層・音声の出力層
     学習: 次のトークンを当てる交差エントロピー。バッチの詰め物は終わりの記号で埋め、そこも当てる(公式の set_*_padding)。
@@ -22,9 +22,7 @@ import torch.nn.functional as F
 from transformers import GenerationMixin, GPT2Config, GPT2Model, GPT2PreTrainedModel
 from transformers.modeling_outputs import CausalLMOutputWithPast
 
-N_CODES = 8192
-START_MEL, STOP_MEL = N_CODES, N_CODES + 1
-START_TEXT, STOP_TEXT = 0, 1
+START_TEXT, STOP_TEXT = 0, 1  # 音声の始まり・終わりの記号は、トークンの種類数 K に対して K・K+1(公式の start_mel_token・stop_mel_token)
 
 
 class _NoPosition(nn.Module):
@@ -57,28 +55,30 @@ def _gpt(dim: int, layers: int, heads: int, n_positions: int) -> GPT2Model:
 
 
 class UnifiedVoice(nn.Module):
-    def __init__(self, n_text: int, dim: int = 1280, layers: int = 24, heads: int = 20, max_text: int = 600,
+    def __init__(self, n_text: int, n_codes: int = 8192, dim: int = 1280, layers: int = 24, heads: int = 20, max_text: int = 600,
                  max_mel: int = 1815, text_weight: float = 0.01):
         super().__init__()
         self.max_mel, self.text_weight = max_mel, text_weight
+        self.n_codes, self.start_mel, self.stop_mel = n_codes, n_codes, n_codes + 1
         self.gpt = _gpt(dim, layers, heads, max_mel + max_text + 2)
         self.text_embedding = nn.Embedding(n_text, dim)
-        self.mel_embedding = nn.Embedding(N_CODES + 2, dim)
+        self.mel_embedding = nn.Embedding(n_codes + 2, dim)
         for e in (self.text_embedding, self.mel_embedding):  # GPT-2 の初期化(公式と同じ)
             nn.init.normal_(e.weight, std=0.02)
         self.text_pos = LearnedPosition(max_text + 2, dim)
         self.mel_pos = LearnedPosition(max_mel + 3, dim)
         self.final_norm = nn.LayerNorm(dim)
         self.text_head = nn.Linear(dim, n_text)
-        self.mel_head = nn.Linear(dim, N_CODES + 2)
+        self.mel_head = nn.Linear(dim, n_codes + 2)
 
     def forward(self, text: list[torch.Tensor], codes: list[torch.Tensor]) -> tuple[torch.Tensor, dict]:
         """学習の損失。text: 各発話のテキストの ID(CharVocab.encode の出力。終わりの 1 を含む)、codes: 各発話の音声トークン。"""
         dev = self.text_embedding.weight.device
         t = F.pad(nn.utils.rnn.pad_sequence(text, batch_first=True, padding_value=STOP_TEXT), (0, 1), value=STOP_TEXT).to(dev)
-        m = F.pad(nn.utils.rnn.pad_sequence(codes, batch_first=True, padding_value=STOP_MEL), (0, 1), value=STOP_MEL).to(dev)
+        m = F.pad(nn.utils.rnn.pad_sequence(codes, batch_first=True, padding_value=self.stop_mel), (0, 1),
+                  value=self.stop_mel).to(dev)
         t_in, t_tar = F.pad(t, (1, 0), value=START_TEXT), F.pad(t, (0, 1), value=STOP_TEXT)    # [B, L+1]
-        m_in, m_tar = F.pad(m, (1, 0), value=START_MEL), F.pad(m, (0, 1), value=STOP_MEL)      # [B, U+1]
+        m_in, m_tar = F.pad(m, (1, 0), value=self.start_mel), F.pad(m, (0, 1), value=self.stop_mel)  # [B, U+1]
         t_emb = self.text_embedding(t_in) + self.text_pos(t_in.shape[1], dev)
         m_emb = self.mel_embedding(m_in) + self.mel_pos(m_in.shape[1], dev)
         h = self.final_norm(self.gpt(inputs_embeds=torch.cat([t_emb, m_emb], dim=1)).last_hidden_state)
@@ -98,12 +98,12 @@ class UnifiedVoice(nn.Module):
         prefix = self.text_embedding(t) + self.text_pos(t.shape[1], dev)                      # [1, P, H]
         model = _InferenceModel(self, prefix)
         fake = torch.ones(1, prefix.shape[1] + 1, dtype=torch.long, device=dev)
-        fake[:, -1] = START_MEL
-        out = model.generate(fake, attention_mask=torch.ones_like(fake), bos_token_id=START_MEL, pad_token_id=STOP_MEL,
-                             eos_token_id=STOP_MEL, max_length=fake.shape[1] + max_tokens, **{**GENERATE_DEFAULTS, **kwargs})
+        fake[:, -1] = self.start_mel
+        out = model.generate(fake, attention_mask=torch.ones_like(fake), bos_token_id=self.start_mel, pad_token_id=self.stop_mel,
+                             eos_token_id=self.stop_mel, max_length=fake.shape[1] + max_tokens, **{**GENERATE_DEFAULTS, **kwargs})
         res = []
         for codes in out[:, fake.shape[1]:]:
-            stop = (codes == STOP_MEL).nonzero()
+            stop = (codes == self.stop_mel).nonzero()
             res.append((codes[: stop[0, 0]], True) if len(stop) else (codes, False))
         return res
 
@@ -119,9 +119,10 @@ class UnifiedVoice(nn.Module):
         """
         dev = self.text_embedding.weight.device
         t = F.pad(nn.utils.rnn.pad_sequence(text, batch_first=True, padding_value=STOP_TEXT), (0, 1), value=STOP_TEXT).to(dev)
-        m = F.pad(nn.utils.rnn.pad_sequence(codes, batch_first=True, padding_value=STOP_MEL), (0, 1), value=STOP_MEL).to(dev)
+        m = F.pad(nn.utils.rnn.pad_sequence(codes, batch_first=True, padding_value=self.stop_mel), (0, 1),
+                  value=self.stop_mel).to(dev)
         t_in = F.pad(t, (1, 0), value=START_TEXT)
-        m_in, m_tar = F.pad(m, (1, 0), value=START_MEL), F.pad(m, (0, 1), value=STOP_MEL)      # [B, U+2]
+        m_in, m_tar = F.pad(m, (1, 0), value=self.start_mel), F.pad(m, (0, 1), value=self.stop_mel)  # [B, U+2]
         t_emb = self.text_embedding(t_in) + self.text_pos(t_in.shape[1], dev)
         m_emb = self.mel_embedding(m_in) + self.mel_pos(m_in.shape[1], dev)
         h = self.final_norm(self.gpt(inputs_embeds=torch.cat([t_emb, m_emb], dim=1)).last_hidden_state)
@@ -141,7 +142,7 @@ class _InferenceModel(GPT2PreTrainedModel, GenerationMixin):
 
     def __init__(self, uv: UnifiedVoice, prefix: torch.Tensor):
         config = copy.deepcopy(uv.gpt.config)
-        config.vocab_size = N_CODES + 2  # generate(ビームサーチ)は語彙の大きさをここから読む
+        config.vocab_size = uv.n_codes + 2  # generate(ビームサーチ)は語彙の大きさをここから読む
         super().__init__(config)
         self.uv, self.prefix = uv, prefix
 

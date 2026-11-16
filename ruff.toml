@@ -1,0 +1,6 @@
+line-length = 79
+target-version = "py312"
+extend-exclude = ["vendor", "**/runs/**"]
+
+[lint]
+select = ["E", "F", "W", "I"]

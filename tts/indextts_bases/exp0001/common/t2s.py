@@ -143,7 +143,7 @@ class TextToSemantic(nn.Module):
         return self.audio_emb(audio_ids) + self.audio_pos(pos)                           # [.., U', D]
 
     def _teacher_forced(self, text_ids: list[torch.Tensor], codes: list[torch.Tensor],
-                        phonemes: list[torch.Tensor] | None = None):
+                        phonemes: list[torch.Tensor] | None = None, audio_add: list[torch.Tensor] | None = None):
         """正解の音声トークン列を入力にして(teacher forcing)GPT を通し、各位置の隠れ状態と正解を返す。
 
         発話ごとに [テキスト][<BA> 音声トークン] をつなげて 1 本の系列にし、右側を詰め物で埋めてバッチにする。
@@ -154,6 +154,8 @@ class TextToSemantic(nn.Module):
             text_ids: 発話ごとのテキスト ID 列 [L_i(i 番目の発話のテキストのトークン数。<bos>・<eos> 込み)] のリスト。
             codes: 発話ごとの正解の音声トークン列 [U_i(i 番目の発話の音声トークン数)] のリスト。
             phonemes: 発話ごとの、各音声トークンの音素 ID 列 [U_i](補助の損失を使うときだけ)。
+            audio_add: 音声部分の入力 <BA> q1 ... qU の各位置に足すベクトル [U_i + 1 以下, D] のリスト
+                (exp0002 の追加検証。長さが足りない位置には何も足さない)。
 
         Returns:
             隠れ状態 h [B, S, D]、正解の次トークン y [B, S](損失をかけない位置は -100)、
@@ -169,7 +171,11 @@ class TextToSemantic(nn.Module):
         audio_gt = pad([torch.cat([c, c.new_tensor([self.EA])]) for c in codes], batch_first=True,
                        padding_value=-100).to(device)                                         # q1 ... qU <EA>(1 個先が正解)[B, Am]
         # テキスト部分と音声部分を、それぞれまとめて埋め込んで横に並べる: [B, Lm, D] + [B, Am, D] → [B, Lm + Am, D]
-        src = torch.cat([self._text_embeds(text), self._audio_embeds(audio_in)], dim=1)
+        audio = self._audio_embeds(audio_in)                                                  # [B, Am, D]
+        if audio_add is not None:
+            add = pad(audio_add, batch_first=True).to(device)                                 # [B, ≤Am, D]
+            audio = audio + F.pad(add, (0, 0, 0, audio.shape[1] - add.shape[1]))
+        src = torch.cat([self._text_embeds(text), audio], dim=1)
         Lm = text.shape[1]
         S = int((text_len + audio_len).max())
         pos = rearrange(torch.arange(S, device=device), "s -> 1 s")                           # 系列内の位置 [1, S]

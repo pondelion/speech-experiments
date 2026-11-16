@@ -8,6 +8,7 @@
       "id": "B01",
       "phase": "B",
       "condition": "cpu_s2m_int8",
+      "label": "S2M\u306e\u307f\u52d5\u7684INT8",
       "device": "cpu",
       "medium_s": 4.128788451001128,
       "test_cer_pct": 6.766104626026805,
@@ -18,6 +19,7 @@
       "id": "B02",
       "phase": "B",
       "condition": "cpu_t2s_int8",
+      "label": "T2S\u306e\u307f\u52d5\u7684INT8",
       "device": "cpu",
       "medium_s": 4.276832894999643,
       "test_cer_pct": 6.7877215737137915,
@@ -28,6 +30,7 @@
       "id": "B03",
       "phase": "B",
       "condition": "cpu_both_int8",
+      "label": "\u4e21\u90e8\u54c1\u52d5\u7684INT8",
       "device": "cpu",
       "medium_s": 3.746673038001063,
       "test_cer_pct": 6.506701253782967,
@@ -38,6 +41,7 @@
       "id": "C01",
       "phase": "C",
       "condition": "cpu_fp32",
+      "label": "FP32",
       "device": "cpu",
       "medium_s": 4.854832516000897,
       "test_cer_pct": 6.895806312148725,
@@ -48,6 +52,7 @@
       "id": "C02",
       "phase": "C",
       "condition": "cpu_both_wo8_float32",
+      "label": "\u91cd\u307f\u306e\u307fINT8",
       "device": "cpu",
       "medium_s": 4.445299544997397,
       "test_cer_pct": 6.809338521400778,
@@ -58,6 +63,7 @@
       "id": "C03",
       "phase": "C",
       "condition": "cuda_fp32",
+      "label": "FP32",
       "device": "cuda",
       "medium_s": 1.4107606049947208,
       "test_cer_pct": 6.463467358408994,
@@ -68,6 +74,7 @@
       "id": "C04",
       "phase": "C",
       "condition": "cuda_bf16",
+      "label": "BF16",
       "device": "cuda",
       "medium_s": 1.4923768839944387,
       "test_cer_pct": 6.506701253782967,
@@ -78,6 +85,7 @@
       "id": "C05",
       "phase": "C",
       "condition": "cuda_both_wo8_float32",
+      "label": "\u91cd\u307f\u306e\u307fINT8",
       "device": "cuda",
       "medium_s": 1.7929539379911148,
       "test_cer_pct": 6.939040207522698,
@@ -88,6 +96,7 @@
       "id": "C06",
       "phase": "C",
       "condition": "cuda_both_wo8_float32_gptq",
+      "label": "GPTQ INT8",
       "device": "cuda",
       "medium_s": 1.8279875470034312,
       "test_cer_pct": 6.701253782965845,
@@ -98,6 +107,7 @@
       "id": "C07",
       "phase": "C",
       "condition": "cuda_both_wo4_bfloat16",
+      "label": "\u5358\u7d14INT4 g128",
       "device": "cuda",
       "medium_s": 1.8562186980125261,
       "test_cer_pct": 7.047124945957631,
@@ -108,6 +118,7 @@
       "id": "C08",
       "phase": "C",
       "condition": "cuda_both_wo4_bfloat16_g64",
+      "label": "\u5358\u7d14INT4 g64",
       "device": "cuda",
       "medium_s": 2.0176791319972835,
       "test_cer_pct": 7.003891050583658,
@@ -118,6 +129,7 @@
       "id": "C09",
       "phase": "C",
       "condition": "cuda_both_wo4_bfloat16_g32",
+      "label": "\u5358\u7d14INT4 g32",
       "device": "cuda",
       "medium_s": 1.9845368259993847,
       "test_cer_pct": 7.717250324254215,
@@ -128,6 +140,7 @@
       "id": "C10",
       "phase": "C",
       "condition": "cuda_both_wo4_bfloat16_awq",
+      "label": "AWQ INT4",
       "device": "cuda",
       "medium_s": 2.1406686030095443,
       "test_cer_pct": 7.328145265888457,
@@ -138,6 +151,7 @@
       "id": "C11",
       "phase": "C",
       "condition": "cuda_both_wo4_bfloat16_plain",
+      "label": "RTN INT4\u2192Tinygemm",
       "device": "cuda",
       "medium_s": 1.8808102670009248,
       "test_cer_pct": 7.155209684392563,
@@ -148,6 +162,7 @@
       "id": "C12",
       "phase": "C",
       "condition": "cuda_both_wo4_bfloat16_gptq",
+      "label": "GPTQ INT4\u2192Tinygemm",
       "device": "cuda",
       "medium_s": 2.1072133559937356,
       "test_cer_pct": 6.9174232598357115,
@@ -162,7 +177,8 @@
       "eval_texts_cer_pct": 6.7288474350433045,
       "state_mib": 361.9825687408447,
       "id": "D01",
-      "phase": "D"
+      "phase": "D",
+      "label": "FP32 / Linear compile"
     },
     {
       "condition": "cuda_static_int8_clinear",
@@ -172,7 +188,8 @@
       "eval_texts_cer_pct": 5.7295136575616255,
       "state_mib": 105.51601600646973,
       "id": "D02",
-      "phase": "D"
+      "phase": "D",
+      "label": "\u9759\u7684INT8 / Linear compile"
     },
     {
       "condition": "cuda_smoothquant_0p5_clinear",
@@ -182,7 +199,8 @@
       "eval_texts_cer_pct": 6.395736175882745,
       "state_mib": 105.8813419342041,
       "id": "D03",
-      "phase": "D"
+      "phase": "D",
+      "label": "SmoothQuant \u03b1=0.5 / Linear compile"
     },
     {
       "condition": "cuda_smoothquant_0p75_clinear",
@@ -192,7 +210,8 @@
       "eval_texts_cer_pct": 5.596269153897402,
       "state_mib": 105.8813419342041,
       "id": "D04",
-      "phase": "D"
+      "phase": "D",
+      "label": "SmoothQuant \u03b1=0.75 / Linear compile"
     },
     {
       "condition": "cpu_d_fp32_clinear",
@@ -202,7 +221,8 @@
       "eval_texts_cer_pct": 6.395736175882745,
       "state_mib": 361.978967666626,
       "id": "D05",
-      "phase": "D"
+      "phase": "D",
+      "label": "FP32 / Linear compile"
     },
     {
       "condition": "cuda_e_baseline",
@@ -212,7 +232,8 @@
       "eval_texts_cer_pct": 6.262491672218521,
       "state_mib": 181.03853797912598,
       "id": "E01",
-      "phase": "E"
+      "phase": "E",
+      "label": "BF16\u57fa\u6e96"
     },
     {
       "condition": "cuda_e_all",
@@ -222,7 +243,8 @@
       "eval_texts_cer_pct": 6.195869420386409,
       "state_mib": 90.38994979858398,
       "id": "E02",
-      "phase": "E"
+      "phase": "E",
+      "label": "\u4e21\u90e8\u54c1INT4"
     },
     {
       "condition": "cuda_e_t2s",
@@ -232,7 +254,8 @@
       "eval_texts_cer_pct": 6.129247168554297,
       "state_mib": 128.98707962036133,
       "id": "E03",
-      "phase": "E"
+      "phase": "E",
+      "label": "T2S\u306e\u307fINT4"
     },
     {
       "condition": "cuda_e_s2m",
@@ -242,7 +265,8 @@
       "eval_texts_cer_pct": 6.329113924050633,
       "state_mib": 142.44140815734863,
       "id": "E04",
-      "phase": "E"
+      "phase": "E",
+      "label": "S2M\u306e\u307fINT4"
     },
     {
       "condition": "cuda_e_boundary",
@@ -252,7 +276,8 @@
       "eval_texts_cer_pct": 5.862758161225849,
       "state_mib": 124.06381416320801,
       "id": "E05",
-      "phase": "E"
+      "phase": "E",
+      "label": "\u5165\u51fa\u529b\u5074BF16\u30fb\u4ed6INT4"
     },
     {
       "condition": "cpu_e_baseline",
@@ -262,7 +287,8 @@
       "eval_texts_cer_pct": 6.395736175882745,
       "state_mib": 361.978967666626,
       "id": "E06",
-      "phase": "E"
+      "phase": "E",
+      "label": "FP32\u57fa\u6e96"
     },
     {
       "condition": "cpu_e_all",
@@ -272,7 +298,8 @@
       "eval_texts_cer_pct": 6.4623584277148565,
       "state_mib": 104.75868797302246,
       "id": "E07",
-      "phase": "E"
+      "phase": "E",
+      "label": "\u4e21\u90e8\u54c1\u52d5\u7684INT8"
     },
     {
       "condition": "cpu_e_boundary",
@@ -282,7 +309,8 @@
       "eval_texts_cer_pct": 6.995336442371753,
       "state_mib": 200.01938819885254,
       "id": "E08",
-      "phase": "E"
+      "phase": "E",
+      "label": "\u5165\u51fa\u529b\u5074FP32\u30fb\u4ed6\u52d5\u7684INT8"
     },
     {
       "condition": "cuda_f_baseline",
@@ -292,7 +320,8 @@
       "eval_texts_cer_pct": 6.262491672218521,
       "state_mib": 181.03853797912598,
       "id": "F01",
-      "phase": "F"
+      "phase": "F",
+      "label": "BF16\u57fa\u6e96"
     },
     {
       "condition": "cuda_f_ptq",
@@ -302,7 +331,8 @@
       "eval_texts_cer_pct": 6.129247168554297,
       "state_mib": 128.98707962036133,
       "id": "F02",
-      "phase": "F"
+      "phase": "F",
+      "label": "T2S PTQ INT4"
     },
     {
       "condition": "cuda_f_ft",
@@ -312,7 +342,8 @@
       "eval_texts_cer_pct": 5.862758161225849,
       "state_mib": 181.03853797912598,
       "id": "F03",
-      "phase": "F"
+      "phase": "F",
+      "label": "\u8ffd\u52a0\u5b66\u7fd2 BF16"
     },
     {
       "condition": "cuda_f_ft_ptq",
@@ -322,7 +353,8 @@
       "eval_texts_cer_pct": 5.52964690206529,
       "state_mib": 128.98707962036133,
       "id": "F04",
-      "phase": "F"
+      "phase": "F",
+      "label": "\u8ffd\u52a0\u5b66\u7fd2\u5f8cPTQ INT4"
     },
     {
       "condition": "cuda_f_qat",
@@ -332,7 +364,85 @@
       "eval_texts_cer_pct": 5.862758161225849,
       "state_mib": 128.98707962036133,
       "id": "F05",
-      "phase": "F"
+      "phase": "F",
+      "label": "QAT\u5f8cINT4"
+    },
+    {
+      "condition": "cuda_g_torch",
+      "device": "cuda",
+      "medium_s": 1.3081187500210945,
+      "test_cer_pct": 6.463467358408994,
+      "eval_texts_cer_pct": 6.7288474350433045,
+      "state_mib": 361.9825687408447,
+      "id": "G01",
+      "phase": "G",
+      "label": "PyTorch FP32"
+    },
+    {
+      "condition": "cuda_g_fp32",
+      "device": "cuda",
+      "medium_s": 1.121687035978539,
+      "test_cer_pct": 6.48508430609598,
+      "eval_texts_cer_pct": 6.7288474350433045,
+      "state_mib": 362.6549234390259,
+      "id": "G02",
+      "phase": "G",
+      "label": "ORT FP32"
+    },
+    {
+      "condition": "cuda_g_int4",
+      "device": "cuda",
+      "medium_s": 1.1985551709949505,
+      "test_cer_pct": 6.744487678339818,
+      "eval_texts_cer_pct": 5.463024650233178,
+      "state_mib": 68.77787971496582,
+      "id": "G03",
+      "phase": "G",
+      "label": "ORT INT4"
+    },
+    {
+      "condition": "cpu_g_torch",
+      "device": "cpu",
+      "medium_s": 4.097159357042983,
+      "test_cer_pct": 6.895806312148725,
+      "eval_texts_cer_pct": 6.395736175882745,
+      "state_mib": 361.978967666626,
+      "id": "G04",
+      "phase": "G",
+      "label": "PyTorch FP32"
+    },
+    {
+      "condition": "cpu_g_fp32",
+      "device": "cpu",
+      "medium_s": 6.260295291984221,
+      "test_cer_pct": 6.895806312148725,
+      "eval_texts_cer_pct": 6.395736175882745,
+      "state_mib": 362.6545572280884,
+      "id": "G05",
+      "phase": "G",
+      "label": "ORT FP32"
+    },
+    {
+      "condition": "cpu_g_int8",
+      "device": "cpu",
+      "medium_s": 4.714388454041909,
+      "test_cer_pct": 7.133592736705577,
+      "eval_texts_cer_pct": 6.129247168554297,
+      "state_mib": 109.23739719390869,
+      "id": "G06",
+      "phase": "G",
+      "label": "ORT\u52d5\u7684INT8"
+    },
+    {
+      "condition": "cpu_g_int4",
+      "device": "cpu",
+      "medium_s": 5.486712641955819,
+      "test_cer_pct": 7.695633376567229,
+      "eval_texts_cer_pct": 6.129247168554297,
+      "state_mib": 68.77751350402832,
+      "id": "G07",
+      "phase": "G",
+      "label": "ORT INT4"
     }
   ]
 }

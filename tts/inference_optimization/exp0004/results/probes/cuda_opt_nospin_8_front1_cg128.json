@@ -1,0 +1,237 @@
+{
+  "device": "cuda",
+  "config": "opt_nospin_8_front1_cg128",
+  "runtime": {
+    "backend": "onnxruntime",
+    "version": "1.32.0",
+    "precision": "fp32",
+    "graphs": {
+      "encoder": {
+        "bytes": 54761504,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "blocks": {
+        "bytes": 159792503,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "velocity": {
+        "bytes": 163282100,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      }
+    },
+    "capture": {
+      "bucket": 128,
+      "sessions_created": 9,
+      "cache_hits": 0,
+      "runs": 9,
+      "max_profiles_per_graph": 2
+    },
+    "cuda_graph": true,
+    "config": "opt_nospin_8_front1_cg128",
+    "threads_per_pool": 8,
+    "shared_thread_pool": false,
+    "session_spinning_request": false,
+    "global_pool_spinning": null,
+    "frontend_threads": 1,
+    "fused_attention": true,
+    "async_execution": false
+  },
+  "errors": [
+    {
+      "graph": "encoder",
+      "shape": [
+        1,
+        8,
+        512
+      ],
+      "relative_l2": 2.5150239935101126e-07
+    },
+    {
+      "graph": "blocks",
+      "shape": [
+        1,
+        8,
+        512
+      ],
+      "relative_l2": 8.883589686092819e-08
+    },
+    {
+      "graph": "velocity",
+      "shape": [
+        1,
+        8,
+        80
+      ],
+      "relative_l2": 3.189355481936218e-07
+    },
+    {
+      "graph": "encoder",
+      "shape": [
+        2,
+        32,
+        512
+      ],
+      "relative_l2": 2.759172161859169e-07
+    },
+    {
+      "graph": "blocks",
+      "shape": [
+        2,
+        32,
+        512
+      ],
+      "relative_l2": 1.6560861126890813e-07
+    },
+    {
+      "graph": "velocity",
+      "shape": [
+        2,
+        32,
+        80
+      ],
+      "relative_l2": 3.8808425983916095e-07
+    },
+    {
+      "graph": "encoder",
+      "shape": [
+        4,
+        65,
+        512
+      ],
+      "relative_l2": 2.4896291961340467e-07
+    },
+    {
+      "graph": "blocks",
+      "shape": [
+        4,
+        65,
+        512
+      ],
+      "relative_l2": 1.4138014137188293e-07
+    },
+    {
+      "graph": "velocity",
+      "shape": [
+        4,
+        65,
+        80
+      ],
+      "relative_l2": 3.6851608342658437e-07
+    }
+  ],
+  "provider_nodes": {
+    "('encoder', ((2, 128, 512), (2, 128)))": {
+      "Add:CUDAExecutionProvider": 6,
+      "LayerNormalization:CUDAExecutionProvider": 3,
+      "Reshape:CUDAExecutionProvider": 195,
+      "Gemm:CUDAExecutionProvider": 72,
+      "Transpose:CUDAExecutionProvider": 48,
+      "Cast:CUDAExecutionProvider": 3,
+      "Flatten:CUDAExecutionProvider": 3,
+      "Gather:CUDAExecutionProvider": 3,
+      "And:CUDAExecutionProvider": 3,
+      "Attention:CUDAExecutionProvider": 12,
+      "SkipLayerNormalization:CUDAExecutionProvider": 24,
+      "Gelu:CUDAExecutionProvider": 12
+    },
+    "('blocks', ((2, 128, 512), (2, 512), (2, 128)))": {
+      "Gemm:CUDAExecutionProvider": 120,
+      "Unsqueeze:CUDAExecutionProvider": 30,
+      "Split:CUDAExecutionProvider": 48,
+      "Add:CUDAExecutionProvider": 144,
+      "Not:CUDAExecutionProvider": 3,
+      "Expand:CUDAExecutionProvider": 24,
+      "LayerNormalization:CUDAExecutionProvider": 48,
+      "Mul:CUDAExecutionProvider": 96,
+      "Reshape:CUDAExecutionProvider": 192,
+      "Transpose:CUDAExecutionProvider": 96,
+      "Squeeze:CUDAExecutionProvider": 72,
+      "RotaryEmbedding:CUDAExecutionProvider": 48,
+      "Attention:CUDAExecutionProvider": 24,
+      "Gelu:CUDAExecutionProvider": 24
+    },
+    "('velocity', ((2, 128, 80), (2, 128, 512), (2,), (2, 128)))": {
+      "Mul:CUDAExecutionProvider": 99,
+      "Einsum:CUDAExecutionProvider": 3,
+      "Sin:CUDAExecutionProvider": 3,
+      "Cos:CUDAExecutionProvider": 3,
+      "Concat:CUDAExecutionProvider": 6,
+      "Gemm:CUDAExecutionProvider": 132,
+      "QuickGelu:CUDAExecutionProvider": 3,
+      "Unsqueeze:CUDAExecutionProvider": 30,
+      "Split:CUDAExecutionProvider": 48,
+      "Add:CUDAExecutionProvider": 141,
+      "Not:CUDAExecutionProvider": 3,
+      "Expand:CUDAExecutionProvider": 24,
+      "Reshape:CUDAExecutionProvider": 204,
+      "LayerNormalization:CUDAExecutionProvider": 48,
+      "Transpose:CUDAExecutionProvider": 96,
+      "Squeeze:CUDAExecutionProvider": 72,
+      "RotaryEmbedding:CUDAExecutionProvider": 48,
+      "Attention:CUDAExecutionProvider": 24,
+      "Gelu:CUDAExecutionProvider": 24,
+      "SkipLayerNormalization:CUDAExecutionProvider": 3
+    },
+    "('encoder', ((4, 128, 512), (4, 128)))": {
+      "Add:CUDAExecutionProvider": 6,
+      "LayerNormalization:CUDAExecutionProvider": 3,
+      "Reshape:CUDAExecutionProvider": 195,
+      "Gemm:CUDAExecutionProvider": 72,
+      "Transpose:CUDAExecutionProvider": 48,
+      "Cast:CUDAExecutionProvider": 3,
+      "Flatten:CUDAExecutionProvider": 3,
+      "Gather:CUDAExecutionProvider": 3,
+      "And:CUDAExecutionProvider": 3,
+      "Attention:CUDAExecutionProvider": 12,
+      "SkipLayerNormalization:CUDAExecutionProvider": 24,
+      "Gelu:CUDAExecutionProvider": 12
+    },
+    "('blocks', ((4, 128, 512), (4, 512), (4, 128)))": {
+      "Gemm:CUDAExecutionProvider": 120,
+      "Unsqueeze:CUDAExecutionProvider": 30,
+      "Split:CUDAExecutionProvider": 48,
+      "Add:CUDAExecutionProvider": 144,
+      "Not:CUDAExecutionProvider": 3,
+      "Expand:CUDAExecutionProvider": 24,
+      "LayerNormalization:CUDAExecutionProvider": 48,
+      "Mul:CUDAExecutionProvider": 96,
+      "Reshape:CUDAExecutionProvider": 192,
+      "Transpose:CUDAExecutionProvider": 96,
+      "Squeeze:CUDAExecutionProvider": 72,
+      "RotaryEmbedding:CUDAExecutionProvider": 48,
+      "Attention:CUDAExecutionProvider": 24,
+      "Gelu:CUDAExecutionProvider": 24
+    },
+    "('velocity', ((4, 128, 80), (4, 128, 512), (4,), (4, 128)))": {
+      "Mul:CUDAExecutionProvider": 99,
+      "Einsum:CUDAExecutionProvider": 3,
+      "Sin:CUDAExecutionProvider": 3,
+      "Cos:CUDAExecutionProvider": 3,
+      "Concat:CUDAExecutionProvider": 6,
+      "Gemm:CUDAExecutionProvider": 132,
+      "QuickGelu:CUDAExecutionProvider": 3,
+      "Unsqueeze:CUDAExecutionProvider": 30,
+      "Split:CUDAExecutionProvider": 48,
+      "Add:CUDAExecutionProvider": 141,
+      "Not:CUDAExecutionProvider": 3,
+      "Expand:CUDAExecutionProvider": 24,
+      "Reshape:CUDAExecutionProvider": 204,
+      "LayerNormalization:CUDAExecutionProvider": 48,
+      "Transpose:CUDAExecutionProvider": 96,
+      "Squeeze:CUDAExecutionProvider": 72,
+      "RotaryEmbedding:CUDAExecutionProvider": 48,
+      "Attention:CUDAExecutionProvider": 24,
+      "Gelu:CUDAExecutionProvider": 24,
+      "SkipLayerNormalization:CUDAExecutionProvider": 3
+    }
+  }
+}

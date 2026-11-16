@@ -1,0 +1,14 @@
+{
+  "encoder": {
+    "bytes": 54761504,
+    "nodes": 468
+  },
+  "blocks": {
+    "bytes": 151577949,
+    "nodes": 2434
+  },
+  "velocity": {
+    "bytes": 155065983,
+    "nodes": 2453
+  }
+}

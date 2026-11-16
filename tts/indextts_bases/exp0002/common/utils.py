@@ -103,12 +103,13 @@ def load_t2s(path: Path, device: str):
         (評価モードの T2S、語彙、方式の名前 "duration" / "masked" / "hybrid")。
     """
     from .t2s_duration import DurationT2S
+    from .t2s_gpt_duration import GPTDurationT2S
     from .t2s_hybrid import HybridT2S
     from .t2s_masked import MaskedT2S
 
     ckpt = torch.load(path, map_location="cpu")
     vocab = TextVocab.from_state_dict(ckpt["vocab"])
-    cls = {"duration": DurationT2S, "masked": MaskedT2S, "hybrid": HybridT2S}[ckpt["method"]]
+    cls = {"duration": DurationT2S, "masked": MaskedT2S, "hybrid": HybridT2S, "gpt_duration": GPTDurationT2S}[ckpt["method"]]
     model = cls(len(vocab), ckpt["n_codes"], **ckpt["config"])
     model.load_state_dict(ckpt["model"])
     return model.to(device).eval(), vocab, ckpt["method"]

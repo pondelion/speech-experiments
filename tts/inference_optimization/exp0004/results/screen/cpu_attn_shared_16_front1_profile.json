@@ -1,0 +1,233 @@
+{
+  "device": "cpu",
+  "config": "attn_shared_16_front1",
+  "runtime": {
+    "backend": "onnxruntime",
+    "version": "1.32.0",
+    "precision": "fp32",
+    "graphs": {
+      "encoder": {
+        "bytes": 54761504,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "blocks": {
+        "bytes": 151577949,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "velocity": {
+        "bytes": 155065983,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      }
+    },
+    "config": "attn_shared_16_front1",
+    "threads_per_pool": 16,
+    "shared_thread_pool": true,
+    "session_spinning_request": false,
+    "global_pool_spinning": "ORT environment default",
+    "frontend_threads": 1,
+    "fused_attention": true,
+    "async_execution": false
+  },
+  "repeats": 1,
+  "environment": {
+    "measured_at": "2026-11-15T05:12:41.995363+00:00",
+    "git_commit": "c09f108fed454665a0ff1038c54d1df0d3194bc9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cpu",
+    "cuda_device": null,
+    "pid": 320364,
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 20
+  },
+  "process_cpu_s": 92.60921299999998,
+  "mean_active_cpu_cores": 17.5783063953513,
+  "stages_median_s": {
+    "text_preprocess_s": 0.0005298510077409446,
+    "duration_s": 0.00871102197561413,
+    "t2s_tokens_s": 2.561452616006136,
+    "s2m_s": 2.4579691020189784,
+    "vocoder_s": 0.2397182710119523,
+    "end_to_end_s": 5.268380862020422
+  },
+  "runs": [
+    {
+      "text_preprocess_s": 0.0005298510077409446,
+      "duration_s": 0.00871102197561413,
+      "t2s_tokens_s": 2.561452616006136,
+      "s2m_s": 2.4579691020189784,
+      "vocoder_s": 0.2397182710119523,
+      "end_to_end_s": 5.268380862020422
+    }
+  ],
+  "profiling_includes_warmup": true,
+  "profiles": {
+    "encoder": {
+      "operator_ms": {
+        "Attention:CPUExecutionProvider": 40.457,
+        "MatMul:CPUExecutionProvider": 19.789000000000016,
+        "Add:CPUExecutionProvider": 1.7329999999999974,
+        "Transpose:CPUExecutionProvider": 0.7070000000000004,
+        "LayerNormalization:CPUExecutionProvider": 0.6790000000000003,
+        "BiasGelu:CPUExecutionProvider": 0.651,
+        "Gather:CPUExecutionProvider": 0.5450000000000003,
+        "Unsqueeze:CPUExecutionProvider": 0.44400000000000034,
+        "Reshape:CPUExecutionProvider": 0.3700000000000002,
+        "Shape:CPUExecutionProvider": 0.3340000000000002,
+        "Concat:CPUExecutionProvider": 0.2760000000000002,
+        "Where:CPUExecutionProvider": 0.15300000000000005,
+        "Expand:CPUExecutionProvider": 0.11800000000000005,
+        "Equal:CPUExecutionProvider": 0.11600000000000006,
+        "Range:CPUExecutionProvider": 0.04,
+        "And:CPUExecutionProvider": 0.038,
+        "Slice:CPUExecutionProvider": 0.037,
+        "Mul:CPUExecutionProvider": 0.019,
+        "GatherElements:CPUExecutionProvider": 0.018000000000000002,
+        "Cast:CPUExecutionProvider": 0.018000000000000002,
+        "GreaterOrEqual:CPUExecutionProvider": 0.016,
+        "Flatten:CPUExecutionProvider": 0.012
+      },
+      "top_nodes_ms": {
+        "/encoder/encoder/layer.1/attention/self/Attention_kernel_time": 37.29500000000001,
+        "/encoder/encoder/layer.1/intermediate/dense/MatMul_kernel_time": 5.593,
+        "/encoder/encoder/layer.3/attention/self/Attention_kernel_time": 2.519,
+        "/encoder/encoder/layer.2/output/dense/MatMul_kernel_time": 1.697,
+        "/encoder/encoder/layer.3/output/dense/MatMul_kernel_time": 1.371,
+        "/encoder/encoder/layer.3/intermediate/dense/MatMul_kernel_time": 1.284,
+        "/encoder/encoder/layer.1/output/dense/MatMul_kernel_time": 1.203,
+        "/encoder/encoder/layer.0/output/dense/MatMul_kernel_time": 1.101,
+        "/encoder/encoder/layer.0/intermediate/dense/MatMul_kernel_time": 1.078,
+        "/encoder/encoder/layer.2/intermediate/dense/MatMul_kernel_time": 1.0390000000000001,
+        "/encoder/encoder/layer.0/attention/self/key/MatMul_kernel_time": 0.447,
+        "/encoder/encoder/layer.3/attention/output/dense/MatMul_kernel_time": 0.444,
+        "/encoder/encoder/layer.2/attention/self/query/MatMul_kernel_time": 0.388,
+        "/encoder/encoder/layer.1/attention/output/dense/MatMul_kernel_time": 0.368,
+        "/encoder/encoder/layer.0/attention/self/value/MatMul_kernel_time": 0.34800000000000003,
+        "/encoder/encoder/layer.2/attention/self/value/MatMul_kernel_time": 0.343,
+        "/encoder/encoder/layer.3/attention/self/value/MatMul_kernel_time": 0.342,
+        "/encoder/encoder/layer.0/attention/self/query/MatMul_kernel_time": 0.339,
+        "/encoder/encoder/layer.0/attention/output/dense/MatMul_kernel_time": 0.337,
+        "/encoder/encoder/layer.0/attention/self/Attention_kernel_time": 0.322
+      }
+    },
+    "blocks": {
+      "operator_ms": {
+        "MatMul:CPUExecutionProvider": 1920.4089999999899,
+        "Slice:CPUExecutionProvider": 425.02999999997576,
+        "Attention:CPUExecutionProvider": 313.15499999999923,
+        "Mul:CPUExecutionProvider": 226.31299999996662,
+        "Add:CPUExecutionProvider": 219.4249999999709,
+        "Gemm:CPUExecutionProvider": 145.36299999999952,
+        "Transpose:CPUExecutionProvider": 113.77200000000242,
+        "BiasGelu:CPUExecutionProvider": 91.28700000000013,
+        "Concat:CPUExecutionProvider": 87.09900000000185,
+        "Split:CPUExecutionProvider": 72.63099999999977,
+        "LayerNormalization:CPUExecutionProvider": 70.33300000000094,
+        "Gather:CPUExecutionProvider": 64.80300000000217,
+        "Unsqueeze:CPUExecutionProvider": 56.64999999999971,
+        "Reshape:CPUExecutionProvider": 39.445000000000675,
+        "Shape:CPUExecutionProvider": 34.06100000000113,
+        "Cast:CPUExecutionProvider": 33.881000000001436,
+        "Einsum:CPUExecutionProvider": 32.1920000000001,
+        "Cos:CPUExecutionProvider": 27.73800000000095,
+        "Sin:CPUExecutionProvider": 27.34700000000065,
+        "Sub:CPUExecutionProvider": 25.265999999999913,
+        "Range:CPUExecutionProvider": 25.00100000000088,
+        "Squeeze:CPUExecutionProvider": 18.39000000000015,
+        "Div:CPUExecutionProvider": 18.12000000000015,
+        "Pow:CPUExecutionProvider": 12.97399999999977,
+        "Reciprocal:CPUExecutionProvider": 11.432000000000055,
+        "Where:CPUExecutionProvider": 9.202,
+        "Expand:CPUExecutionProvider": 7.817999999999789,
+        "Equal:CPUExecutionProvider": 6.778999999999835,
+        "Not:CPUExecutionProvider": 0.7510000000000006
+      },
+      "top_nodes_ms": {
+        "/blocks.5/mlp/mlp.2/MatMul_kernel_time": 80.11999999999999,
+        "/blocks.0/mlp/mlp.2/MatMul_kernel_time": 79.49499999999995,
+        "/blocks.4/mlp/mlp.2/MatMul_kernel_time": 78.85400000000003,
+        "/blocks.5/mlp/mlp.0/MatMul_kernel_time": 78.84900000000002,
+        "/blocks.4/mlp/mlp.0/MatMul_kernel_time": 78.47999999999999,
+        "/blocks.2/mlp/mlp.2/MatMul_kernel_time": 78.34100000000002,
+        "/blocks.1/mlp/mlp.0/MatMul_kernel_time": 78.27400000000003,
+        "/blocks.1/mlp/mlp.2/MatMul_kernel_time": 78.23400000000005,
+        "/blocks.3/mlp/mlp.2/MatMul_kernel_time": 78.22100000000006,
+        "/blocks.0/mlp/mlp.0/MatMul_kernel_time": 77.93299999999998,
+        "/blocks.6/mlp/mlp.0/MatMul_kernel_time": 77.93000000000006,
+        "/blocks.2/mlp/mlp.0/MatMul_kernel_time": 77.87299999999999,
+        "/blocks.6/mlp/mlp.2/MatMul_kernel_time": 77.85399999999998,
+        "/blocks.3/mlp/mlp.0/MatMul_kernel_time": 77.53600000000002,
+        "/blocks.7/mlp/mlp.2/MatMul_kernel_time": 77.39199999999998,
+        "/blocks.7/mlp/mlp.0/MatMul_kernel_time": 77.27199999999995,
+        "/blocks.4/qkv/MatMul_kernel_time": 64.01499999999997,
+        "/blocks.1/qkv/MatMul_kernel_time": 60.79899999999997,
+        "/blocks.5/qkv/MatMul_kernel_time": 60.79799999999995,
+        "/blocks.3/qkv/MatMul_kernel_time": 60.48600000000001
+      }
+    },
+    "velocity": {
+      "operator_ms": {
+        "MatMul:CPUExecutionProvider": 2413.1550000000007,
+        "Attention:CPUExecutionProvider": 629.012,
+        "Slice:CPUExecutionProvider": 595.8699999999967,
+        "Transpose:CPUExecutionProvider": 145.81799999999978,
+        "Add:CPUExecutionProvider": 138.3180000000017,
+        "Mul:CPUExecutionProvider": 133.32100000000213,
+        "BiasGelu:CPUExecutionProvider": 122.05300000000011,
+        "LayerNormalization:CPUExecutionProvider": 61.248000000000175,
+        "Gemm:CPUExecutionProvider": 42.58999999999995,
+        "Concat:CPUExecutionProvider": 41.55699999999995,
+        "Split:CPUExecutionProvider": 39.14299999999998,
+        "Gather:CPUExecutionProvider": 23.557000000000567,
+        "Einsum:CPUExecutionProvider": 21.16699999999993,
+        "Sub:CPUExecutionProvider": 19.803999999999913,
+        "Sin:CPUExecutionProvider": 18.225999999999996,
+        "Unsqueeze:CPUExecutionProvider": 17.664000000000097,
+        "Cos:CPUExecutionProvider": 17.655999999999988,
+        "Reshape:CPUExecutionProvider": 13.298999999999774,
+        "Shape:CPUExecutionProvider": 12.833999999999946,
+        "Cast:CPUExecutionProvider": 11.228999999999933,
+        "Range:CPUExecutionProvider": 8.984999999999975,
+        "Squeeze:CPUExecutionProvider": 7.808999999999899,
+        "Expand:CPUExecutionProvider": 7.427999999999997,
+        "Div:CPUExecutionProvider": 6.377999999999954,
+        "Pow:CPUExecutionProvider": 5.242999999999951,
+        "Reciprocal:CPUExecutionProvider": 4.008999999999994,
+        "Where:CPUExecutionProvider": 3.529999999999995,
+        "Equal:CPUExecutionProvider": 2.2539999999999862,
+        "QuickGelu:CPUExecutionProvider": 0.29200000000000015,
+        "Not:CPUExecutionProvider": 0.24600000000000016
+      },
+      "top_nodes_ms": {
+        "/blocks.7/mlp/mlp.2/MatMul_kernel_time": 99.85400000000001,
+        "/blocks.6/mlp/mlp.2/MatMul_kernel_time": 99.73900000000002,
+        "/blocks.0/mlp/mlp.2/MatMul_kernel_time": 99.365,
+        "/blocks.1/mlp/mlp.0/MatMul_kernel_time": 98.53399999999999,
+        "/blocks.4/mlp/mlp.0/MatMul_kernel_time": 98.44200000000001,
+        "/blocks.6/mlp/mlp.0/MatMul_kernel_time": 98.351,
+        "/blocks.3/mlp/mlp.2/MatMul_kernel_time": 98.27799999999999,
+        "/blocks.7/mlp/mlp.0/MatMul_kernel_time": 98.05499999999998,
+        "/blocks.5/mlp/mlp.2/MatMul_kernel_time": 98.05399999999996,
+        "/blocks.0/mlp/mlp.0/MatMul_kernel_time": 97.60599999999998,
+        "/blocks.2/mlp/mlp.0/MatMul_kernel_time": 97.442,
+        "/blocks.5/mlp/mlp.0/MatMul_kernel_time": 97.21999999999998,
+        "/blocks.3/mlp/mlp.0/MatMul_kernel_time": 97.15099999999998,
+        "/blocks.2/mlp/mlp.2/MatMul_kernel_time": 96.97399999999999,
+        "/blocks.4/mlp/mlp.2/MatMul_kernel_time": 96.95800000000001,
+        "/blocks.1/mlp/mlp.2/MatMul_kernel_time": 96.72399999999998,
+        "/blocks.0/qkv/MatMul_kernel_time": 81.759,
+        "/blocks.0/Attention_kernel_time": 79.27899999999998,
+        "/blocks.7/Attention_kernel_time": 79.259,
+        "/blocks.6/Attention_kernel_time": 79.21200000000002
+      }
+    }
+  }
+}

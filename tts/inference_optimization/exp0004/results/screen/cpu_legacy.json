@@ -1,0 +1,85 @@
+{
+  "device": "cpu",
+  "config": "legacy",
+  "runtime": {
+    "backend": "onnxruntime",
+    "version": "1.32.0",
+    "precision": "fp32",
+    "graphs": {
+      "encoder": {
+        "bytes": 54754594,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "blocks": {
+        "bytes": 151577560,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "velocity": {
+        "bytes": 155065594,
+        "providers": [
+          "CPUExecutionProvider"
+        ]
+      }
+    },
+    "config": "legacy",
+    "threads_per_pool": 8,
+    "shared_thread_pool": false,
+    "session_spinning_request": true,
+    "global_pool_spinning": null,
+    "frontend_threads": 8
+  },
+  "repeats": 3,
+  "environment": {
+    "measured_at": "2026-11-14T22:31:08.302207+00:00",
+    "git_commit": "c09f108fed454665a0ff1038c54d1df0d3194bc9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cpu",
+    "cuda_device": null,
+    "pid": 297754,
+    "torch_num_threads": 8,
+    "torch_num_interop_threads": 20
+  },
+  "process_cpu_s": 208.405187,
+  "mean_active_cpu_cores": 10.655185815493919,
+  "stages_median_s": {
+    "text_preprocess_s": 0.0006099539459683001,
+    "duration_s": 0.11073799198493361,
+    "t2s_tokens_s": 2.6082402010215446,
+    "s2m_s": 3.6974543730029836,
+    "vocoder_s": 0.06296432897215709,
+    "end_to_end_s": 6.479810386081226
+  },
+  "runs": [
+    {
+      "text_preprocess_s": 0.0006099539459683001,
+      "duration_s": 0.10760214895708486,
+      "t2s_tokens_s": 2.7816776880063117,
+      "s2m_s": 3.7263519020052627,
+      "vocoder_s": 0.06296432897215709,
+      "end_to_end_s": 6.679206021886785
+    },
+    {
+      "text_preprocess_s": 0.0010187210282310843,
+      "duration_s": 0.11073799198493361,
+      "t2s_tokens_s": 2.5183654769789428,
+      "s2m_s": 3.6878537890152074,
+      "vocoder_s": 0.08204586995998397,
+      "end_to_end_s": 6.400021848967299
+    },
+    {
+      "text_preprocess_s": 0.000580286025069654,
+      "duration_s": 0.11142371199093759,
+      "t2s_tokens_s": 2.6082402010215446,
+      "s2m_s": 3.6974543730029836,
+      "vocoder_s": 0.06211181404069066,
+      "end_to_end_s": 6.479810386081226
+    }
+  ]
+}

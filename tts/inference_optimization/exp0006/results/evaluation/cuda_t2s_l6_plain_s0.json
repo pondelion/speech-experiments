@@ -1,0 +1,1709 @@
+{
+  "complete": true,
+  "condition": "t2s_l6_plain_s0",
+  "device": "cuda",
+  "checkpoint": "tts/inference_optimization/exp0006/runs/t2s_l6_plain_s0/t2s.pt",
+  "checkpoint_sha256": "3c267a6c7f7c29f60fd12121c7f6b9498f44fb685bed2aeab65b5c5de1e19435",
+  "benchmark": {
+    "runtime": "pytorch",
+    "dtype": "float32",
+    "linear_quantization": null,
+    "t2s_excluded_quantization_layers": [],
+    "batch_size": 1,
+    "threads": 8,
+    "warmup": 1,
+    "repeats": 10,
+    "cases": {
+      "short": {
+        "median_s": {
+          "text_preprocess_s": 0.0001263745070900768,
+          "duration_s": 0.0028411274834070355,
+          "t2s_tokens_s": 0.7264158804609906,
+          "s2m_s": 0.2211299250193406,
+          "vocoder_s": 0.03436975198565051,
+          "end_to_end_s": 0.9836111939803232
+        },
+        "runs": [
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.00013828894589096308,
+              "duration_s": 0.004702715028543025,
+              "t2s_tokens_s": 0.640845134970732,
+              "s2m_s": 0.25280802499037236,
+              "vocoder_s": 0.025328407995402813,
+              "end_to_end_s": 0.9238225719309412
+            },
+            "shape": {
+              "text_chars": 3,
+              "text_tokens": 8,
+              "audio_tokens": 15,
+              "mel_frames": 60,
+              "audio_s": 0.6293333333333333,
+              "rtf": 1.4679384087885718,
+              "x_realtime": 0.6812274915711608,
+              "codes_sha256": "8f0aaf213f0490b6b211a70ace7f292ea9aef01d6e56f20f7abef38d620d46fc",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.00012575701111927629,
+              "duration_s": 0.002863233967218548,
+              "t2s_tokens_s": 0.6666524190222844,
+              "s2m_s": 0.18712689698440954,
+              "vocoder_s": 0.027821358002256602,
+              "end_to_end_s": 0.8845896649872884
+            },
+            "shape": {
+              "text_chars": 3,
+              "text_tokens": 8,
+              "audio_tokens": 15,
+              "mel_frames": 60,
+              "audio_s": 0.6293333333333333,
+              "rtf": 1.405597984619632,
+              "x_realtime": 0.7114409745476473,
+              "codes_sha256": "1ffb9c30bf3e82480a1f08b2e7531093e605005a826104e604b45079a790e642",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0001239529810845852,
+              "duration_s": 0.002445569960400462,
+              "t2s_tokens_s": 0.7303210639511235,
+              "s2m_s": 0.23455331701552495,
+              "vocoder_s": 0.033627522992901504,
+              "end_to_end_s": 1.001071426901035
+            },
+            "shape": {
+              "text_chars": 3,
+              "text_tokens": 8,
+              "audio_tokens": 15,
+              "mel_frames": 60,
+              "audio_s": 0.6293333333333333,
+              "rtf": 1.5906855300334244,
+              "x_realtime": 0.6286597703437885,
+              "codes_sha256": "55f4efb880bd0f444300e33a416697b66ee609beb042df4887eb3e2be245ce84",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.00012370897457003593,
+              "duration_s": 0.002819020999595523,
+              "t2s_tokens_s": 0.7069355429848656,
+              "s2m_s": 0.24608810700010508,
+              "vocoder_s": 0.027042867033742368,
+              "end_to_end_s": 0.9830092469928786
+            },
+            "shape": {
+              "text_chars": 3,
+              "text_tokens": 8,
+              "audio_tokens": 15,
+              "mel_frames": 60,
+              "audio_s": 0.6293333333333333,
+              "rtf": 1.5619850322980064,
+              "x_realtime": 0.6402110003120779,
+              "codes_sha256": "278dab64b03ad268a16dfee1fc53b439e4591df63fc5e799a9c811457735b94e",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.00012373295612633228,
+              "duration_s": 0.0027108569629490376,
+              "t2s_tokens_s": 0.7433111210120842,
+              "s2m_s": 0.21062671695835888,
+              "vocoder_s": 0.045811007963493466,
+              "end_to_end_s": 1.002583435853012
+            },
+            "shape": {
+              "text_chars": 3,
+              "text_tokens": 8,
+              "audio_tokens": 15,
+              "mel_frames": 60,
+              "audio_s": 0.6293333333333333,
+              "rtf": 1.5930880866308452,
+              "x_realtime": 0.6277116804726459,
+              "codes_sha256": "fd145a57a3af85cce77ee591c7d10ce9cedac9797b8978d320aa49c2520f01bd",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.00013192399637773633,
+              "duration_s": 0.004331862030085176,
+              "t2s_tokens_s": 0.7569933679769747,
+              "s2m_s": 0.18291147099807858,
+              "vocoder_s": 0.03984451596625149,
+              "end_to_end_s": 0.9842131409677677
+            },
+            "shape": {
+              "text_chars": 3,
+              "text_tokens": 8,
+              "audio_tokens": 15,
+              "mel_frames": 60,
+              "audio_s": 0.6293333333333333,
+              "rtf": 1.5638979994191224,
+              "x_realtime": 0.6394278913147976,
+              "codes_sha256": "54f9437363b02d6ac9f64925bfd09eb90c1c0d8df89d08a6391455355a02321a",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.00012699200306087732,
+              "duration_s": 0.002177831018343568,
+              "t2s_tokens_s": 0.7121295019751415,
+              "s2m_s": 0.22201050200965255,
+              "vocoder_s": 0.0346550410031341,
+              "end_to_end_s": 0.9710998680093326
+            },
+            "shape": {
+              "text_chars": 3,
+              "text_tokens": 8,
+              "audio_tokens": 15,
+              "mel_frames": 60,
+              "audio_s": 0.6293333333333333,
+              "rtf": 1.5430612309470328,
+              "x_realtime": 0.6480624228931366,
+              "codes_sha256": "99229c820ebdefd2208d93912a8843f96d1c01845d2fdd41fbdc0d70c41db8ac",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.00013510597636923194,
+              "duration_s": 0.0033051070058718324,
+              "t2s_tokens_s": 0.7423177610035054,
+              "s2m_s": 0.2513513409649022,
+              "vocoder_s": 0.03933007700834423,
+              "end_to_end_s": 1.036439391958993
+            },
+            "shape": {
+              "text_chars": 3,
+              "text_tokens": 8,
+              "audio_tokens": 15,
+              "mel_frames": 60,
+              "audio_s": 0.6293333333333333,
+              "rtf": 1.6468846270534847,
+              "x_realtime": 0.6072070766664116,
+              "codes_sha256": "db352d1a7c2e6ee01f3f0288e459240498d42dbba68ae411dfcb6929c2fea6f2",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.00012836797395721078,
+              "duration_s": 0.0028946659876964986,
+              "t2s_tokens_s": 0.769144770980347,
+              "s2m_s": 0.20308231801027432,
+              "vocoder_s": 0.03408446296816692,
+              "end_to_end_s": 1.009334585920442
+            },
+            "shape": {
+              "text_chars": 3,
+              "text_tokens": 8,
+              "audio_tokens": 15,
+              "mel_frames": 60,
+              "audio_s": 0.6293333333333333,
+              "rtf": 1.6038155496617192,
+              "x_realtime": 0.6235130967591146,
+              "codes_sha256": "1f9e77866938af214d3a8c8263c84844302730097b7d8755bf6c00b278cc82ed",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0001233950024470687,
+              "duration_s": 0.0028138590278103948,
+              "t2s_tokens_s": 0.7225106969708577,
+              "s2m_s": 0.22024934802902862,
+              "vocoder_s": 0.035222114995121956,
+              "end_to_end_s": 0.9809194140252657
+            },
+            "shape": {
+              "text_chars": 3,
+              "text_tokens": 8,
+              "audio_tokens": 15,
+              "mel_frames": 60,
+              "audio_s": 0.6293333333333333,
+              "rtf": 1.5586643231333672,
+              "x_realtime": 0.6415749595074519,
+              "codes_sha256": "6b8b7819bf4b8cd236b5b08d215a5334cb7a67a605db51b25caa6d5021e15226",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          }
+        ]
+      },
+      "medium": {
+        "median_s": {
+          "text_preprocess_s": 0.0005315244779922068,
+          "duration_s": 0.004887608025455847,
+          "t2s_tokens_s": 0.7909457595087588,
+          "s2m_s": 0.19193214550614357,
+          "vocoder_s": 0.028685388999292627,
+          "end_to_end_s": 1.0239873409154825
+        },
+        "runs": [
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0005268890527077019,
+              "duration_s": 0.0058850430068559945,
+              "t2s_tokens_s": 0.7884628280298784,
+              "s2m_s": 0.17398263496579602,
+              "vocoder_s": 0.029044452996458858,
+              "end_to_end_s": 0.997901848051697
+            },
+            "shape": {
+              "text_chars": 33,
+              "text_tokens": 100,
+              "audio_tokens": 127,
+              "mel_frames": 508,
+              "audio_s": 5.408,
+              "rtf": 0.18452327071961852,
+              "x_realtime": 5.419370663115392,
+              "codes_sha256": "8cd10e29930f068a2bdaaead8ec0e54613ab2b018c878835aa8ed367cdce9461",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0005580650176852942,
+              "duration_s": 0.00733620097162202,
+              "t2s_tokens_s": 0.8061844920157455,
+              "s2m_s": 0.1927594660082832,
+              "vocoder_s": 0.028780138993170112,
+              "end_to_end_s": 1.0356183630065061
+            },
+            "shape": {
+              "text_chars": 33,
+              "text_tokens": 100,
+              "audio_tokens": 127,
+              "mel_frames": 508,
+              "audio_s": 5.408,
+              "rtf": 0.19149747836658765,
+              "x_realtime": 5.222000877137813,
+              "codes_sha256": "69897208e894595180f109459914079a10b496395cc2e67faee8a80962d5a9be",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0005299829645082355,
+              "duration_s": 0.0033400129759684205,
+              "t2s_tokens_s": 0.7934286909876391,
+              "s2m_s": 0.2068165469681844,
+              "vocoder_s": 0.02793874399503693,
+              "end_to_end_s": 1.0320539778913371
+            },
+            "shape": {
+              "text_chars": 33,
+              "text_tokens": 100,
+              "audio_tokens": 127,
+              "mel_frames": 508,
+              "audio_s": 5.408,
+              "rtf": 0.19083838348582416,
+              "x_realtime": 5.2400360018469865,
+              "codes_sha256": "9f9d470380eea24a1a53f923935a8d00ae34741b35bdef08e02670f82b9fdc10",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0005068379687145352,
+              "duration_s": 0.0036623089690692723,
+              "t2s_tokens_s": 0.6893683479866013,
+              "s2m_s": 0.19623709900770336,
+              "vocoder_s": 0.02859063900541514,
+              "end_to_end_s": 0.9183652329375036
+            },
+            "shape": {
+              "text_chars": 33,
+              "text_tokens": 100,
+              "audio_tokens": 127,
+              "mel_frames": 508,
+              "audio_s": 5.408,
+              "rtf": 0.1698160563863727,
+              "x_realtime": 5.888724666440007,
+              "codes_sha256": "cc6e2392eb4eb8a300213132fa13c759df96e0cd69eb7cb8c4a5844cc2bc3b8f",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0005411150050349534,
+              "duration_s": 0.007996841974090785,
+              "t2s_tokens_s": 0.7786380039760843,
+              "s2m_s": 0.19408213498536497,
+              "vocoder_s": 0.03466260799905285,
+              "end_to_end_s": 1.0159207039396279
+            },
+            "shape": {
+              "text_chars": 33,
+              "text_tokens": 100,
+              "audio_tokens": 127,
+              "mel_frames": 508,
+              "audio_s": 5.408,
+              "rtf": 0.1878551597521501,
+              "x_realtime": 5.323250110986395,
+              "codes_sha256": "ecabf9e10fc48b8ea0550472296eaf381e183e5f5be202deb4376dbfa99bb9b5",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0005079749971628189,
+              "duration_s": 0.00333092495566234,
+              "t2s_tokens_s": 0.8454883410013281,
+              "s2m_s": 0.17551936296513304,
+              "vocoder_s": 0.031708832015283406,
+              "end_to_end_s": 1.0565554359345697
+            },
+            "shape": {
+              "text_chars": 33,
+              "text_tokens": 100,
+              "audio_tokens": 127,
+              "mel_frames": 508,
+              "audio_s": 5.408,
+              "rtf": 0.19536897853819704,
+              "x_realtime": 5.118519877015622,
+              "codes_sha256": "caeb787534f8ae34c62e0f223f95c686a2a7b0a1d05b8e867a1b19adee856862",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.000518588989507407,
+              "duration_s": 0.006045193993486464,
+              "t2s_tokens_s": 0.8362494920147583,
+              "s2m_s": 0.17227295698830858,
+              "vocoder_s": 0.01973996398737654,
+              "end_to_end_s": 1.0348261959734373
+            },
+            "shape": {
+              "text_chars": 33,
+              "text_tokens": 100,
+              "audio_tokens": 127,
+              "mel_frames": 508,
+              "audio_s": 5.408,
+              "rtf": 0.19135099777615333,
+              "x_realtime": 5.225998357060162,
+              "codes_sha256": "31f42248e28f94b6d5a0e104e78f6f914f5fef42f055ef08ab82848d337df707",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0006185180391184986,
+              "duration_s": 0.006153205991722643,
+              "t2s_tokens_s": 0.780613689974416,
+              "s2m_s": 0.18805832200450823,
+              "vocoder_s": 0.026110286999028176,
+              "end_to_end_s": 1.0015540230087936
+            },
+            "shape": {
+              "text_chars": 33,
+              "text_tokens": 100,
+              "audio_tokens": 127,
+              "mel_frames": 508,
+              "audio_s": 5.408,
+              "rtf": 0.1851985989291408,
+              "x_realtime": 5.399608883556468,
+              "codes_sha256": "f37e194f042db07ddd6e32a3b3a1313c12a1dac9c98dbbc73ae3f81ab6ee7dc3",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0009787009912542999,
+              "duration_s": 0.0031619039946235716,
+              "t2s_tokens_s": 0.7070859940140508,
+              "s2m_s": 0.2052150700474158,
+              "vocoder_s": 0.028351175016723573,
+              "end_to_end_s": 0.944792844064068
+            },
+            "shape": {
+              "text_chars": 33,
+              "text_tokens": 100,
+              "audio_tokens": 127,
+              "mel_frames": 508,
+              "audio_s": 5.408,
+              "rtf": 0.17470281879882915,
+              "x_realtime": 5.724006097185548,
+              "codes_sha256": "ccbc74e7a9edc31971985fd960691bf0544ea8bdf5cf307143e38641a1754b4f",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0005330659914761782,
+              "duration_s": 0.0038901730440557003,
+              "t2s_tokens_s": 0.8309496019501239,
+              "s2m_s": 0.19110482500400394,
+              "vocoder_s": 0.03306686703581363,
+              "end_to_end_s": 1.0595445330254734
+            },
+            "shape": {
+              "text_chars": 33,
+              "text_tokens": 100,
+              "audio_tokens": 127,
+              "mel_frames": 508,
+              "audio_s": 5.408,
+              "rtf": 0.1959216961955387,
+              "x_realtime": 5.104079943254242,
+              "codes_sha256": "c3464c52acbca8ee8852eb52509c2a366cff6a4d6f897d0365682ab7ab3d8bf9",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          }
+        ]
+      },
+      "long": {
+        "median_s": {
+          "text_preprocess_s": 0.0012395415105856955,
+          "duration_s": 0.00408793450333178,
+          "t2s_tokens_s": 0.7904872520302888,
+          "s2m_s": 0.24805890151765198,
+          "vocoder_s": 0.029975015990203246,
+          "end_to_end_s": 1.0754722975252662
+        },
+        "runs": [
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0012283760006539524,
+              "duration_s": 0.004169936990365386,
+              "t2s_tokens_s": 0.7787346050026827,
+              "s2m_s": 0.24733595800353214,
+              "vocoder_s": 0.028417014982551336,
+              "end_to_end_s": 1.0598858909797855
+            },
+            "shape": {
+              "text_chars": 104,
+              "text_tokens": 270,
+              "audio_tokens": 344,
+              "mel_frames": 1376,
+              "audio_s": 14.666666666666666,
+              "rtf": 0.0722649471122581,
+              "x_realtime": 13.837967644902252,
+              "codes_sha256": "0bcc5bf9a230d4031050503ddfa7c3479e60b38f8b2b2653d4c3fd4a68e8006a",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.001236343989148736,
+              "duration_s": 0.004319067986216396,
+              "t2s_tokens_s": 0.7932336140074767,
+              "s2m_s": 0.2618914640042931,
+              "vocoder_s": 0.03524298203410581,
+              "end_to_end_s": 1.0959234720212407
+            },
+            "shape": {
+              "text_chars": 104,
+              "text_tokens": 270,
+              "audio_tokens": 344,
+              "mel_frames": 1376,
+              "audio_s": 14.666666666666666,
+              "rtf": 0.07472205491053914,
+              "x_realtime": 13.382929594177359,
+              "codes_sha256": "a2e8c0e5c8d3f08826b08ab055b00a2511b13172fdb4673f27eb008241202655",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0012188899563625455,
+              "duration_s": 0.004079859994817525,
+              "t2s_tokens_s": 0.7924355320283212,
+              "s2m_s": 0.2502339680213481,
+              "vocoder_s": 0.029989722999744117,
+              "end_to_end_s": 1.0779579730005935
+            },
+            "shape": {
+              "text_chars": 104,
+              "text_tokens": 270,
+              "audio_tokens": 344,
+              "mel_frames": 1376,
+              "audio_s": 14.666666666666666,
+              "rtf": 0.07349713452276774,
+              "x_realtime": 13.605972620473016,
+              "codes_sha256": "1a7ecc70cb5aa727ee4ec6550fb30cf02b60845e94855b2f56fc2e5884ab3a8c",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0015942780300974846,
+              "duration_s": 0.0035144779831171036,
+              "t2s_tokens_s": 0.7682421319768764,
+              "s2m_s": 0.24575914000160992,
+              "vocoder_s": 0.030038450961001217,
+              "end_to_end_s": 1.0491484789527021
+            },
+            "shape": {
+              "text_chars": 104,
+              "text_tokens": 270,
+              "audio_tokens": 344,
+              "mel_frames": 1376,
+              "audio_s": 14.666666666666666,
+              "rtf": 0.07153285083768424,
+              "x_realtime": 13.979591031106924,
+              "codes_sha256": "7fb6f192847f85c9e8ca306dc5741f7b0970e7889bd95476b1223910a8d5f3f5",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.001242739032022655,
+              "duration_s": 0.004096009011846036,
+              "t2s_tokens_s": 0.7993427219917066,
+              "s2m_s": 0.24582664802437648,
+              "vocoder_s": 0.02383138198638335,
+              "end_to_end_s": 1.0743395000463352
+            },
+            "shape": {
+              "text_chars": 104,
+              "text_tokens": 270,
+              "audio_tokens": 344,
+              "mel_frames": 1376,
+              "audio_s": 14.666666666666666,
+              "rtf": 0.07325042045770468,
+              "x_realtime": 13.651798771276777,
+              "codes_sha256": "715d6e8341399e2b74bd3379ff5c51bdddd6f8ac9a158da31b58e20a743d914e",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0011907280422747135,
+              "duration_s": 0.004226134973578155,
+              "t2s_tokens_s": 0.7885389720322564,
+              "s2m_s": 0.25268895097542554,
+              "vocoder_s": 0.029960308980662376,
+              "end_to_end_s": 1.0766050950041972
+            },
+            "shape": {
+              "text_chars": 104,
+              "text_tokens": 270,
+              "audio_tokens": 344,
+              "mel_frames": 1376,
+              "audio_s": 14.666666666666666,
+              "rtf": 0.07340489284119527,
+              "x_realtime": 13.62307008830335,
+              "codes_sha256": "1933f517a4acb3293ef249123d3045387a35f66f978bc479fb2f0f258981528c",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.001270041975658387,
+              "duration_s": 0.003569627006072551,
+              "t2s_tokens_s": 0.8175806179642677,
+              "s2m_s": 0.2511863369727507,
+              "vocoder_s": 0.02564623800572008,
+              "end_to_end_s": 1.0992528619244695
+            },
+            "shape": {
+              "text_chars": 104,
+              "text_tokens": 270,
+              "audio_tokens": 344,
+              "mel_frames": 1376,
+              "audio_s": 14.666666666666666,
+              "rtf": 0.07494905876757747,
+              "x_realtime": 13.342395707744288,
+              "codes_sha256": "ff08993cbf89b60e2942ded69430c3fe65de37afe35172da6bbd844fe163461a",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0019180490053258836,
+              "duration_s": 0.0028006999637000263,
+              "t2s_tokens_s": 0.7352286520181224,
+              "s2m_s": 0.24705399695085362,
+              "vocoder_s": 0.027723228035029024,
+              "end_to_end_s": 1.014724625973031
+            },
+            "shape": {
+              "text_chars": 104,
+              "text_tokens": 270,
+              "audio_tokens": 344,
+              "mel_frames": 1376,
+              "audio_s": 14.666666666666666,
+              "rtf": 0.06918576995270666,
+              "x_realtime": 14.453839289258042,
+              "codes_sha256": "ae231fb74245c7f7ac0c1b730e189c28161a271dd96f9b6210cf4410b5aec702",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0013270239578559995,
+              "duration_s": 0.0036294269957579672,
+              "t2s_tokens_s": 0.6425693909986876,
+              "s2m_s": 0.2470385959604755,
+              "vocoder_s": 0.03082695900229737,
+              "end_to_end_s": 0.9253913969150744
+            },
+            "shape": {
+              "text_chars": 104,
+              "text_tokens": 270,
+              "audio_tokens": 344,
+              "mel_frames": 1376,
+              "audio_s": 14.666666666666666,
+              "rtf": 0.06309486797148235,
+              "x_realtime": 15.849149576665736,
+              "codes_sha256": "2f273c7567ad796000e029a206505fac890d96cddd3c8c19f65fd704eed5a6aa",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          },
+          {
+            "stages_s": {
+              "text_preprocess_s": 0.0012277380446903408,
+              "duration_s": 0.004242447961587459,
+              "t2s_tokens_s": 0.8308089370257221,
+              "s2m_s": 0.2487818450317718,
+              "vocoder_s": 0.031684801972005516,
+              "end_to_end_s": 1.1167457700357772
+            },
+            "shape": {
+              "text_chars": 104,
+              "text_tokens": 270,
+              "audio_tokens": 344,
+              "mel_frames": 1376,
+              "audio_s": 14.666666666666666,
+              "rtf": 0.0761417570478939,
+              "x_realtime": 13.133398003555268,
+              "codes_sha256": "fec30b3a99018ccf5533169a6bb33995b7e576f8146cfac134222cc40e702ce5",
+              "mel_all_finite": true,
+              "wave_all_finite": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "benchmark_memory": {
+    "peak_cuda_allocated_mib": 529.9267578125,
+    "rss_high_water_mib": 2619.32421875,
+    "scope": "model load and batch-1 benchmark; before CER and ASR"
+  },
+  "quality": {
+    "test": {
+      "utterances": 100,
+      "scores": {
+        "raw": 0.16998237219843867,
+        "normalized": 0.1170094496942746,
+        "reading": 0.07220060527453523
+      },
+      "reading_cer_pct": 7.220060527453523,
+      "items": [
+        {
+          "id": "VOICEACTRESS100_001",
+          "reference": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+          "hypothesis": "また、当時のように五大明王と呼ばれる主要な明王の中央に配されることも多い。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_002",
+          "reference": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+          "hypothesis": "ニューイングランドフは牛乳をベースとした白いクリームスープでありボストンクヤムシャウダーとも呼ばれる。",
+          "reading_cer": 0.05357142857142857
+        },
+        {
+          "id": "VOICEACTRESS100_003",
+          "reference": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+          "hypothesis": "コンピューターゲームのメーカーや業界団体などに関連する人物のカテゴリー。",
+          "reading_cer": 0.047619047619047616
+        },
+        {
+          "id": "VOICEACTRESS100_004",
+          "reference": "サービスマネージャー導入駅のため、大井町駅から、遠隔管理している。",
+          "hypothesis": "サービスマネージャー導入できのため大井町駅から遠隔管理している。",
+          "reading_cer": 0.025
+        },
+        {
+          "id": "VOICEACTRESS100_005",
+          "reference": "シルバーサーファー襲撃事件までに、リチャーズは、チーム名と共に、国際的にスーパーヒーロー、および、有名人として、認知されている。",
+          "hypothesis": "シルバッサファン襲撃事件までにリチャーズはチーム名とともに国際的にスーパーヒーローおよび有名人として認知されている。",
+          "reading_cer": 0.04285714285714286
+        },
+        {
+          "id": "VOICEACTRESS100_006",
+          "reference": "ツュレンハルト領は、ヴュルテンベルク領に編入された。",
+          "hypothesis": "ツユレンハルト領はビルテンベルク領に編入された。",
+          "reading_cer": 0.0967741935483871
+        },
+        {
+          "id": "VOICEACTRESS100_007",
+          "reference": "時間領域と、空間領域で共通する処理手法は、フィルタリングによる、入力信号の強化である。",
+          "hypothesis": "時間領域と空間領域で共通する処理手法は、フィルタリングによる入力信号の強固である。",
+          "reading_cer": 0.016129032258064516
+        },
+        {
+          "id": "VOICEACTRESS100_008",
+          "reference": "シャンチーの専業プロは、チームから支払われる給料と、対局費を、主な収入としている。",
+          "hypothesis": "シャンチーの専業プロはチームから支払われる給料と対局費を主な収入としている。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_009",
+          "reference": "また禰寝氏は、中山王の治める、琉球王国との交易にも参加した。",
+          "hypothesis": "また根詰め氏は13の納める琉球王国との故易にも参加した。",
+          "reading_cer": 0.2926829268292683
+        },
+        {
+          "id": "VOICEACTRESS100_010",
+          "reference": "スマートフォンから、フィーチャーフォンまで、マルチデバイスに対応。",
+          "hypothesis": "スマートフォンからフィーチャーフォンまでマルチデバイスに対応。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_011",
+          "reference": "軽妙洒脱なナレーションから、情緒感溢れる語りまで、幅広い表現力を持つ。",
+          "hypothesis": "軽妙 ⁇ 脱なナレーションから情緒感あふれる語りまで幅広い表現力を持つ。",
+          "reading_cer": 0.06
+        },
+        {
+          "id": "VOICEACTRESS100_012",
+          "reference": "構造は、鋼製の単一アーチで、橋脚は、石積みである。",
+          "hypothesis": "構造は鋼線の単一アーチで橋脚は石積みである。",
+          "reading_cer": 0.030303030303030304
+        },
+        {
+          "id": "VOICEACTRESS100_013",
+          "reference": "そこへ、オーナーが新しいシェフとして、腕利きのヒョヌクを招く。",
+          "hypothesis": "そこへオーナーが新しいシェフとして腕利きのヒョンヌクを招く。",
+          "reading_cer": 0.03125
+        },
+        {
+          "id": "VOICEACTRESS100_014",
+          "reference": "クィーンズアベニューアルファに所属している。",
+          "hypothesis": "クイーンズオブニューアルファに所属している。",
+          "reading_cer": 0.13043478260869565
+        },
+        {
+          "id": "VOICEACTRESS100_015",
+          "reference": "一方で、漁業と商業で、リャネス港は繁栄していた。",
+          "hypothesis": "一方で、漁業と商業でヤネスコは繁栄していた。",
+          "reading_cer": 0.09090909090909091
+        },
+        {
+          "id": "VOICEACTRESS100_016",
+          "reference": "この、ニューサウスウェールズ代表チームが、ワラビーズの中核となって行く。",
+          "hypothesis": "このニューサウスウェールズ代表チームがワラビーズの中核となっていく。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_017",
+          "reference": "ただし、ギャンブル依存症の入院治療を行っている病院は、わずかである。",
+          "hypothesis": "ただし、ギャンブル依存症の入院治療を行っている病院は僅かである。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_018",
+          "reference": "他のメジャーなディストリビューションに比べ、セキュリティー上の問題の修正が、遅い場合もある。",
+          "hypothesis": "他のメジャーナディストリビューションに比べセキュリティー上の問題の修正が遅い場合もあるレベル。",
+          "reading_cer": 0.05660377358490566
+        },
+        {
+          "id": "VOICEACTRESS100_019",
+          "reference": "ベルガートーア前の、ヴェディゲンウーファーパークには、戦争と弾圧の犠牲者のための記念碑が建っている。",
+          "hypothesis": "ブルガット甘いのベディゲンファーパークには戦争とドマツの犠牲者のための記念碑が建っている。",
+          "reading_cer": 0.2
+        },
+        {
+          "id": "VOICEACTRESS100_020",
+          "reference": "全米パブリッシャーズ協会の、ベストストラテジーゲームオブザイヤーを、日本人として受賞。",
+          "hypothesis": "全米ポブリッシャーズ協会のベストストラテジゲンオブザイヤーを日本人として受賞。",
+          "reading_cer": 0.0784313725490196
+        },
+        {
+          "id": "VOICEACTRESS100_021",
+          "reference": "痛みは、点滴より鎮痛薬を、静脈投与することで、鎮痛を行う。",
+          "hypothesis": "伊丹は点滴より鎮痛薬を静脈とよすることで陣痛を行う。",
+          "reading_cer": 0.05
+        },
+        {
+          "id": "VOICEACTRESS100_022",
+          "reference": "このときに、浮遊大陸プルヴァマにある、中立国、ビュエルバが、ある情報筋から、バッシュ将軍の処刑と、前王女、アーシェの自害を発表。",
+          "hypothesis": "このときに冬大陸プルバマにある中立国ビエルバがアルジョーホースヌジからバッシュ将軍の処刑と禅王城、暗死の自害を発表。",
+          "reading_cer": 0.13924050632911392
+        },
+        {
+          "id": "VOICEACTRESS100_023",
+          "reference": "南西部ウォーレンは、ベイアーマンファームズと、フィッツジェラルドの地区で、構成される。",
+          "hypothesis": "南西ブビュー連はベイヤーマンファームズとフィッツジェラルドの地区で構成される。",
+          "reading_cer": 0.06976744186046512
+        },
+        {
+          "id": "VOICEACTRESS100_024",
+          "reference": "このため、プラズマ中のイオンや、電子の持つ、平均運動エネルギーを、温度で表現することがある。",
+          "hypothesis": "このためプラズマ中のイオンや電子の持つ平均運動エネルギーを温度で表現することがある。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_025",
+          "reference": "その飄々とした人柄が、老若男女に慕われている。",
+          "hypothesis": "そのひょうひょうとした人柄が老若男女に慕われている。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_026",
+          "reference": "現在、ニュージャージー州、ムーアズタウンに住んでいる。",
+          "hypothesis": "現在ニュージャージー州ムアズタンに住んでいる。",
+          "reading_cer": 0.07142857142857142
+        },
+        {
+          "id": "VOICEACTRESS100_027",
+          "reference": "町域にあった、三根山藩は、長岡藩に、米百俵を送ったことで有名。",
+          "hypothesis": "一気にあった三根三藩は長岡藩に弁100俵を送ったことで有名。",
+          "reading_cer": 0.20930232558139536
+        },
+        {
+          "id": "VOICEACTRESS100_028",
+          "reference": "このとき、ペリメーデーは、アムピクトリュオーンに同行して、テーバイに来ていた、リキュムニオスに、妻としてあたえられた。",
+          "hypothesis": "このとき、ペリメーデはアムピクトリウオーに同行して競売に来ていたリクウムニオスに妻として与えられた。",
+          "reading_cer": 0.14285714285714285
+        },
+        {
+          "id": "VOICEACTRESS100_029",
+          "reference": "現在の滑走を目的とした、スキーブーツは、硬いプラスチックシェルと、柔らかいインナーブーツからなる。",
+          "hypothesis": "現在の角層を目的としたスキーブツは硬いプラスチックシェルと軟らかいインナーブツからなる。",
+          "reading_cer": 0.05660377358490566
+        },
+        {
+          "id": "VOICEACTRESS100_030",
+          "reference": "防氷ブーツは、表面に張られた、ゴム製の薄い膜でできている。",
+          "hypothesis": "ボンゴリーブーツは表面に張られたゴム製の薄い膜で出来ている。",
+          "reading_cer": 0.11428571428571428
+        },
+        {
+          "id": "VOICEACTRESS100_031",
+          "reference": "後者の代表が、ウェッジウッドの、ジャスパーウェアである。",
+          "hypothesis": "後者の代表がウェッツウッドのジャスパーウェアである。",
+          "reading_cer": 0.03333333333333333
+        },
+        {
+          "id": "VOICEACTRESS100_032",
+          "reference": "キー局が発信する、ニュースネットワーク名を冠したタイトルの、ニュース番組の中では、レギュラー放送が、最も多い。",
+          "hypothesis": "局が発信するニュースネットワーク名を冠したタイトルのニュース番組の中ではレギュラー放送が最も多い。",
+          "reading_cer": 0.03125
+        },
+        {
+          "id": "VOICEACTRESS100_033",
+          "reference": "芸能プロダクション、アミューズのグループ企業。",
+          "hypothesis": "芸能プロダクションアユーズのグループ企業。",
+          "reading_cer": 0.08
+        },
+        {
+          "id": "VOICEACTRESS100_034",
+          "reference": "長母音を省略して、エリュシオンとも表記される。",
+          "hypothesis": "母音を省略してベリュシオンとも表記される。",
+          "reading_cer": 0.13333333333333333
+        },
+        {
+          "id": "VOICEACTRESS100_035",
+          "reference": "森永のおいしい牛乳は、濃い青色に、牛乳瓶をあしらったデザインの、パック牛乳である。",
+          "hypothesis": "森永のおいしい牛乳は濃いう色に牛乳瓶をあしらったデザインのパック牛乳であるん。",
+          "reading_cer": 0.05555555555555555
+        },
+        {
+          "id": "VOICEACTRESS100_036",
+          "reference": "番組冒頭を、東京ムービー製作のアニメーションで、表現する点も、共通していた。",
+          "hypothesis": "番組冒頭、東京ムービー制作のアニメーションで表現する点も共通していた。",
+          "reading_cer": 0.02
+        },
+        {
+          "id": "VOICEACTRESS100_037",
+          "reference": "コミューンは、セーヌ川と、エソンヌ川の、合流地点となっている。",
+          "hypothesis": "コメンはセーヌ川とエソヌ川の合流地点となっている入り。",
+          "reading_cer": 0.18181818181818182
+        },
+        {
+          "id": "VOICEACTRESS100_038",
+          "reference": "同時に、福井ミラクルエレファンツに、コーチ兼任で、入団することが発表された。",
+          "hypothesis": "同時に福井ミラクルエレファンツにコチ検認で入団することが発表された。",
+          "reading_cer": 0.06818181818181818
+        },
+        {
+          "id": "VOICEACTRESS100_039",
+          "reference": "夫である小室が、救急車を呼び、都内病院に、緊急搬送される。",
+          "hypothesis": "ゴットである小室が救急車を呼び、都内病院に緊急搬送される。",
+          "reading_cer": 0.023809523809523808
+        },
+        {
+          "id": "VOICEACTRESS100_040",
+          "reference": "ギレスピーは、マッギーを通じて、イネスと知り合った。",
+          "hypothesis": "ギレスピーはマッキーを通じてイネスと知り合った。",
+          "reading_cer": 0.041666666666666664
+        },
+        {
+          "id": "VOICEACTRESS100_041",
+          "reference": "フォンテーヌブロー様式では、寓意的な絵が、漆喰のモールドに使われている。",
+          "hypothesis": "本店の武郎良式では偶意的な絵がしっくいのモールドに使われている。",
+          "reading_cer": 0.35
+        },
+        {
+          "id": "VOICEACTRESS100_042",
+          "reference": "祭神は、ヴィシュヌ派の聖人、スワーミーナーラーヤン。",
+          "hypothesis": "祭人はビシュの葉の聖人スワミナラーヤンネ。",
+          "reading_cer": 0.37037037037037035
+        },
+        {
+          "id": "VOICEACTRESS100_043",
+          "reference": "ハーデースが、ペルセポネーに恋をしたのは、アプロディーテーの、策略であるとされている。",
+          "hypothesis": "ハーデスがペルセポ姉に恋をしたのはアプロディーテンの策略であるとされている。",
+          "reading_cer": 0.09302325581395349
+        },
+        {
+          "id": "VOICEACTRESS100_044",
+          "reference": "クウェーンバーンチャーンは、小さなコミュニティーで、農業や、商業を中心に、成り立っていたと、考えられている。",
+          "hypothesis": "クエンバーンチャンは小さなコミュニティーで農業や商業を中心に成り立っていたと考えられている。",
+          "reading_cer": 0.06557377049180328
+        },
+        {
+          "id": "VOICEACTRESS100_045",
+          "reference": "ヴェーザー自転車道や、ミューレンルートに従った、サイクリングツアーは、ペータースハーゲンを、経由する。",
+          "hypothesis": "ベンザー自転車道やミューレンルートに従ったサイクリングツアーはペータスハーゲンを経由する。",
+          "reading_cer": 0.07692307692307693
+        },
+        {
+          "id": "VOICEACTRESS100_046",
+          "reference": "フォーミュラカーは、通常、オープンホイールで、シングルシーターである。",
+          "hypothesis": "フォーミュラカーは通常、オープンホイールでシングルシータイである。",
+          "reading_cer": 0.029411764705882353
+        },
+        {
+          "id": "VOICEACTRESS100_047",
+          "reference": "同日朝に、大阪難波で、出発セレモニーが開催され、営業運転に、充当された。",
+          "hypothesis": "朝に大阪難波で出発セレモニーが開催され営業運転に充当された。",
+          "reading_cer": 0.08
+        },
+        {
+          "id": "VOICEACTRESS100_048",
+          "reference": "そして、インデペンデント紙の、読者投票で選ぶ、プレミアリーグ最優秀ゴールキーパーに選ばれた。",
+          "hypothesis": "そしてインデペンデント紙の読者投票で選ぶプレミアリーグ最優秀ゴールキーパーに選ばれた。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_049",
+          "reference": "プレイヤーキャラクターは、宮殿を占拠した、邪悪なクリーチャーに遭遇する。",
+          "hypothesis": "プレーヤーキャラクターは宮殿を占拠した邪悪なクリーチャーに遭遇する。",
+          "reading_cer": 0.023809523809523808
+        },
+        {
+          "id": "VOICEACTRESS100_050",
+          "reference": "フィールドマーケティングは、歴史的には、一方通行のコミュニケーションツールとして、考えられてきた。",
+          "hypothesis": "フィールドマーケティングは歴史的には一方通行の国に結存するとして考えられてきた。",
+          "reading_cer": 0.16981132075471697
+        },
+        {
+          "id": "VOICEACTRESS100_051",
+          "reference": "デビュー後の数年間は、ベビーフェイスとして、本名で活動。",
+          "hypothesis": "デビュー後の数年間はベビーフェイスとして本名で活動。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_052",
+          "reference": "学校や病院などの、給食業務で、栄養素を計算する上で、重要な資料のひとつである。",
+          "hypothesis": "学校や病院などの給食業務で鯨油を総計算する上で重要な資料の1つである。",
+          "reading_cer": 0.10714285714285714
+        },
+        {
+          "id": "VOICEACTRESS100_053",
+          "reference": "当時、あやしいワールドに常駐していた擬古猫が、空白にて発表。",
+          "hypothesis": "当時、怪しいワールドに常駐していたギコ猫が空白にて発表。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_054",
+          "reference": "裕福なニューヨーカー達は、グレーヴセンド、競馬場や、シープシェッドベイ、競馬場などに集い、海沿いの高級レストランや、ホテルを利用した。",
+          "hypothesis": "裕福なニューヨーカーたちはグレブセンド競馬場やシープヘッドベイ、競馬場などに集い海沿いの高級レストランやホテルを利用した。",
+          "reading_cer": 0.05333333333333334
+        },
+        {
+          "id": "VOICEACTRESS100_055",
+          "reference": "ウォリアーズミックスマーシャルアーツアカデミー所属。",
+          "hypothesis": "ウォリアーズミックスマイシャルアーツアカデミー所属。",
+          "reading_cer": 0.037037037037037035
+        },
+        {
+          "id": "VOICEACTRESS100_056",
+          "reference": "ところが、エリュシクトーンは、ニュムペーの制止も聞かずに、デーメーテールの樫を、切り倒した。",
+          "hypothesis": "ところが英雄シクトンはニュームテイの制止も聞かずにデーメーテールの歌詞を切り倒した。",
+          "reading_cer": 0.1590909090909091
+        },
+        {
+          "id": "VOICEACTRESS100_057",
+          "reference": "このジェシー役でステイモスは、エミー賞にノミネートされたこともある。",
+          "hypothesis": "このジェシー薬でステイモスはエミー賞にノミネートされたこともある。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_058",
+          "reference": "スウェーデン移民の両親の許に、マサチューセッツ州、ケンブリッジにて生まれる。",
+          "hypothesis": "スウェーデン移民の両親のもとにアサチューセッツ州ケンブリッジにいて生まれる。",
+          "reading_cer": 0.047619047619047616
+        },
+        {
+          "id": "VOICEACTRESS100_059",
+          "reference": "球宴のファン投票でも、人気が偶像化していた、長嶋茂雄に肉薄する。",
+          "hypothesis": "球宴のファン投票でも人気が偶像化していた長嶋茂雄に苦薄する。",
+          "reading_cer": 0.06976744186046512
+        },
+        {
+          "id": "VOICEACTRESS100_060",
+          "reference": "母は、ピーターマリッツバーグの精神病院に入院しているときに、ベッシーを産む。",
+          "hypothesis": "母はピーターマリッツバーグの精神病院に入院しているときに別心を産む。",
+          "reading_cer": 0.045454545454545456
+        },
+        {
+          "id": "VOICEACTRESS100_061",
+          "reference": "ポイントガードから、スモールフォワードまでこなせる、総合力が高いユーティリティープレーヤーである。",
+          "hypothesis": "ポイントガードからスモールフォワードまでこなせる総合力が高いユーティリティープレーヤーである。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_062",
+          "reference": "グレッグは、ミシシッピ州、アバディーンにある、オッドフェローズ墓地に埋葬されることになった。",
+          "hypothesis": "グレッグはミシシッピ州アバディーンにあるオットフェローズ墓地に埋葬されることになった。",
+          "reading_cer": 0.021739130434782608
+        },
+        {
+          "id": "VOICEACTRESS100_063",
+          "reference": "大当り終了後は、グラディエーターチャンスに突入する。",
+          "hypothesis": "終わったり終了後はグラディエーターチャンスに突入する。",
+          "reading_cer": 0.06060606060606061
+        },
+        {
+          "id": "VOICEACTRESS100_064",
+          "reference": "この菌による病気は、灰色かび病と名づけられているものが多い。",
+          "hypothesis": "この菌による病気は灰色カビ病と名付けられているものが多い。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_065",
+          "reference": "レギュラーメンバーの顔写真をクリックした後に、ムービープレイヤー風に再生されるという、特異な形式となっている。",
+          "hypothesis": "レギュラーメンバーの顔写真をクリックしたあとにムビプレーヤー風に再生されるという特異な形式となっている。",
+          "reading_cer": 0.08064516129032258
+        },
+        {
+          "id": "VOICEACTRESS100_066",
+          "reference": "肝臓への酸素供給は、肝動脈と、低圧系の門脈を介して、行われている。",
+          "hypothesis": "肝臓への酸素供給は冠動脈と低圧系の門脈を介して行われている。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_067",
+          "reference": "デッドキーは、タイプライターや、コンピュータのキーボードにおける、特殊な装飾キーである。",
+          "hypothesis": "デットキーはタイプライターやコンピューターのキーボードにおける特殊な装飾機である。",
+          "reading_cer": 0.06666666666666667
+        },
+        {
+          "id": "VOICEACTRESS100_068",
+          "reference": "シャンシャン馬は、鵜戸神宮へ参拝する、新婚夫婦が乗っていた馬のこと。",
+          "hypothesis": "シャンシャン馬は鵜戸神宮で参拝する新婚夫婦が乗っていた馬のこと。",
+          "reading_cer": 0.125
+        },
+        {
+          "id": "VOICEACTRESS100_069",
+          "reference": "ブルーリッジ山脈の源流から、リッチモンドまで、多くの早瀬や淵が、釣りや急流くだりを楽しませてくれる。",
+          "hypothesis": "ブルリッチ山脈の牛乳からリッチモンドまで多くのハヤフヤフシが釣りや急流下りを楽しませてくれる。",
+          "reading_cer": 0.13333333333333333
+        },
+        {
+          "id": "VOICEACTRESS100_070",
+          "reference": "ボーハンは、イーストマンら、ギャングのスピークイージーの上がりから、賄賂を取っていたとも噂された。",
+          "hypothesis": "ボハンはイーストマンダギャングスピックイージーのあがりから賄賂を取っていたともうわさされた。",
+          "reading_cer": 0.08333333333333333
+        },
+        {
+          "id": "VOICEACTRESS100_071",
+          "reference": "ペンシルベニア州、フィラデルフィアの郊外、ウィンレッドのレンキナウ病院で生まれた。",
+          "hypothesis": "ペンシルベニア州フィラデルフィアの郊外ウィンレットのレンキナウ病院で生まれた。",
+          "reading_cer": 0.022222222222222223
+        },
+        {
+          "id": "VOICEACTRESS100_072",
+          "reference": "ブラッグは、ビューエル軍よりも、劣勢だったために、この機会を生かすことを躊躇した。",
+          "hypothesis": "ブラックはピュエル軍よりも冷静だったためにこの機会を生かすことをちゅうちょした。",
+          "reading_cer": 0.09090909090909091
+        },
+        {
+          "id": "VOICEACTRESS100_073",
+          "reference": "上院議員として、バーンウェルは、カリフォルニア州の、連邦加入に賛成した。",
+          "hypothesis": "上院議員としてバーウェルはカリフォルニア州の連邦加入に賛成した。",
+          "reading_cer": 0.022727272727272728
+        },
+        {
+          "id": "VOICEACTRESS100_074",
+          "reference": "レジェンドシリーズをベースに、ヨーフリー機構を備えた、ビューカメラ。",
+          "hypothesis": "レジェンドシリーズをベースに夜振り機構を備えたビューカメラ。",
+          "reading_cer": 0.06060606060606061
+        },
+        {
+          "id": "VOICEACTRESS100_075",
+          "reference": "楽曲のセンターポジションは、エーケービーフォーティーエイトの、高橋みなみが務めた。",
+          "hypothesis": "楽曲のセンター、ポジションをakb48の高橋みなみが務めた。",
+          "reading_cer": 0.36363636363636365
+        },
+        {
+          "id": "VOICEACTRESS100_076",
+          "reference": "ディオニューソスの、寵愛を受ける、オイネウス王と、妃、アルタイアーの間に、カリュドーンの王女として、生を受けた。",
+          "hypothesis": "ニューサスのちょう愛を受けるオイヌス王と非アルタヤアの間にカリオドの王女として生を受けた。",
+          "reading_cer": 0.2413793103448276
+        },
+        {
+          "id": "VOICEACTRESS100_077",
+          "reference": "大西洋上の、巡航高度から、動力なしで、地上へ滑空飛行し、緊急着陸に成功した。",
+          "hypothesis": "大西洋上の巡航高度から努力なしで地上へ滑空飛行し、緊急着陸に成功した。",
+          "reading_cer": 0.017241379310344827
+        },
+        {
+          "id": "VOICEACTRESS100_078",
+          "reference": "表現行列の指標表を、分子の対称性を表す、点群の指標表を用いて、既約表現へ分解する。",
+          "hypothesis": "表現行列の指標表を分子の対称性を表す点群の指標表を用いて寸で約表現へ分解する。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_079",
+          "reference": "大洋漁業オーナーの、中部謙吉の命を受けて、プロ野球球団の、大洋ホエールズに関わる。",
+          "hypothesis": "タイオ漁業オーナーの中部健吉の命を受けてプロ野球球団のタイオホエールズに関わる。",
+          "reading_cer": 0.07272727272727272
+        },
+        {
+          "id": "VOICEACTRESS100_080",
+          "reference": "かすかに聞こえてくる1931年版の讃美歌が、次第に大きくなっていく。",
+          "hypothesis": "かすかに聞こえてくる1931年本の賛美歌が次第に大きくなっていく。",
+          "reading_cer": 0.05405405405405406
+        },
+        {
+          "id": "VOICEACTRESS100_081",
+          "reference": "モーイーデーン岩壁地域の上部は、プラーサートプラウィハーン寺院遺跡へ繋がる、タイ側参道に続いている。",
+          "hypothesis": "田岸壁地域の上部はプラサートプラビハンジン遺跡へつながるタイガー参道に続いている。",
+          "reading_cer": 0.2542372881355932
+        },
+        {
+          "id": "VOICEACTRESS100_082",
+          "reference": "カーミラ星と呼ばれている惑星から、宇宙船に乗って、地球に侵入した宇宙人。",
+          "hypothesis": "カーミラボスと呼ばれている惑星から宇宙船に乗って地球に侵入した宇宙人に。",
+          "reading_cer": 0.0425531914893617
+        },
+        {
+          "id": "VOICEACTRESS100_083",
+          "reference": "ドッガーバンクは、タラやニシンの漁獲量が多い、重要な、漁場である。",
+          "hypothesis": "ドッカーバンクはタラやニシンの漁獲量が多い重要な漁場である。",
+          "reading_cer": 0.025
+        },
+        {
+          "id": "VOICEACTRESS100_084",
+          "reference": "少年時代は、ロシア帝国、チェルニーヒウ県、プルィルークィ郡、トロスチャヌィーツャ村で過ごした。",
+          "hypothesis": "少年時代はロシア帝国チェルニヒュ県プルイルクイ軍トロスチャンノイツィア村で過ごした。",
+          "reading_cer": 0.19607843137254902
+        },
+        {
+          "id": "VOICEACTRESS100_085",
+          "reference": "遺灰のほとんどは、スウェーデン西海岸の、ブーヒュースレーン地方の小島にある漁村、フヤルバッカ周辺の海に、散骨された。",
+          "hypothesis": "遺灰のほとんどはスウェーデン西海岸のブンヒュースレーン地方の小島にある墓村、フエルバッカ周辺の海に散骨された。",
+          "reading_cer": 0.08823529411764706
+        },
+        {
+          "id": "VOICEACTRESS100_086",
+          "reference": "国境を越えて、列車は、改良された在来線に沿って、アーヘン中央駅に向かう。",
+          "hypothesis": "国境を越えて列車は改良された在来線に沿ってアーヘン中央駅に向かう。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_087",
+          "reference": "福岡ダイエーホークスではなく、長距離砲の補強を目指していた、大阪近鉄バファローズから、オファーを受けて入団。",
+          "hypothesis": "福岡ダイエーホークスではなく、長距離砲の補強を目指していた大阪近鉄バファローズからオファーを受けて入団。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_088",
+          "reference": "そこには、百ドル札と、アメリカに来いという、短いメッセージだけだった。",
+          "hypothesis": "そこには100ドル札とアメリカに来いという短いメッセージだけだった。",
+          "reading_cer": 0.08333333333333333
+        },
+        {
+          "id": "VOICEACTRESS100_089",
+          "reference": "現在は、バッハをモチーフとした、ハープシコードの作曲家として、記憶されている。",
+          "hypothesis": "現在はバッハをモチーフとしたハープシコードの作曲家として記憶されている。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_090",
+          "reference": "戦闘服は、両腕を露出し、両脚が、アンダースーツで覆われている。",
+          "hypothesis": "戦闘服は両腕を露出し両脚がアンダースーツで覆われている。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_091",
+          "reference": "同母姉に、スウェーデン王妃、ジョゼフィーヌがいる。",
+          "hypothesis": "ゾウバネにスウェーデン王妃ジョベフィーヌがいる。",
+          "reading_cer": 0.16
+        },
+        {
+          "id": "VOICEACTRESS100_092",
+          "reference": "紫外線は、表面エネルギーの、小さいポリマーを接着する際の、前処理に利用される。",
+          "hypothesis": "紫外線は表面エネルギーの小さいポリマーを接着する際の前処理に利用される。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_093",
+          "reference": "自身のページで、メッセージや、公開コメントを通して、レビューを投稿したユーザーと、コミュニケーションを取ることが可能である。",
+          "hypothesis": "自信のページでメッセージや公開コメントを通してレビューを投稿したユーザーとコミュニケーションを取ることが可能であると。",
+          "reading_cer": 0.015625
+        },
+        {
+          "id": "VOICEACTRESS100_094",
+          "reference": "若き日の反逆ゆえに、宇宙の中央を追放されて、惑星、地球にやってきた主人公、ベルゼバブが、宇宙船カルナークのなかで、孫に語る壮大な物語。",
+          "hypothesis": "若き日の般若ゆえに宇宙の中央を追放されて惑星地球にやって来た主人公ベルゼバブが宇宙船カルナークの中で孫に語る壮大な物語。",
+          "reading_cer": 0.022727272727272728
+        },
+        {
+          "id": "VOICEACTRESS100_095",
+          "reference": "ジャガーとは対照的に、ボディービルダーを髣髴とさせる、マッチョな体育会系の外見が特徴。",
+          "hypothesis": "ジャガーとは対照的にボディービルダーをほうふつとさせるマッチョな体育会系の外見が特徴。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "VOICEACTRESS100_096",
+          "reference": "ペンシルベニア州、ピッツバーグの、アレゲーニー高校を卒業し、カリフォルニア大学、バークレー校に入学。",
+          "hypothesis": "ペンシルベニア州ピッツバーグのアレゲーニ高校を卒業しカリフォルニア大学ベアクレー校に入学。",
+          "reading_cer": 0.05172413793103448
+        },
+        {
+          "id": "VOICEACTRESS100_097",
+          "reference": "この概念の導入によって、様々なバリエーションの、流体のコンピューターシミュレーションが、高い精度で可能となった。",
+          "hypothesis": "この概念のドミューによってさまざまなバリエーションの流体のコンピューターシミュレーションが高いフェードで可能となった。",
+          "reading_cer": 0.09230769230769231
+        },
+        {
+          "id": "VOICEACTRESS100_098",
+          "reference": "乾ドックに入渠して、オーバーホールすべきかどうか、パフォーマンスがチェックされた。",
+          "hypothesis": "ドックに入居してオーバーホールすべきかどうかパフォーマンスがチェックされた。",
+          "reading_cer": 0.06976744186046512
+        },
+        {
+          "id": "VOICEACTRESS100_099",
+          "reference": "デビューウェイトは、スーパーバンタム級ではなく、フェザー級だった。",
+          "hypothesis": "デビューウエットはスーパーバンタム級ではなくフェザー級だった。",
+          "reading_cer": 0.058823529411764705
+        },
+        {
+          "id": "VOICEACTRESS100_100",
+          "reference": "アーリーは、降雨の中を、南のバージニア州、ウィンチェスター近くの、フィッシャーズヒルまで、軍を退いた。",
+          "hypothesis": "アリーは港の中を南のバージニア州ビンチェスタ近くのフィッシャーズヒルまで軍を退いた。",
+          "reading_cer": 0.12727272727272726
+        }
+      ]
+    },
+    "practical": {
+      "utterances": 55,
+      "scores": {
+        "raw": 0.12689545091779728,
+        "normalized": 0.11389128559102675,
+        "reading": 0.06795469686875416
+      },
+      "reading_cer_pct": 6.795469686875416,
+      "items": [
+        {
+          "id": "news_01",
+          "reference": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+          "hypothesis": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "news_02",
+          "reference": "気象庁によりますと、台風十五号は明日の朝にも関東地方に接近するおそれがあります。",
+          "hypothesis": "気象庁によりますと、台風15号はした朝にも関東地方に接近するおそれがあります。",
+          "reading_cer": 0.1111111111111111
+        },
+        {
+          "id": "news_03",
+          "reference": "今日の東京株式市場は、半導体関連の銘柄を中心に買い注文が広がりました。",
+          "hypothesis": "きょうの東京株式市場は、半導体関連の銘柄を中心に買い注文が広がりました。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "news_04",
+          "reference": "警察は、現場の状況から事故と事件の両面で調べを進めています。",
+          "hypothesis": "警察は現場の状況から事故と事件の両面で調べを進めています。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "news_05",
+          "reference": "新しい駅ビルは来月オープンし、およそ百二十の店舗が入る予定です。",
+          "hypothesis": "新しいデキビルは来月オープンし、およそ120の店舗が入る予定です。",
+          "reading_cer": 0.19047619047619047
+        },
+        {
+          "id": "news_06",
+          "reference": "専門家は、今後も感染症の流行に注意が必要だと指摘しています。",
+          "hypothesis": "専門家は今後も感染症の流行に注意が必要だと指摘しています。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "conv_01",
+          "reference": "ねえ、今日のお昼どうする?",
+          "hypothesis": "ねえ、きょうの昼どうする?",
+          "reading_cer": 0.07692307692307693
+        },
+        {
+          "id": "conv_02",
+          "reference": "ごめん、ちょっと遅れるから先に始めてて。",
+          "hypothesis": "ごめん、チャットグリルから先に初めて。",
+          "reading_cer": 0.23809523809523808
+        },
+        {
+          "id": "conv_03",
+          "reference": "えー、それ本当?全然知らなかった。",
+          "hypothesis": "それ本当、全然知らなかった。",
+          "reading_cer": 0.1111111111111111
+        },
+        {
+          "id": "conv_04",
+          "reference": "じゃあ、また明日ね。気をつけて帰ってね。",
+          "hypothesis": "じゃあまたあしたね気を付けて帰ってね。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "conv_05",
+          "reference": "このケーキ、めちゃくちゃおいしいんだけど!",
+          "hypothesis": "このケーキめちゃくちゃおいしいんだけど。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "conv_06",
+          "reference": "うーん、どっちでもいいかな。",
+          "hypothesis": "うんどっちでもいいかな。",
+          "reading_cer": 0.08333333333333333
+        },
+        {
+          "id": "num_01",
+          "reference": "2026年11月6日の午後3時15分に集合してください。",
+          "hypothesis": "2026年11月6日の午後3時15分に集合してください。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "num_02",
+          "reference": "お会計は1,280円です。",
+          "hypothesis": "お会計は1280円です。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "num_03",
+          "reference": "ゴールまで残り25.5kmです。",
+          "hypothesis": "ゴールまで残り15てん5キロメートルです。",
+          "reading_cer": 0.6
+        },
+        {
+          "id": "num_04",
+          "reference": "電話番号は03-1234-5678です。",
+          "hypothesis": "電話番号は03−1234−5678です。",
+          "reading_cer": 0.18181818181818182
+        },
+        {
+          "id": "num_05",
+          "reference": "気温は-3℃まで下がりました。",
+          "hypothesis": "気温は3度まで下がりました。",
+          "reading_cer": 0.1875
+        },
+        {
+          "id": "num_06",
+          "reference": "参加者は前年比で約1.5倍に増えました。",
+          "hypothesis": "参加者は前年比で約1てん5倍に増えました。",
+          "reading_cer": 0.08333333333333333
+        },
+        {
+          "id": "num_07",
+          "reference": "第3四半期の売上は120億円でした。",
+          "hypothesis": "第3四半期の売り上げは120億店でした。",
+          "reading_cer": 0.043478260869565216
+        },
+        {
+          "id": "alpha_01",
+          "reference": "AIを使った新しいアプリを公開しました。",
+          "hypothesis": "aiを使った正しいアプリを公開しました。",
+          "reading_cer": 0.16666666666666666
+        },
+        {
+          "id": "alpha_02",
+          "reference": "NHKのニュースによると、明日は晴れるそうです。",
+          "hypothesis": "nhkのニュースによるとあしたは晴れるそうです。",
+          "reading_cer": 0.13043478260869565
+        },
+        {
+          "id": "alpha_03",
+          "reference": "iPhoneとAndroidの両方に対応しています。",
+          "hypothesis": "iphone異端アンドロイドの療法に対応しています。",
+          "reading_cer": 0.3333333333333333
+        },
+        {
+          "id": "alpha_04",
+          "reference": "詳しくはwww.example.comをご覧ください。",
+          "hypothesis": "詳しくはwww−deguanplコムご覧ください。",
+          "reading_cer": 0.4230769230769231
+        },
+        {
+          "id": "alpha_05",
+          "reference": "USBケーブルをPCにつないでください。",
+          "hypothesis": "usbケーブルをpcにつないでください。",
+          "reading_cer": 0.2631578947368421
+        },
+        {
+          "id": "alpha_06",
+          "reference": "このプロジェクトはGitHubで管理しています。",
+          "hypothesis": "このプロジェクトはgitで自由日で管理しています。",
+          "reading_cer": 0.25
+        },
+        {
+          "id": "place_01",
+          "reference": "御徒町から秋葉原までは歩いて行けます。",
+          "hypothesis": "御徒町から秋葉原までは歩いていきます。",
+          "reading_cer": 0.043478260869565216
+        },
+        {
+          "id": "place_02",
+          "reference": "九十九里浜で初日の出を見ました。",
+          "hypothesis": "九十九里浜で初日の出を見ました。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "place_03",
+          "reference": "週末は等々力渓谷を散歩しました。",
+          "hypothesis": "週末は等々力渓谷を散歩しました。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "place_04",
+          "reference": "京都の伏見稲荷大社には千本鳥居があります。",
+          "hypothesis": "京都の伏見見奈井大社には千本折りがあります。",
+          "reading_cer": 0.27586206896551724
+        },
+        {
+          "id": "place_05",
+          "reference": "北海道の弟子屈町は冬の寒さが厳しい町です。",
+          "hypothesis": "北海道の手しかが町は冬の寒さが厳しい町です。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "place_06",
+          "reference": "長宗我部氏は土佐を治めた戦国大名です。",
+          "hypothesis": "長宗我部氏は土佐を治めた戦国大名です。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "homo_01",
+          "reference": "今日は朝から雨が降っています。",
+          "hypothesis": "今日は朝から雨が降っています。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "homo_02",
+          "reference": "今日の日本経済を支えているのは中小企業です。",
+          "hypothesis": "今日の日本経済を支えているのは中小企業です。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "homo_03",
+          "reference": "生物の授業で細胞の仕組みを学びました。",
+          "hypothesis": "生物の授業で細胞の仕組みを学びました。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "homo_04",
+          "reference": "生物は早めに冷蔵庫に入れてください。",
+          "hypothesis": "生物は早めに冷蔵庫に入れてください。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "homo_05",
+          "reference": "彼は将棋では私より一枚上手だ。",
+          "hypothesis": "彼は将棋では私より一枚上手だ。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "homo_06",
+          "reference": "彼女は料理がとても上手です。",
+          "hypothesis": "彼女は料理がとても上手です。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "long_01",
+          "reference": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+          "hypothesis": "本日はお忙しいところ説明会にお越しいただき誠にありがとうございますこれから約1時間新しいサービスの概要と今後のスケジュールについて順番にご説明いたしますので最後までどうぞよろしくお願いいたします。",
+          "reading_cer": 0.01652892561983471
+        },
+        {
+          "id": "long_02",
+          "reference": "駅の改札を出て右に曲がり、商店街をまっすぐ進むと、左手に大きな公園が見えてきますので、その公園の入り口にある案内板の前でお待ちください。",
+          "hypothesis": "駅の改札を出て右に曲がり、商店街をまっすぐ進むと、左手に大きな公園が見えてきますので、その公園の入り口にある案内板の前でお待ちください。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "long_03",
+          "reference": "研究チームは、三年間にわたって全国の小学校で調査を行い、朝食をとる習慣と学習時間、そして睡眠の長さとの関係について、詳しく分析した結果をまとめました。",
+          "hypothesis": "研究チームは3年間にわたって全国の小学校で調査を行い朝食をとる習慣と学習時間、そして睡眠の長さとの関係について詳しく分析した結果をまとめました。",
+          "reading_cer": 0.018867924528301886
+        },
+        {
+          "id": "long_04",
+          "reference": "昔々、ある山奥の小さな村に、たいそう働き者のおじいさんと、心のやさしいおばあさんが、二人で仲良く暮らしていました。",
+          "hypothesis": "昔々ある山奥の小さな村に大層働き者のじいさんと心の優しいおばあさんが2人で仲よく暮らしていました。",
+          "reading_cer": 0.03076923076923077
+        },
+        {
+          "id": "short_01",
+          "reference": "はい。",
+          "hypothesis": "はい。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "short_02",
+          "reference": "いいえ。",
+          "hypothesis": "いえ。",
+          "reading_cer": 0.3333333333333333
+        },
+        {
+          "id": "short_03",
+          "reference": "そうですね。",
+          "hypothesis": "そうですね。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "short_04",
+          "reference": "ありがとう。",
+          "hypothesis": "ありがとう。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "short_05",
+          "reference": "えっ?",
+          "hypothesis": "えっ?",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "q_01",
+          "reference": "本当にそれでいいんですか?",
+          "hypothesis": "本当にそれでいいんですか?",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "q_02",
+          "reference": "明日の会議は何時からでしたっけ?",
+          "hypothesis": "あしたの会議は何時からでしたっけ?",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "q_03",
+          "reference": "すごい、優勝したんだ!",
+          "hypothesis": "すごい、優勝したんだ。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "q_04",
+          "reference": "どうして連絡をくれなかったの?",
+          "hypothesis": "どうして連絡をくれんかったの?",
+          "reading_cer": 0.0625
+        },
+        {
+          "id": "q_05",
+          "reference": "まさか、こんなところで会うなんて!",
+          "hypothesis": "まさかこんなところで会うなんて。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "ono_01",
+          "reference": "雨がしとしと降っている。",
+          "hypothesis": "雨がしとしと降っている。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "ono_02",
+          "reference": "お腹がぺこぺこで、もう一歩も歩けない。",
+          "hypothesis": "おなかがペコペコでもう一歩も歩けない。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "ono_03",
+          "reference": "緊張して胸がドキドキしてきた。",
+          "hypothesis": "緊張して胸がドキドキしてきた。",
+          "reading_cer": 0.0
+        },
+        {
+          "id": "ono_04",
+          "reference": "犬がワンワンと吠えながら走ってきた。",
+          "hypothesis": "イルがわわわとはえながら走ってきた。",
+          "reading_cer": 0.21052631578947367
+        }
+      ]
+    }
+  },
+  "previews": [
+    {
+      "condition": "cuda_t2s_l6_plain_s0",
+      "id": "short",
+      "text": "はい。",
+      "seed": 0,
+      "path": "tts/inference_optimization/exp0006/results/samples/cuda_t2s_l6_plain_s0/short.mp3",
+      "bytes": 4176,
+      "audio_s": 0.6293333333333333
+    },
+    {
+      "condition": "cuda_t2s_l6_plain_s0",
+      "id": "medium",
+      "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+      "seed": 0,
+      "path": "tts/inference_optimization/exp0006/results/samples/cuda_t2s_l6_plain_s0/medium.mp3",
+      "bytes": 32832,
+      "audio_s": 5.408
+    },
+    {
+      "condition": "cuda_t2s_l6_plain_s0",
+      "id": "long",
+      "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+      "seed": 0,
+      "path": "tts/inference_optimization/exp0006/results/samples/cuda_t2s_l6_plain_s0/long.mp3",
+      "bytes": 88416,
+      "audio_s": 14.666666666666666
+    }
+  ],
+  "peak_cuda_allocated_mib_before_asr": 806.61181640625,
+  "rss_high_water_mib_before_asr": 2773.69921875,
+  "rss_high_water_mib_with_asr": 5542.25390625,
+  "quality_seed": 0,
+  "t2s_batch": 16,
+  "s2m_batch": 4
+}

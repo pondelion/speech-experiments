@@ -74,6 +74,10 @@ python train_t2s.py --method hybrid --duration_model nar --steps 8000 --name t2s
 python train_t2s.py --method hybrid --duration_model ar --steps 8000 --name t2s_hybrid_ar
 python evaluate.py --runs t2s_duration t2s_masked --ar_runs t2s_ph_k256 t2s_ph_k256_aux
 python evaluate.py --runs t2s_hybrid_nar t2s_hybrid_ar
+# 追加検証(結果 7): 自己回帰 + 長さの予測を学習し、自己回帰の 2 つを同じ手順で測る
+python train_t2s.py --method gpt_duration --steps 6000 --name t2s_gpt_duration
+python evaluate_2x2.py --name ar/t2s_ph_k256
+python evaluate_2x2.py --name t2s_gpt_duration
 ```
 
 学習は既定で 20,000 step、500 step ごとに検証し、検証 loss が一番小さい時点を保存する。
@@ -89,10 +93,12 @@ exp0002/
 │   ├── utils.py          保存先、使い回す exp0001 の部品の場所、音素ごとの長さ(jsut-lab から)、学習データの準備、T2S の読み込み
 │   ├── t2s_duration.py   FastSpeech2 系の T2S
 │   ├── t2s_masked.py     MaskGCT 系の T2S
-│   └── t2s_hybrid.py     ハイブリッド型の T2S(長さの予測 + MaskGCT 系)
-├── train_t2s.py          T2S の学習(--method duration / masked)
+│   ├── t2s_hybrid.py     ハイブリッド型の T2S(長さの予測 + MaskGCT 系)
+│   └── t2s_gpt_duration.py  追加検証: exp0001 の自己回帰の T2S + 長さの予測
+├── train_t2s.py          T2S の学習(--method duration / masked / hybrid / gpt_duration)
 ├── evaluate.py           合成と CER の評価
 ├── analyze_inference.py  分析: 測り直しのばらつき・推論の設定・長さの決め方(学習し直さない)
+├── evaluate_2x2.py       追加検証: 自己回帰の 2 つ(長さの予測の有無)を、analyze_inference.py と同じ手順で測る
 └── README.md             このレポート
 ```
 
@@ -254,10 +260,39 @@ exp0001 の結果 9 と同じ方法で、正解の読みを前から 4 区間に
 - イントネーションをネイティブらしくすることは今後の課題。測るには、F0(声の高さ)の誤差・正解との相関、音素ごとの長さの誤差、
   話す速さなどの指標を `lib_common` に足す(フェーズ C の感情・抑揚の評価にも使える)
 
+### 7. 追加検証: 長さの予測と T2S の形の効果の切り分け(2 × 2、`evaluate_2x2.py`、結果は `results/2x2.json`)
+
+ハイブリッド型は、exp0001 の自己回帰から (1) 長さの予測(テキストの encoder + 長さの予測器 + 各音声トークンの位置に「その時刻の音素」を足す)と
+(2) T2S の形(自己回帰 → MaskGCT 系)の 2 つを同時に変えていたので、それぞれの効果を分けられていなかった。
+2 × 2 のうち足りなかった「自己回帰 + 長さの予測」(`t2s_gpt_duration`、`common/t2s_gpt_duration.py`、`--method gpt_duration`)を学習して比べた。
+これは exp0001 の自己回帰(`t2s_ph_k256`)と、長さの予測の有無だけが違う: GPT-2 の構成・大きさ・学習の設定(6,000 step、学習率 3e-4、dropout 0.3 など)・
+生成の設定(温度 0.8、top_p 0.8、top_k 30、繰り返しのペナルティ 10)は同じで、長さの予測はハイブリッド型と同じもの。生成するトークンの数は予測した長さの合計。
+
+どれも同じ codec・S2M(exp0001 の codebook 256)・Griffin-Lim、乱数の種 0・1・2 の平均 ± 標準偏差。自己回帰の 2 つは `evaluate_2x2.py`、
+MaskGCT 系の 2 つは結果 5 と同じ手順の値(`analyze_inference.py`)。CER は「テスト 100 文 / 実用文 55 文」、括弧はテスト文の長さの比。
+
+| T2S の形 ＼ 長さの予測 | 無し | 有り |
+|---|---|---|
+| 自己回帰(exp0001 の GPT-2) | `ar/t2s_ph_k256`: 51.2 ± 0.5% / 43.3 ± 1.9%(0.95) | `t2s_gpt_duration`: 47.5 ± 1.2% / 43.8 ± 2.3%(0.88) |
+| MaskGCT 系 | `t2s_masked`: 20.7 ± 0.1% / 22.8 ± 0.6%(0.94) | `t2s_hybrid_nar`(ハイブリッド型): **11.5 ± 0.2% / 10.0 ± 0.6%**(0.91) |
+
+| 変えたもの | 自己回帰のとき・長さの予測が無いとき | MaskGCT 系のとき・長さの予測が有るとき |
+|---|---|---|
+| 長さの予測を足す | 51.2 → 47.5%(-3.7pt)、実用文 43.3 → 43.8%(変わらない) | 20.7 → 11.5%(-9.2pt)、実用文 22.8 → 10.0%(-12.8pt) |
+| 自己回帰 → MaskGCT 系 | 51.2 → 20.7%(-30.5pt)、実用文 43.3 → 22.8% | 47.5 → 11.5%(-36.0pt)、実用文 43.8 → 10.0% |
+
+- **一番効いているのは T2S の形(自己回帰 → MaskGCT 系)。** 長さの予測の有無にかかわらず、テスト文で 30pt 以上下がる
+- **長さの予測は、MaskGCT 系と組み合わせたときに大きく効く**(-9.2pt)。自己回帰に足してもテスト文で -3.7pt、実用文では変わらない
+- 長さの予測を足しても、自己回帰は MaskGCT 系より大きく悪い(47.5% と 11.5%)。このデータでは、推論の速さ(KV キャッシュ)のために
+  自己回帰に替える選択肢は無い
+- 長さの予測の軸に付いてくる違い: テキストの encoder・長さの予測器の分だけパラメータが多い(自己回帰 26.3M → 41.8M、
+  MaskGCT 系 38.6M → 54.1M)、長さの正解が作れない約 5% の発話を学習に使わない、保存する時点を選ぶ検証 loss に長さの損失が入る
+
 ### まとめと次の手
 
 - テキストからの合成は、非自己回帰にすると自己回帰より良くなった。さらに、長さの予測と MaskGCT 系を合わせた
   ハイブリッド型(`t2s_hybrid_nar`)が、テスト文 11.9%・実用文 9.5% で一番良く、長い文でも崩れない
+- 結果 7 の切り分けで、改善の大部分は T2S の形(自己回帰 → MaskGCT 系)から来ていて、長さの予測は MaskGCT 系と組み合わせたときに大きく効くことが分かった
 - どの方式も過学習が強く、検証 loss が一番小さくなるのは 2,000〜7,000 step。学習の長さ・正則化を詰める余地がある
 - exp0001 で効いた S2M の F3(テキストの条件 + 予測トークンを混ぜる学習)は、ここでは使っていない(S2M を T2S ごとに学習し直す必要がある)。
   ただし T2S の誤りはほぼ上限まで減ったので、次に効くのは S2M・codec 側(上限の 10.2% 自体を下げる)

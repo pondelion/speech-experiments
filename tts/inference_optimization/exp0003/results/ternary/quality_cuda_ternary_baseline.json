@@ -1,0 +1,62 @@
+{
+  "condition": "cuda_ternary_baseline",
+  "phase": "quality",
+  "environment": {
+    "measured_at": "2026-11-14T21:43:47.617338+00:00",
+    "git_commit": "c09f108fed454665a0ff1038c54d1df0d3194bc9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 292251,
+    "torch_num_threads": 8,
+    "torch_num_interop_threads": 20
+  },
+  "quantization": {
+    "mode": "baseline",
+    "training": {},
+    "activation_int8": false,
+    "quantized_layers": [],
+    "packing": "four 2-bit codes per uint8; 0=-1,1=0,2=+1",
+    "weight_scale": "per-tensor absmean float32",
+    "saved_high_precision": "bfloat16",
+    "kernel": "expanded floating-point F.linear",
+    "artifact_bytes": 189837147,
+    "runtime_dtype": "torch.bfloat16",
+    "runtime_representation": "2-bit file expanded once to floating-point weights; activation quantization uses floating-point ops"
+  },
+  "dtype": "bfloat16",
+  "linear_backend": "eager",
+  "seed": 0,
+  "t2s_batch": 16,
+  "s2m_batch": 4,
+  "groups": {
+    "test": {
+      "utterances": 100,
+      "finite": true,
+      "cer": {
+        "raw": 0.16645681188617475,
+        "normalized": 0.11395219566425792,
+        "reading": 0.06506701253782966
+      }
+    },
+    "eval_texts": {
+      "utterances": 55,
+      "finite": true,
+      "cer": {
+        "raw": 0.12609736632083002,
+        "normalized": 0.10698878343399482,
+        "reading": 0.0626249167221852
+      }
+    }
+  }
+}

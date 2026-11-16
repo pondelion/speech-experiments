@@ -742,5 +742,109 @@
     "text": "雨がしとしと降っている。",
     "category": "onomatopoeia",
     "file": "eval_texts/t2s_hybrid_ar/ono_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_gpt_duration",
+    "id": "VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "category": "jsut_test",
+    "file": "test/t2s_gpt_duration/VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_gpt_duration",
+    "id": "VOICEACTRESS100_002",
+    "text": "ニューイングランド風は、牛乳をベースとした、白いクリームスープであり、ボストンクラムチャウダーとも呼ばれる。",
+    "category": "jsut_test",
+    "file": "test/t2s_gpt_duration/VOICEACTRESS100_002.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_gpt_duration",
+    "id": "VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "category": "jsut_test",
+    "file": "test/t2s_gpt_duration/VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_gpt_duration",
+    "id": "news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "category": "news",
+    "file": "eval_texts/t2s_gpt_duration/news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_gpt_duration",
+    "id": "conv_01",
+    "text": "ねえ、今日のお昼どうする?",
+    "category": "conversation",
+    "file": "eval_texts/t2s_gpt_duration/conv_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_gpt_duration",
+    "id": "num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "category": "number",
+    "file": "eval_texts/t2s_gpt_duration/num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_gpt_duration",
+    "id": "alpha_01",
+    "text": "AIを使った新しいアプリを公開しました。",
+    "category": "alphabet",
+    "file": "eval_texts/t2s_gpt_duration/alpha_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_gpt_duration",
+    "id": "place_01",
+    "text": "御徒町から秋葉原までは歩いて行けます。",
+    "category": "proper_noun",
+    "file": "eval_texts/t2s_gpt_duration/place_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_gpt_duration",
+    "id": "homo_01",
+    "text": "今日は朝から雨が降っています。",
+    "category": "homograph",
+    "file": "eval_texts/t2s_gpt_duration/homo_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_gpt_duration",
+    "id": "long_01",
+    "text": "本日は、お忙しいところ説明会にお越しいただき、誠にありがとうございます。これから約一時間、新しいサービスの概要と、今後のスケジュールについて順番にご説明いたしますので、最後までどうぞよろしくお願いいたします。",
+    "category": "long",
+    "file": "eval_texts/t2s_gpt_duration/long_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_gpt_duration",
+    "id": "short_01",
+    "text": "はい。",
+    "category": "short",
+    "file": "eval_texts/t2s_gpt_duration/short_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_gpt_duration",
+    "id": "q_01",
+    "text": "本当にそれでいいんですか?",
+    "category": "question_exclamation",
+    "file": "eval_texts/t2s_gpt_duration/q_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_gpt_duration",
+    "id": "ono_01",
+    "text": "雨がしとしと降っている。",
+    "category": "onomatopoeia",
+    "file": "eval_texts/t2s_gpt_duration/ono_01.mp3"
   }
 ]

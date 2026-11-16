@@ -375,6 +375,237 @@
                   }
                 }
               ]
+            },
+            {
+              "title": "付録: 三値量子化・QAT・蒸留",
+              "conditions": [
+                {
+                  "id": "cuda_ternary_baseline",
+                  "label": "CUDA BF16保存基準",
+                  "cer": {
+                    "test": 0.06506701253782966,
+                    "eval_texts": 0.0626249167221852
+                  }
+                },
+                {
+                  "id": "cuda_ternary_int4",
+                  "label": "CUDA T2S INT4基準",
+                  "cer": {
+                    "test": 0.07198443579766536,
+                    "eval_texts": 0.06129247168554297
+                  }
+                },
+                {
+                  "id": "cuda_ternary_weight_only",
+                  "label": "CUDA 重みのみ三値化",
+                  "cer": {
+                    "test": 0.17833981841763943,
+                    "eval_texts": 0.09460359760159893
+                  }
+                },
+                {
+                  "id": "cuda_ternary_direct",
+                  "label": "CUDA 直接三値化＋入力INT8",
+                  "cer": {
+                    "test": 0.1753134457414613,
+                    "eval_texts": 0.09327115256495669
+                  }
+                },
+                {
+                  "id": "cuda_ternary_ft_ptq",
+                  "label": "CUDA 追加学習後三値化＋入力INT8",
+                  "cer": {
+                    "test": 0.19865974924340682,
+                    "eval_texts": 0.09193870752831446
+                  }
+                },
+                {
+                  "id": "cuda_ternary_qat",
+                  "label": "CUDA 三値QAT＋入力INT8",
+                  "cer": {
+                    "test": 0.07414613056636403,
+                    "eval_texts": 0.0626249167221852
+                  }
+                },
+                {
+                  "id": "cuda_ternary_kd",
+                  "label": "CUDA 三値QAT＋蒸留＋入力INT8",
+                  "cer": {
+                    "test": 0.07911802853437094,
+                    "eval_texts": 0.05596269153897402
+                  }
+                },
+                {
+                  "id": "cpu_ternary_baseline",
+                  "label": "CPU BF16保存基準",
+                  "cer": {
+                    "test": 0.06766104626026805,
+                    "eval_texts": 0.05862758161225849
+                  }
+                },
+                {
+                  "id": "cpu_ternary_kd",
+                  "label": "CPU 三値QAT＋蒸留＋入力INT8",
+                  "cer": {
+                    "test": 0.07047124945957631,
+                    "eval_texts": 0.057961359093937376
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "exp0004",
+          "title": "exp0004: ONNX Runtimeの性能改善",
+          "dir": "tts/inference_optimization/exp0004",
+          "summary": "thread管理とAttention融合を切り分け、CPU/GPUの速度・CER・メモリを比較。",
+          "samples": "tts/inference_optimization/exp0004/results/samples",
+          "condition_groups": [
+            {
+              "title": "CPU",
+              "conditions": [
+                {
+                  "id": "cpu_torch",
+                  "label": "PyTorch FP32・8 threads",
+                  "cer": {
+                    "test": 0.06895806312148725,
+                    "eval_texts": 0.06395736175882745
+                  },
+                  "default": true
+                },
+                {
+                  "id": "cpu_torch_16",
+                  "label": "PyTorch FP32・16 threads",
+                  "cer": {
+                    "test": 0.06874189364461739,
+                    "eval_texts": 0.06395736175882745
+                  },
+                  "default": false
+                },
+                {
+                  "id": "cpu_torch_int8",
+                  "label": "PyTorch 動的INT8",
+                  "cer": {
+                    "test": 0.06506701253782966,
+                    "eval_texts": 0.06462358427714857
+                  },
+                  "default": true
+                },
+                {
+                  "id": "cpu_legacy",
+                  "label": "ORT FP32・exp3設定",
+                  "cer": {
+                    "test": 0.06895806312148725,
+                    "eval_texts": 0.06395736175882745
+                  },
+                  "default": false
+                },
+                {
+                  "id": "cpu_attn_shared_16_front1",
+                  "label": "ORT Attention FP32",
+                  "cer": {
+                    "test": 0.06895806312148725,
+                    "eval_texts": 0.06395736175882745
+                  },
+                  "default": false
+                },
+                {
+                  "id": "cpu_attn8_nospin_8",
+                  "label": "ORT Attention INT8",
+                  "cer": {
+                    "test": 0.08019887591872027,
+                    "eval_texts": 0.06528980679546968
+                  },
+                  "default": false
+                },
+                {
+                  "id": "cpu_native8_nospin_8",
+                  "label": "ORT INT8・RoPE融合＋量子化条件調整",
+                  "cer": {
+                    "test": 0.06852572416774752,
+                    "eval_texts": 0.061958694203864094
+                  },
+                  "default": true
+                },
+                {
+                  "id": "cpu_native7_nospin_8",
+                  "label": "ORT INT8・入力量子化範囲をPyTorchへ合わせる",
+                  "cer": {
+                    "test": 0.07652399481193256,
+                    "eval_texts": 0.04930046635576282
+                  },
+                  "default": false
+                }
+              ]
+            },
+            {
+              "title": "CUDA",
+              "conditions": [
+                {
+                  "id": "cuda_torch",
+                  "label": "PyTorch FP32",
+                  "cer": {
+                    "test": 0.06463467358408993,
+                    "eval_texts": 0.06728847435043304
+                  },
+                  "default": true
+                },
+                {
+                  "id": "cuda_torch_bf16",
+                  "label": "PyTorch BF16",
+                  "cer": {
+                    "test": 0.06506701253782966,
+                    "eval_texts": 0.0626249167221852
+                  },
+                  "default": false
+                },
+                {
+                  "id": "cuda_legacy",
+                  "label": "ORT FP32・exp3設定",
+                  "cer": {
+                    "test": 0.0648508430609598,
+                    "eval_texts": 0.06728847435043304
+                  },
+                  "default": false
+                },
+                {
+                  "id": "cuda_attn_nospin_8_front1",
+                  "label": "ORT Attention FP32",
+                  "cer": {
+                    "test": 0.06463467358408993,
+                    "eval_texts": 0.06728847435043304
+                  },
+                  "default": false
+                },
+                {
+                  "id": "cuda_attn16_nospin_8_front1",
+                  "label": "ORT Attention FP16",
+                  "cer": {
+                    "test": 0.07263294422827497,
+                    "eval_texts": 0.06928714190539641
+                  },
+                  "default": false
+                },
+                {
+                  "id": "cuda_opt_nospin_8_front1_cg",
+                  "label": "ORT FP32・RoPE融合＋CUDA Graph",
+                  "cer": {
+                    "test": 0.06420233463035019,
+                    "eval_texts": 0.06395736175882745
+                  },
+                  "default": true
+                },
+                {
+                  "id": "cuda_opt_nospin_8_front1_cg128",
+                  "label": "ORT FP32・CUDA Graph＋文長bucket",
+                  "cer": {
+                    "test": 0.06333765672287073,
+                    "eval_texts": 0.06928714190539641
+                  },
+                  "default": true
+                }
+              ]
             }
           ]
         }
@@ -444,6 +675,9 @@
             {"title": "ハイブリッド型(長さの予測 + MaskGCT 系)", "conditions": [
               {"id": "t2s_hybrid_nar", "label": "ハイブリッド(長さを一度に予測)", "cer": {"test": 0.119, "eval_texts": 0.095}, "default": true},
               {"id": "t2s_hybrid_ar", "label": "ハイブリッド(長さを自己回帰で予測)", "cer": {"test": 0.185, "eval_texts": 0.109}}
+            ]},
+            {"title": "追加検証(結果 7): 自己回帰 + 長さの予測(長さの予測と T2S の形の効果の切り分け)", "conditions": [
+              {"id": "t2s_gpt_duration", "label": "自己回帰(exp0001 の GPT-2)+ 長さの予測", "cer": {"test": 0.475, "eval_texts": 0.438}, "default": true}
             ]},
             {"title": "分析用: 長さだけ正解を与える", "conditions": [
               {"id": "t2s_duration/gt_length", "label": "FastSpeech2 系 + 正解の長さ", "cer": {"test": 0.373}},
@@ -548,6 +782,28 @@
             {"title": "悪い例: T2S から作った音声で F0 のずれが大きい 5 文", "conditions": [
               {"id": "worst/real", "label": "元の録音", "default": true},
               {"id": "worst/tts_vocos", "label": "TTS(日本語 HuBERT + Vocos)", "default": true}
+            ]}
+          ]
+        },
+        {
+          "id": "exp0006",
+          "title": "exp0006: 公式の IndexTTS-2.5 に近づけた構成(フェーズ A の締め)",
+          "dir": "tts/indextts_bases/exp0006",
+          "summary": "公式の構成(文字の入力、自己回帰の GPT、w2v-BERT 2.0 の 8,192 種類のトークン、U 字の DiT、22.05kHz の BigVGAN-v2)を、大きさだけ自作とそろえて再現した。codec・S2M の上限は CER 3.7% と良かったが、T2S が 10 時間のデータでは学習できず、TTS は CER 78.0%。codebook を 1,024 種類にすると 32.6%(256 種類は 41.9%)まで下がったが、自作の構成(exp0005、5.6%)には遠い。",
+          "samples": "tts/indextts_bases/exp0006/results/samples",
+          "condition_groups": [
+            {"title": "上限(22.05kHz、BigVGAN-v2)", "conditions": [
+              {"id": "real", "label": "元の録音", "default": true},
+              {"id": "gt_mel", "label": "正解の Mel → BigVGAN-v2", "cer": {"test": 0.032}, "default": true}
+            ]},
+            {"title": "公式の構成の TTS(codebook の種類数)", "conditions": [
+              {"id": "tts_k8192", "label": "8,192 種類(公式)", "cer": {"test": 0.780, "eval_texts": 0.785}, "default": true},
+              {"id": "tts_large", "label": "8,192 種類、T2S 132M(2.5 倍)", "cer": {"test": 0.813, "eval_texts": 0.827}},
+              {"id": "tts_k1024", "label": "1,024 種類", "cer": {"test": 0.326, "eval_texts": 0.529}, "default": true},
+              {"id": "tts_k256", "label": "256 種類", "cer": {"test": 0.419, "eval_texts": 0.516}, "default": true}
+            ]},
+            {"title": "比べる相手", "conditions": [
+              {"id": "exp0005_best", "label": "exp0005 の一番良い構成(自作、24kHz、Vocos)", "cer": {"test": 0.056, "eval_texts": 0.063}, "default": true}
             ]}
           ]
         }

@@ -1,0 +1,69 @@
+{
+  "condition": "cuda_attn16_nospin_8_front1",
+  "phase": "memory",
+  "environment": {
+    "measured_at": "2026-11-15T05:57:49.287596+00:00",
+    "git_commit": "c09f108fed454665a0ff1038c54d1df0d3194bc9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 327323,
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 20
+  },
+  "quantization": {
+    "backend": "onnxruntime",
+    "version": "1.32.0",
+    "precision": "fp16",
+    "graphs": {
+      "encoder": {
+        "bytes": 27476191,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "blocks": {
+        "bytes": 76050305,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "velocity": {
+        "bytes": 77796814,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      }
+    },
+    "config": "attn16_nospin_8_front1",
+    "threads_per_pool": 8,
+    "shared_thread_pool": false,
+    "session_spinning_request": false,
+    "global_pool_spinning": null,
+    "frontend_threads": 1,
+    "fused_attention": true,
+    "async_execution": false
+  },
+  "dtype": "float32",
+  "linear_backend": "onnxruntime_io_binding",
+  "load_prepare_s": 3.7639960170490667,
+  "load_convert_warmup_peak_vram_bytes": 494729728,
+  "process_peak_rss_bytes": 3491028992,
+  "device_used_peak_delta_bytes": 1042284544,
+  "device_used_baseline_bytes": 1761148928,
+  "memory_method": "whole-device free-memory delta from initial CUDA context; sampled 10ms after warmup",
+  "torch_only_inference_peak_vram_bytes": 173779968
+}

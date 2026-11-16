@@ -1,0 +1,86 @@
+{
+  "condition": "cuda_attn_nospin_8_front1",
+  "phase": "quality",
+  "environment": {
+    "measured_at": "2026-11-15T06:16:35.661538+00:00",
+    "git_commit": "c09f108fed454665a0ff1038c54d1df0d3194bc9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 329025,
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 20
+  },
+  "quantization": {
+    "backend": "onnxruntime",
+    "version": "1.32.0",
+    "precision": "fp32",
+    "graphs": {
+      "encoder": {
+        "bytes": 54761504,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "blocks": {
+        "bytes": 151577949,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "velocity": {
+        "bytes": 155065983,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      }
+    },
+    "config": "attn_nospin_8_front1",
+    "threads_per_pool": 8,
+    "shared_thread_pool": false,
+    "session_spinning_request": false,
+    "global_pool_spinning": null,
+    "frontend_threads": 1,
+    "fused_attention": true,
+    "async_execution": false
+  },
+  "dtype": "float32",
+  "linear_backend": "onnxruntime_io_binding",
+  "load_prepare_s": 7.3441269770264626,
+  "seed": 0,
+  "t2s_batch": 16,
+  "s2m_batch": 4,
+  "groups": {
+    "test": {
+      "utterances": 100,
+      "finite": true,
+      "cer": {
+        "raw": 0.16091664568118863,
+        "normalized": 0.10644802668148971,
+        "reading": 0.06463467358408993
+      }
+    },
+    "eval_texts": {
+      "utterances": 55,
+      "finite": true,
+      "cer": {
+        "raw": 0.12370311252992817,
+        "normalized": 0.10612597066436583,
+        "reading": 0.06728847435043304
+      }
+    }
+  }
+}

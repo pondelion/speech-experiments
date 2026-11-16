@@ -6,6 +6,7 @@
   masked:   MaskGCT 系。音声トークンの一部を隠して当てることを学び、生成では数回に分けて埋める
   hybrid:   長さを予測し、その時間の対応を条件にして MaskGCT 系の方法で埋める
             (--duration_model nar: 長さを一度に回帰 / ar: 長さを自己回帰で 1 個ずつ予測)
+  gpt_duration: 追加検証(結果 7)。exp0001 の自己回帰(GPT-2)に長さの予測を足したもの(common/t2s_gpt_duration.py)
 テキストの入力は音素 + アクセント記号(exp0001 で文字入力より良かった)。
 
 途中経過として、検証データで次を測る(どちらも正解の長さ・正解のトークンを使った値で、実際に読めるかは evaluate.py の CER で見る)。
@@ -27,6 +28,7 @@ import torch
 
 import common  # noqa: F401  tts/lib_common と exp0001 を import できるようにする
 from common.t2s_duration import DurationT2S
+from common.t2s_gpt_duration import GPTDurationT2S
 from common.t2s_hybrid import MAX_DUR, HybridT2S
 from common.t2s_masked import MaskedT2S
 from common.utils import BASE_CODEC, PROSODY_MARKS, RUNS_DIR, prepare
@@ -63,7 +65,7 @@ def evaluate(model, d: dict, max_tokens: int) -> dict:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--method", choices=["duration", "masked", "hybrid"], required=True)
+    parser.add_argument("--method", choices=["duration", "masked", "hybrid", "gpt_duration"], required=True)
     parser.add_argument("--duration_model", choices=["nar", "ar"], default="nar", help="hybrid: 長さの予測器の種類")
     parser.add_argument("--codec", default=str(BASE_CODEC))
     parser.add_argument("--steps", type=int, default=20000)
@@ -93,7 +95,8 @@ def main():
     train, val = split(utts, "train"), split(utts, "val")
     vocab = TextVocab.build("phoneme", [u.text for u in train])
     n_codes = codec.codebook_size
-    data = {name: prepare(us, vocab, codec, norm, args.device, with_durations=args.method in ("duration", "hybrid"))
+    data = {name: prepare(us, vocab, codec, norm, args.device,
+                          with_durations=args.method in ("duration", "hybrid", "gpt_duration"))
             for name, us in [("train", train), ("val", val)]}
     tr = data["train"]
     log(f"text vocab {len(vocab)} | audio vocab {n_codes} | train {len(tr['texts'])} utts (dropped {tr['n_dropped']}) "
@@ -103,6 +106,9 @@ def main():
         config = {"dim": args.dim, "enc_layers": args.layers // 2, "dec_layers": args.layers - args.layers // 2,
                   "heads": args.heads, "dropout": args.dropout}
         model = DurationT2S(len(vocab), n_codes, **config)
+    elif args.method == "gpt_duration":  # exp0001 の自己回帰(GPT-2)+ 長さの予測(2 × 2 の追加検証)
+        config = {"dim": args.dim, "layers": args.layers, "heads": args.heads, "dropout": args.dropout}
+        model = GPTDurationT2S(len(vocab), n_codes, **config)
     elif args.method == "hybrid":
         config = {"dim": args.dim, "layers": args.layers, "heads": args.heads, "dropout": args.dropout,
                   "text_drop": args.text_drop, "duration_model": args.duration_model}

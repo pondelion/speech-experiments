@@ -134,9 +134,9 @@ TTS 全体の時間だけでなく、次の区間を分けて計測する。
 | [exp0001](exp0001/) | ベースライン・計測 | `hubert_ja_k256/tts`の既定実装 | 共通ベンチマーク、区間別 profiler、FP32/FP16/BF16、cold/warm の測定 | 再現可能な基準を作り、支配的な区間を特定する |
 | exp0002 | PyTorch・ランタイム最適化 | 0001 | `inference_mode`、不要な転送の除去、KV/参照特徴の cache、`torch.compile`、CUDA Graphs、SDPA/FlashAttention、生成ループの改善 | 学習し直さずに得られる改善と、各変更の寄与を分けて測る |
 | exp0003 | 量子化 | 0002 | 重みのみ INT8/INT4、動的/静的量子化、SmoothQuant/AWQ/GPTQ 系、必要なら QAT | T2S・S2M・ボコーダごとに、低下しやすい品質と速度・メモリの境界を調べる |
-| exp0004 | ONNX・ランタイム変換 | 0002/0003 | 部品ごとの ONNX export、ONNX Runtime(CPU/CUDA)、graph optimization | export 可能性、演算子の互換性、動的 shape のコストを整理する |
-| exp0005 | TensorRT・GPU 最適化 | 0004 | TensorRT(FP16/BF16/INT8)、最適化 profile、固定/動的 shape | NVIDIA GPU での最大性能と、engine 作成・運用上の制約を測る |
-| exp0006 | 蒸留・モデル軽量化 | 最も良い基準 | 蒸留、層/幅の縮小、pruning、flow/diffusion step の蒸留、軽量ボコーダ | 学習を伴う圧縮で、モデルサイズ・速度・品質の Pareto front を作る |
+| [exp0004](exp0004/) | ONNX Runtime最適化 | 0002/0003 | thread管理、Attention/RoPE融合、固定Split、CUDA Graph、文長bucket、CPU量子化仕様の調整 | 最速PyTorchと同じ生成条件で、TTS全体の速度・CER・メモリを比較する |
+| exp0005（スキップ） | TensorRT・GPU 最適化 | 0004 | TensorRT(FP16/BF16/INT8)、最適化 profile、固定/動的 shape | NVIDIA GPU での最大性能と、engine 作成・運用上の制約を測る |
+| [exp0006](exp0006/) | 蒸留・モデル軽量化 | 最速PyTorch／exp0004 | 蒸留、層/幅の縮小、pruning、flow/diffusion step の蒸留、軽量ボコーダ、量子化・ORTとの組み合わせ | CPU/GPUで品質・速度・容量を比較し、ブラウザ向けの小型モデルを選ぶ |
 | exp0007 | ストリーミング | 最も良い基準 | 文・音素・音声トークン・Mel・波形の chunk 化、先読み幅、状態/cache の引き継ぎ | TTFA を短くし、chunk 境界のノイズや抑揚への影響を測る |
 | exp0008 | ブラウザ推論 | 0004/0006/0007 | ONNX Runtime Web(WebGPU/WASM/WebNN)、ネイティブ WebGPU、Web Worker、ブラウザ内キャッシュ | GitHub Pages で動く最小構成を作り、runtime/backend、対応演算、初回 download、端末差、UI を止めない構成を比較する |
 | exp0009 | エッジ推論 | 0004/0006/0007 | CPU、Jetson 等の edge、可能なら Core ML/TFLite/ExecuTorch | デバイスごとの変換可能性、実時間動作、消費電力・メモリを比較する |
@@ -260,22 +260,24 @@ expXXXX/
 
 ## 結果のまとめ
 
-量子化exp0003のA〜Cは比較済み。[Cの比較表](exp0003/C_REPORT.md)に、重みINT8/INT4・group size・AWQ・GPTQの速度、CER、サイズ、メモリをまとめた。
-現時点ではGPU速度重視はFP32、GPUメモリとのバランスはBF16、CPU速度重視は両部品の動的INT8が採用候補。
-重みファイル最小化は単純INT4 g128だが、速度低下と読みCERの劣化を伴う。[用途別の結論](exp0003/README.md)を参照。
-Dの静的INT8・SmoothQuantも[同READMEの比較表](exp0003/README.md#d-静的ptqsmoothquant)に集約する。
-GPUでは重み約106 MiB・peak VRAM約311 MiBまで縮小できたが、今回の実装はeager FP32より遅く、速度重視の推奨は変わらない。
-CPU静的INT8は中文で基準の約8.6倍遅いため除外し、CPU SmoothQuantも同じ演算経路では追加測定しない。
+量子化[exp0003](exp0003/README.md)のA〜Gを完了した。CPU/GPUの動的・静的量子化、重みINT8/INT4、AWQ/GPTQ、混合精度、QAT、ONNX Runtimeを比較し、40条件の速度・CERを[最終総括](exp0003/README.md#最終総括)にまとめた。
 
-Eの混合精度8条件も比較済み。[Eの結果と採用判断](exp0003/README.md#e-高精度に残す部品層の比較)を参照。
-GPUはS2MのみINT4で読みとファイル圧縮のバランスを取りやすい一方、CPUは全体の動的INT8を維持する。
-入出力側を一律に高精度へ戻す方法は、今回のCPU条件では速度・サイズ・CERのいずれも不利だった。
+| 優先するもの | 採用候補・結論 |
+|---|---|
+| GPUの定常速度 | [exp0004](exp0004/README.md)の専用RoPE＋CUDA Graph（FP32）。最速PyTorchの中文1.120→0.363秒（約68%短縮）。CER 6.420/6.396%。初回構築と定常値を区別し、VRAM増加も評価する |
+| PyTorch内での速度・VRAMのバランス | BF16。少し圧縮しつつ読みを保つ候補はS2MのみINT4 |
+| CPUの速度 | 最速PyTorch動的INT8の中文3.293秒に対し、exp4の専用RoPE＋量子化条件調整で2.404秒（約27%短縮）。CERはテスト+0.346pt・実用文-0.266pt。入力範囲調整版は実用文CERを改善した一方、テスト文では悪化。用途別の結論はexp4を参照 |
+| 重みファイルの小ささ | ORT INT4で約68.8 MiB。GPUテストCERはGのFP32比約+0.28pt、実用文は改善。実行時RAM/VRAMは減らない |
+| QATの必要性 | 現状必須ではない。同予算200 stepの対照に対して明確な優位がなく、今回は採用しない |
 
-FのQATも固定200 step・追加学習対照を含むGPU5条件で比較済み。[QATの必要性と結果](exp0003/README.md#f-qatの必要性と固定予算での検証)を参照。
-現状の採用候補にはQATは必須でなく、今回の検証でも追加学習後PTQに対する明確な優位を得られなかったため採用しない。
+各候補は同一段階内の基準と比較し、単一seedのCERだけで品質同等性を保証しない。詳細は[用途別の結論](exp0003/README.md)と各段階の表を参照。
+今回のONNX検証はPythonのCPU/CUDAでの部分移植までで、ブラウザ/エッジ実機への移行は後続実験に残る。
+[exp0004](exp0004/README.md)はブロック別・演算別・GPU起動負荷を分析し、RoPE/固定分割の直接演算化、CUDA Graph、文長bucketを実装した。成果は旧ORT比ではなくPyTorch版最速条件で比較する。GPUはFP32で速度と今回のCERを両立した。CPUは速度を改善したが、テストCERとの交換条件がある。各変更の採否を用途別に整理した。
 
-実験開始後、ここに各 exp の代表値と結論を追記する。異なるハードウェアの絶対速度を横並びにはせず、環境ごとに基準との差を示す。
+exp0005（TensorRT）はスキップし、次は[exp0006の蒸留・モデル軽量化](exp0006/)に進む。[exp0002の反復処理・cache候補](exp0002/README.md#ハイブリッドt2sの反復処理とcache候補)では、現行ハイブリッドT2SのCPU/GPU内部計測と高速化候補の整理を完了した。モデル・生成ロジック固有のcacheは、候補整理までで一区切りとし、現時点では深掘りしない。
 
 | exp | 手法 | 環境 | TTFA | RTF | peak VRAM/RAM | サイズ | 品質差 | 結論 |
 |---|---|---|---:|---:|---:|---:|---:|---|
 | [exp0001](exp0001/) | FP32/FP16/BF16ベースライン | RTX 5090 | 非ストリーミングのためend-to-endと同じ | FP32: 短文2.524 / 中文0.305 / 長文0.113 | FP32: 475〜565 MiB | checkpoint合計438.3 MiB | FP32 6.70% / FP16 7.07% / BF16 6.61%(テスト100文CER) | T2Sが約80%。autocastはVRAMを約7%減らすが高速化せず、FP32が最速 |
+| [exp0003](exp0003/) | 量子化・QAT・ORT部分移植 | RTX 5090 / Core Ultra 7 265K | 非ストリーミング。代表中文はGPU ORT FP32 1.122秒 | 条件別の表を参照 | runtimeごとに測定定義を明記 | 最小約68.8 MiB(T2S/S2M、codec/runtime除外) | 全条件でテスト100＋実用文55文、seed 0 | GPU速度はORT FP32、CPU速度は動的INT8、圧縮はORT INT4が候補 |
+| [exp0004](exp0004/) | 専用RoPE・固定Split・CUDA Graph・文長bucket・CPU量子化条件調整 | RTX 5090 / Core Ultra 7 265K | 非ストリーミング。定常GPU中文0.363秒、初回は別計測 | 最速PyTorch比GPU中文約68%短縮 | 実行経路別に測定 | 圧縮最小は引き続きexp3のORT INT4 | GPU FP32はCER 6.420/6.396%。CPUは速度とCERの交換条件を明記 | 分析・対策・最終比較はexp4を参照 |

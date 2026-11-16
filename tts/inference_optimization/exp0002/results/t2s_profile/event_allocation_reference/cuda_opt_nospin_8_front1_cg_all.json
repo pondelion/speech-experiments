@@ -1,0 +1,2567 @@
+{
+  "environment": {
+    "measured_at": "2026-11-15T11:28:59.191032+00:00",
+    "git_commit": "c09f108fed454665a0ff1038c54d1df0d3194bc9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cuda",
+    "cuda_device": {
+      "name": "NVIDIA GeForce RTX 5090",
+      "capability": [
+        12,
+        0
+      ],
+      "total_memory_bytes": 34190458880
+    },
+    "pid": 354896,
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 20
+  },
+  "runtime": {
+    "backend": "onnxruntime",
+    "version": "1.32.0",
+    "precision": "fp32",
+    "graphs": {
+      "encoder": {
+        "bytes": 54761504,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "blocks": {
+        "bytes": 159792503,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "velocity": {
+        "bytes": 163282100,
+        "providers": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      }
+    },
+    "capture": {
+      "bucket": 0,
+      "sessions_created": 12,
+      "cache_hits": 2402,
+      "runs": 2414,
+      "max_profiles_per_graph": 2
+    },
+    "cuda_graph": true,
+    "config": "opt_nospin_8_front1_cg",
+    "threads_per_pool": 8,
+    "shared_thread_pool": false,
+    "session_spinning_request": false,
+    "global_pool_spinning": null,
+    "frontend_threads": 1,
+    "fused_attention": true,
+    "async_execution": false
+  },
+  "model": "hubert_ja_k256/tts",
+  "method": "hybrid",
+  "duration_model": "nar",
+  "source_sha256": "83335a2d6c1ccdd4a7a5275c403870a09129f456338827e172f4e4c5ebeba73e",
+  "repeats": 3,
+  "cases": {
+    "short": {
+      "baseline_runs": [
+        {
+          "text_preprocess_s": 0.0001266149920411408,
+          "duration_s": 0.001373771985527128,
+          "t2s_tokens_s": 0.19105773995397612,
+          "s2m_s": 0.03708412096602842,
+          "vocoder_s": 0.03097623703069985,
+          "end_to_end_s": 0.26061848492827266
+        },
+        {
+          "text_preprocess_s": 0.00011937995441257954,
+          "duration_s": 0.0012604790390469134,
+          "t2s_tokens_s": 0.20727980404626578,
+          "s2m_s": 0.03536497300956398,
+          "vocoder_s": 0.03479148802580312,
+          "end_to_end_s": 0.2788161240750924
+        },
+        {
+          "text_preprocess_s": 0.00013795995619148016,
+          "duration_s": 0.001403886009939015,
+          "t2s_tokens_s": 0.1974143279949203,
+          "s2m_s": 0.036914703028742224,
+          "vocoder_s": 0.033459351980127394,
+          "end_to_end_s": 0.2693302289699204
+        }
+      ],
+      "profiles": [
+        {
+          "t2s_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 347.74737199768424,
+            "cpu_self_ms": 0.2303089713677764,
+            "stream_inclusive_ms": 386.1895446777344,
+            "stream_self_ms": 0.09048151969909668
+          },
+          "duration_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 3.490069997496903,
+            "cpu_self_ms": 0.7825900102034211,
+            "stream_inclusive_ms": 3.8472321033477783,
+            "stream_self_ms": 1.0366400480270386
+          },
+          "duration_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 1.5578650054521859,
+            "cpu_self_ms": 0.7974029867909849,
+            "stream_inclusive_ms": 1.595296025276184,
+            "stream_self_ms": 0.813152015209198
+          },
+          "encoder_lookup": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 0.39772101445123553,
+            "cpu_self_ms": 0.39772101445123553,
+            "stream_inclusive_ms": 0.2739199995994568,
+            "stream_self_ms": 0.2739199995994568
+          },
+          "encoder_nn": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 1.4341130154207349,
+            "cpu_self_ms": 1.4341130154207349,
+            "stream_inclusive_ms": 2.073695957660675,
+            "stream_self_ms": 2.073695957660675
+          },
+          "duration_head": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 1.149614981841296,
+            "cpu_self_ms": 1.149614981841296,
+            "stream_inclusive_ms": 1.2152960300445557,
+            "stream_self_ms": 1.2152960300445557
+          },
+          "hybrid_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 344.02699302881956,
+            "cpu_self_ms": 0.4338590078987181,
+            "stream_inclusive_ms": 382.2518310546875,
+            "stream_self_ms": 0.605972170829773
+          },
+          "generate_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 2.017610997427255,
+            "cpu_self_ms": 0.9462389862164855,
+            "stream_inclusive_ms": 2.192608118057251,
+            "stream_self_ms": 0.6271361708641052
+          },
+          "alignment": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.906669010873884,
+            "cpu_self_ms": 0.906669010873884,
+            "stream_inclusive_ms": 0.9849280118942261,
+            "stream_self_ms": 0.9849280118942261
+          },
+          "masked_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 340.6688540126197,
+            "cpu_self_ms": 5.277216201648116,
+            "stream_inclusive_ms": 378.46832275390625,
+            "stream_self_ms": 29.368961439759005
+          },
+          "loop_input": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 8.130044734571129,
+            "cpu_self_ms": 8.130044734571129,
+            "stream_inclusive_ms": 6.680704020138364,
+            "stream_self_ms": 6.680704020138364
+          },
+          "hidden_total": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 192.31843866873533,
+            "cpu_self_ms": 73.37490731151775,
+            "stream_inclusive_ms": 211.5114574432373,
+            "stream_self_ms": 92.83145728398813
+          },
+          "audio_embedding": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 8.211856591515243,
+            "cpu_self_ms": 8.211856591515243,
+            "stream_inclusive_ms": 6.835167973302305,
+            "stream_self_ms": 6.835167973302305
+          },
+          "text_lookup": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 5.637266673147678,
+            "cpu_self_ms": 5.637266673147678,
+            "stream_inclusive_ms": 4.085312010545749,
+            "stream_self_ms": 4.085312010545749
+          },
+          "time_embedding_nn": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 18.398215936031193,
+            "cpu_self_ms": 18.398215936031193,
+            "stream_inclusive_ms": 17.07740793377161,
+            "stream_self_ms": 17.07740793377161
+          },
+          "transformer_blocks": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 76.83634932618588,
+            "cpu_self_ms": 76.83634932618588,
+            "stream_inclusive_ms": 82.47273623943329,
+            "stream_self_ms": 82.47273623943329
+          },
+          "hidden_norm": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 9.859842830337584,
+            "cpu_self_ms": 9.859842830337584,
+            "stream_inclusive_ms": 8.209376002196223,
+            "stream_self_ms": 8.209376002196223
+          },
+          "cfg_mix": {
+            "calls": 144.0,
+            "cpu_inclusive_ms": 38.022822758648545,
+            "cpu_self_ms": 38.022822758648545,
+            "stream_inclusive_ms": 38.25187203846872,
+            "stream_self_ms": 38.25187203846872
+          },
+          "vocab_projection": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 5.14043407747522,
+            "cpu_self_ms": 5.14043407747522,
+            "stream_inclusive_ms": 3.719391994178295,
+            "stream_self_ms": 3.719391994178295
+          },
+          "topk_filter": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 8.369432645849884,
+            "cpu_self_ms": 8.369432645849884,
+            "stream_inclusive_ms": 8.118271995335817,
+            "stream_self_ms": 8.118271995335817
+          },
+          "sampling": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 15.150296851061285,
+            "cpu_self_ms": 15.150296851061285,
+            "stream_inclusive_ms": 15.9434879347682,
+            "stream_self_ms": 15.9434879347682
+          },
+          "token_update": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 4.186581063549966,
+            "cpu_self_ms": 4.186581063549966,
+            "stream_inclusive_ms": 2.9923840132541955,
+            "stream_self_ms": 2.9923840132541955
+          },
+          "remask_schedule": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 6.668848858680576,
+            "cpu_self_ms": 6.668848858680576,
+            "stream_inclusive_ms": 6.394048015587032,
+            "stream_self_ms": 6.394048015587032
+          },
+          "stop_check": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 7.814947864972055,
+            "cpu_self_ms": 7.814947864972055,
+            "stream_inclusive_ms": 7.604319952428341,
+            "stream_self_ms": 7.604319952428341
+          },
+          "confidence_softmax": {
+            "calls": 47.0,
+            "cpu_inclusive_ms": 6.393120740540326,
+            "cpu_self_ms": 6.393120740540326,
+            "stream_inclusive_ms": 5.269439987838268,
+            "stream_self_ms": 5.269439987838268
+          },
+          "confidence_score": {
+            "calls": 94.0,
+            "cpu_inclusive_ms": 25.959260121453553,
+            "cpu_self_ms": 25.959260121453553,
+            "stream_inclusive_ms": 26.02611189428717,
+            "stream_self_ms": 26.02611189428717
+          },
+          "remask_rank": {
+            "calls": 47.0,
+            "cpu_inclusive_ms": 11.852855212055147,
+            "cpu_self_ms": 11.852855212055147,
+            "stream_inclusive_ms": 11.900928009301424,
+            "stream_self_ms": 11.900928009301424
+          },
+          "mask_update": {
+            "calls": 47.0,
+            "cpu_inclusive_ms": 5.384554213378578,
+            "cpu_self_ms": 5.384554213378578,
+            "stream_inclusive_ms": 4.686944015324116,
+            "stream_self_ms": 4.686944015324116
+          }
+        },
+        {
+          "t2s_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 268.18222098518163,
+            "cpu_self_ms": 0.06369792390614748,
+            "stream_inclusive_ms": 297.9537658691406,
+            "stream_self_ms": 0.04313528537750244
+          },
+          "duration_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 1.477399026043713,
+            "cpu_self_ms": 0.2698780153878033,
+            "stream_inclusive_ms": 1.6327680349349976,
+            "stream_self_ms": 0.3566399812698364
+          },
+          "duration_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.6543690105900168,
+            "cpu_self_ms": 0.16346696065738797,
+            "stream_inclusive_ms": 0.6875200271606445,
+            "stream_self_ms": 0.15244801342487335
+          },
+          "encoder_lookup": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 0.118147989269346,
+            "cpu_self_ms": 0.118147989269346,
+            "stream_inclusive_ms": 0.1252480000257492,
+            "stream_self_ms": 0.1252480000257492
+          },
+          "encoder_nn": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 0.7966820267029107,
+            "cpu_self_ms": 0.7966820267029107,
+            "stream_inclusive_ms": 0.834304004907608,
+            "stream_self_ms": 0.834304004907608
+          },
+          "duration_head": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.5531520000658929,
+            "cpu_self_ms": 0.5531520000658929,
+            "stream_inclusive_ms": 0.5886080265045166,
+            "stream_self_ms": 0.5886080265045166
+          },
+          "hybrid_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 266.64112403523177,
+            "cpu_self_ms": 0.1384830684401095,
+            "stream_inclusive_ms": 296.2778625488281,
+            "stream_self_ms": 0.21374750137329102
+          },
+          "generate_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.5643169861286879,
+            "cpu_self_ms": 0.14038902008906007,
+            "stream_inclusive_ms": 0.6056640148162842,
+            "stream_self_ms": 0.18118402361869812
+          },
+          "alignment": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.3254589973948896,
+            "cpu_self_ms": 0.3254589973948896,
+            "stream_inclusive_ms": 0.3264319896697998,
+            "stream_self_ms": 0.3264319896697998
+          },
+          "masked_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 265.6128649832681,
+            "cpu_self_ms": 4.10786789143458,
+            "stream_inclusive_ms": 295.13201904296875,
+            "stream_self_ms": 22.88987487985287
+          },
+          "loop_input": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 5.985323223285377,
+            "cpu_self_ms": 5.985323223285377,
+            "stream_inclusive_ms": 4.736799995298497,
+            "stream_self_ms": 4.736799995298497
+          },
+          "hidden_total": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 156.19833808159456,
+            "cpu_self_ms": 55.80177070805803,
+            "stream_inclusive_ms": 171.91907215118408,
+            "stream_self_ms": 69.71811219421215
+          },
+          "audio_embedding": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 6.118333083577454,
+            "cpu_self_ms": 6.118333083577454,
+            "stream_inclusive_ms": 5.538655981421471,
+            "stream_self_ms": 5.538655981421471
+          },
+          "text_lookup": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 4.635026853065938,
+            "cpu_self_ms": 4.635026853065938,
+            "stream_inclusive_ms": 3.5230079980101436,
+            "stream_self_ms": 3.5230079980101436
+          },
+          "time_embedding_nn": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 13.085404003504664,
+            "cpu_self_ms": 13.085404003504664,
+            "stream_inclusive_ms": 12.117151986807585,
+            "stream_self_ms": 12.117151986807585
+          },
+          "transformer_blocks": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 69.20146779157221,
+            "cpu_self_ms": 69.20146779157221,
+            "stream_inclusive_ms": 74.85184001922607,
+            "stream_self_ms": 74.85184001922607
+          },
+          "hidden_norm": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 7.356335641816258,
+            "cpu_self_ms": 7.356335641816258,
+            "stream_inclusive_ms": 6.170303971506655,
+            "stream_self_ms": 6.170303971506655
+          },
+          "cfg_mix": {
+            "calls": 144.0,
+            "cpu_inclusive_ms": 30.5574131780304,
+            "cpu_self_ms": 30.5574131780304,
+            "stream_inclusive_ms": 30.63638397306204,
+            "stream_self_ms": 30.63638397306204
+          },
+          "vocab_projection": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 3.826945961918682,
+            "cpu_self_ms": 3.826945961918682,
+            "stream_inclusive_ms": 3.4714880399405956,
+            "stream_self_ms": 3.4714880399405956
+          },
+          "topk_filter": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 6.164730992168188,
+            "cpu_self_ms": 6.164730992168188,
+            "stream_inclusive_ms": 5.998464018106461,
+            "stream_self_ms": 5.998464018106461
+          },
+          "sampling": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 10.070859338156879,
+            "cpu_self_ms": 10.070859338156879,
+            "stream_inclusive_ms": 10.353151999413967,
+            "stream_self_ms": 10.353151999413967
+          },
+          "token_update": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 2.776858862489462,
+            "cpu_self_ms": 2.776858862489462,
+            "stream_inclusive_ms": 2.0412160106934607,
+            "stream_self_ms": 2.0412160106934607
+          },
+          "remask_schedule": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 4.833536921069026,
+            "cpu_self_ms": 4.833536921069026,
+            "stream_inclusive_ms": 4.474911995232105,
+            "stream_self_ms": 4.474911995232105
+          },
+          "stop_check": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 6.092521827667952,
+            "cpu_self_ms": 6.092521827667952,
+            "stream_inclusive_ms": 6.292479977011681,
+            "stream_self_ms": 6.292479977011681
+          },
+          "confidence_softmax": {
+            "calls": 47.0,
+            "cpu_inclusive_ms": 4.640245868358761,
+            "cpu_self_ms": 4.640245868358761,
+            "stream_inclusive_ms": 3.992576017975807,
+            "stream_self_ms": 3.992576017975807
+          },
+          "confidence_score": {
+            "calls": 94.0,
+            "cpu_inclusive_ms": 15.900738013442606,
+            "cpu_self_ms": 15.900738013442606,
+            "stream_inclusive_ms": 15.624383989721537,
+            "stream_self_ms": 15.624383989721537
+          },
+          "remask_rank": {
+            "calls": 47.0,
+            "cpu_inclusive_ms": 10.396428813692182,
+            "cpu_self_ms": 10.396428813692182,
+            "stream_inclusive_ms": 9.207904003560543,
+            "stream_self_ms": 9.207904003560543
+          },
+          "mask_update": {
+            "calls": 47.0,
+            "cpu_inclusive_ms": 4.0610560099594295,
+            "cpu_self_ms": 4.0610560099594295,
+            "stream_inclusive_ms": 3.4933119919151068,
+            "stream_self_ms": 3.4933119919151068
+          }
+        },
+        {
+          "t2s_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 303.7769540096633,
+            "cpu_self_ms": 0.1248010084964335,
+            "stream_inclusive_ms": 337.4056091308594,
+            "stream_self_ms": 0.09355998039245605
+          },
+          "duration_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 2.3352529969997704,
+            "cpu_self_ms": 0.3271260065957904,
+            "stream_inclusive_ms": 2.510688066482544,
+            "stream_self_ms": 0.335232138633728
+          },
+          "duration_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 1.2004189775325358,
+            "cpu_self_ms": 0.44239795533940196,
+            "stream_inclusive_ms": 1.2992639541625977,
+            "stream_self_ms": 0.539423942565918
+          },
+          "encoder_lookup": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 0.19272702047601342,
+            "cpu_self_ms": 0.19272702047601342,
+            "stream_inclusive_ms": 0.16905600391328335,
+            "stream_self_ms": 0.16905600391328335
+          },
+          "encoder_nn": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 0.9159990004263818,
+            "cpu_self_ms": 0.9159990004263818,
+            "stream_inclusive_ms": 0.9594240188598633,
+            "stream_self_ms": 0.9594240188598633
+          },
+          "duration_head": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.8077080128714442,
+            "cpu_self_ms": 0.8077080128714442,
+            "stream_inclusive_ms": 0.8761919736862183,
+            "stream_self_ms": 0.8761919736862183
+          },
+          "hybrid_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 301.3169000041671,
+            "cpu_self_ms": 0.16320805298164487,
+            "stream_inclusive_ms": 334.8013610839844,
+            "stream_self_ms": 0.2148507535457611
+          },
+          "generate_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.4651480121538043,
+            "cpu_self_ms": 0.11444301344454288,
+            "stream_inclusive_ms": 0.5012800097465515,
+            "stream_self_ms": 0.13263999857008457
+          },
+          "alignment": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.2793489838950336,
+            "cpu_self_ms": 0.2793489838950336,
+            "stream_inclusive_ms": 0.2903999984264374,
+            "stream_self_ms": 0.2903999984264374
+          },
+          "masked_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 300.4091949551366,
+            "cpu_self_ms": 4.5780458021909,
+            "stream_inclusive_ms": 333.7948303222656,
+            "stream_self_ms": 27.136302862490993
+          },
+          "loop_input": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 7.392127008643001,
+            "cpu_self_ms": 7.392127008643001,
+            "stream_inclusive_ms": 5.659136005968321,
+            "stream_self_ms": 5.659136005968321
+          },
+          "hidden_total": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 173.8527540001087,
+            "cpu_self_ms": 65.22281066281721,
+            "stream_inclusive_ms": 190.64025557041168,
+            "stream_self_ms": 81.95305543893483
+          },
+          "audio_embedding": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 6.853162019979209,
+            "cpu_self_ms": 6.853162019979209,
+            "stream_inclusive_ms": 5.933056000620127,
+            "stream_self_ms": 5.933056000620127
+          },
+          "text_lookup": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 5.721343739423901,
+            "cpu_self_ms": 5.721343739423901,
+            "stream_inclusive_ms": 4.121280002989806,
+            "stream_self_ms": 4.121280002989806
+          },
+          "time_embedding_nn": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 14.837526250630617,
+            "cpu_self_ms": 14.837526250630617,
+            "stream_inclusive_ms": 13.640927981585264,
+            "stream_self_ms": 13.640927981585264
+          },
+          "transformer_blocks": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 72.02137797139585,
+            "cpu_self_ms": 72.02137797139585,
+            "stream_inclusive_ms": 77.40688014030457,
+            "stream_self_ms": 77.40688014030457
+          },
+          "hidden_norm": {
+            "calls": 96.0,
+            "cpu_inclusive_ms": 9.196533355861902,
+            "cpu_self_ms": 9.196533355861902,
+            "stream_inclusive_ms": 7.585056005977094,
+            "stream_self_ms": 7.585056005977094
+          },
+          "cfg_mix": {
+            "calls": 144.0,
+            "cpu_inclusive_ms": 35.99401522660628,
+            "cpu_self_ms": 35.99401522660628,
+            "stream_inclusive_ms": 35.78966396674514,
+            "stream_self_ms": 35.78966396674514
+          },
+          "vocab_projection": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 4.4554268242791295,
+            "cpu_self_ms": 4.4554268242791295,
+            "stream_inclusive_ms": 3.366143997758627,
+            "stream_self_ms": 3.366143997758627
+          },
+          "topk_filter": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 7.2396970936097205,
+            "cpu_self_ms": 7.2396970936097205,
+            "stream_inclusive_ms": 7.197376005351543,
+            "stream_self_ms": 7.197376005351543
+          },
+          "sampling": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 12.75776413967833,
+            "cpu_self_ms": 12.75776413967833,
+            "stream_inclusive_ms": 13.136895954608917,
+            "stream_self_ms": 13.136895954608917
+          },
+          "token_update": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 3.689817851409316,
+            "cpu_self_ms": 3.689817851409316,
+            "stream_inclusive_ms": 2.5318080014549196,
+            "stream_self_ms": 2.5318080014549196
+          },
+          "remask_schedule": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 5.7039608946070075,
+            "cpu_self_ms": 5.7039608946070075,
+            "stream_inclusive_ms": 5.29222403280437,
+            "stream_self_ms": 5.29222403280437
+          },
+          "stop_check": {
+            "calls": 48.0,
+            "cpu_inclusive_ms": 7.004101818893105,
+            "cpu_self_ms": 7.004101818893105,
+            "stream_inclusive_ms": 6.835872039198875,
+            "stream_self_ms": 6.835872039198875
+          },
+          "confidence_softmax": {
+            "calls": 47.0,
+            "cpu_inclusive_ms": 4.986534011550248,
+            "cpu_self_ms": 4.986534011550248,
+            "stream_inclusive_ms": 4.405727978795767,
+            "stream_self_ms": 4.405727978795767
+          },
+          "confidence_score": {
+            "calls": 94.0,
+            "cpu_inclusive_ms": 17.82974717207253,
+            "cpu_self_ms": 17.82974717207253,
+            "stream_inclusive_ms": 17.602527911774814,
+            "stream_self_ms": 17.602527911774814
+          },
+          "remask_rank": {
+            "calls": 47.0,
+            "cpu_inclusive_ms": 10.32293401658535,
+            "cpu_self_ms": 10.32293401658535,
+            "stream_inclusive_ms": 10.406367991119623,
+            "stream_self_ms": 10.406367991119623
+          },
+          "mask_update": {
+            "calls": 47.0,
+            "cpu_inclusive_ms": 4.602269094903022,
+            "cpu_self_ms": 4.602269094903022,
+            "stream_inclusive_ms": 3.794528003782034,
+            "stream_self_ms": 3.794528003782034
+          }
+        }
+      ],
+      "median_profile": {
+        "t2s_total": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 303.7769540096633,
+          "cpu_self_ms": 0.1248010084964335,
+          "stream_inclusive_ms": 337.4056091308594,
+          "stream_self_ms": 0.09048151969909668
+        },
+        "duration_total": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 2.3352529969997704,
+          "cpu_self_ms": 0.3271260065957904,
+          "stream_inclusive_ms": 2.510688066482544,
+          "stream_self_ms": 0.3566399812698364
+        },
+        "duration_encoder": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 1.2004189775325358,
+          "cpu_self_ms": 0.44239795533940196,
+          "stream_inclusive_ms": 1.2992639541625977,
+          "stream_self_ms": 0.539423942565918
+        },
+        "encoder_lookup": {
+          "calls": 2.0,
+          "cpu_inclusive_ms": 0.19272702047601342,
+          "cpu_self_ms": 0.19272702047601342,
+          "stream_inclusive_ms": 0.16905600391328335,
+          "stream_self_ms": 0.16905600391328335
+        },
+        "encoder_nn": {
+          "calls": 2.0,
+          "cpu_inclusive_ms": 0.9159990004263818,
+          "cpu_self_ms": 0.9159990004263818,
+          "stream_inclusive_ms": 0.9594240188598633,
+          "stream_self_ms": 0.9594240188598633
+        },
+        "duration_head": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 0.8077080128714442,
+          "cpu_self_ms": 0.8077080128714442,
+          "stream_inclusive_ms": 0.8761919736862183,
+          "stream_self_ms": 0.8761919736862183
+        },
+        "hybrid_generate": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 301.3169000041671,
+          "cpu_self_ms": 0.16320805298164487,
+          "stream_inclusive_ms": 334.8013610839844,
+          "stream_self_ms": 0.2148507535457611
+        },
+        "generate_encoder": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 0.5643169861286879,
+          "cpu_self_ms": 0.14038902008906007,
+          "stream_inclusive_ms": 0.6056640148162842,
+          "stream_self_ms": 0.18118402361869812
+        },
+        "alignment": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 0.3254589973948896,
+          "cpu_self_ms": 0.3254589973948896,
+          "stream_inclusive_ms": 0.3264319896697998,
+          "stream_self_ms": 0.3264319896697998
+        },
+        "masked_generate": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 300.4091949551366,
+          "cpu_self_ms": 4.5780458021909,
+          "stream_inclusive_ms": 333.7948303222656,
+          "stream_self_ms": 27.136302862490993
+        },
+        "loop_input": {
+          "calls": 96.0,
+          "cpu_inclusive_ms": 7.392127008643001,
+          "cpu_self_ms": 7.392127008643001,
+          "stream_inclusive_ms": 5.659136005968321,
+          "stream_self_ms": 5.659136005968321
+        },
+        "hidden_total": {
+          "calls": 96.0,
+          "cpu_inclusive_ms": 173.8527540001087,
+          "cpu_self_ms": 65.22281066281721,
+          "stream_inclusive_ms": 190.64025557041168,
+          "stream_self_ms": 81.95305543893483
+        },
+        "audio_embedding": {
+          "calls": 96.0,
+          "cpu_inclusive_ms": 6.853162019979209,
+          "cpu_self_ms": 6.853162019979209,
+          "stream_inclusive_ms": 5.933056000620127,
+          "stream_self_ms": 5.933056000620127
+        },
+        "text_lookup": {
+          "calls": 96.0,
+          "cpu_inclusive_ms": 5.637266673147678,
+          "cpu_self_ms": 5.637266673147678,
+          "stream_inclusive_ms": 4.085312010545749,
+          "stream_self_ms": 4.085312010545749
+        },
+        "time_embedding_nn": {
+          "calls": 96.0,
+          "cpu_inclusive_ms": 14.837526250630617,
+          "cpu_self_ms": 14.837526250630617,
+          "stream_inclusive_ms": 13.640927981585264,
+          "stream_self_ms": 13.640927981585264
+        },
+        "transformer_blocks": {
+          "calls": 96.0,
+          "cpu_inclusive_ms": 72.02137797139585,
+          "cpu_self_ms": 72.02137797139585,
+          "stream_inclusive_ms": 77.40688014030457,
+          "stream_self_ms": 77.40688014030457
+        },
+        "hidden_norm": {
+          "calls": 96.0,
+          "cpu_inclusive_ms": 9.196533355861902,
+          "cpu_self_ms": 9.196533355861902,
+          "stream_inclusive_ms": 7.585056005977094,
+          "stream_self_ms": 7.585056005977094
+        },
+        "cfg_mix": {
+          "calls": 144.0,
+          "cpu_inclusive_ms": 35.99401522660628,
+          "cpu_self_ms": 35.99401522660628,
+          "stream_inclusive_ms": 35.78966396674514,
+          "stream_self_ms": 35.78966396674514
+        },
+        "vocab_projection": {
+          "calls": 48.0,
+          "cpu_inclusive_ms": 4.4554268242791295,
+          "cpu_self_ms": 4.4554268242791295,
+          "stream_inclusive_ms": 3.4714880399405956,
+          "stream_self_ms": 3.4714880399405956
+        },
+        "topk_filter": {
+          "calls": 48.0,
+          "cpu_inclusive_ms": 7.2396970936097205,
+          "cpu_self_ms": 7.2396970936097205,
+          "stream_inclusive_ms": 7.197376005351543,
+          "stream_self_ms": 7.197376005351543
+        },
+        "sampling": {
+          "calls": 48.0,
+          "cpu_inclusive_ms": 12.75776413967833,
+          "cpu_self_ms": 12.75776413967833,
+          "stream_inclusive_ms": 13.136895954608917,
+          "stream_self_ms": 13.136895954608917
+        },
+        "token_update": {
+          "calls": 48.0,
+          "cpu_inclusive_ms": 3.689817851409316,
+          "cpu_self_ms": 3.689817851409316,
+          "stream_inclusive_ms": 2.5318080014549196,
+          "stream_self_ms": 2.5318080014549196
+        },
+        "remask_schedule": {
+          "calls": 48.0,
+          "cpu_inclusive_ms": 5.7039608946070075,
+          "cpu_self_ms": 5.7039608946070075,
+          "stream_inclusive_ms": 5.29222403280437,
+          "stream_self_ms": 5.29222403280437
+        },
+        "stop_check": {
+          "calls": 48.0,
+          "cpu_inclusive_ms": 7.004101818893105,
+          "cpu_self_ms": 7.004101818893105,
+          "stream_inclusive_ms": 6.835872039198875,
+          "stream_self_ms": 6.835872039198875
+        },
+        "confidence_softmax": {
+          "calls": 47.0,
+          "cpu_inclusive_ms": 4.986534011550248,
+          "cpu_self_ms": 4.986534011550248,
+          "stream_inclusive_ms": 4.405727978795767,
+          "stream_self_ms": 4.405727978795767
+        },
+        "confidence_score": {
+          "calls": 94.0,
+          "cpu_inclusive_ms": 17.82974717207253,
+          "cpu_self_ms": 17.82974717207253,
+          "stream_inclusive_ms": 17.602527911774814,
+          "stream_self_ms": 17.602527911774814
+        },
+        "remask_rank": {
+          "calls": 47.0,
+          "cpu_inclusive_ms": 10.396428813692182,
+          "cpu_self_ms": 10.396428813692182,
+          "stream_inclusive_ms": 10.406367991119623,
+          "stream_self_ms": 10.406367991119623
+        },
+        "mask_update": {
+          "calls": 47.0,
+          "cpu_inclusive_ms": 4.602269094903022,
+          "cpu_self_ms": 4.602269094903022,
+          "stream_inclusive_ms": 3.794528003782034,
+          "stream_self_ms": 3.794528003782034
+        }
+      },
+      "generated_ids_identical": true,
+      "baseline_median_s": {
+        "text_preprocess_s": 0.0001266149920411408,
+        "duration_s": 0.001373771985527128,
+        "t2s_tokens_s": 0.1974143279949203,
+        "s2m_s": 0.036914703028742224,
+        "vocoder_s": 0.033459351980127394,
+        "end_to_end_s": 0.2693302289699204
+      }
+    },
+    "medium": {
+      "baseline_runs": [
+        {
+          "text_preprocess_s": 0.0005693690036423504,
+          "duration_s": 0.0016100559732876718,
+          "t2s_tokens_s": 0.2717068860074505,
+          "s2m_s": 0.07416828302666545,
+          "vocoder_s": 0.03588396398117766,
+          "end_to_end_s": 0.38393855799222365
+        },
+        {
+          "text_preprocess_s": 0.000526549993082881,
+          "duration_s": 0.0019414889975450933,
+          "t2s_tokens_s": 0.2558592980494723,
+          "s2m_s": 0.07448637299239635,
+          "vocoder_s": 0.036410528991837054,
+          "end_to_end_s": 0.36922423902433366
+        },
+        {
+          "text_preprocess_s": 0.0005022409604862332,
+          "duration_s": 0.0017110980115830898,
+          "t2s_tokens_s": 0.2560314229922369,
+          "s2m_s": 0.07385451497975737,
+          "vocoder_s": 0.03382247104309499,
+          "end_to_end_s": 0.3659217479871586
+        }
+      ],
+      "profiles": [
+        {
+          "t2s_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 333.8099700049497,
+            "cpu_self_ms": 0.08130102651193738,
+            "stream_inclusive_ms": 370.8177185058594,
+            "stream_self_ms": 0.013872146606445312
+          },
+          "duration_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 2.0214259857311845,
+            "cpu_self_ms": 0.4233409999869764,
+            "stream_inclusive_ms": 2.2295360565185547,
+            "stream_self_ms": 0.5568000674247742
+          },
+          "duration_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.9974400163628161,
+            "cpu_self_ms": 0.22499600891023874,
+            "stream_inclusive_ms": 1.0611519813537598,
+            "stream_self_ms": 0.2521919757127762
+          },
+          "encoder_lookup": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 0.14465703861787915,
+            "cpu_self_ms": 0.14465703861787915,
+            "stream_inclusive_ms": 0.139615997672081,
+            "stream_self_ms": 0.139615997672081
+          },
+          "encoder_nn": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 1.235302013810724,
+            "cpu_self_ms": 1.235302013810724,
+            "stream_inclusive_ms": 1.329375982284546,
+            "stream_self_ms": 1.329375982284546
+          },
+          "duration_head": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.600644969381392,
+            "cpu_self_ms": 0.600644969381392,
+            "stream_inclusive_ms": 0.6115840077400208,
+            "stream_self_ms": 0.6115840077400208
+          },
+          "hybrid_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 331.7072429927066,
+            "cpu_self_ms": 0.13767107157036662,
+            "stream_inclusive_ms": 368.5743103027344,
+            "stream_self_ms": 0.2041093409061432
+          },
+          "generate_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.7094689644873142,
+            "cpu_self_ms": 0.1019539195112884,
+            "stream_inclusive_ms": 0.7656959891319275,
+            "stream_self_ms": 0.10566401481628418
+          },
+          "alignment": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.26800797786563635,
+            "cpu_self_ms": 0.26800797786563635,
+            "stream_inclusive_ms": 0.2703680098056793,
+            "stream_self_ms": 0.2703680098056793
+          },
+          "masked_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 330.5920949787833,
+            "cpu_self_ms": 4.06073295744136,
+            "stream_inclusive_ms": 367.3341369628906,
+            "stream_self_ms": 23.42700176651124
+          },
+          "loop_input": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 6.838471977971494,
+            "cpu_self_ms": 6.838471977971494,
+            "stream_inclusive_ms": 5.351040001842193,
+            "stream_self_ms": 5.351040001842193
+          },
+          "hidden_total": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 214.9196420214139,
+            "cpu_self_ms": 57.14074044954032,
+            "stream_inclusive_ms": 236.64079916477203,
+            "stream_self_ms": 70.78851077426225
+          },
+          "audio_embedding": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 8.135865035001189,
+            "cpu_self_ms": 8.135865035001189,
+            "stream_inclusive_ms": 7.257312029134482,
+            "stream_self_ms": 7.257312029134482
+          },
+          "text_lookup": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 5.408992059528828,
+            "cpu_self_ms": 5.408992059528828,
+            "stream_inclusive_ms": 4.598527984227985,
+            "stream_self_ms": 4.598527984227985
+          },
+          "time_embedding_nn": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 13.026384986005723,
+            "cpu_self_ms": 13.026384986005723,
+            "stream_inclusive_ms": 12.459999961778522,
+            "stream_self_ms": 12.459999961778522
+          },
+          "transformer_blocks": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 123.52927477331832,
+            "cpu_self_ms": 123.52927477331832,
+            "stream_inclusive_ms": 134.7063684463501,
+            "stream_self_ms": 134.7063684463501
+          },
+          "hidden_norm": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 7.678384718019515,
+            "cpu_self_ms": 7.678384718019515,
+            "stream_inclusive_ms": 6.830079969018698,
+            "stream_self_ms": 6.830079969018698
+          },
+          "cfg_mix": {
+            "calls": 150.0,
+            "cpu_inclusive_ms": 30.102401971817017,
+            "cpu_self_ms": 30.102401971817017,
+            "stream_inclusive_ms": 30.25727991014719,
+            "stream_self_ms": 30.25727991014719
+          },
+          "vocab_projection": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 4.723791847936809,
+            "cpu_self_ms": 4.723791847936809,
+            "stream_inclusive_ms": 4.176288012415171,
+            "stream_self_ms": 4.176288012415171
+          },
+          "topk_filter": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 6.794211862143129,
+            "cpu_self_ms": 6.794211862143129,
+            "stream_inclusive_ms": 6.233695983886719,
+            "stream_self_ms": 6.233695983886719
+          },
+          "sampling": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 11.448906792793423,
+            "cpu_self_ms": 11.448906792793423,
+            "stream_inclusive_ms": 11.790176026523113,
+            "stream_self_ms": 11.790176026523113
+          },
+          "token_update": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 3.3086647163145244,
+            "cpu_self_ms": 3.3086647163145244,
+            "stream_inclusive_ms": 2.5911999861709774,
+            "stream_self_ms": 2.5911999861709774
+          },
+          "remask_schedule": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 5.05832809722051,
+            "cpu_self_ms": 5.05832809722051,
+            "stream_inclusive_ms": 4.5913599990308285,
+            "stream_self_ms": 4.5913599990308285
+          },
+          "stop_check": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 7.247381145134568,
+            "cpu_self_ms": 7.247381145134568,
+            "stream_inclusive_ms": 7.356480039656162,
+            "stream_self_ms": 7.356480039656162
+          },
+          "confidence_softmax": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 4.532624036073685,
+            "cpu_self_ms": 4.532624036073685,
+            "stream_inclusive_ms": 3.7996800020337105,
+            "stream_self_ms": 3.7996800020337105
+          },
+          "confidence_score": {
+            "calls": 98.0,
+            "cpu_inclusive_ms": 17.273872799705714,
+            "cpu_self_ms": 17.273872799705714,
+            "stream_inclusive_ms": 16.921536007896066,
+            "stream_self_ms": 16.921536007896066
+          },
+          "remask_rank": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 9.94086975697428,
+            "cpu_self_ms": 9.94086975697428,
+            "stream_inclusive_ms": 10.561472043395042,
+            "stream_self_ms": 10.561472043395042
+          },
+          "mask_update": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 4.342194995842874,
+            "cpu_self_ms": 4.342194995842874,
+            "stream_inclusive_ms": 3.6361280186101794,
+            "stream_self_ms": 3.6361280186101794
+          }
+        },
+        {
+          "t2s_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 316.6510839946568,
+            "cpu_self_ms": 0.07419497705996037,
+            "stream_inclusive_ms": 351.77374267578125,
+            "stream_self_ms": 0.04013180732727051
+          },
+          "duration_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 1.980253029614687,
+            "cpu_self_ms": 0.2658150624483824,
+            "stream_inclusive_ms": 2.1850879192352295,
+            "stream_self_ms": 0.2630719542503357
+          },
+          "duration_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 1.235230010934174,
+            "cpu_self_ms": 0.31845702324062586,
+            "stream_inclusive_ms": 1.4155199527740479,
+            "stream_self_ms": 0.4661439433693886
+          },
+          "encoder_lookup": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 0.16458705067634583,
+            "cpu_self_ms": 0.16458705067634583,
+            "stream_inclusive_ms": 0.14377600327134132,
+            "stream_self_ms": 0.14377600327134132
+          },
+          "encoder_nn": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 1.3580029481090605,
+            "cpu_self_ms": 1.3580029481090605,
+            "stream_inclusive_ms": 1.4449599981307983,
+            "stream_self_ms": 1.4449599981307983
+          },
+          "duration_head": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.4792079562321305,
+            "cpu_self_ms": 0.4792079562321305,
+            "stream_inclusive_ms": 0.506496012210846,
+            "stream_self_ms": 0.506496012210846
+          },
+          "hybrid_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 314.59663598798215,
+            "cpu_self_ms": 0.1686250325292349,
+            "stream_inclusive_ms": 349.54852294921875,
+            "stream_self_ms": 0.24249592423439026
+          },
+          "generate_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.7218809914775193,
+            "cpu_self_ms": 0.11606398038566113,
+            "stream_inclusive_ms": 0.7928320169448853,
+            "stream_self_ms": 0.15347202494740486
+          },
+          "alignment": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.4143929691053927,
+            "cpu_self_ms": 0.4143929691053927,
+            "stream_inclusive_ms": 0.4185599982738495,
+            "stream_self_ms": 0.4185599982738495
+          },
+          "masked_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 313.29173699487,
+            "cpu_self_ms": 3.8933453615754843,
+            "stream_inclusive_ms": 348.0946350097656,
+            "stream_self_ms": 23.117483322042972
+          },
+          "loop_input": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 6.538970919791609,
+            "cpu_self_ms": 6.538970919791609,
+            "stream_inclusive_ms": 4.869632008951157,
+            "stream_self_ms": 4.869632008951157
+          },
+          "hidden_total": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 206.42517134547234,
+            "cpu_self_ms": 53.12496790429577,
+            "stream_inclusive_ms": 227.63574373722076,
+            "stream_self_ms": 66.47193579073064
+          },
+          "audio_embedding": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 7.463742746040225,
+            "cpu_self_ms": 7.463742746040225,
+            "stream_inclusive_ms": 6.831328026019037,
+            "stream_self_ms": 6.831328026019037
+          },
+          "text_lookup": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 5.307913233991712,
+            "cpu_self_ms": 5.307913233991712,
+            "stream_inclusive_ms": 4.427743986481801,
+            "stream_self_ms": 4.427743986481801
+          },
+          "time_embedding_nn": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 11.99039357015863,
+            "cpu_self_ms": 11.99039357015863,
+            "stream_inclusive_ms": 11.274304036051035,
+            "stream_self_ms": 11.274304036051035
+          },
+          "transformer_blocks": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 121.27678765682504,
+            "cpu_self_ms": 121.27678765682504,
+            "stream_inclusive_ms": 132.45743989944458,
+            "stream_self_ms": 132.45743989944458
+          },
+          "hidden_norm": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 7.26136623416096,
+            "cpu_self_ms": 7.26136623416096,
+            "stream_inclusive_ms": 6.172991998493671,
+            "stream_self_ms": 6.172991998493671
+          },
+          "cfg_mix": {
+            "calls": 150.0,
+            "cpu_inclusive_ms": 27.82881708117202,
+            "cpu_self_ms": 27.82881708117202,
+            "stream_inclusive_ms": 28.388095947448164,
+            "stream_self_ms": 28.388095947448164
+          },
+          "vocab_projection": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 4.193712316919118,
+            "cpu_self_ms": 4.193712316919118,
+            "stream_inclusive_ms": 3.6536320010200143,
+            "stream_self_ms": 3.6536320010200143
+          },
+          "topk_filter": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 5.955300992354751,
+            "cpu_self_ms": 5.955300992354751,
+            "stream_inclusive_ms": 5.769280012696981,
+            "stream_self_ms": 5.769280012696981
+          },
+          "sampling": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 9.917445946484804,
+            "cpu_self_ms": 9.917445946484804,
+            "stream_inclusive_ms": 10.629184015095234,
+            "stream_self_ms": 10.629184015095234
+          },
+          "token_update": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 3.135204256977886,
+            "cpu_self_ms": 3.135204256977886,
+            "stream_inclusive_ms": 2.4099839911796153,
+            "stream_self_ms": 2.4099839911796153
+          },
+          "remask_schedule": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 4.593449179083109,
+            "cpu_self_ms": 4.593449179083109,
+            "stream_inclusive_ms": 3.9901440171524882,
+            "stream_self_ms": 3.9901440171524882
+          },
+          "stop_check": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 6.684020918328315,
+            "cpu_self_ms": 6.684020918328315,
+            "stream_inclusive_ms": 6.73023995757103,
+            "stream_self_ms": 6.73023995757103
+          },
+          "confidence_softmax": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 5.877919029444456,
+            "cpu_self_ms": 5.877919029444456,
+            "stream_inclusive_ms": 3.465664017945528,
+            "stream_self_ms": 3.465664017945528
+          },
+          "confidence_score": {
+            "calls": 98.0,
+            "cpu_inclusive_ms": 15.430117433425039,
+            "cpu_self_ms": 15.430117433425039,
+            "stream_inclusive_ms": 15.175360037945211,
+            "stream_self_ms": 15.175360037945211
+          },
+          "remask_rank": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 8.982549945358187,
+            "cpu_self_ms": 8.982549945358187,
+            "stream_inclusive_ms": 9.065567955374718,
+            "stream_self_ms": 9.065567955374718
+          },
+          "mask_update": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 3.8357122684828937,
+            "cpu_self_ms": 3.8357122684828937,
+            "stream_inclusive_ms": 3.194623988121748,
+            "stream_self_ms": 3.194623988121748
+          }
+        },
+        {
+          "t2s_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 321.4319119579159,
+            "cpu_self_ms": 0.09944703197106719,
+            "stream_inclusive_ms": 357.0840759277344,
+            "stream_self_ms": 0.08901000022888184
+          },
+          "duration_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 2.193879976402968,
+            "cpu_self_ms": 0.2796449698507786,
+            "stream_inclusive_ms": 2.419840097427368,
+            "stream_self_ms": 0.324640154838562
+          },
+          "duration_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 1.209183013997972,
+            "cpu_self_ms": 0.29262894531711936,
+            "stream_inclusive_ms": 1.3495999574661255,
+            "stream_self_ms": 0.33433595299720764
+          },
+          "encoder_lookup": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 0.2470260951668024,
+            "cpu_self_ms": 0.2470260951668024,
+            "stream_inclusive_ms": 0.22406400367617607,
+            "stream_self_ms": 0.22406400367617607
+          },
+          "encoder_nn": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 1.3340080622583628,
+            "cpu_self_ms": 1.3340080622583628,
+            "stream_inclusive_ms": 1.4729920029640198,
+            "stream_self_ms": 1.4729920029640198
+          },
+          "duration_head": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.7050519925542176,
+            "cpu_self_ms": 0.7050519925542176,
+            "stream_inclusive_ms": 0.7455999851226807,
+            "stream_self_ms": 0.7455999851226807
+          },
+          "hybrid_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 319.13858494954184,
+            "cpu_self_ms": 0.25418592849746346,
+            "stream_inclusive_ms": 354.5752258300781,
+            "stream_self_ms": 0.3134307563304901
+          },
+          "generate_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.8067340240813792,
+            "cpu_self_ms": 0.14225393533706665,
+            "stream_inclusive_ms": 0.8725759983062744,
+            "stream_self_ms": 0.19078399613499641
+          },
+          "alignment": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.3931479877792299,
+            "cpu_self_ms": 0.3931479877792299,
+            "stream_inclusive_ms": 0.4116800129413605,
+            "stream_self_ms": 0.4116800129413605
+          },
+          "masked_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 317.68451700918376,
+            "cpu_self_ms": 4.150299006141722,
+            "stream_inclusive_ms": 352.9775390625,
+            "stream_self_ms": 21.638179068395402
+          },
+          "loop_input": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 5.832229042425752,
+            "cpu_self_ms": 5.832229042425752,
+            "stream_inclusive_ms": 4.508543990610633,
+            "stream_self_ms": 4.508543990610633
+          },
+          "hidden_total": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 210.87844151770696,
+            "cpu_self_ms": 54.24549424787983,
+            "stream_inclusive_ms": 232.55593609809875,
+            "stream_self_ms": 68.64991944737267
+          },
+          "audio_embedding": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 7.459210057277232,
+            "cpu_self_ms": 7.459210057277232,
+            "stream_inclusive_ms": 6.539647997356951,
+            "stream_self_ms": 6.539647997356951
+          },
+          "text_lookup": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 5.631113075651228,
+            "cpu_self_ms": 5.631113075651228,
+            "stream_inclusive_ms": 4.772127990261652,
+            "stream_self_ms": 4.772127990261652
+          },
+          "time_embedding_nn": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 13.229404925368726,
+            "cpu_self_ms": 13.229404925368726,
+            "stream_inclusive_ms": 11.897503968328238,
+            "stream_self_ms": 11.897503968328238
+          },
+          "transformer_blocks": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 122.83783120801672,
+            "cpu_self_ms": 122.83783120801672,
+            "stream_inclusive_ms": 134.2988166809082,
+            "stream_self_ms": 134.2988166809082
+          },
+          "hidden_norm": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 7.475388003513217,
+            "cpu_self_ms": 7.475388003513217,
+            "stream_inclusive_ms": 6.397920013871044,
+            "stream_self_ms": 6.397920013871044
+          },
+          "cfg_mix": {
+            "calls": 150.0,
+            "cpu_inclusive_ms": 29.774972528684884,
+            "cpu_self_ms": 29.774972528684884,
+            "stream_inclusive_ms": 29.938304034993052,
+            "stream_self_ms": 29.938304034993052
+          },
+          "vocab_projection": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 4.704011837020516,
+            "cpu_self_ms": 4.704011837020516,
+            "stream_inclusive_ms": 4.26035201177001,
+            "stream_self_ms": 4.26035201177001
+          },
+          "topk_filter": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 6.540631991811097,
+            "cpu_self_ms": 6.540631991811097,
+            "stream_inclusive_ms": 6.200607990846038,
+            "stream_self_ms": 6.200607990846038
+          },
+          "sampling": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 10.305095987860113,
+            "cpu_self_ms": 10.305095987860113,
+            "stream_inclusive_ms": 10.871040008962154,
+            "stream_self_ms": 10.871040008962154
+          },
+          "token_update": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 3.0775919440202415,
+            "cpu_self_ms": 3.0775919440202415,
+            "stream_inclusive_ms": 2.2690240126103163,
+            "stream_self_ms": 2.2690240126103163
+          },
+          "remask_schedule": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 4.837981075979769,
+            "cpu_self_ms": 4.837981075979769,
+            "stream_inclusive_ms": 4.625056009739637,
+            "stream_self_ms": 4.625056009739637
+          },
+          "stop_check": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 6.584902876056731,
+            "cpu_self_ms": 6.584902876056731,
+            "stream_inclusive_ms": 6.7374719232320786,
+            "stream_self_ms": 6.7374719232320786
+          },
+          "confidence_softmax": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 3.985624120105058,
+            "cpu_self_ms": 3.985624120105058,
+            "stream_inclusive_ms": 3.1584959849715233,
+            "stream_self_ms": 3.1584959849715233
+          },
+          "confidence_score": {
+            "calls": 98.0,
+            "cpu_inclusive_ms": 14.426643087062985,
+            "cpu_self_ms": 14.426643087062985,
+            "stream_inclusive_ms": 13.936639950610697,
+            "stream_self_ms": 13.936639950610697
+          },
+          "remask_rank": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 8.762021141592413,
+            "cpu_self_ms": 8.762021141592413,
+            "stream_inclusive_ms": 9.046367973089218,
+            "stream_self_ms": 9.046367973089218
+          },
+          "mask_update": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 3.824070852715522,
+            "cpu_self_ms": 3.824070852715522,
+            "stream_inclusive_ms": 3.231520004570484,
+            "stream_self_ms": 3.231520004570484
+          }
+        }
+      ],
+      "median_profile": {
+        "t2s_total": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 321.4319119579159,
+          "cpu_self_ms": 0.08130102651193738,
+          "stream_inclusive_ms": 357.0840759277344,
+          "stream_self_ms": 0.04013180732727051
+        },
+        "duration_total": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 2.0214259857311845,
+          "cpu_self_ms": 0.2796449698507786,
+          "stream_inclusive_ms": 2.2295360565185547,
+          "stream_self_ms": 0.324640154838562
+        },
+        "duration_encoder": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 1.209183013997972,
+          "cpu_self_ms": 0.29262894531711936,
+          "stream_inclusive_ms": 1.3495999574661255,
+          "stream_self_ms": 0.33433595299720764
+        },
+        "encoder_lookup": {
+          "calls": 2.0,
+          "cpu_inclusive_ms": 0.16458705067634583,
+          "cpu_self_ms": 0.16458705067634583,
+          "stream_inclusive_ms": 0.14377600327134132,
+          "stream_self_ms": 0.14377600327134132
+        },
+        "encoder_nn": {
+          "calls": 2.0,
+          "cpu_inclusive_ms": 1.3340080622583628,
+          "cpu_self_ms": 1.3340080622583628,
+          "stream_inclusive_ms": 1.4449599981307983,
+          "stream_self_ms": 1.4449599981307983
+        },
+        "duration_head": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 0.600644969381392,
+          "cpu_self_ms": 0.600644969381392,
+          "stream_inclusive_ms": 0.6115840077400208,
+          "stream_self_ms": 0.6115840077400208
+        },
+        "hybrid_generate": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 319.13858494954184,
+          "cpu_self_ms": 0.1686250325292349,
+          "stream_inclusive_ms": 354.5752258300781,
+          "stream_self_ms": 0.24249592423439026
+        },
+        "generate_encoder": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 0.7218809914775193,
+          "cpu_self_ms": 0.11606398038566113,
+          "stream_inclusive_ms": 0.7928320169448853,
+          "stream_self_ms": 0.15347202494740486
+        },
+        "alignment": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 0.3931479877792299,
+          "cpu_self_ms": 0.3931479877792299,
+          "stream_inclusive_ms": 0.4116800129413605,
+          "stream_self_ms": 0.4116800129413605
+        },
+        "masked_generate": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 317.68451700918376,
+          "cpu_self_ms": 4.06073295744136,
+          "stream_inclusive_ms": 352.9775390625,
+          "stream_self_ms": 23.117483322042972
+        },
+        "loop_input": {
+          "calls": 100.0,
+          "cpu_inclusive_ms": 6.538970919791609,
+          "cpu_self_ms": 6.538970919791609,
+          "stream_inclusive_ms": 4.869632008951157,
+          "stream_self_ms": 4.869632008951157
+        },
+        "hidden_total": {
+          "calls": 100.0,
+          "cpu_inclusive_ms": 210.87844151770696,
+          "cpu_self_ms": 54.24549424787983,
+          "stream_inclusive_ms": 232.55593609809875,
+          "stream_self_ms": 68.64991944737267
+        },
+        "audio_embedding": {
+          "calls": 100.0,
+          "cpu_inclusive_ms": 7.463742746040225,
+          "cpu_self_ms": 7.463742746040225,
+          "stream_inclusive_ms": 6.831328026019037,
+          "stream_self_ms": 6.831328026019037
+        },
+        "text_lookup": {
+          "calls": 100.0,
+          "cpu_inclusive_ms": 5.408992059528828,
+          "cpu_self_ms": 5.408992059528828,
+          "stream_inclusive_ms": 4.598527984227985,
+          "stream_self_ms": 4.598527984227985
+        },
+        "time_embedding_nn": {
+          "calls": 100.0,
+          "cpu_inclusive_ms": 13.026384986005723,
+          "cpu_self_ms": 13.026384986005723,
+          "stream_inclusive_ms": 11.897503968328238,
+          "stream_self_ms": 11.897503968328238
+        },
+        "transformer_blocks": {
+          "calls": 100.0,
+          "cpu_inclusive_ms": 122.83783120801672,
+          "cpu_self_ms": 122.83783120801672,
+          "stream_inclusive_ms": 134.2988166809082,
+          "stream_self_ms": 134.2988166809082
+        },
+        "hidden_norm": {
+          "calls": 100.0,
+          "cpu_inclusive_ms": 7.475388003513217,
+          "cpu_self_ms": 7.475388003513217,
+          "stream_inclusive_ms": 6.397920013871044,
+          "stream_self_ms": 6.397920013871044
+        },
+        "cfg_mix": {
+          "calls": 150.0,
+          "cpu_inclusive_ms": 29.774972528684884,
+          "cpu_self_ms": 29.774972528684884,
+          "stream_inclusive_ms": 29.938304034993052,
+          "stream_self_ms": 29.938304034993052
+        },
+        "vocab_projection": {
+          "calls": 50.0,
+          "cpu_inclusive_ms": 4.704011837020516,
+          "cpu_self_ms": 4.704011837020516,
+          "stream_inclusive_ms": 4.176288012415171,
+          "stream_self_ms": 4.176288012415171
+        },
+        "topk_filter": {
+          "calls": 50.0,
+          "cpu_inclusive_ms": 6.540631991811097,
+          "cpu_self_ms": 6.540631991811097,
+          "stream_inclusive_ms": 6.200607990846038,
+          "stream_self_ms": 6.200607990846038
+        },
+        "sampling": {
+          "calls": 50.0,
+          "cpu_inclusive_ms": 10.305095987860113,
+          "cpu_self_ms": 10.305095987860113,
+          "stream_inclusive_ms": 10.871040008962154,
+          "stream_self_ms": 10.871040008962154
+        },
+        "token_update": {
+          "calls": 50.0,
+          "cpu_inclusive_ms": 3.135204256977886,
+          "cpu_self_ms": 3.135204256977886,
+          "stream_inclusive_ms": 2.4099839911796153,
+          "stream_self_ms": 2.4099839911796153
+        },
+        "remask_schedule": {
+          "calls": 50.0,
+          "cpu_inclusive_ms": 4.837981075979769,
+          "cpu_self_ms": 4.837981075979769,
+          "stream_inclusive_ms": 4.5913599990308285,
+          "stream_self_ms": 4.5913599990308285
+        },
+        "stop_check": {
+          "calls": 50.0,
+          "cpu_inclusive_ms": 6.684020918328315,
+          "cpu_self_ms": 6.684020918328315,
+          "stream_inclusive_ms": 6.7374719232320786,
+          "stream_self_ms": 6.7374719232320786
+        },
+        "confidence_softmax": {
+          "calls": 49.0,
+          "cpu_inclusive_ms": 4.532624036073685,
+          "cpu_self_ms": 4.532624036073685,
+          "stream_inclusive_ms": 3.465664017945528,
+          "stream_self_ms": 3.465664017945528
+        },
+        "confidence_score": {
+          "calls": 98.0,
+          "cpu_inclusive_ms": 15.430117433425039,
+          "cpu_self_ms": 15.430117433425039,
+          "stream_inclusive_ms": 15.175360037945211,
+          "stream_self_ms": 15.175360037945211
+        },
+        "remask_rank": {
+          "calls": 49.0,
+          "cpu_inclusive_ms": 8.982549945358187,
+          "cpu_self_ms": 8.982549945358187,
+          "stream_inclusive_ms": 9.065567955374718,
+          "stream_self_ms": 9.065567955374718
+        },
+        "mask_update": {
+          "calls": 49.0,
+          "cpu_inclusive_ms": 3.8357122684828937,
+          "cpu_self_ms": 3.8357122684828937,
+          "stream_inclusive_ms": 3.231520004570484,
+          "stream_self_ms": 3.231520004570484
+        }
+      },
+      "generated_ids_identical": true,
+      "baseline_median_s": {
+        "text_preprocess_s": 0.000526549993082881,
+        "duration_s": 0.0017110980115830898,
+        "t2s_tokens_s": 0.2560314229922369,
+        "s2m_s": 0.07416828302666545,
+        "vocoder_s": 0.03588396398117766,
+        "end_to_end_s": 0.36922423902433366
+      }
+    },
+    "long": {
+      "baseline_runs": [
+        {
+          "text_preprocess_s": 0.001354974985588342,
+          "duration_s": 0.0019968520500697196,
+          "t2s_tokens_s": 0.3411966999992728,
+          "s2m_s": 0.20251918799476698,
+          "vocoder_s": 0.03746903594583273,
+          "end_to_end_s": 0.5845367509755306
+        },
+        {
+          "text_preprocess_s": 0.0013252280186861753,
+          "duration_s": 0.002638840989675373,
+          "t2s_tokens_s": 0.350162491959054,
+          "s2m_s": 0.19591448904247954,
+          "vocoder_s": 0.032683196011930704,
+          "end_to_end_s": 0.5827242460218258
+        },
+        {
+          "text_preprocess_s": 0.0013297219993546605,
+          "duration_s": 0.001965044008102268,
+          "t2s_tokens_s": 0.35931426199385896,
+          "s2m_s": 0.19636960100615397,
+          "vocoder_s": 0.037704094022046775,
+          "end_to_end_s": 0.5966827230295166
+        }
+      ],
+      "profiles": [
+        {
+          "t2s_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 424.56414899788797,
+            "cpu_self_ms": 0.06873300299048424,
+            "stream_inclusive_ms": 466.60089111328125,
+            "stream_self_ms": 0.040430307388305664
+          },
+          "duration_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 2.1252240403555334,
+            "cpu_self_ms": 0.2781340735964477,
+            "stream_inclusive_ms": 2.3150079250335693,
+            "stream_self_ms": 0.3535999059677124
+          },
+          "duration_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 1.2890399666503072,
+            "cpu_self_ms": 0.19856903236359358,
+            "stream_inclusive_ms": 1.3680959939956665,
+            "stream_self_ms": 0.195359967648983
+          },
+          "encoder_lookup": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 0.141948985401541,
+            "cpu_self_ms": 0.141948985401541,
+            "stream_inclusive_ms": 0.1427840031683445,
+            "stream_self_ms": 0.1427840031683445
+          },
+          "encoder_nn": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 1.9456459558568895,
+            "cpu_self_ms": 1.9456459558568895,
+            "stream_inclusive_ms": 2.0666240453720093,
+            "stream_self_ms": 2.0666240453720093
+          },
+          "duration_head": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.5580500001087785,
+            "cpu_self_ms": 0.5580500001087785,
+            "stream_inclusive_ms": 0.5933120250701904,
+            "stream_self_ms": 0.5933120250701904
+          },
+          "hybrid_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 422.37019195454195,
+            "cpu_self_ms": 0.1384969218634069,
+            "stream_inclusive_ms": 464.2454528808594,
+            "stream_self_ms": 0.23912614583969116
+          },
+          "generate_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 1.1461470276117325,
+            "cpu_self_ms": 0.1490230206400156,
+            "stream_inclusive_ms": 1.2364799976348877,
+            "stream_self_ms": 0.19980797544121742
+          },
+          "alignment": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.6132110138423741,
+            "cpu_self_ms": 0.6132110138423741,
+            "stream_inclusive_ms": 0.6418560147285461,
+            "stream_self_ms": 0.6418560147285461
+          },
+          "masked_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 420.47233699122444,
+            "cpu_self_ms": 4.751961736474186,
+            "stream_inclusive_ms": 462.12799072265625,
+            "stream_self_ms": 26.279190473491326
+          },
+          "loop_input": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 7.208376773633063,
+            "cpu_self_ms": 7.208376773633063,
+            "stream_inclusive_ms": 5.68086399580352,
+            "stream_self_ms": 5.68086399580352
+          },
+          "hidden_total": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 296.6568541014567,
+            "cpu_self_ms": 60.75224478263408,
+            "stream_inclusive_ms": 323.4702081680298,
+            "stream_self_ms": 77.8620485184365
+          },
+          "audio_embedding": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 9.064490033779293,
+            "cpu_self_ms": 9.064490033779293,
+            "stream_inclusive_ms": 7.182080004364252,
+            "stream_self_ms": 7.182080004364252
+          },
+          "text_lookup": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 5.830651265569031,
+            "cpu_self_ms": 5.830651265569031,
+            "stream_inclusive_ms": 4.1824959879159,
+            "stream_self_ms": 4.1824959879159
+          },
+          "time_embedding_nn": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 14.899760892149061,
+            "cpu_self_ms": 14.899760892149061,
+            "stream_inclusive_ms": 13.091712016612291,
+            "stream_self_ms": 13.091712016612291
+          },
+          "transformer_blocks": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 197.057553101331,
+            "cpu_self_ms": 197.057553101331,
+            "stream_inclusive_ms": 214.13139164447784,
+            "stream_self_ms": 214.13139164447784
+          },
+          "hidden_norm": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 9.052154025994241,
+            "cpu_self_ms": 9.052154025994241,
+            "stream_inclusive_ms": 7.020479996223003,
+            "stream_self_ms": 7.020479996223003
+          },
+          "cfg_mix": {
+            "calls": 150.0,
+            "cpu_inclusive_ms": 35.575816116761416,
+            "cpu_self_ms": 35.575816116761416,
+            "stream_inclusive_ms": 35.397408032789826,
+            "stream_self_ms": 35.397408032789826
+          },
+          "vocab_projection": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 5.359743896406144,
+            "cpu_self_ms": 5.359743896406144,
+            "stream_inclusive_ms": 4.647072039544582,
+            "stream_self_ms": 4.647072039544582
+          },
+          "topk_filter": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 8.111160597763956,
+            "cpu_self_ms": 8.111160597763956,
+            "stream_inclusive_ms": 7.496480006724596,
+            "stream_self_ms": 7.496480006724596
+          },
+          "sampling": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 11.635170667432249,
+            "cpu_self_ms": 11.635170667432249,
+            "stream_inclusive_ms": 11.523839997127652,
+            "stream_self_ms": 11.523839997127652
+          },
+          "token_update": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 3.2689730869606137,
+            "cpu_self_ms": 3.2689730869606137,
+            "stream_inclusive_ms": 2.292799981776625,
+            "stream_self_ms": 2.292799981776625
+          },
+          "remask_schedule": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 5.17860078252852,
+            "cpu_self_ms": 5.17860078252852,
+            "stream_inclusive_ms": 4.665951995179057,
+            "stream_self_ms": 4.665951995179057
+          },
+          "stop_check": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 7.217719918116927,
+            "cpu_self_ms": 7.217719918116927,
+            "stream_inclusive_ms": 7.259712032973766,
+            "stream_self_ms": 7.259712032973766
+          },
+          "confidence_softmax": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 4.8873560153879225,
+            "cpu_self_ms": 4.8873560153879225,
+            "stream_inclusive_ms": 3.731583993881941,
+            "stream_self_ms": 3.731583993881941
+          },
+          "confidence_score": {
+            "calls": 98.0,
+            "cpu_inclusive_ms": 16.72593114199117,
+            "cpu_self_ms": 16.72593114199117,
+            "stream_inclusive_ms": 16.076736021786928,
+            "stream_self_ms": 16.076736021786928
+          },
+          "remask_rank": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 9.488490992225707,
+            "cpu_self_ms": 9.488490992225707,
+            "stream_inclusive_ms": 9.79036796092987,
+            "stream_self_ms": 9.79036796092987
+          },
+          "mask_update": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 4.406181164085865,
+            "cpu_self_ms": 4.406181164085865,
+            "stream_inclusive_ms": 3.815776022616774,
+            "stream_self_ms": 3.815776022616774
+          }
+        },
+        {
+          "t2s_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 431.57727498328313,
+            "cpu_self_ms": 0.09634200250729918,
+            "stream_inclusive_ms": 474.2998046875,
+            "stream_self_ms": 0.11889410018920898
+          },
+          "duration_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 3.0584839987568557,
+            "cpu_self_ms": 0.48506399616599083,
+            "stream_inclusive_ms": 3.338655948638916,
+            "stream_self_ms": 0.5914880037307739
+          },
+          "duration_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 1.6148710274137557,
+            "cpu_self_ms": 0.32601802377030253,
+            "stream_inclusive_ms": 1.7356159687042236,
+            "stream_self_ms": 0.39484795928001404
+          },
+          "encoder_lookup": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 0.315094948746264,
+            "cpu_self_ms": 0.315094948746264,
+            "stream_inclusive_ms": 0.2852800041437149,
+            "stream_self_ms": 0.2852800041437149
+          },
+          "encoder_nn": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 2.1355749922804534,
+            "cpu_self_ms": 2.1355749922804534,
+            "stream_inclusive_ms": 2.280895948410034,
+            "stream_self_ms": 2.280895948410034
+          },
+          "duration_head": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.9585489751771092,
+            "cpu_self_ms": 0.9585489751771092,
+            "stream_inclusive_ms": 1.0115519762039185,
+            "stream_self_ms": 1.0115519762039185
+          },
+          "hybrid_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 428.422448982019,
+            "cpu_self_ms": 0.21754688350483775,
+            "stream_inclusive_ms": 470.8422546386719,
+            "stream_self_ms": 0.2787618935108185
+          },
+          "generate_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 1.4509500470012426,
+            "cpu_self_ms": 0.28913310961797833,
+            "stream_inclusive_ms": 1.5367039442062378,
+            "stream_self_ms": 0.3112960010766983
+          },
+          "alignment": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.3611220163293183,
+            "cpu_self_ms": 0.3611220163293183,
+            "stream_inclusive_ms": 0.3648320138454437,
+            "stream_self_ms": 0.3648320138454437
+          },
+          "masked_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 426.3928300351836,
+            "cpu_self_ms": 4.882551671471447,
+            "stream_inclusive_ms": 468.6619567871094,
+            "stream_self_ms": 27.074150308559183
+          },
+          "loop_input": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 6.892827863339335,
+            "cpu_self_ms": 6.892827863339335,
+            "stream_inclusive_ms": 5.473887943604495,
+            "stream_self_ms": 5.473887943604495
+          },
+          "hidden_total": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 301.05532583547756,
+            "cpu_self_ms": 64.23674657708034,
+            "stream_inclusive_ms": 328.4457263946533,
+            "stream_self_ms": 80.12598210317083
+          },
+          "audio_embedding": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 9.01699677342549,
+            "cpu_self_ms": 9.01699677342549,
+            "stream_inclusive_ms": 7.535136016551405,
+            "stream_self_ms": 7.535136016551405
+          },
+          "text_lookup": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 5.747306626290083,
+            "cpu_self_ms": 5.747306626290083,
+            "stream_inclusive_ms": 4.466943996259943,
+            "stream_self_ms": 4.466943996259943
+          },
+          "time_embedding_nn": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 14.869885926600546,
+            "cpu_self_ms": 14.869885926600546,
+            "stream_inclusive_ms": 13.491551982238889,
+            "stream_self_ms": 13.491551982238889
+          },
+          "transformer_blocks": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 196.9693909632042,
+            "cpu_self_ms": 196.9693909632042,
+            "stream_inclusive_ms": 214.28044831752777,
+            "stream_self_ms": 214.28044831752777
+          },
+          "hidden_norm": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 10.214998968876898,
+            "cpu_self_ms": 10.214998968876898,
+            "stream_inclusive_ms": 8.545663978904486,
+            "stream_self_ms": 8.545663978904486
+          },
+          "cfg_mix": {
+            "calls": 150.0,
+            "cpu_inclusive_ms": 36.68940166244283,
+            "cpu_self_ms": 36.68940166244283,
+            "stream_inclusive_ms": 36.06467217486352,
+            "stream_self_ms": 36.06467217486352
+          },
+          "vocab_projection": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 5.267335858661681,
+            "cpu_self_ms": 5.267335858661681,
+            "stream_inclusive_ms": 4.941216006875038,
+            "stream_self_ms": 4.941216006875038
+          },
+          "topk_filter": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 7.110091333743185,
+            "cpu_self_ms": 7.110091333743185,
+            "stream_inclusive_ms": 6.515007972717285,
+            "stream_self_ms": 6.515007972717285
+          },
+          "sampling": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 12.262456119060516,
+            "cpu_self_ms": 12.262456119060516,
+            "stream_inclusive_ms": 12.278368011116982,
+            "stream_self_ms": 12.278368011116982
+          },
+          "token_update": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 3.477283986285329,
+            "cpu_self_ms": 3.477283986285329,
+            "stream_inclusive_ms": 2.6428480078466237,
+            "stream_self_ms": 2.6428480078466237
+          },
+          "remask_schedule": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 5.295075650792569,
+            "cpu_self_ms": 5.295075650792569,
+            "stream_inclusive_ms": 4.977663975208998,
+            "stream_self_ms": 4.977663975208998
+          },
+          "stop_check": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 7.238570076879114,
+            "cpu_self_ms": 7.238570076879114,
+            "stream_inclusive_ms": 7.253856003284454,
+            "stream_self_ms": 7.253856003284454
+          },
+          "confidence_softmax": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 4.915275843814015,
+            "cpu_self_ms": 4.915275843814015,
+            "stream_inclusive_ms": 4.02607998624444,
+            "stream_self_ms": 4.02607998624444
+          },
+          "confidence_score": {
+            "calls": 98.0,
+            "cpu_inclusive_ms": 15.543049259576946,
+            "cpu_self_ms": 15.543049259576946,
+            "stream_inclusive_ms": 15.805056009441614,
+            "stream_self_ms": 15.805056009441614
+          },
+          "remask_rank": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 11.25660096295178,
+            "cpu_self_ms": 11.25660096295178,
+            "stream_inclusive_ms": 9.667552001774311,
+            "stream_self_ms": 9.667552001774311
+          },
+          "mask_update": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 4.506983910687268,
+            "cpu_self_ms": 4.506983910687268,
+            "stream_inclusive_ms": 3.495871990919113,
+            "stream_self_ms": 3.495871990919113
+          }
+        },
+        {
+          "t2s_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 428.69063903344795,
+            "cpu_self_ms": 0.07164198905229568,
+            "stream_inclusive_ms": 471.10540771484375,
+            "stream_self_ms": 0.06709933280944824
+          },
+          "duration_total": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 2.6839200290851295,
+            "cpu_self_ms": 0.43800706043839455,
+            "stream_inclusive_ms": 2.9204800128936768,
+            "stream_self_ms": 0.5135679841041565
+          },
+          "duration_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 1.340068003628403,
+            "cpu_self_ms": 0.194234075024724,
+            "stream_inclusive_ms": 1.4311360120773315,
+            "stream_self_ms": 0.20844796299934387
+          },
+          "encoder_lookup": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 0.167130958288908,
+            "cpu_self_ms": 0.167130958288908,
+            "stream_inclusive_ms": 0.14390400052070618,
+            "stream_self_ms": 0.14390400052070618
+          },
+          "encoder_nn": {
+            "calls": 2.0,
+            "cpu_inclusive_ms": 2.2177560022100806,
+            "cpu_self_ms": 2.2177560022100806,
+            "stream_inclusive_ms": 2.37936007976532,
+            "stream_self_ms": 2.37936007976532
+          },
+          "duration_head": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.905844965018332,
+            "cpu_self_ms": 0.905844965018332,
+            "stream_inclusive_ms": 0.9757760167121887,
+            "stream_self_ms": 0.9757760167121887
+          },
+          "hybrid_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 425.9350770153105,
+            "cpu_self_ms": 0.2409020089544356,
+            "stream_inclusive_ms": 468.1178283691406,
+            "stream_self_ms": 0.3466007113456726
+          },
+          "generate_encoder": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 1.5098490403033793,
+            "cpu_self_ms": 0.2707960084080696,
+            "stream_inclusive_ms": 1.6445759534835815,
+            "stream_self_ms": 0.3439999222755432
+          },
+          "alignment": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 0.3354019718244672,
+            "cpu_self_ms": 0.3354019718244672,
+            "stream_inclusive_ms": 0.32419198751449585,
+            "stream_self_ms": 0.32419198751449585
+          },
+          "masked_generate": {
+            "calls": 1.0,
+            "cpu_inclusive_ms": 423.84892399422824,
+            "cpu_self_ms": 4.355976241640747,
+            "stream_inclusive_ms": 465.8024597167969,
+            "stream_self_ms": 24.289084017043933
+          },
+          "loop_input": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 6.562053284142166,
+            "cpu_self_ms": 6.562053284142166,
+            "stream_inclusive_ms": 5.08319999021478,
+            "stream_self_ms": 5.08319999021478
+          },
+          "hidden_total": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 301.1857788078487,
+            "cpu_self_ms": 64.92138095200062,
+            "stream_inclusive_ms": 328.5654077529907,
+            "stream_self_ms": 81.054079788737
+          },
+          "audio_embedding": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 8.511088788509369,
+            "cpu_self_ms": 8.511088788509369,
+            "stream_inclusive_ms": 7.262016030028462,
+            "stream_self_ms": 7.262016030028462
+          },
+          "text_lookup": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 6.537369976285845,
+            "cpu_self_ms": 6.537369976285845,
+            "stream_inclusive_ms": 4.5024000043049455,
+            "stream_self_ms": 4.5024000043049455
+          },
+          "time_embedding_nn": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 14.264250814449042,
+            "cpu_self_ms": 14.264250814449042,
+            "stream_inclusive_ms": 13.113311985507607,
+            "stream_self_ms": 13.113311985507607
+          },
+          "transformer_blocks": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 197.2435475909151,
+            "cpu_self_ms": 197.2435475909151,
+            "stream_inclusive_ms": 214.3840959072113,
+            "stream_self_ms": 214.3840959072113
+          },
+          "hidden_norm": {
+            "calls": 100.0,
+            "cpu_inclusive_ms": 9.708140685688704,
+            "cpu_self_ms": 9.708140685688704,
+            "stream_inclusive_ms": 8.249504037201405,
+            "stream_self_ms": 8.249504037201405
+          },
+          "cfg_mix": {
+            "calls": 150.0,
+            "cpu_inclusive_ms": 37.809350760653615,
+            "cpu_self_ms": 37.809350760653615,
+            "stream_inclusive_ms": 37.60441596806049,
+            "stream_self_ms": 37.60441596806049
+          },
+          "vocab_projection": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 5.455298174638301,
+            "cpu_self_ms": 5.455298174638301,
+            "stream_inclusive_ms": 4.909120028838515,
+            "stream_self_ms": 4.909120028838515
+          },
+          "topk_filter": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 7.132410421036184,
+            "cpu_self_ms": 7.132410421036184,
+            "stream_inclusive_ms": 6.365856034681201,
+            "stream_self_ms": 6.365856034681201
+          },
+          "sampling": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 11.590175039600581,
+            "cpu_self_ms": 11.590175039600581,
+            "stream_inclusive_ms": 11.941024042665958,
+            "stream_self_ms": 11.941024042665958
+          },
+          "token_update": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 3.2712361426092684,
+            "cpu_self_ms": 3.2712361426092684,
+            "stream_inclusive_ms": 2.2254720022901893,
+            "stream_self_ms": 2.2254720022901893
+          },
+          "remask_schedule": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 5.4659509914927185,
+            "cpu_self_ms": 5.4659509914927185,
+            "stream_inclusive_ms": 5.012895994819701,
+            "stream_self_ms": 5.012895994819701
+          },
+          "stop_check": {
+            "calls": 50.0,
+            "cpu_inclusive_ms": 7.154911058023572,
+            "cpu_self_ms": 7.154911058023572,
+            "stream_inclusive_ms": 7.007423996925354,
+            "stream_self_ms": 7.007423996925354
+          },
+          "confidence_softmax": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 4.608796734828502,
+            "cpu_self_ms": 4.608796734828502,
+            "stream_inclusive_ms": 3.8076480142772198,
+            "stream_self_ms": 3.8076480142772198
+          },
+          "confidence_score": {
+            "calls": 98.0,
+            "cpu_inclusive_ms": 16.353858401998878,
+            "cpu_self_ms": 16.353858401998878,
+            "stream_inclusive_ms": 16.196511921472847,
+            "stream_self_ms": 16.196511921472847
+          },
+          "remask_rank": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 8.82279296638444,
+            "cpu_self_ms": 8.82279296638444,
+            "stream_inclusive_ms": 9.575167961418629,
+            "stream_self_ms": 9.575167961418629
+          },
+          "mask_update": {
+            "calls": 49.0,
+            "cpu_inclusive_ms": 4.080334969330579,
+            "cpu_self_ms": 4.080334969330579,
+            "stream_inclusive_ms": 3.219231991097331,
+            "stream_self_ms": 3.219231991097331
+          }
+        }
+      ],
+      "median_profile": {
+        "t2s_total": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 428.69063903344795,
+          "cpu_self_ms": 0.07164198905229568,
+          "stream_inclusive_ms": 471.10540771484375,
+          "stream_self_ms": 0.06709933280944824
+        },
+        "duration_total": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 2.6839200290851295,
+          "cpu_self_ms": 0.43800706043839455,
+          "stream_inclusive_ms": 2.9204800128936768,
+          "stream_self_ms": 0.5135679841041565
+        },
+        "duration_encoder": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 1.340068003628403,
+          "cpu_self_ms": 0.19856903236359358,
+          "stream_inclusive_ms": 1.4311360120773315,
+          "stream_self_ms": 0.20844796299934387
+        },
+        "encoder_lookup": {
+          "calls": 2.0,
+          "cpu_inclusive_ms": 0.167130958288908,
+          "cpu_self_ms": 0.167130958288908,
+          "stream_inclusive_ms": 0.14390400052070618,
+          "stream_self_ms": 0.14390400052070618
+        },
+        "encoder_nn": {
+          "calls": 2.0,
+          "cpu_inclusive_ms": 2.1355749922804534,
+          "cpu_self_ms": 2.1355749922804534,
+          "stream_inclusive_ms": 2.280895948410034,
+          "stream_self_ms": 2.280895948410034
+        },
+        "duration_head": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 0.905844965018332,
+          "cpu_self_ms": 0.905844965018332,
+          "stream_inclusive_ms": 0.9757760167121887,
+          "stream_self_ms": 0.9757760167121887
+        },
+        "hybrid_generate": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 425.9350770153105,
+          "cpu_self_ms": 0.21754688350483775,
+          "stream_inclusive_ms": 468.1178283691406,
+          "stream_self_ms": 0.2787618935108185
+        },
+        "generate_encoder": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 1.4509500470012426,
+          "cpu_self_ms": 0.2707960084080696,
+          "stream_inclusive_ms": 1.5367039442062378,
+          "stream_self_ms": 0.3112960010766983
+        },
+        "alignment": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 0.3611220163293183,
+          "cpu_self_ms": 0.3611220163293183,
+          "stream_inclusive_ms": 0.3648320138454437,
+          "stream_self_ms": 0.3648320138454437
+        },
+        "masked_generate": {
+          "calls": 1.0,
+          "cpu_inclusive_ms": 423.84892399422824,
+          "cpu_self_ms": 4.751961736474186,
+          "stream_inclusive_ms": 465.8024597167969,
+          "stream_self_ms": 26.279190473491326
+        },
+        "loop_input": {
+          "calls": 100.0,
+          "cpu_inclusive_ms": 6.892827863339335,
+          "cpu_self_ms": 6.892827863339335,
+          "stream_inclusive_ms": 5.473887943604495,
+          "stream_self_ms": 5.473887943604495
+        },
+        "hidden_total": {
+          "calls": 100.0,
+          "cpu_inclusive_ms": 301.05532583547756,
+          "cpu_self_ms": 64.23674657708034,
+          "stream_inclusive_ms": 328.4457263946533,
+          "stream_self_ms": 80.12598210317083
+        },
+        "audio_embedding": {
+          "calls": 100.0,
+          "cpu_inclusive_ms": 9.01699677342549,
+          "cpu_self_ms": 9.01699677342549,
+          "stream_inclusive_ms": 7.262016030028462,
+          "stream_self_ms": 7.262016030028462
+        },
+        "text_lookup": {
+          "calls": 100.0,
+          "cpu_inclusive_ms": 5.830651265569031,
+          "cpu_self_ms": 5.830651265569031,
+          "stream_inclusive_ms": 4.466943996259943,
+          "stream_self_ms": 4.466943996259943
+        },
+        "time_embedding_nn": {
+          "calls": 100.0,
+          "cpu_inclusive_ms": 14.869885926600546,
+          "cpu_self_ms": 14.869885926600546,
+          "stream_inclusive_ms": 13.113311985507607,
+          "stream_self_ms": 13.113311985507607
+        },
+        "transformer_blocks": {
+          "calls": 100.0,
+          "cpu_inclusive_ms": 197.057553101331,
+          "cpu_self_ms": 197.057553101331,
+          "stream_inclusive_ms": 214.28044831752777,
+          "stream_self_ms": 214.28044831752777
+        },
+        "hidden_norm": {
+          "calls": 100.0,
+          "cpu_inclusive_ms": 9.708140685688704,
+          "cpu_self_ms": 9.708140685688704,
+          "stream_inclusive_ms": 8.249504037201405,
+          "stream_self_ms": 8.249504037201405
+        },
+        "cfg_mix": {
+          "calls": 150.0,
+          "cpu_inclusive_ms": 36.68940166244283,
+          "cpu_self_ms": 36.68940166244283,
+          "stream_inclusive_ms": 36.06467217486352,
+          "stream_self_ms": 36.06467217486352
+        },
+        "vocab_projection": {
+          "calls": 50.0,
+          "cpu_inclusive_ms": 5.359743896406144,
+          "cpu_self_ms": 5.359743896406144,
+          "stream_inclusive_ms": 4.909120028838515,
+          "stream_self_ms": 4.909120028838515
+        },
+        "topk_filter": {
+          "calls": 50.0,
+          "cpu_inclusive_ms": 7.132410421036184,
+          "cpu_self_ms": 7.132410421036184,
+          "stream_inclusive_ms": 6.515007972717285,
+          "stream_self_ms": 6.515007972717285
+        },
+        "sampling": {
+          "calls": 50.0,
+          "cpu_inclusive_ms": 11.635170667432249,
+          "cpu_self_ms": 11.635170667432249,
+          "stream_inclusive_ms": 11.941024042665958,
+          "stream_self_ms": 11.941024042665958
+        },
+        "token_update": {
+          "calls": 50.0,
+          "cpu_inclusive_ms": 3.2712361426092684,
+          "cpu_self_ms": 3.2712361426092684,
+          "stream_inclusive_ms": 2.292799981776625,
+          "stream_self_ms": 2.292799981776625
+        },
+        "remask_schedule": {
+          "calls": 50.0,
+          "cpu_inclusive_ms": 5.295075650792569,
+          "cpu_self_ms": 5.295075650792569,
+          "stream_inclusive_ms": 4.977663975208998,
+          "stream_self_ms": 4.977663975208998
+        },
+        "stop_check": {
+          "calls": 50.0,
+          "cpu_inclusive_ms": 7.217719918116927,
+          "cpu_self_ms": 7.217719918116927,
+          "stream_inclusive_ms": 7.253856003284454,
+          "stream_self_ms": 7.253856003284454
+        },
+        "confidence_softmax": {
+          "calls": 49.0,
+          "cpu_inclusive_ms": 4.8873560153879225,
+          "cpu_self_ms": 4.8873560153879225,
+          "stream_inclusive_ms": 3.8076480142772198,
+          "stream_self_ms": 3.8076480142772198
+        },
+        "confidence_score": {
+          "calls": 98.0,
+          "cpu_inclusive_ms": 16.353858401998878,
+          "cpu_self_ms": 16.353858401998878,
+          "stream_inclusive_ms": 16.076736021786928,
+          "stream_self_ms": 16.076736021786928
+        },
+        "remask_rank": {
+          "calls": 49.0,
+          "cpu_inclusive_ms": 9.488490992225707,
+          "cpu_self_ms": 9.488490992225707,
+          "stream_inclusive_ms": 9.667552001774311,
+          "stream_self_ms": 9.667552001774311
+        },
+        "mask_update": {
+          "calls": 49.0,
+          "cpu_inclusive_ms": 4.406181164085865,
+          "cpu_self_ms": 4.406181164085865,
+          "stream_inclusive_ms": 3.495871990919113,
+          "stream_self_ms": 3.495871990919113
+        }
+      },
+      "generated_ids_identical": true,
+      "baseline_median_s": {
+        "text_preprocess_s": 0.0013297219993546605,
+        "duration_s": 0.0019968520500697196,
+        "t2s_tokens_s": 0.350162491959054,
+        "s2m_s": 0.19636960100615397,
+        "vocoder_s": 0.03746903594583273,
+        "end_to_end_s": 0.5845367509755306
+      }
+    }
+  },
+  "gpu_clock": "CUDA stream elapsed, including host dispatch gaps"
+}

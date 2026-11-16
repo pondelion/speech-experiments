@@ -1,0 +1,47 @@
+{
+  "condition": "cpu_torch_16",
+  "phase": "quality",
+  "environment": {
+    "measured_at": "2026-11-15T05:36:58.099867+00:00",
+    "git_commit": "c09f108fed454665a0ff1038c54d1df0d3194bc9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cpu",
+    "cuda_device": null,
+    "pid": 323960,
+    "torch_num_threads": 16,
+    "torch_num_interop_threads": 20
+  },
+  "quantization": {
+    "backend": "pytorch_eager",
+    "threads": 16
+  },
+  "dtype": "float32",
+  "linear_backend": "torch_eager",
+  "load_prepare_s": 3.6568672489956953,
+  "seed": 0,
+  "t2s_batch": 16,
+  "s2m_batch": 4,
+  "groups": {
+    "test": {
+      "utterances": 100,
+      "finite": true,
+      "cer": {
+        "raw": 0.16570133467640394,
+        "normalized": 0.11395219566425792,
+        "reading": 0.06874189364461739
+      }
+    },
+    "eval_texts": {
+      "utterances": 55,
+      "finite": true,
+      "cer": {
+        "raw": 0.12689545091779728,
+        "normalized": 0.11044003451251079,
+        "reading": 0.06395736175882745
+      }
+    }
+  }
+}

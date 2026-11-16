@@ -1,0 +1,58 @@
+{
+  "device": "cpu",
+  "config": "torch_int8_16",
+  "runtime": {
+    "backend": "pytorch_dynamic_int8",
+    "threads": 16
+  },
+  "repeats": 3,
+  "environment": {
+    "measured_at": "2026-11-15T05:01:29.774912+00:00",
+    "git_commit": "c09f108fed454665a0ff1038c54d1df0d3194bc9",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "cuda_runtime": "13.0",
+    "device": "cpu",
+    "cuda_device": null,
+    "pid": 317768,
+    "torch_num_threads": 16,
+    "torch_num_interop_threads": 20
+  },
+  "process_cpu_s": 191.218807,
+  "mean_active_cpu_cores": 17.086680059514897,
+  "stages_median_s": {
+    "text_preprocess_s": 0.0005391649901866913,
+    "duration_s": 0.006029339041560888,
+    "t2s_tokens_s": 1.7760349619784392,
+    "s2m_s": 1.8738416569540277,
+    "vocoder_s": 0.06778119900263846,
+    "end_to_end_s": 3.7237661399994977
+  },
+  "runs": [
+    {
+      "text_preprocess_s": 0.0005391649901866913,
+      "duration_s": 0.006029339041560888,
+      "t2s_tokens_s": 1.7949270410463214,
+      "s2m_s": 1.8819310300168581,
+      "vocoder_s": 0.06920372898457572,
+      "end_to_end_s": 3.752630304079503
+    },
+    {
+      "text_preprocess_s": 0.0005298650357872248,
+      "duration_s": 0.00615081301657483,
+      "t2s_tokens_s": 1.7760349619784392,
+      "s2m_s": 1.8738416569540277,
+      "vocoder_s": 0.06720884301466867,
+      "end_to_end_s": 3.7237661399994977
+    },
+    {
+      "text_preprocess_s": 0.0005394269828684628,
+      "duration_s": 0.005873748974408954,
+      "t2s_tokens_s": 1.7731475459877402,
+      "s2m_s": 1.8673652510042302,
+      "vocoder_s": 0.06778119900263846,
+      "end_to_end_s": 3.7147071719518863
+    }
+  ]
+}

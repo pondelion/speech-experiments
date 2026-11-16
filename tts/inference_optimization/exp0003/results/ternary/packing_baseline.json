@@ -1,0 +1,12 @@
+{
+  "mode": "baseline",
+  "training": {},
+  "activation_int8": false,
+  "quantized_layers": [],
+  "packing": "four 2-bit codes per uint8; 0=-1,1=0,2=+1",
+  "weight_scale": "per-tensor absmean float32",
+  "saved_high_precision": "bfloat16",
+  "kernel": "expanded floating-point F.linear",
+  "file_bytes": 189837147,
+  "packing_checks": {}
+}

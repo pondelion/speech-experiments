@@ -1,0 +1,26 @@
+{
+  "encoder": {
+    "weight_values": 12582912,
+    "changed_weight_values": 1021726,
+    "changed_weight_pct": 8.119948705037435,
+    "scale_tensors": 24,
+    "changed_scale_tensors": 24,
+    "max_relative_scale_difference": 0.003921625204384327
+  },
+  "blocks": {
+    "weight_values": 37748736,
+    "changed_weight_values": 3250803,
+    "changed_weight_pct": 8.611687024434408,
+    "scale_tensors": 40,
+    "changed_scale_tensors": 40,
+    "max_relative_scale_difference": 0.003921631723642349
+  },
+  "velocity": {
+    "weight_values": 38617088,
+    "changed_weight_values": 1949127,
+    "changed_weight_pct": 5.047317394827906,
+    "scale_tensors": 44,
+    "changed_scale_tensors": 44,
+    "max_relative_scale_difference": 0.0039216321893036366
+  }
+}

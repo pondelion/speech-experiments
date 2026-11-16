@@ -20,7 +20,7 @@ from common.codec import SemanticCodec
 from lib_common.data import list_jsut, split
 from lib_common.utils import Logger, length_batches, seed_everything, warmup_cosine
 
-CONFIG = {"dim": 192, "intermediate_dim": 1024, "num_layers": 12, "codebook_size": 8192}  # 19.0M(公式の比 5.33 倍の中間の幅)
+CONFIG = {"dim": 192, "intermediate_dim": 1024, "num_layers": 12}  # 19.0M(公式の比 5.33 倍の中間の幅)。種類数は --codebook_size
 
 
 def pad(xs: list[torch.Tensor], device: str) -> tuple[torch.Tensor, torch.Tensor]:
@@ -56,6 +56,7 @@ def evaluate(model: SemanticCodec, xs: list[torch.Tensor], device: str, max_fram
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--feats", default="w2v_l17", help="runs/{feats}.pt(extract_w2v.py の出力)")
+    parser.add_argument("--codebook_size", type=int, default=8192, help="トークンの種類数(公式は 8,192)")
     parser.add_argument("--steps", type=int, default=30000)
     parser.add_argument("--max_frames", type=int, default=16000)
     parser.add_argument("--lr", type=float, default=3e-4)
@@ -78,7 +79,8 @@ def main():
 
     train, val = inputs(split(utts, "train")), inputs(split(utts, "val"))
     log(f"train {len(train)} / val {len(val)} utterances")
-    model = SemanticCodec(**CONFIG).to(args.device)
+    config = {**CONFIG, "codebook_size": args.codebook_size}
+    model = SemanticCodec(**config).to(args.device)
     log(f"codec params: {sum(p.numel() for p in model.parameters()) / 1e6:.2f}M")
     opt = torch.optim.AdamW(model.parameters(), lr=args.lr)
     sched = warmup_cosine(opt, args.steps)
@@ -104,7 +106,7 @@ def main():
                 mark = ""
                 if ev["recon"] < best:
                     best, mark = ev["recon"], " *saved"
-                    torch.save({"model": model.state_dict(), "config": CONFIG, "mean": mean, "std": std, "step": step},
+                    torch.save({"model": model.state_dict(), "config": config, "mean": mean, "std": std, "step": step},
                                out / "codec.pt")
                 log(f"step {step:6d} | train " + " ".join(f"{k} {v / n:.4f}" for k, v in running.items())
                     + f" | val recon {ev['recon']:.4f} used {ev['used']}/{model.codebook_size} perplexity {ev['perplexity']:.0f}{mark}")
