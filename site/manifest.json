@@ -806,6 +806,24 @@
               {"id": "exp0005_best", "label": "exp0005 の一番良い構成(自作、24kHz、Vocos)", "cer": {"test": 0.056, "eval_texts": 0.063}, "default": true}
             ]}
           ]
+        },
+        {
+          "id": "exp0101",
+          "title": "exp0101: 参照音声の声で読む基礎の構成(フェーズ B の最初)",
+          "dir": "tts/indextts_bases/exp0101",
+          "summary": "フェーズ A の一番良い構成に、話者ベクトル(CAM++)と参照音声の Mel を公式と同じ場所に入れ、JSUT + JVS(90 人)で学習した。学習に使わない話者の声で読めるようになった(CAM++ の話者類似度 0.33 → 0.78〜0.79、本物どうし 0.83。実用文の CER 5.9〜6.3%)。スクラッチとフェーズ A のモデルからの追加学習の差は小さい。声の高さが話者に合わない(約 2 半音)ことと、多話者のボコーダの音質が課題。各行の名前の括弧に、話者が学習に使われたか・使われていないかを書いている。ずんだもんの行は、VOICEVOX で作った音声を参照にしたもの(学習には使っていない声)。CER は学習に使わない 10 人での値。",
+          "samples": "tts/indextts_bases/exp0101/results/samples",
+          "condition_groups": [
+            {"title": "本物の音声", "conditions": [
+              {"id": "ref", "label": "参照音声(その話者の別の発話)", "default": true},
+              {"id": "real", "label": "本物の録音(同じ文)", "cer": {"test": 0.028}, "default": true}
+            ]},
+            {"title": "TTS(Vocos。学習に使わない 10 人の CER)", "conditions": [
+              {"id": "phase_a", "label": "フェーズ A の一番良いモデル(JSUT の声、参照音声なし)", "cer": {"test": 0.048, "eval_texts": 0.061}, "default": true},
+              {"id": "scratch", "label": "スクラッチ", "cer": {"test": 0.053, "eval_texts": 0.059}, "default": true},
+              {"id": "finetune", "label": "フェーズ A のモデルから追加学習", "cer": {"test": 0.052, "eval_texts": 0.063}, "default": true}
+            ]}
+          ]
         }
       ]
     }

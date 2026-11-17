@@ -15,17 +15,19 @@
       samples/step{N}.wav(sample_every step ごとの検証データの 1 文。耳で改善の推移を確かめる用)と original.wav(元の録音)
 """
 import argparse
+import json
 import math
 import random
 import time
 from pathlib import Path
+from types import SimpleNamespace
 
 import soundfile as sf
 import torch
 import torch.nn.functional as F
 
 import common
-from lib_common.audio import SR, load_wave, logmel_torch, n_samples
+from lib_common.audio import SR, load_wave, logmel_torch, n_samples, wave_to_logmel
 from lib_common.data import load_dataset, split
 from lib_common.neural_vocoder import (MEL_WEIGHT, RECIPES, MultiScaleMelLoss, adversarial_d, adversarial_g,
                                        build_discriminators, build_generator, feature_matching)
@@ -78,6 +80,10 @@ def main():
     parser.add_argument("--name", required=True)
     parser.add_argument("--runs_dir", default=None, help="保存先の runs/ (既定は exp0004/runs。exp0006 の 22.05kHz のボコーダは exp0006/runs)")
     parser.add_argument("--resume", action="store_true", help="runs/{name}/last.pt から続ける")
+    parser.add_argument("--wav_list", default=None,
+                        help="学習・検証の wav の一覧の json({\"train\": [パス], \"val\": [パス]})。既定は JSUT(exp0101 の多話者の追加学習用)")
+    parser.add_argument("--init", default=None,
+                        help="生成器・判別器の初期値にする last.pt(optimizer と step は引き継がない。exp0101 の追加学習用)")
     parser.add_argument("--limit", type=int, default=None, help="動作確認用に発話数を絞る")
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--seed", type=int, default=0)
@@ -91,8 +97,13 @@ def main():
     log(f"args: {vars(args)}")
     r = RECIPES[args.model]
     t0 = time.time()
-    utts = load_dataset(args.limit, log)
-    train, val = split(utts, "train"), split(utts, "val")
+    if args.wav_list:  # 一覧の wav を使う(検証の Mel はここで作る)
+        lists = json.loads(Path(args.wav_list).read_text())
+        train = [SimpleNamespace(path=p) for p in lists["train"][: args.limit]]
+        val = [SimpleNamespace(path=p, mel=wave_to_logmel(load_wave(p))) for p in lists["val"]]
+    else:
+        utts = load_dataset(args.limit, log)
+        train, val = split(utts, "train"), split(utts, "val")
     waves = [torch.from_numpy(load_wave(u.path)).half() for u in train]             # 学習データの波形(float16 で RAM に置く)
     log(f"loaded {len(waves)} train waves ({sum(map(len, waves)) / SR / 3600:.1f} h) in {time.time() - t0:.0f}s")
 
@@ -110,6 +121,11 @@ def main():
         factor = lambda s: 0.5 * (1 + math.cos(math.pi * min(s, args.steps) / args.steps))  # noqa: E731
     sched_g, sched_d = torch.optim.lr_scheduler.LambdaLR(opt_g, factor), torch.optim.lr_scheduler.LambdaLR(opt_d, factor)
     step, best = 0, float("inf")
+    if args.init:
+        ck = torch.load(args.init, map_location="cpu")
+        gen.load_state_dict(ck["generator"])
+        discs.load_state_dict(ck["discriminators"])
+        log(f"init generator and discriminators from {Path(args.init).parent.name}/{Path(args.init).name}")
     if args.resume and (out / "last.pt").exists():
         ck = torch.load(out / "last.pt", map_location="cpu")
         for m, k in [(gen, "generator"), (discs, "discriminators"), (opt_g, "opt_g"), (opt_d, "opt_d"),
