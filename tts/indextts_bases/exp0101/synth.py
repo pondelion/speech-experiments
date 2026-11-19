@@ -18,12 +18,14 @@
 """
 import argparse
 import json
+from pathlib import Path
 
 import soundfile as sf
 import torch
 
 import common
 from common.data import list_all, load_split
+from common.f0norm import mean_lf0, normalize, raw_targets
 from common.s2m_spk import SpeakerS2M
 from common.t2s_spk import SpeakerHybridT2S
 from exp0001.common.utils import load_codec
@@ -90,12 +92,13 @@ def main():
     parser.add_argument("--ref_wav", default=None,
                         help="データセットに無い参照音声(例: VOICEVOX のずんだもん)。与えると、評価する話者の代わりにこの声 1 つで合成する")
     parser.add_argument("--ref_name", default="external", help="--ref_wav の話者の名前(出力のフォルダ名)")
+    parser.add_argument("--out_root", default=None, help="評価の音声の保存先の runs/(既定は exp0101/runs。exp0102 は exp0102/runs)")
     parser.add_argument("--speakers", nargs="*", default=None,
                         help="作る話者を絞る(試聴用のサンプルを作り直すとき。話者ごと・文のまとまりごとに乱数の種を決め直すので、同じ種なら評価と同じ乱数になる)")
     args = parser.parse_args()
     torch.set_num_threads(4)
     R = common.RUNS_DIR
-    out_dir = R / "eval" / args.name
+    out_dir = (Path(args.out_root) if args.out_root else R) / "eval" / args.name
     log = Logger(out_dir / "log.txt")
     log(f"args: {vars(args)}")
     utts = list_all()
@@ -111,15 +114,23 @@ def main():
         refs = pick_refs(utts, mels)
     (out_dir / "refs.json").write_text(json.dumps({s: u.id for s, u in refs.items()}, indent=1))
 
+    t_opt, s_opt = {}, {}
     if args.cond == "spk":
         ck = torch.load(R / args.t2s / "t2s.pt", map_location="cpu")
         vocab = TextVocab.from_state_dict(ck["vocab"])
-        t2s = SpeakerHybridT2S(len(vocab), ck["n_codes"], **ck["config"])
-        t2s.load_state_dict(ck["model"])
         sck = torch.load(R / args.s2m / "s2m.pt", map_location="cpu")
-        s2m = SpeakerS2M(sck["cond_in_dim"], **sck["config"])
+        t_opt, s_opt = ck.get("options", {}), sck.get("options", {})  # exp0102 の条件(無ければ exp0101 の基礎の構成)
+        if t_opt.get("ref_encoder"):  # 話者の条件を参照音声の Mel から作る T2S(common/t2s_ref.py)
+            from common.t2s_ref import RefEncoderT2S
+            t2s = RefEncoderT2S(len(vocab), ck["n_codes"], **ck["config"])
+        else:
+            t2s = SpeakerHybridT2S(len(vocab), ck["n_codes"], **ck["config"])
+        t2s.load_state_dict(ck["model"])
+        assert t_opt.get("f0_norm", "jsut") == s_opt.get("f0_norm", "jsut"), "T2S と S2M の F0 の正規化が違う"
+        s2m = SpeakerS2M(sck["cond_in_dim"], use_prompt=not s_opt.get("no_prompt", False), **sck["config"])
         s2m.load_state_dict(sck["s2m"])
         voc = load_vocoder(R / args.vocoder / "vocoder.pt", "cuda")
+        log(f"options: T2S {t_opt}, S2M {s_opt}")
     else:
         from exp0002.common.utils import load_t2s
         from exp0001.common.pipeline import load_s2m
@@ -149,13 +160,23 @@ def main():
                     m = s2m.generate(h[None], mask, **S2M_KW)[0]
                     waves.append(voc.generate(mel_norm.denormalize(m)[None])[0].cpu().numpy())
                 continue
-            sv = spk[ref.id][None].expand(len(ids), -1)
+            if t_opt.get("ref_encoder"):  # 参照音声の Mel(S2M と同じ正規化)を発話の数だけ並べる
+                sv = [mel_norm.normalize(mels[ref.id].float())] * len(ids)
+            else:
+                sv = spk[ref.id][None].expand(len(ids), -1)
+                sv = torch.zeros_like(sv) if t_opt.get("no_spk") else sv
             with t2s.speaker(sv):
                 d = t2s.predict_durations(ids)
                 codes = t2s.generate(ids, durations=d, **T2S_KW)
                 fs = t2s.predict_f0(ids, [c.cuda() for c in codes], d)
             rc = tokens[ref.id].long()
-            rf = f0_targets([ref], [rc], f0, stats)[0][0]
+            if s_opt.get("f0_norm") == "ref_mean":  # 参照音声の log F0 の平均で正規化(T2S の出力も同じ正規化)
+                raw = raw_targets([ref], [rc], f0)[0]
+                rf = normalize(raw, mean_lf0(raw), stats[1])
+            else:
+                rf = f0_targets([ref], [rc], f0, stats)[0][0]
+            if s_opt.get("no_prompt"):  # 参照音声を前につなげない
+                rc, rf = rc[:0], rf[:0]
             rm = mel_norm.normalize(mels[ref.id].float())[: len(rc) * FPT].cuda()
             P = len(rc) * FPT
             # 参照のトークン・F0 を前につなげて、まとめて S2M に通す(詰め物は mask で除く)
@@ -167,8 +188,9 @@ def main():
             mask = torch.arange(T, device="cuda")[None] < lens[:, None]
             pm = torch.zeros(len(codes), T, rm.shape[-1], device="cuda")
             pm[:, :P] = rm
+            style = spk[ref.id][None].expand(len(codes), -1).cuda()
             ms = s2m.generate(h, mask, pm, torch.full((len(codes),), P, device="cuda"),
-                              spk[ref.id][None].expand(len(codes), -1).cuda(), **S2M_KW)
+                              torch.zeros_like(style) if s_opt.get("no_style") else style, **S2M_KW)
             for m, n in zip(ms, lens):
                 waves.append(voc.generate(mel_norm.denormalize(m[P:n])[None])[0].cpu().numpy())
         return waves

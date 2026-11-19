@@ -17,11 +17,13 @@
 """
 import argparse
 import random
+from pathlib import Path
 
 import torch
 
 import common
 from common.data import list_all
+from common.f0norm import mean_lf0, normalize, raw_targets
 from common.s2m_spk import SpeakerS2M
 from exp0001.common.utils import load_codec, pad_mels
 from exp0005.common.s2m_f0 import FPT, F0Condition
@@ -46,11 +48,15 @@ def main():
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--no_style", action="store_true", help="exp0102 の no_s2m_style: 話者ベクトルを 0 にする")
+    parser.add_argument("--no_prompt", action="store_true", help="exp0102 の no_s2m_prompt: 参照音声の Mel(プロンプト)を使わない")
+    parser.add_argument("--f0_norm", choices=["jsut", "ref_mean"], default="jsut", help="F0 の正規化(common/f0norm.py)")
+    parser.add_argument("--runs_dir", default=None, help="保存先の runs/(既定は exp0101/runs。exp0102 は exp0102/runs)")
     args = parser.parse_args()
     seed_everything(args.seed)
     rng = random.Random(args.seed)
     torch.set_num_threads(4)
-    out = common.RUNS_DIR / args.name
+    out = (Path(args.runs_dir) if args.runs_dir else common.RUNS_DIR) / args.name
     log = Logger(out / "log.txt")
     log(f"args: {vars(args)}")
     R = common.RUNS_DIR
@@ -64,7 +70,7 @@ def main():
         if name == "train" and args.limit:
             us = us[: args.limit]
         cs = [tokens[u.id].long() for u in us]
-        data[name] = {"utts": us, "codes": cs, "f0": f0_targets(us, cs, f0, stats)[0],
+        data[name] = {"utts": us, "codes": cs, "f0": f0_targets(us, cs, f0, stats)[0], "f0_raw": raw_targets(us, cs, f0),
                       "mels": [mel_norm.normalize(mels[u.id].float())[: len(c) * FPT] for u, c in zip(us, cs)]}
         log(f"{name}: {len(us)} utts, speakers {len({u.speaker for u in us})}")
     by_spk = {}
@@ -75,7 +81,10 @@ def main():
     data["val"]["spk_ids"] = [other_utt(val_rng, val_by_spk, u) for u in data["val"]["utts"]]
 
     bck = torch.load(BASE_S2M, map_location="cpu")
-    s2m = SpeakerS2M(bck["cond_in_dim"], **bck["config"])
+    s2m = SpeakerS2M(bck["cond_in_dim"], use_prompt=not args.no_prompt, **bck["config"])
+    lf0_mean = {}  # 発話 ID → 有声の log2 F0 の平均(f0_norm=ref_mean のとき、話者ベクトルを取った参照の発話の値で正規化する)
+    if args.f0_norm == "ref_mean":
+        lf0_mean = {u.id: mean_lf0(r) for d in data.values() for u, r in zip(d["utts"], d["f0_raw"])}
     f0cond = F0Condition(codec.hidden_dim)
     if args.init == "finetune":
         ck = torch.load(PHASE_A, map_location="cpu")
@@ -92,10 +101,13 @@ def main():
     def batch(d, b, spk_ids):
         mel, mask = pad_mels([d["mels"][i] for i in b], args.device)
         ids = torch.nn.utils.rnn.pad_sequence([d["codes"][i] for i in b], batch_first=True).to(args.device)
-        f = torch.nn.utils.rnn.pad_sequence([d["f0"][i] for i in b], batch_first=True).to(args.device)
+        fs = ([normalize(d["f0_raw"][i], lf0_mean[r], stats[1]) for i, r in zip(b, spk_ids)] if args.f0_norm == "ref_mean"
+              else [d["f0"][i] for i in b])
+        f = torch.nn.utils.rnn.pad_sequence(fs, batch_first=True).to(args.device)
         with torch.no_grad():
             hidden = codec.decode_hidden(ids)                                                 # codec は固定
-        return mel, hidden + f0cond(f), mask, torch.stack([spk[i] for i in spk_ids]).to(args.device)
+        sp = torch.stack([spk[i] for i in spk_ids]).to(args.device)
+        return mel, hidden + f0cond(f), mask, torch.zeros_like(sp) if args.no_style else sp
 
     @torch.no_grad()
     def evaluate(d) -> float:
@@ -134,7 +146,9 @@ def main():
                 if val < best:
                     best, mark = val, " *saved"
                     torch.save({"s2m": s2m.state_dict(), "f0cond": f0cond.state_dict(), "cond_in_dim": bck["cond_in_dim"],
-                                "config": bck["config"], "f0_stats": stats, "init": args.init, "step": step}, out / "s2m.pt")
+                                "config": bck["config"], "f0_stats": stats, "init": args.init, "step": step,
+                                "options": {"no_style": args.no_style, "no_prompt": args.no_prompt, "f0_norm": args.f0_norm}},
+                               out / "s2m.pt")
                 log(f"step {step:6d} | train loss {running / n:.4f} | val loss {val:.4f}"
                     + (f" | reserved {torch.cuda.max_memory_reserved() / 2 ** 30:.1f}GiB" if args.device == "cuda" else "") + mark)
                 running = 0.0

@@ -16,28 +16,39 @@ function findExp(baseId, expId) {
   return base ? { base, exp: base.exps.find((e) => e.id === expId) } : {};
 }
 
+// ベースモデルの exp をフェーズごとにまとめる: [{title, exps}]。フェーズの無いベースモデルは、題なしの 1 つにまとめる
+function phaseGroups(base) {
+  if (!base.phases) return [{ title: null, exps: base.exps }];
+  return base.phases.map((p) => ({ title: p.title, exps: base.exps.filter((e) => e.phase === p.id) })).filter((g) => g.exps.length);
+}
+
 function renderNav(route) {
   const html = state.manifest.bases.map((b) => {
-    const exps = b.exps.map((e) =>
-      `<a class="exp${route.exp === e.id && route.base === b.id ? " active" : ""}" href="#${b.id}/${e.id}">${esc(e.id)}</a>`).join("");
-    return `<h2>${esc(b.title)}</h2><a class="base${route.base === b.id && !route.exp ? " active" : ""}" href="#${b.id}">概要</a>${exps}`;
+    const groups = phaseGroups(b).map((g) =>
+      (g.title ? `<div class="phase">${esc(g.title)}</div>` : "") +
+      g.exps.map((e) =>
+        `<a class="exp${route.exp === e.id && route.base === b.id ? " active" : ""}" href="#${b.id}/${e.id}">${esc(e.id)}</a>`).join("")).join("");
+    return `<h2>${esc(b.title)}</h2><a class="base${route.base === b.id && !route.exp ? " active" : ""}" href="#${b.id}">概要</a>${groups}`;
   }).join("");
   $("#nav").innerHTML = `<a class="${route.base ? "" : "active"}" href="#">トップ</a>` + html;
+}
+
+// exp のカードを、フェーズごとの見出しをつけて並べる
+function expCards(base) {
+  return phaseGroups(base).map((g) => (g.title ? `<h3 class="phase-title">${esc(g.title)}</h3>` : "") + `<div class="cards">` +
+    g.exps.map((e) => `<a class="card" href="#${base.id}/${e.id}"><h3>${esc(e.title)}</h3><p>${esc(e.summary)}</p></a>`).join("") +
+    "</div>").join("");
 }
 
 function renderHome() {
   const m = state.manifest;
   $("#main").innerHTML = `<h1>${esc(m.title)}</h1><p class="lead">${esc(m.description)}</p>` +
-    m.bases.map((b) => `<h2>${esc(b.title)}</h2><p class="lead">${esc(b.summary)}</p><div class="cards">` +
-      b.exps.map((e) => `<a class="card" href="#${b.id}/${e.id}"><h3>${esc(e.title)}</h3><p>${esc(e.summary)}</p></a>`).join("") +
-      "</div>").join("");
+    m.bases.map((b) => `<h2>${esc(b.title)}</h2><p class="lead">${esc(b.summary || "")}</p>` + expCards(b)).join("");
 }
 
 function renderBase(base) {
-  $("#main").innerHTML = `<h1>${esc(base.title)}</h1><p class="lead">${esc(base.summary)}</p>` +
-    `<p class="links"><a href="${state.manifest.repo_url}/tree/main/${base.dir}">README(GitHub)</a></p><div class="cards">` +
-    base.exps.map((e) => `<a class="card" href="#${base.id}/${e.id}"><h3>${esc(e.title)}</h3><p>${esc(e.summary)}</p></a>`).join("") +
-    "</div>";
+  $("#main").innerHTML = `<h1>${esc(base.title)}</h1><p class="lead">${esc(base.summary || "")}</p>` +
+    `<p class="links"><a href="${state.manifest.repo_url}/tree/main/${base.dir}">README(GitHub)</a></p>` + expCards(base);
 }
 
 async function loadSamples(exp) {

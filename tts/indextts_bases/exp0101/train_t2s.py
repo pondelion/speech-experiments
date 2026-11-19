@@ -18,11 +18,13 @@
 """
 import argparse
 import random
+from pathlib import Path
 
 import torch
 
 import common
 from common.data import list_all, phoneme_durations
+from common.f0norm import mean_lf0, normalize, raw_targets
 from common.t2s_spk import SpeakerHybridT2S, load_phase_a_state
 from exp0005.train_t2s import f0_targets
 from lib_common.text import TextVocab
@@ -51,11 +53,17 @@ def main():
     parser.add_argument("--limit", type=int, default=None, help="動作確認用に、学習データを先頭から絞る")
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--no_spk", action="store_true", help="exp0102 の no_t2s_spk: 話者ベクトルを 0 にする(話者の条件を外す)")
+    parser.add_argument("--f0_norm", choices=["jsut", "ref_mean"], default="jsut", help="F0 の正規化(common/f0norm.py)")
+    parser.add_argument("--ref_encoder", action="store_true",
+                        help="exp0102 の t2s_ref_encoder: 話者の条件を、参照の発話の Mel を読む encoder にする(common/t2s_ref.py)")
+    parser.add_argument("--runs_dir", default=None, help="保存先の runs/(既定は exp0101/runs。exp0102 は exp0102/runs)")
     args = parser.parse_args()
+    assert not (args.ref_encoder and args.no_spk), "--ref_encoder と --no_spk は一緒に使わない"
     seed_everything(args.seed)
     rng = random.Random(args.seed)
     torch.set_num_threads(4)
-    out = common.RUNS_DIR / args.name
+    out = (Path(args.runs_dir) if args.runs_dir else common.RUNS_DIR) / args.name
     log = Logger(out / "log.txt")
     log(f"args: {vars(args)}")
     R = common.RUNS_DIR
@@ -73,7 +81,8 @@ def main():
         keep = [i for i, d in enumerate(durs) if d is not None]
         us, codes = [us[i] for i in keep], [codes[i] for i in keep]
         data[name] = {"utts": us, "texts": [torch.tensor(vocab.encode(u.text)) for u in us], "codes": codes,
-                      "durations": [torch.tensor(durs[i]) for i in keep], "f0": f0_targets(us, codes, f0, stats)[0]}
+                      "durations": [torch.tensor(durs[i]) for i in keep], "f0": f0_targets(us, codes, f0, stats)[0],
+                      "f0_raw": raw_targets(us, codes, f0)}
         log(f"{name}: {len(us)} utts (dropped {len(durs) - len(keep)} without durations), "
             f"speakers {len({u.speaker for u in us})}")
     by_spk = {}
@@ -83,7 +92,16 @@ def main():
     val_by_spk = {s: by_spk.get(s, []) + [u.id for u in data["val"]["utts"] if u.speaker == s] for s in {u.speaker for u in data["val"]["utts"]}}
     data["val"]["spk_ids"] = [other_utt(val_rng, val_by_spk, u) for u in data["val"]["utts"]]
 
-    model = SpeakerHybridT2S(len(vocab), ck["n_codes"], **ck["config"])
+    ref_mels = {}  # 発話 ID → 正規化した Mel(--ref_encoder のとき、話者の条件を取る参照の発話の Mel。S2M と同じ正規化)
+    if args.ref_encoder:
+        from common.t2s_ref import RefEncoderT2S
+        from lib_common.audio import MelNormalizer
+        codec_ck = common.EXP_DIR.parent / "exp0003" / "runs" / "codec_hubert_ja_k256" / "codec.pt"   # train_s2m.py の CODEC
+        norm = MelNormalizer.from_state_dict(torch.load(codec_ck, map_location="cpu")["normalizer"])
+        ref_mels = {k: norm.normalize(v.float()) for k, v in torch.load(R / "mels.pt").items()}
+        model = RefEncoderT2S(len(vocab), ck["n_codes"], **ck["config"])
+    else:
+        model = SpeakerHybridT2S(len(vocab), ck["n_codes"], **ck["config"])
     if args.init == "finetune":
         log(f"init from phase A {PHASE_A.parent.name}; new (zero-init) params: {load_phase_a_state(model, ck['model'])}")
     model.to(args.device)
@@ -91,10 +109,25 @@ def main():
     opt = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=0.01)
     sched = warmup_cosine(opt, args.steps)
 
+    lf0_mean = {}  # 発話 ID → 有声の log2 F0 の平均(f0_norm=ref_mean のとき、参照の発話の値で正規化する)
+    if args.f0_norm == "ref_mean":
+        all_ids = [u.id for d in data.values() for u in d["utts"]]
+        all_raw = [r for d in data.values() for r in d["f0_raw"]]
+        lf0_mean = {i: mean_lf0(r) for i, r in zip(all_ids, all_raw)}
+
     def run(d, b, spk_ids):
-        s = torch.stack([spk[i] for i in spk_ids])
+        if args.ref_encoder:
+            s = [ref_mels[i] for i in spk_ids]
+        else:
+            s = torch.stack([spk[i] for i in spk_ids])
+        if args.no_spk:
+            s = torch.zeros_like(s)
+        if args.f0_norm == "ref_mean":
+            f0b = [normalize(d["f0_raw"][i], lf0_mean[r], stats[1]) for i, r in zip(b, spk_ids)]
+        else:
+            f0b = [d["f0"][i] for i in b]
         with model.speaker(s):
-            return model(*[[d[k][i] for i in b] for k in ("texts", "codes", "durations", "f0")])
+            return model(*[[d[k][i] for i in b] for k in ("texts", "codes", "durations")], f0b)
 
     @torch.no_grad()
     def evaluate(d):
@@ -137,7 +170,9 @@ def main():
                 if ev["loss"] < best:
                     best, mark = ev["loss"], " *saved"
                     torch.save({"model": model.state_dict(), "config": ck["config"], "vocab": ck["vocab"], "n_codes": ck["n_codes"],
-                                "f0_stats": stats, "init": args.init, "step": step}, out / "t2s.pt")
+                                "f0_stats": stats, "init": args.init, "step": step,
+                                "options": {"no_spk": args.no_spk, "f0_norm": args.f0_norm, "ref_encoder": args.ref_encoder}},
+                               out / "t2s.pt")
                 log(f"step {step:6d} | train " + " ".join(f"{k} {v / n:.4f}" for k, v in running.items())
                     + " | val " + " ".join(f"{k} {v:.4f}" for k, v in ev.items())
                     + (f" | reserved {torch.cuda.max_memory_reserved() / 2 ** 30:.1f}GiB" if args.device == "cuda" else "") + mark)

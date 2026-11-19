@@ -30,8 +30,12 @@ def _zero_linear(i: int, o: int) -> nn.Linear:
 
 
 class SpeakerS2M(SemanticToMel):
-    def __init__(self, cond_in_dim: int, **kwargs):
+    """use_prompt=False(exp0102 の no_s2m_prompt): 学習で参照の区間を作らない(推論でも参照音声を前につなげない)。
+    話者ベクトルを外す条件(no_s2m_style)は、呼ぶ側で話者ベクトルを 0 にして渡す。"""
+
+    def __init__(self, cond_in_dim: int, use_prompt: bool = True, **kwargs):
         super().__init__(cond_in_dim, **kwargs)
+        self.use_prompt = use_prompt
         self.prompt_proj = _zero_linear(N_MELS, self.dim)
         self.spk_proj = _zero_linear(SPK_DIM, self.dim)
 
@@ -50,6 +54,8 @@ class SpeakerS2M(SemanticToMel):
         keep = (torch.rand(B, device=mel.device) >= self.p_uncond).float()                  # 条件を残す発話が 1 [B]
         n_frames = mask.sum(1)                                                              # [B]
         plen = (torch.rand(B, device=mel.device) * n_frames / 2).long()                     # 参照の長さ [B]
+        if not self.use_prompt:
+            plen = torch.zeros_like(plen)
         frames = rearrange(torch.arange(T, device=mel.device), "t -> 1 t")
         in_prompt = frames < rearrange(plen, "b -> b 1")                                    # [B, T]
         prompt_x = mel * rearrange(in_prompt.float() * rearrange(keep, "b -> b 1"), "b t -> b t 1")

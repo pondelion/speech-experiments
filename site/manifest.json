@@ -615,12 +615,17 @@
       "id": "indextts",
       "title": "IndexTTS 系",
       "dir": "tts/indextts_bases",
+      "phases": [
+        {"id": "A", "title": "フェーズ A: テキストのみ(JSUT、1 話者)"},
+        {"id": "B", "title": "フェーズ B: 参照音声の声で読む(ゼロショットの声のクローン)"}
+      ],
       "summary": "IndexTTS2.5(T2S → S2M → ボコーダの 3 段構成)を手本に、簡略版から部品を 1 つずつ公式相当に近づけていく。",
       "exps": [
         {
           "id": "exp0001",
           "title": "exp0001: 簡略版で全体を動かす",
           "dir": "tts/indextts_bases/exp0001",
+          "phase": "A",
           "summary": "Mel を量子化した codec、GPT の T2S、DiT の S2M(Flow Matching)、Griffin-Lim の簡略版。JSUT・テキストのみ。誤りの大部分は T2S にあり、音素の補助の損失・codebook 256・S2M のテキスト条件を組み合わせて読み CER 74.6% → 21.9% に改善した。",
           "samples": "tts/indextts_bases/exp0001/results/samples",
           "condition_groups": [
@@ -658,6 +663,7 @@
           "id": "exp0002",
           "title": "exp0002: T2S を非自己回帰に",
           "dir": "tts/indextts_bases/exp0002",
+          "phase": "A",
           "summary": "T2S を FastSpeech2 系(音素ごとの長さを予測)と MaskGCT 系(マスクを数回に分けて埋める)に変えて比べる。codec・S2M は exp0001 の codebook 256。両方を合わせたハイブリッド型(長さの予測 + MaskGCT 系)がテスト文 11.9%・実用文 9.5% で一番良く(自己回帰は 26.3%・26.8%)、長い文でも崩れない。",
           "samples": "tts/indextts_bases/exp0002/results/samples",
           "condition_groups": [
@@ -691,6 +697,7 @@
           "id": "exp0003",
           "title": "exp0003: 音声トークン(codec)の比較",
           "dir": "tts/indextts_bases/exp0003",
+          "phase": "A",
           "summary": "音声トークンを Mel の量子化から、SSL の特徴(w2v-BERT 2.0・日本語 HuBERT)の量子化や外部のコーデック(XCodec2・BiCodec・WavTokenizer)に変えて比べる。ハイブリッド型で XCodec2(固定の代表ベクトル)がテスト文 4.9%、上限 3.1%。",
           "samples": "tts/indextts_bases/exp0003/results/samples",
           "condition_groups": [
@@ -744,6 +751,7 @@
           "id": "exp0004",
           "title": "exp0004: NN ボコーダ",
           "dir": "tts/indextts_bases/exp0004",
+          "phase": "A",
           "summary": "ボコーダを Griffin-Lim から、JSUT でゼロから学習した NN ボコーダ(HiFi-GAN V2・Vocos)に替える。UTMOS が 1.4 → 3.5 に上がり(元の録音 3.95)、ロボット的な響き・震えがなくなった。Vocos は一番軽く速い。",
           "samples": "tts/indextts_bases/exp0004/results/samples",
           "condition_groups": [
@@ -770,6 +778,7 @@
           "id": "exp0005",
           "title": "exp0005: 抑揚(イントネーション)の改善",
           "dir": "tts/indextts_bases/exp0005",
+          "phase": "A",
           "summary": "抑揚の崩れの大部分は T2S が選ぶトークンから来ていた。T2S に F0 を当てる補助の損失を足し、生成の CFG を 0 にすると、モーラの F0 の動きの元の録音との相関が 0.69 → 0.81 に改善した。さらに S2M に T2S が予測した F0 を与え、補助の損失の重みを 2.0 にすると、相関 0.84・GPE 23% → 11%・CER 7.1% → 5.6%・UTMOS 3.52 → 3.67 になった。",
           "samples": "tts/indextts_bases/exp0005/results/samples",
           "condition_groups": [
@@ -789,6 +798,7 @@
           "id": "exp0006",
           "title": "exp0006: 公式の IndexTTS-2.5 に近づけた構成(フェーズ A の締め)",
           "dir": "tts/indextts_bases/exp0006",
+          "phase": "A",
           "summary": "公式の構成(文字の入力、自己回帰の GPT、w2v-BERT 2.0 の 8,192 種類のトークン、U 字の DiT、22.05kHz の BigVGAN-v2)を、大きさだけ自作とそろえて再現した。codec・S2M の上限は CER 3.7% と良かったが、T2S が 10 時間のデータでは学習できず、TTS は CER 78.0%。codebook を 1,024 種類にすると 32.6%(256 種類は 41.9%)まで下がったが、自作の構成(exp0005、5.6%)には遠い。",
           "samples": "tts/indextts_bases/exp0006/results/samples",
           "condition_groups": [
@@ -811,6 +821,7 @@
           "id": "exp0101",
           "title": "exp0101: 参照音声の声で読む基礎の構成(フェーズ B の最初)",
           "dir": "tts/indextts_bases/exp0101",
+          "phase": "B",
           "summary": "フェーズ A の一番良い構成に、話者ベクトル(CAM++)と参照音声の Mel を公式と同じ場所に入れ、JSUT + JVS(90 人)で学習した。学習に使わない話者の声で読めるようになった(CAM++ の話者類似度 0.33 → 0.78〜0.79、本物どうし 0.83。実用文の CER 5.9〜6.3%)。スクラッチとフェーズ A のモデルからの追加学習の差は小さい。声の高さが話者に合わない(約 2 半音)ことと、多話者のボコーダの音質が課題。各行の名前の括弧に、話者が学習に使われたか・使われていないかを書いている。ずんだもんの行は、VOICEVOX で作った音声を参照にしたもの(学習には使っていない声)。CER は学習に使わない 10 人での値。",
           "samples": "tts/indextts_bases/exp0101/results/samples",
           "condition_groups": [
@@ -822,6 +833,32 @@
               {"id": "phase_a", "label": "フェーズ A の一番良いモデル(JSUT の声、参照音声なし)", "cer": {"test": 0.048, "eval_texts": 0.061}, "default": true},
               {"id": "scratch", "label": "スクラッチ", "cer": {"test": 0.053, "eval_texts": 0.059}, "default": true},
               {"id": "finetune", "label": "フェーズ A のモデルから追加学習", "cer": {"test": 0.052, "eval_texts": 0.063}, "default": true}
+            ]}
+          ]
+        },
+        {
+          "id": "exp0102",
+          "title": "exp0102: 話者の情報の入れ方",
+          "dir": "tts/indextts_bases/exp0102",
+          "phase": "B",
+          "summary": "exp0101 のスクラッチの構成(B0)から 1 つの条件だけを変えて、話者の情報の効き方を切り分けた。声の似かたは T2S の話者の条件(外すと WavLM の話者類似度 0.953 → 0.894)と S2M のプロンプト(→ 0.941)で決まり、S2M の話者ベクトルはほとんど効かない。声の高さは T2S の F0 で決まり、T2S の話者ベクトルを外すと約半オクターブずれる。声の高さのずれ(B0 で 195 セント)は、F0 の正規化を参照の発話の平均にする(148)か、T2S の話者の条件を参照音声の encoder にする(156)と減る。どの条件でも話者類似度は B0 を上回らなかった。行・文は exp0101 と同じ。CER は学習に使わない 10 人での値。",
+          "samples": "tts/indextts_bases/exp0102/results/samples",
+          "condition_groups": [
+            {"title": "本物の音声", "conditions": [
+              {"id": "ref", "label": "参照音声(その話者の別の発話)", "default": true},
+              {"id": "real", "label": "本物の録音(同じ文)", "cer": {"test": 0.028}, "default": true}
+            ]},
+            {"title": "基準", "conditions": [
+              {"id": "b0", "label": "B0(exp0101 のスクラッチ)", "cer": {"test": 0.053, "eval_texts": 0.059}, "default": true}
+            ]},
+            {"title": "どこに入れるか(B0 から 1 つ外す)", "conditions": [
+              {"id": "no_t2s_spk", "label": "T2S の話者ベクトルを外す", "cer": {"test": 0.063, "eval_texts": 0.068}, "default": true},
+              {"id": "no_s2m_prompt", "label": "S2M のプロンプト(参照音声の Mel)を外す", "cer": {"test": 0.052, "eval_texts": 0.060}, "default": true},
+              {"id": "no_s2m_style", "label": "S2M の話者ベクトルを外す", "cer": {"test": 0.053, "eval_texts": 0.062}, "default": false}
+            ]},
+            {"title": "何を入れるか・F0 の正規化(B0 から 1 つ替える)", "conditions": [
+              {"id": "t2s_ref_encoder", "label": "T2S の話者の条件を参照音声の encoder(Conformer + Perceiver)に", "cer": {"test": 0.058, "eval_texts": 0.068}, "default": true},
+              {"id": "f0_per_speaker", "label": "F0 の正規化の平均を参照の発話の値に", "cer": {"test": 0.052, "eval_texts": 0.056}, "default": true}
             ]}
           ]
         }

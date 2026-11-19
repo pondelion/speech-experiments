@@ -61,7 +61,9 @@ a { color: var(--accent); }
 .nav a:hover { background: var(--surface-2); }
 .nav a.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
 .nav a.base { font-weight: 600; }
-.nav a.exp { padding-left: 18px; }
+.nav a.exp { padding-left: 26px; }
+.nav .phase { font-size: 12px; color: var(--muted); padding: 8px 8px 2px 14px; }
+.phase-title { font-size: 15px; margin: 18px 0 8px; color: var(--muted); }
 
 .main { padding: 24px 24px 64px; min-width: 0; }
 .main h1 { font-size: 24px; margin: 0 0 6px; }

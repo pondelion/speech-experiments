@@ -1,0 +1,1458 @@
+[
+  {
+    "group": "test",
+    "condition": "ref",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/ref/jvs006_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/real/jvs006_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "b0",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/b0/jvs006_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_t2s_spk",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_t2s_spk/jvs006_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_prompt",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_s2m_prompt/jvs006_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_style",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_s2m_style/jvs006_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "f0_per_speaker",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/f0_per_speaker/jvs006_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_ref_encoder/jvs006_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "ref",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/ref/jvs006_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/real/jvs006_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "b0",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/b0/jvs006_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_t2s_spk",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_t2s_spk/jvs006_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_prompt",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_s2m_prompt/jvs006_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_style",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_s2m_style/jvs006_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "f0_per_speaker",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/f0_per_speaker/jvs006_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs006(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_ref_encoder/jvs006_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "ref",
+    "id": "jvs006(学習に使わない・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/ref/jvs006_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "b0",
+    "id": "jvs006(学習に使わない・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/b0/jvs006_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_t2s_spk",
+    "id": "jvs006(学習に使わない・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_t2s_spk/jvs006_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_prompt",
+    "id": "jvs006(学習に使わない・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_s2m_prompt/jvs006_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_style",
+    "id": "jvs006(学習に使わない・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_s2m_style/jvs006_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "f0_per_speaker",
+    "id": "jvs006(学習に使わない・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/f0_per_speaker/jvs006_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs006(学習に使わない・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/t2s_ref_encoder/jvs006_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "ref",
+    "id": "jvs006(学習に使わない・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/ref/jvs006_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "b0",
+    "id": "jvs006(学習に使わない・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/b0/jvs006_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_t2s_spk",
+    "id": "jvs006(学習に使わない・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_t2s_spk/jvs006_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_prompt",
+    "id": "jvs006(学習に使わない・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_s2m_prompt/jvs006_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_style",
+    "id": "jvs006(学習に使わない・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_s2m_style/jvs006_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "f0_per_speaker",
+    "id": "jvs006(学習に使わない・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/f0_per_speaker/jvs006_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs006(学習に使わない・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/t2s_ref_encoder/jvs006_num_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "ref",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/ref/jvs045_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/real/jvs045_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "b0",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/b0/jvs045_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_t2s_spk",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_t2s_spk/jvs045_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_prompt",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_s2m_prompt/jvs045_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_style",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_s2m_style/jvs045_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "f0_per_speaker",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/f0_per_speaker/jvs045_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_ref_encoder/jvs045_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "ref",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/ref/jvs045_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/real/jvs045_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "b0",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/b0/jvs045_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_t2s_spk",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_t2s_spk/jvs045_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_prompt",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_s2m_prompt/jvs045_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_style",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_s2m_style/jvs045_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "f0_per_speaker",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/f0_per_speaker/jvs045_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs045(学習に使わない・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_ref_encoder/jvs045_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "ref",
+    "id": "jvs045(学習に使わない・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/ref/jvs045_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "b0",
+    "id": "jvs045(学習に使わない・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/b0/jvs045_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_t2s_spk",
+    "id": "jvs045(学習に使わない・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_t2s_spk/jvs045_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_prompt",
+    "id": "jvs045(学習に使わない・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_s2m_prompt/jvs045_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_style",
+    "id": "jvs045(学習に使わない・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_s2m_style/jvs045_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "f0_per_speaker",
+    "id": "jvs045(学習に使わない・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/f0_per_speaker/jvs045_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs045(学習に使わない・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/t2s_ref_encoder/jvs045_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "ref",
+    "id": "jvs045(学習に使わない・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/ref/jvs045_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "b0",
+    "id": "jvs045(学習に使わない・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/b0/jvs045_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_t2s_spk",
+    "id": "jvs045(学習に使わない・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_t2s_spk/jvs045_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_prompt",
+    "id": "jvs045(学習に使わない・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_s2m_prompt/jvs045_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_style",
+    "id": "jvs045(学習に使わない・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_s2m_style/jvs045_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "f0_per_speaker",
+    "id": "jvs045(学習に使わない・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/f0_per_speaker/jvs045_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs045(学習に使わない・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/t2s_ref_encoder/jvs045_num_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "ref",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/ref/jvs004_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/real/jvs004_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "b0",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/b0/jvs004_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_t2s_spk",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_t2s_spk/jvs004_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_prompt",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_s2m_prompt/jvs004_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_style",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_s2m_style/jvs004_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "f0_per_speaker",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/f0_per_speaker/jvs004_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_ref_encoder/jvs004_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "ref",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/ref/jvs004_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/real/jvs004_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "b0",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/b0/jvs004_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_t2s_spk",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_t2s_spk/jvs004_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_prompt",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_s2m_prompt/jvs004_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_style",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_s2m_style/jvs004_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "f0_per_speaker",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/f0_per_speaker/jvs004_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs004(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_ref_encoder/jvs004_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "ref",
+    "id": "jvs004(学習に使わない・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/ref/jvs004_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "b0",
+    "id": "jvs004(学習に使わない・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/b0/jvs004_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_t2s_spk",
+    "id": "jvs004(学習に使わない・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_t2s_spk/jvs004_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_prompt",
+    "id": "jvs004(学習に使わない・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_s2m_prompt/jvs004_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_style",
+    "id": "jvs004(学習に使わない・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_s2m_style/jvs004_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "f0_per_speaker",
+    "id": "jvs004(学習に使わない・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/f0_per_speaker/jvs004_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs004(学習に使わない・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/t2s_ref_encoder/jvs004_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "ref",
+    "id": "jvs004(学習に使わない・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/ref/jvs004_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "b0",
+    "id": "jvs004(学習に使わない・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/b0/jvs004_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_t2s_spk",
+    "id": "jvs004(学習に使わない・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_t2s_spk/jvs004_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_prompt",
+    "id": "jvs004(学習に使わない・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_s2m_prompt/jvs004_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_style",
+    "id": "jvs004(学習に使わない・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_s2m_style/jvs004_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "f0_per_speaker",
+    "id": "jvs004(学習に使わない・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/f0_per_speaker/jvs004_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs004(学習に使わない・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/t2s_ref_encoder/jvs004_num_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "ref",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/ref/jvs061_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/real/jvs061_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "b0",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/b0/jvs061_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_t2s_spk",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_t2s_spk/jvs061_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_prompt",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_s2m_prompt/jvs061_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_style",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_s2m_style/jvs061_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "f0_per_speaker",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/f0_per_speaker/jvs061_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_ref_encoder/jvs061_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "ref",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/ref/jvs061_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/real/jvs061_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "b0",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/b0/jvs061_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_t2s_spk",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_t2s_spk/jvs061_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_prompt",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_s2m_prompt/jvs061_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_style",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_s2m_style/jvs061_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "f0_per_speaker",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/f0_per_speaker/jvs061_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs061(学習に使わない・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_ref_encoder/jvs061_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "ref",
+    "id": "jvs061(学習に使わない・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/ref/jvs061_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "b0",
+    "id": "jvs061(学習に使わない・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/b0/jvs061_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_t2s_spk",
+    "id": "jvs061(学習に使わない・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_t2s_spk/jvs061_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_prompt",
+    "id": "jvs061(学習に使わない・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_s2m_prompt/jvs061_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_style",
+    "id": "jvs061(学習に使わない・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_s2m_style/jvs061_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "f0_per_speaker",
+    "id": "jvs061(学習に使わない・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/f0_per_speaker/jvs061_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs061(学習に使わない・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/t2s_ref_encoder/jvs061_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "ref",
+    "id": "jvs061(学習に使わない・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/ref/jvs061_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "b0",
+    "id": "jvs061(学習に使わない・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/b0/jvs061_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_t2s_spk",
+    "id": "jvs061(学習に使わない・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_t2s_spk/jvs061_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_prompt",
+    "id": "jvs061(学習に使わない・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_s2m_prompt/jvs061_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_style",
+    "id": "jvs061(学習に使わない・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_s2m_style/jvs061_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "f0_per_speaker",
+    "id": "jvs061(学習に使わない・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/f0_per_speaker/jvs061_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs061(学習に使わない・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/t2s_ref_encoder/jvs061_num_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "ref",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/ref/jvs021_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/real/jvs021_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "b0",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/b0/jvs021_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_t2s_spk",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_t2s_spk/jvs021_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_prompt",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_s2m_prompt/jvs021_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_style",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_s2m_style/jvs021_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "f0_per_speaker",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/f0_per_speaker/jvs021_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_ref_encoder/jvs021_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "ref",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/ref/jvs021_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/real/jvs021_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "b0",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/b0/jvs021_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_t2s_spk",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_t2s_spk/jvs021_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_prompt",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_s2m_prompt/jvs021_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_style",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_s2m_style/jvs021_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "f0_per_speaker",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/f0_per_speaker/jvs021_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs021(学習に使った・男性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_ref_encoder/jvs021_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "ref",
+    "id": "jvs021(学習に使った・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/ref/jvs021_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "b0",
+    "id": "jvs021(学習に使った・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/b0/jvs021_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_t2s_spk",
+    "id": "jvs021(学習に使った・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_t2s_spk/jvs021_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_prompt",
+    "id": "jvs021(学習に使った・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_s2m_prompt/jvs021_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_style",
+    "id": "jvs021(学習に使った・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_s2m_style/jvs021_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "f0_per_speaker",
+    "id": "jvs021(学習に使った・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/f0_per_speaker/jvs021_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs021(学習に使った・男性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/t2s_ref_encoder/jvs021_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "ref",
+    "id": "jvs021(学習に使った・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/ref/jvs021_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "b0",
+    "id": "jvs021(学習に使った・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/b0/jvs021_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_t2s_spk",
+    "id": "jvs021(学習に使った・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_t2s_spk/jvs021_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_prompt",
+    "id": "jvs021(学習に使った・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_s2m_prompt/jvs021_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_style",
+    "id": "jvs021(学習に使った・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_s2m_style/jvs021_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "f0_per_speaker",
+    "id": "jvs021(学習に使った・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/f0_per_speaker/jvs021_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs021(学習に使った・男性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/t2s_ref_encoder/jvs021_num_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "ref",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/ref/jvs090_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/real/jvs090_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "b0",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/b0/jvs090_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_t2s_spk",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_t2s_spk/jvs090_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_prompt",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_s2m_prompt/jvs090_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_style",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_s2m_style/jvs090_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "f0_per_speaker",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/f0_per_speaker/jvs090_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_ref_encoder/jvs090_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "ref",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/ref/jvs090_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "real",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/real/jvs090_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "b0",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/b0/jvs090_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_t2s_spk",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_t2s_spk/jvs090_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_prompt",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_s2m_prompt/jvs090_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_style",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_s2m_style/jvs090_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "f0_per_speaker",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/f0_per_speaker/jvs090_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs090(学習に使った・女性)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_ref_encoder/jvs090_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "ref",
+    "id": "jvs090(学習に使った・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/ref/jvs090_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "b0",
+    "id": "jvs090(学習に使った・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/b0/jvs090_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_t2s_spk",
+    "id": "jvs090(学習に使った・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_t2s_spk/jvs090_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_prompt",
+    "id": "jvs090(学習に使った・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_s2m_prompt/jvs090_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_style",
+    "id": "jvs090(学習に使った・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_s2m_style/jvs090_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "f0_per_speaker",
+    "id": "jvs090(学習に使った・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/f0_per_speaker/jvs090_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs090(学習に使った・女性)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/t2s_ref_encoder/jvs090_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "ref",
+    "id": "jvs090(学習に使った・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/ref/jvs090_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "b0",
+    "id": "jvs090(学習に使った・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/b0/jvs090_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_t2s_spk",
+    "id": "jvs090(学習に使った・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_t2s_spk/jvs090_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_prompt",
+    "id": "jvs090(学習に使った・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_s2m_prompt/jvs090_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_style",
+    "id": "jvs090(学習に使った・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_s2m_style/jvs090_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "f0_per_speaker",
+    "id": "jvs090(学習に使った・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/f0_per_speaker/jvs090_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_ref_encoder",
+    "id": "jvs090(学習に使った・女性)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/t2s_ref_encoder/jvs090_num_01.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "ref",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/ref/zundamon_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "b0",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/b0/zundamon_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_t2s_spk",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_t2s_spk/zundamon_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_prompt",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_s2m_prompt/zundamon_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_style",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/no_s2m_style/zundamon_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "f0_per_speaker",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/f0_per_speaker/zundamon_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_ref_encoder",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/VOICEACTRESS100_001",
+    "text": "また、東寺のように、五大明王と呼ばれる、主要な明王の中央に配されることも多い。",
+    "file": "test/t2s_ref_encoder/zundamon_VOICEACTRESS100_001.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "ref",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/ref/zundamon_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "b0",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/b0/zundamon_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_t2s_spk",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_t2s_spk/zundamon_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_prompt",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_s2m_prompt/zundamon_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "no_s2m_style",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/no_s2m_style/zundamon_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "f0_per_speaker",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/f0_per_speaker/zundamon_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "test",
+    "condition": "t2s_ref_encoder",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/VOICEACTRESS100_003",
+    "text": "コンピュータゲームのメーカーや、業界団体などに関連する人物のカテゴリ。",
+    "file": "test/t2s_ref_encoder/zundamon_VOICEACTRESS100_003.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "ref",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/ref/zundamon_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "b0",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/b0/zundamon_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_t2s_spk",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_t2s_spk/zundamon_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_prompt",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_s2m_prompt/zundamon_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_style",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/no_s2m_style/zundamon_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "f0_per_speaker",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/f0_per_speaker/zundamon_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_ref_encoder",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/news_01",
+    "text": "政府は来年度の予算案を閣議決定し、総額は過去最大となる見通しです。",
+    "file": "eval_texts/t2s_ref_encoder/zundamon_news_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "ref",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/ref/zundamon_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "b0",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/b0/zundamon_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_t2s_spk",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_t2s_spk/zundamon_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_prompt",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_s2m_prompt/zundamon_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "no_s2m_style",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/no_s2m_style/zundamon_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "f0_per_speaker",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/f0_per_speaker/zundamon_num_01.mp3"
+  },
+  {
+    "group": "eval_texts",
+    "condition": "t2s_ref_encoder",
+    "id": "zundamon(ずんだもん、VOICEVOX で作った参照音声、学習に使わない)/num_01",
+    "text": "2026年11月6日の午後3時15分に集合してください。",
+    "file": "eval_texts/t2s_ref_encoder/zundamon_num_01.mp3"
+  }
+]

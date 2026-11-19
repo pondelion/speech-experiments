@@ -5,6 +5,7 @@
 | ディレクトリ | 中身 |
 |---|---|
 | [tts/](tts/) | TTS の実験。ベースにしたモデルごとにまとめる(例: [tts/indextts_bases/](tts/indextts_bases/)) |
+| [speech_diarization/](speech_diarization/) | 話者分離(誰がいつ話したか)の実験。話者のラベルがない音声に、TTS の学習用のラベルを付けるため(未着手) |
 | [datasets/](datasets/) | データセットの説明と、全実験で共通の評価用の文章(データ本体は git の対象外) |
 
 ## 試聴ページ(GitHub Pages)

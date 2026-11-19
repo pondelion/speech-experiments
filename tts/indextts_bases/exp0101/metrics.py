@@ -16,6 +16,7 @@ F0 は CPU の並列処理で先に求める(GPU を使う前に)。
 import argparse
 import json
 from multiprocessing import Pool
+from pathlib import Path
 
 import numpy as np
 
@@ -33,8 +34,10 @@ def main():
     parser.add_argument("--name", required=True)
     parser.add_argument("--workers", type=int, default=8)
     parser.add_argument("--limit", type=int, default=None, help="動作確認用に、文の数を絞る(synth.py の --limit と同じ値)")
+    parser.add_argument("--exp_dir", default=None, help="評価の音声(runs/eval/)と結果(results/)の exp(既定は exp0101。exp0102 は ../exp0102)")
     args = parser.parse_args()
-    ev = common.RUNS_DIR / "eval" / args.name
+    exp_dir = Path(args.exp_dir) if args.exp_dir else common.EXP_DIR
+    ev = exp_dir / "runs" / "eval" / args.name
     seeds = sorted(p.name for p in ev.glob("seed*"))
     refs = json.loads((ev / "refs.json").read_text())                              # 評価する話者 → 参照音声の ID
     sp = json.loads((common.EXP_DIR / "results" / "split.json").read_text())
@@ -127,7 +130,8 @@ def main():
     # 参考: 参照音声と同じ文の本物の録音の類似度(上限の目安)
     real = [sim(utts[f"{s}/{t}"].path, utts[refs[s]].path) for g in groups.values() for s in g for t in test_ids]
     out["real_vs_ref"] = {"wavlm": float(np.mean([x[0] for x in real])), "campp": float(np.mean([x[1] for x in real]))}
-    (common.EXP_DIR / "results" / f"metrics_{args.name}.json").write_text(json.dumps(out, indent=2))
+    (exp_dir / "results").mkdir(exist_ok=True)
+    (exp_dir / "results" / f"metrics_{args.name}.json").write_text(json.dumps(out, indent=2))
 
 
 if __name__ == "__main__":
